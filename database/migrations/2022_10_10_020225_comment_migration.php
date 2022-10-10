@@ -18,8 +18,9 @@ return new class extends Migration
             $table->integer('user_id')->nullable()->unsigned();
             $table->integer('product_id')->nullable()->unsigned();
             $table->text('content')->nullable();
-            $table->text('answer_question')->nullable();
+            $table->integer('id_comment')->nullable();
             $table->dateTime('date')->nullable();
+            $table->string('image')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->dateTime('deleted_at')->nullable();
             $table->timestamps();
@@ -33,6 +34,5 @@ return new class extends Migration
      */
     public function down()
     {
-        //
     }
 };

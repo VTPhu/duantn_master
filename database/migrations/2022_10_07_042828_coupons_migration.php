@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code',50);
-            $table->string('name',255);
+            $table->string('code', 50);
+            $table->string('name', 255);
             $table->text('content')->nullable();
             $table->integer('quantily')->nullable();
-            $table->enum('type'  , ['fixed' , 'percent']);
-            $table->enum('status'  , ['enable' , 'disable'])->default('disable');
+            $table->enum('type', ['fixed', 'percent']);
+            $table->enum('status', ['enable', 'disable'])->default('disable');
             $table->dateTime('start_at')->nullable();
             $table->dateTime('expired_at')->nullable();
             $table->dateTime('deleted_at')->nullable();

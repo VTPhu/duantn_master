@@ -212,12 +212,16 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Brand </span> <span class="menu-arrow"></span></a>
-                                
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Category </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="/admin/show-category"> Liệt kê</a></li>
+                                    <li><a href="/admin/category"> Thêm danh mục</a></li>
+                                   
+                                </ul>
                             </li>
 
                             <li>
-                                <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Category </span></a>
+                                <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Brand </span></a>
                             </li>
 
                             

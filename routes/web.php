@@ -13,7 +13,10 @@ use App\Http\Controllers\admin\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [ProductController::class, 'index']);
-Route::get('/product', [ProductController::class, 'addProduct']);
-Route::post('/product', [ProductController::class, 'store']);
+// product
+Route::get('/admin/show-product', [ProductController::class, 'index']);
+Route::get('/admin/product', [ProductController::class, 'addProduct']);
+Route::post('/admin/product', [ProductController::class, 'store']);
+Route::get('/admin/product/{id}', [ProductController::class, 'updated']);
+Route::post('/admin/product/{id}', [ProductController::class, 'edit']);
+Route::get('/admin/deleted/{id}', [ProductController::class, 'destroy']);

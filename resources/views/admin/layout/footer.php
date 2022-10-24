@@ -70,14 +70,14 @@
 </script>
 
 <!-- jQuery  -->
-<script src="admin/assets/js/jquery.min.js"></script>
-<script src="admin/assets/js/bootstrap.min.js"></script>
-<script src="admin/assets/js/detect.js"></script>
-<script src="admin/assets/js/fastclick.js"></script>
-<script src="admin/assets/js/jquery.blockUI.js"></script>
-<script src="admin/assets/js/waves.js"></script>
-<script src="admin/assets/js/jquery.slimscroll.js"></script>
-<script src="admin/assets/js/jquery.scrollTo.min.js"></script>
+<script src="/admin/assets/js/jquery.min.js"></script>
+<script src="/admin/assets/js/bootstrap.min.js"></script>
+<script src="/admin/assets/js/detect.js"></script>
+<script src="/admin/assets/js/fastclick.js"></script>
+<script src="/admin/assets/js/jquery.blockUI.js"></script>
+<script src="/admin/assets/js/waves.js"></script>
+<script src="/admin/assets/js/jquery.slimscroll.js"></script>
+<script src="/admin/assets/js/jquery.scrollTo.min.js"></script>
 <script src="../plugins/switchery/switchery.min.js"></script>
 
 <!-- Counter js  -->
@@ -89,11 +89,11 @@
 <script src="../plugins/raphael/raphael-min.js"></script>
 
 <!-- Dashboard init -->
-<script src="admin/assets/pages/jquery.dashboard.js"></script>
+<script src="/admin/assets/pages/jquery.dashboard.js"></script>
 
 <!-- App js -->
-<script src="admin/assets/js/jquery.core.js"></script>
-<script src="admin/assets/js/jquery.app.js"></script>
+<script src="/admin/assets/js/jquery.core.js"></script>
+<script src="/admin/assets/js/jquery.app.js"></script>
 
 </body>
 

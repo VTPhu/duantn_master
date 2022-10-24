@@ -35,7 +35,7 @@
                             </li>
                             <li class="hidden-xs">
                                 <form role="search" class="app-search">
-                                    <input type="text" placeholder="Search..."
+                                    <input type="text" placeholder="Search..." name="key"
                                            class="form-control">
                                     <a href=""><i class="fa fa-search"></i></a>
                                 </form>
@@ -131,7 +131,7 @@
                                     <li>
                                         <a href="#" class="user-list-item">
                                             <div class="avatar">
-                                                <img src="admin/assets/images/users/avatar-3.jpg" alt="">
+                                                <img src="/admin/assets/images/users/avatar-3.jpg" alt="">
                                             </div>
                                             <div class="user-desc">
                                                 <span class="name">Connie Lucas</span>
@@ -143,7 +143,7 @@
                                     <li>
                                         <a href="#" class="user-list-item">
                                             <div class="avatar">
-                                                <img src="admin/assets/images/users/avatar-4.jpg" alt="">
+                                                <img src="/admin/assets/images/users/avatar-4.jpg" alt="">
                                             </div>
                                             <div class="user-desc">
                                                 <span class="name">Margaret Becker</span>
@@ -166,7 +166,7 @@
 
                             <li class="dropdown user-box">
                                 <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
-                                    <img src="admin/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                                    <img src="/admin/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
@@ -205,7 +205,8 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Product</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="/product">Thêm sản phẩm</a></li>
+                                    <li><a href="/admin/show-product">Liệt kê</a></li>
+                                    <li><a href="/admin/product">Thêm sản phẩm</a></li>
                                    
                                 </ul>
                             </li>
@@ -250,71 +251,10 @@
 
        
 
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            {{-- <div class="content-page">
-                <!-- Start content -->
-                <div class="content">
-                    
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="table-overflow">
-                                <table id="dt-opt" class="table table-striped add-edit-table table-bordered ">
-                                    <thead >
-                                        <tr>
-                                            <th>Id</th>
-                                            <th>Title</th>
-                                            <th>Slug</th>
-                                            <th>Quantily</th>
-                                            <th>Price</th>
-                                            <th>Size</th>
-                                            <th>Date</th>
-                                            <th>Thumnail</th>
-                                            <th>Saled</th>
-                                            <th>View</th>
-                                            <th>Category_id</th>
-                                            <th>Brand_id</th>
-                                            <th>Description</th>
-                                            <th>Tags</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    @foreach( $product as $p)
-                                    <tbody >
-                                        <tr>
-                                            <td>{{$p->id}}</td>
-	                                            <th>{{$p->title}}</th>
-	                                            
-                                                <th>{{$p->slug}}</th>
-                                                <td>{{$p->quantily}}</td>
-                                                <th>{{$p->price}}</th>
-                                                <th>{{$p->size}}</th>
-                                                <th>{{$p->date}}</th>
-                                                <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail)}}"</td>
-                                                <th>{{$p->saled}}</th>
-                                                <th>{{$p->view}}</th>
-                                                <th>{{$p->category_id}}</th>
-                                                <th>{{$p->brand_id}}</th>
-                                                <th>{{$p->description}}</th>
-                                                <th>{{$p->tags}}</th>
-                                                
-                                                <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
-                                            <td class="text-center font-size-10">
-                                                <a href="" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                <a href="" class="text-gray"><i class="ti-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                   
-                                    @endforeach
-                                  
-                </div> <!-- content -->
                 
               
 
-            </div> --}}
+      
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
@@ -324,7 +264,7 @@
                         
                         <!-- end row -->
 
-
+                     
 
                         <div class="row" >
 							<div class="col-sm-12" >
@@ -332,7 +272,11 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="demo-box">
-                                               
+                                                <form action="" class="form-inline" role="form">
+                                                    <input type="text" class="form-control" placeholder="Tìm kiếm" name="key" >
+                                                    <button style="background-color:#FD8C67;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
+                                                </form>
+                                                <hr>
                                                 <table id="dt-opt" class="table table-striped add-edit-table table-bordered ">
                                                     <thead >
                                                         <tr>
@@ -375,8 +319,8 @@
                                                                 
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
                                                             <td class="text-center font-size-10">
-                                                                <a href="" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                                <a href="" class="text-gray"><i class="ti-trash"></i></a>
+                                                                <a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
+                                                                <a href="/admin/deleted/{{$p->id}}" class="text-gray"><i class="ti-trash"></i></a>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -406,9 +350,7 @@
 
                 </div> <!-- content -->
 
-                <footer class="footer text-right">
-                    2016 - 2018 © Zircos theme by Coderthemes.
-                </footer>
+             
 
             </div>
 

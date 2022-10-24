@@ -7,6 +7,7 @@ use App\Models\Product;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -20,15 +21,22 @@ class ProductController extends Controller
     {
         $this->model = new Product();
     }
+    // public function search(Request $request)
+    // {
+    //     $title = $request->get('title');
+    //     $limit = Arr::get($title, 'limit', 10);
+    //     if ($title) {
+    //         $product = Product::where('name', 'like', '%' .  $title . '%')->paginate($limit);
+    //     }
+    //     return view('admin.product.List', compact('product'));
+    // }
     public function index(Request $request)
     {
-        // $name = $request->get('name');
-        // $limit = Arr::get($name, 'limit', 10);
-        // if ($name) {
-        //     $produc = Product::where('name', 'like', '%' . $name . '%')->paginate($limit);
-        // }
-        // return response()->json($produc);
-        $product = Product::paginate(2);
+
+        $product = Product::paginate(5);
+        if ($key = request()->key) {
+            $product =  Product::orderBy('date', 'DESC')->where('title', 'like',   $key . '%')->paginate(5);
+        }
         return view('admin.product.List', compact('product'));
     }
 
@@ -93,8 +101,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function updated($id)
     {
+
+        $product = Product::find($id);
+        if ($product == null) return redirect('/thongbao');
+        return view('admin.product.updatedProduct', compact('product'));
     }
 
     /**
@@ -105,9 +117,32 @@ class ProductController extends Controller
      */
     public function edit(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:products',
+            'slug' => 'required|unique:products',
+            'quantily' => 'required',
+            'price' => 'required',
+            'size' => 'required|starts_with:S,M,L,XL,XXL',
+            'date' => 'required|date',
+            'thumnail' => 'required|mimes:jpg,bmp,png|file',
+            'saled' => 'required',
+            'view' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'description' => 'required',
+            'tags' => 'required',
+            'status' => 'required|in:0,1',
+
+
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         $input = $request->all();
         $input = Product::find($id);
-        $input->name = $request->name;
+        $input->title = $request->title;
 
         $input->slug = $request->slug;
         $input->quantily = $request->quantily;
@@ -115,6 +150,13 @@ class ProductController extends Controller
         $input->size = $request->size;
         $input->date = $request->date;
         $input->thumnail = $request->thumnail;
+        if ($request->hasFile('thumnail')) {
+            $path = 'uploads/images';
+            $thumnail = $request->file('thumnail');
+            $image = $thumnail->getClientOriginalName();
+            $path_name = $request->file('thumnail')->move(public_path($path), $image);
+            $input['thumnail'] = $image;
+        }
         $input->saled = $request->saled;
         $input->view = $request->view;
         $input->category_id = $request->category_id;
@@ -123,7 +165,7 @@ class ProductController extends Controller
         $input->tags = $request->tags;
         $input->status = $request->status;
         $input->save();
-        return response()->json(['status' => 'Đã cập nhật thành công']);
+        return redirect('/admin/show-product');
     }
 
     /**
@@ -133,10 +175,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -148,6 +187,6 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        return response()->json(['status' => 'Đã xóa thành công']);
+        return redirect('/admin/show-product');
     }
 }

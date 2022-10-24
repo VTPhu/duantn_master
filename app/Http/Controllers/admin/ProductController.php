@@ -21,15 +21,6 @@ class ProductController extends Controller
     {
         $this->model = new Product();
     }
-    // public function search(Request $request)
-    // {
-    //     $title = $request->get('title');
-    //     $limit = Arr::get($title, 'limit', 10);
-    //     if ($title) {
-    //         $product = Product::where('name', 'like', '%' .  $title . '%')->paginate($limit);
-    //     }
-    //     return view('admin.product.List', compact('product'));
-    // }
     public function index(Request $request)
     {
 

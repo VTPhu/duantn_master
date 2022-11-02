@@ -280,7 +280,7 @@
 										<div class="col-lg-12" >
                                             <h1 class="text-center">THÊM SẢN PHẨM</h1>
 											<div class="demo-box">
-                                                <form action="/product" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
+                                                <form action="/admin/product" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="form-group">
                                                         <label for="userName">Title<span class="text-danger">*</span></label>
@@ -397,7 +397,7 @@
                                                     
                 
                                                     <div class="form-group text-right m-b-0">
-                                                        <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                        <button onclick="alert()" class="btn btn-primary waves-effect waves-light" type="submit">
                                                             Submit
                                                         </button>
                                                         <button type="reset" class="btn btn-default waves-effect m-l-5">
@@ -439,4 +439,15 @@
 
 
     </body>
+    
+
+    <script type="text/javascript">
+        function alert(){
+     Swal.fire(
+   'Thêm Thành Công!',
+    'You clicked the button!',
+    'success'
+    )
+}
+    </script>
 </html>

@@ -19,6 +19,7 @@ Route::get('/admin/category/{id}', [CategoryController::class, 'updated']);
 Route::post('/admin/category/{id}', [CategoryController::class, 'edit']);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::get('/admin/deleted/{id}', [CategoryController::class, 'destroy']);
 //posts
 Route::get('/admin/show-posts', [PostsController::class, 'index']);
@@ -27,6 +28,9 @@ Route::post('/admin/posts', [PostsController::class, 'store']);
 Route::post('/admin/posts/{id}', [PostsController::class, 'updated']);
 Route::get('/admin/posts/{id}', [PostsController::class, 'edit']);
 Route::get('/admin/deleted/{id}', [PostsController::class, 'destroy']);
+=======
+Route::get('/admin/deletedCate/{id}', [CategoryController::class, 'destroy']);
+>>>>>>> 28fc7c80943a492bde99fd9c17b40a8c25ba8e3a
 =======
 Route::get('/admin/deletedCate/{id}', [CategoryController::class, 'destroy']);
 >>>>>>> 28fc7c80943a492bde99fd9c17b40a8c25ba8e3a

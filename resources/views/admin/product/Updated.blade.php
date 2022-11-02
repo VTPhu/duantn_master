@@ -220,8 +220,13 @@
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="calendar.html" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Brand </span></a>
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Posts </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="/admin/show-posts"> Liệt kê</a></li>
+                                    <li><a href="/admin/posts"> Thêm bài viết</a></li>
+                                   
+                                </ul>
                             </li>
 
                             
@@ -393,7 +398,7 @@
                                                     
                 
                                                     <div class="form-group text-right m-b-0">
-                                                        <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                        <button onclick="alert()" class="btn btn-primary waves-effect waves-light" type="submit">
                                                             Submit
                                                         </button>
                                                         <button type="reset" class="btn btn-default waves-effect m-l-5">
@@ -432,7 +437,15 @@
 
 
         </div>
-
-
+       
+        <script type="text/javascript">
+        function alert(){
+     Swal.fire(
+   'Sửa Thành Công!',
+    'You clicked the button!',
+    'success'
+    )
+}
+</script>
     </body>
 </html>

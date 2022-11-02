@@ -1,25 +1,13 @@
 
-
-    <body class="fixed-left">
-
+    <body class="fixed-left" >
         <!-- Begin page -->
         <div id="wrapper">
-
-            <!-- Top Bar Start -->
-            <div class="topbar">
+   <!-- Top Bar Start -->
+            <div class="topbar" >
 
                 <!-- LOGO -->
-                <div class="topbar-left">
-                    <a href="index.html" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
-                    <!-- Image logo -->
-                    <!--<a href="index.html" class="logo">-->
-                        <!--<span>-->
-                            <!--<img src="assets/images/logo.png" alt="" height="30">-->
-                        <!--</span>-->
-                        <!--<i>-->
-                            <!--<img src="assets/images/logo_sm.png" alt="" height="28">-->
-                        <!--</i>-->
-                    <!--</a>-->
+                <div class="topbar-left" >
+                    <a href="index.html" class="logo"><span>Zir<span>cos</span></span><i class="mdi mdi-layers"></i></a>
                 </div>
 
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -35,7 +23,7 @@
                             </li>
                             <li class="hidden-xs">
                                 <form role="search" class="app-search">
-                                    <input type="text" placeholder="Search..." name="key"
+                                    <input type="text" placeholder="Search..."
                                            class="form-control">
                                     <a href=""><i class="fa fa-search"></i></a>
                                 </form>
@@ -131,7 +119,7 @@
                                     <li>
                                         <a href="#" class="user-list-item">
                                             <div class="avatar">
-                                                <img src="/admin/assets/images/users/avatar-3.jpg" alt="">
+                                                <img src="admin/assets/images/users/avatar-3.jpg" alt="">
                                             </div>
                                             <div class="user-desc">
                                                 <span class="name">Connie Lucas</span>
@@ -143,7 +131,7 @@
                                     <li>
                                         <a href="#" class="user-list-item">
                                             <div class="avatar">
-                                                <img src="/admin/assets/images/users/avatar-4.jpg" alt="">
+                                                <img src="admin/assets/images/users/avatar-4.jpg" alt="">
                                             </div>
                                             <div class="user-desc">
                                                 <span class="name">Margaret Becker</span>
@@ -258,91 +246,111 @@
             </div>
             <!-- Left Sidebar End -->
 
-       
+        
 
+               
+              {{-- copy --}}
                 
-              
-
-      
-            <div class="content-page">
+              <div class="content-page" >
                 <!-- Start content -->
-                <div class="content">
+                <div class="content" >
                     <div class="container" >
 
 
                         
                         <!-- end row -->
-
-                     
-
-                        <div class="row" >
-							<div class="col-sm-12" >
-								<div class="card-box">
+                        <div class="row" style="margin-top:10px;padding-left:150px; ">
+							<div class="col-sm-9" >
+								<div class="card-box" >
 									<div class="row">
-										<div class="col-lg-12">
+										<div class="col-lg-12" >
+                                            <h1 class="text-center">THÊM BÀI VIẾT</h1>
+                                            @if (session('status'))
+                                            <h6 class="alert alert-success">{{session('status')}}</h6>
+                                            @endif
 											<div class="demo-box">
-                                                <form action="" class="form-inline" role="form">
-                                                    <input type="text" class="form-control" placeholder="Tìm kiếm" name="key" >
-                                                    <button style="background-color:#36404e;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
+                                                <form action="posts" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label for="userName">Title<span class="text-danger">*</span></label>
+                                                        <input type="text" name="title" parsley-trigger="change" required
+                                                               placeholder="Tiêu đề" class="form-control" id="userName" value="{{old('title')}}">
+                                                               @if($errors->has('title'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('title') }}</strong>
+                                                               @endif
+                                                    </div>
+                
+                                                    <div class="form-group">
+                                                        <label for="slug">slug<span class="text-danger">*</span></label>
+                                                        <input type="slug" name="slug" parsley-trigger="change" required
+                                                               placeholder="slug " class="form-control" id="slug" value="{{old('slug')}}">
+                                                               @if($errors->has('slug'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('slug') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="userName">sumary<span class="text-danger">*</span></label>
+                                                        <input type="text" name="sumary" parsley-trigger="change" required
+                                                               placeholder="tóm tắt" class="form-control" id="userName" value="{{old('sumary')}}">
+                                                               @if($errors->has('sumary'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('sumary') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="userName">Date<span class="text-danger">*</span></label>
+                                                        <input type="date" name="date" parsley-trigger="change" required
+                                                               placeholder="ngày" class="form-control" id="userName" value="{{old('date')}}">
+                                                               @if($errors->has('date'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('date') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">thumnail_url</label>
+                                                        <input type="file" name="thumnail_url"  class="filestyle" data-buttonname="btn-default" value="{{old('thumnail_url')}}">
+                                                        @if($errors->has('thumnail_url'))
+                                                        <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail_url') }}</strong>
+                                                        @endif
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="userName">user_id<span class="text-danger">*</span></label>
+                                                        <input type="number" name="user_id" parsley-trigger="change" required
+                                                               placeholder="user_id" class="form-control" id="userName" value="{{old('user_id')}}">
+                                                               @if($errors->has('user_id'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('user_id') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="userName">Tags<span class="text-danger">*</span></label>
+                                                        <input type="text" name="tags" parsley-trigger="change" required
+                                                               placeholder="tags" class="form-control" id="userName" value="{{old('tags')}}">
+                                                               @if($errors->has('tags'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('tags') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="userName">Status<span class="text-danger">*</span></label>
+                                                        <input type="number" name="status" parsley-trigger="change" required
+                                                               placeholder="Trạng thái" class="form-control" id="userName" value="{{old('status')}}">
+                                                               @if($errors->has('status'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('status') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    <div class="form-group text-right m-b-0">
+                                                        <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                            Submit
+                                                        </button>
+                                                        <button type="reset" class="btn btn-default waves-effect m-l-5">
+                                                            Cancel
+                                                        </button>
+                                                    </div>
                                                 </form>
-                                                <hr>
-                                                <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
-                                                    <thead >
-                                                        <tr style="background-color:#36404e;color:white;">
-                                                            <th>Id</th>
-                                                            <th>Title</th>
-                                                           
-                                                            <th>Quantily</th>
-                                                            <th>Price</th>
-                                                            <th>Size</th>
-                                                            <th>Date</th>
-                                                            <th>Thumnail</th>
-                                                           
-                                                            <th>View</th>
-                                                            <th>Description</th>
-                                                            <th>Tags</th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    @foreach( $product as $p)
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>{{$p->id}}</td>
-                                                                <th>{{$p->title}}</th>
-                                                                
-                                                               
-                                                                <td>{{$p->quantily}}</td>
-                                                                <th>{{$p->price}}</th>
-                                                                <th>{!! !empty($p->size) ?'<button class="btn btn-success btn-sm">M</button><button class="btn btn-danger btn-sm">L</button><button class="btn btn-warning btn-sm">XL</button><button class="btn btn-info btn-sm">S</button>': 0 !!}</th>
-                                                                <th>{{$p->date}}</th>
-                                                                <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail)}}"</td>
-                                                              
-                                                                <th>{{$p->view}}</th>
-                                                                <th>{{$p->description}}</th>
-                                                                <th>{{$p->tags}}</th>
-                                                                
-                                                                <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
-                                                            <td class="text-center font-size-10">
-                                                                <a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                                <a href="/admin/deletedProduct/{{$p->id}}"  onclick="alert()" class="text-gray"><i class="ti-trash"></i></a>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                   
-                                                    @endforeach
-                                                </table>
-												
 											</div>
 
 										</div>
 
 										
 									</div>
-                                    <div class="form-group " style="padding-left:600px;font-size:20px">
-                                        <!-- phân trang  -->
-                                        {{$product->appends(request()->all())->links()}}
-                                    </div>
+                                   
 
 								</div> <!-- end card-box -->
 							</div> <!-- end col -->
@@ -355,28 +363,16 @@
 
                 </div> <!-- content -->
 
-             
+              
 
             </div>
 
             
-               
-            
-            
-              
-            
-          
+            </div>
+
+
+        </div>
 
 
     </body>
-    <script type="text/javascript">
-           function alert(){
-     Swal.fire(
-   'Xóa Thành Công!',
-    'You clicked the button!',
-    'success'
-    )
-     }
-    </script>
-    
 </html>

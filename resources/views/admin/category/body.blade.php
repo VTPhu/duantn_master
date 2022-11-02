@@ -298,7 +298,7 @@
                                                                 <th>{!! $c->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
                                                             <td class="text-center font-size-10">
                                                                 <a href="/admin/category/{{$c->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                                <a href="/admin/deleted/{{$c->id}}" class="text-gray"><i class="ti-trash"></i></a>
+                                                                <a href="/admin/deletedCate/{{$c->id}}"  onclick="alert()" class="text-gray"><i class="ti-trash"></i></a>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -342,5 +342,13 @@
 
 
     </body>
-    
+    <script type="text/javascript">
+           function alert(){
+     Swal.fire(
+   'Xóa Thành Công!',
+    'You clicked the button!',
+    'success'
+    )
+     }
+    </script>
 </html>

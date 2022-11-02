@@ -1,31 +1,15 @@
-
-
-    <body class="fixed-left">
-
+ <body class="fixed-left">
         <!-- Begin page -->
         <div id="wrapper">
-
             <!-- Top Bar Start -->
             <div class="topbar">
-
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
-                    <!-- Image logo -->
-                    <!--<a href="index.html" class="logo">-->
-                        <!--<span>-->
-                            <!--<img src="assets/images/logo.png" alt="" height="30">-->
-                        <!--</span>-->
-                        <!--<i>-->
-                            <!--<img src="assets/images/logo_sm.png" alt="" height="28">-->
-                        <!--</i>-->
-                    <!--</a>-->
+                    <a href="index.html" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>     
                 </div>
-
                 <!-- Button mobile view to collapse sidebar menu -->
                 <div class="navbar navbar-default" role="navigation">
                     <div class="container">
-
                         <!-- Navbar-left -->
                         <ul class="nav navbar-nav navbar-left">
                             <li>
@@ -228,53 +212,19 @@
                                    
                                 </ul>
                             </li>
-
-                            
-
-                           
-                           
-
-                          
-
-                            
-
-                           
-
-                          
-
-                            
-                            
-
-                           
                         </ul>
                     </div>
-                   
-
-                    
-
                 </div>
                 <!-- Sidebar -left -->
 
             </div>
             <!-- Left Sidebar End -->
 
-       
-
-                
-              
-
-      
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
-                    <div class="container" >
-
-
-                        
+                    <div class="container" >  
                         <!-- end row -->
-
-                     
-
                         <div class="row" >
 							<div class="col-sm-12" >
 								<div class="card-box">
@@ -283,49 +233,44 @@
 											<div class="demo-box">
                                                 <form action="" class="form-inline" role="form">
                                                     <input type="text" class="form-control" placeholder="Tìm kiếm" name="key" >
-                                                    <button style="background-color:#36404e;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
+                                                    <button style="background-color:#FD8C67;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
                                                 </form>
                                                 <hr>
-                                                <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
+                                                @if (session('status'))
+                                            <h6 class="alert alert-success">{{session('status')}}</h6>
+                                            @endif
+                                                <table id="dt-opt" class="table table-striped add-edit-table table-bordered ">
                                                     <thead >
-                                                        <tr style="background-color:#36404e;color:white;">
+                                                        <tr>
                                                             <th>Id</th>
                                                             <th>Title</th>
-                                                           
-                                                            <th>Quantily</th>
-                                                            <th>Price</th>
-                                                            <th>Size</th>
+                                                            <th>Slug</th>
+                                                            <th>sumary</th>
                                                             <th>Date</th>
-                                                            <th>Thumnail</th>
-                                                           
+                                                            <th>Thumnail_url</th>
                                                             <th>View</th>
-                                                            <th>Description</th>
+                                                            <th>user_id</th>
                                                             <th>Tags</th>
                                                             <th>Status</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
-                                                    @foreach( $product as $p)
-                                                    <tbody>
+                                                    @foreach( $posts as $p)
+                                                    <tbody >
                                                         <tr>
                                                             <td>{{$p->id}}</td>
                                                                 <th>{{$p->title}}</th>
-                                                                
-                                                               
-                                                                <td>{{$p->quantily}}</td>
-                                                                <th>{{$p->price}}</th>
-                                                                <th>{!! !empty($p->size) ?'<button class="btn btn-success btn-sm">M</button><button class="btn btn-danger btn-sm">L</button><button class="btn btn-warning btn-sm">XL</button><button class="btn btn-info btn-sm">S</button>': 0 !!}</th>
+                                                                <th>{{$p->slug}}</th>
+                                                                <td>{{$p->sumary}}</td>
                                                                 <th>{{$p->date}}</th>
-                                                                <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail)}}"</td>
-                                                              
+                                                                <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail_url)}}"</td>
                                                                 <th>{{$p->view}}</th>
-                                                                <th>{{$p->description}}</th>
+                                                                <th>{{$p->user_id}}</th>
                                                                 <th>{{$p->tags}}</th>
-                                                                
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
                                                             <td class="text-center font-size-10">
-                                                                <a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                                <a href="/admin/deletedProduct/{{$p->id}}"  onclick="alert()" class="text-gray"><i class="ti-trash"></i></a>
+                                                                <a href="/admin/posts/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
+                                                                <a href="/admin/deleted/{{$p->id}}" class="text-gray"><i class="ti-trash"></i></a>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -336,47 +281,19 @@
 											</div>
 
 										</div>
-
-										
 									</div>
                                     <div class="form-group " style="padding-left:600px;font-size:20px">
                                         <!-- phân trang  -->
-                                        {{$product->appends(request()->all())->links()}}
+                                        {{$posts->appends(request()->all())->links()}}
                                     </div>
 
 								</div> <!-- end card-box -->
 							</div> <!-- end col -->
 						</div>
                         <!-- end row -->
-
-
-
                     </div> <!-- container -->
-
                 </div> <!-- content -->
-
-             
-
             </div>
-
-            
-               
-            
-            
-              
-            
-          
-
-
     </body>
-    <script type="text/javascript">
-           function alert(){
-     Swal.fire(
-   'Xóa Thành Công!',
-    'You clicked the button!',
-    'success'
-    )
-     }
-    </script>
     
 </html>

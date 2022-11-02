@@ -30,23 +30,11 @@ class ProductController extends Controller
         }
         return view('admin.product.List', compact('product'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function addProduct()
     {
         return view('admin.product.addProduct');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -81,36 +69,21 @@ class ProductController extends Controller
             $path_name = $request->file('thumnail')->move(public_path($path), $image);
             $input['thumnail'] = $image;
         }
-
         $product = Product::create($input);
         return view('admin.product.List', compact('product'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function updated($id)
     {
-
         $product = Product::find($id);
         if ($product == null) return redirect('/thongbao');
         return view('admin.product.updatedProduct', compact('product'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:products',
-            'slug' => 'required|unique:products',
+            'title' => 'required',
+            'slug' => 'required',
             'quantily' => 'required',
             'price' => 'required',
             'size' => 'required|starts_with:S,M,L,XL,XXL',

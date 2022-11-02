@@ -393,7 +393,7 @@
                                                     
                 
                                                     <div class="form-group text-right m-b-0">
-                                                        <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                        <button onclick="alert()" class="btn btn-primary waves-effect waves-light" type="submit">
                                                             Submit
                                                         </button>
                                                         <button type="reset" class="btn btn-default waves-effect m-l-5">
@@ -432,7 +432,15 @@
 
 
         </div>
-
-
+       
+        <script type="text/javascript">
+        function alert(){
+     Swal.fire(
+   'Sửa Thành Công!',
+    'You clicked the button!',
+    'success'
+    )
+}
+</script>
     </body>
 </html>

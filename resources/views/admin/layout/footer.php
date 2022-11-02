@@ -94,7 +94,7 @@
 <!-- App js -->
 <script src="/admin/assets/js/jquery.core.js"></script>
 <script src="/admin/assets/js/jquery.app.js"></script>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

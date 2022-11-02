@@ -292,7 +292,7 @@
                                                             <th>Size</th>
                                                             <th>Date</th>
                                                             <th>Thumnail</th>
-                                                            <th>Saled</th>
+                                                           
                                                             <th>View</th>
                                                             <th>Description</th>
                                                             <th>Tags</th>
@@ -312,7 +312,7 @@
                                                                 <th>{!! !empty($p->size) ?'<button class="btn btn-success btn-sm">M</button><button class="btn btn-danger btn-sm">L</button><button class="btn btn-warning btn-sm">XL</button><button class="btn btn-info btn-sm">S</button>': 0 !!}</th>
                                                                 <th>{{$p->date}}</th>
                                                                 <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail)}}"</td>
-                                                                <th>{{$p->saled}}</th>
+                                                              
                                                                 <th>{{$p->view}}</th>
                                                                 <th>{{$p->description}}</th>
                                                                 <th>{{$p->tags}}</th>
@@ -320,7 +320,7 @@
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
                                                             <td class="text-center font-size-10">
                                                                 <a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                                <a href="/admin/deleted/{{$p->id}}" class="text-gray"><i class="ti-trash"></i></a>
+                                                                <a href="/admin/deletedProduct/{{$p->id}}"  onclick="alert()" class="text-gray"><i class="ti-trash"></i></a>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -364,5 +364,14 @@
 
 
     </body>
+    <script type="text/javascript">
+           function alert(){
+     Swal.fire(
+   'Xóa Thành Công!',
+    'You clicked the button!',
+    'success'
+    )
+     }
+    </script>
     
 </html>

@@ -109,8 +109,8 @@ class ProductController extends Controller
     public function edit(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:products',
-            'slug' => 'required|unique:products',
+            'title' => 'required',
+            'slug' => 'required',
             'quantily' => 'required',
             'price' => 'required',
             'size' => 'required|starts_with:S,M,L,XL,XXL',

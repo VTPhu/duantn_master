@@ -278,15 +278,15 @@
 											<div class="demo-box">
                                                 <form action="" class="form-inline" role="form">
                                                     <input type="text" class="form-control" placeholder="Tìm kiếm" name="key" >
-                                                    <button style="background-color:#FD8C67;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
+                                                    <button style="background-color:#36404e;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
                                                 </form>
                                                 <hr>
-                                                <table id="dt-opt" class="table table-striped add-edit-table table-bordered ">
+                                                <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
                                                     <thead >
-                                                        <tr>
+                                                        <tr style="background-color:#36404e;color:white;">
                                                             <th>Id</th>
                                                             <th>Title</th>
-                                                            <th>Slug</th>
+                                                           
                                                             <th>Quantily</th>
                                                             <th>Price</th>
                                                             <th>Size</th>
@@ -294,8 +294,6 @@
                                                             <th>Thumnail</th>
                                                             <th>Saled</th>
                                                             <th>View</th>
-                                                            <th>Category_id</th>
-                                                            <th>Brand_id</th>
                                                             <th>Description</th>
                                                             <th>Tags</th>
                                                             <th>Status</th>
@@ -303,21 +301,19 @@
                                                         </tr>
                                                     </thead>
                                                     @foreach( $product as $p)
-                                                    <tbody >
+                                                    <tbody>
                                                         <tr>
                                                             <td>{{$p->id}}</td>
                                                                 <th>{{$p->title}}</th>
                                                                 
-                                                                <th>{{$p->slug}}</th>
+                                                               
                                                                 <td>{{$p->quantily}}</td>
                                                                 <th>{{$p->price}}</th>
-                                                                <th>{{$p->size}}</th>
+                                                                <th>{!! !empty($p->size) ?'<button class="btn btn-success btn-sm">M</button><button class="btn btn-danger btn-sm">L</button><button class="btn btn-warning btn-sm">XL</button><button class="btn btn-info btn-sm">S</button>': 0 !!}</th>
                                                                 <th>{{$p->date}}</th>
                                                                 <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail)}}"</td>
                                                                 <th>{{$p->saled}}</th>
                                                                 <th>{{$p->view}}</th>
-                                                                <th>{{$p->category_id}}</th>
-                                                                <th>{{$p->brand_id}}</th>
                                                                 <th>{{$p->description}}</th>
                                                                 <th>{{$p->tags}}</th>
                                                                 

@@ -79,7 +79,7 @@ class CategoryController extends Controller
     public function edit(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:categories',
+            'name' => 'required',
             'status' => 'required|in:0,1',
 
 

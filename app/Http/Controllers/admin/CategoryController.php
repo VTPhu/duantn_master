@@ -54,7 +54,9 @@ class CategoryController extends Controller
         }
         $input = $request->all();
         $category = Category::create($input);
-        return view('admin.category.List', compact('category'));
+        if ($category) {
+            return redirect('/admin/show-category')->with('message', 'Thêm thành công');
+        }
     }
 
     /**
@@ -94,7 +96,7 @@ class CategoryController extends Controller
         $input->name = $request->name;
         $input->status = $request->status;
         $input->save();
-        return redirect('/admin/show-category');
+        return redirect('/admin/show-category')->with('message', 'Sửa thành công');
     }
 
     /**

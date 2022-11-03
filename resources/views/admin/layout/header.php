@@ -33,5 +33,5 @@
         <![endif]-->
 
     <script src="/admin/assets/js/modernizr.min.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>

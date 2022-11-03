@@ -319,10 +319,11 @@
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('size') }}</strong>
                                                                @endif
                                                     </div>
+                                                   
                                                     <div class="form-group">
                                                         <label for="userName">Date<span class="text-danger">*</span></label>
                                                         <input type="date" name="date" parsley-trigger="change" required
-                                                               placeholder="ngày" class="form-control" id="userName" value="{{$product->date}}">
+                                                               placeholder="ngày" class="form-control" id="userName" value="{{date('Y-m-d', strtotime($product->date))}}">
                                                                @if($errors->has('date'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('date') }}</strong>
                                                                @endif
@@ -330,6 +331,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Thumnail</label>
                                                         <input type="file" name="thumnail"  class="filestyle" data-buttonname="btn-default" value="{{$product->thumnail}}">
+                                                        <img src="{{asset('uploads/images/'.$product->thumnail)}}" alt="" width="300px" height="300px"> 
                                                         @if($errors->has('thumnail'))
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail') }}</strong>
                                                         @endif
@@ -352,11 +354,13 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Category_id<span class="text-danger">*</span></label>
-                                                        <input type="number" name="category_id" parsley-trigger="change" required
-                                                               placeholder="category_id" class="form-control" id="userName" value="{{$product->category_id}}">
-                                                               @if($errors->has('category_id'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('category_id') }}</strong>
-                                                               @endif
+                                                        <select style="width: 130px;height: 40px;border: 1px solid rebeccapurple;" name="category_id" id="myselect">
+                                                            @foreach( $category as $c)       
+                                                            <option value="{{$c->id}}">{{$c->name}}</option>
+                                                            @if($errors->has('category_id'))
+                                                            <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('category_id') }}</strong>
+                                                            @endif 
+                                                            @endforeach
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Brand_id<span class="text-danger">*</span></label>
@@ -393,7 +397,7 @@
                                                     
                 
                                                     <div class="form-group text-right m-b-0">
-                                                        <button onclick="alert()" class="btn btn-primary waves-effect waves-light" type="submit">
+                                                        <button class="btn btn-primary waves-effect waves-light" type="submit">
                                                             Submit
                                                         </button>
                                                         <button type="reset" class="btn btn-default waves-effect m-l-5">
@@ -433,14 +437,6 @@
 
         </div>
        
-        <script type="text/javascript">
-        function alert(){
-     Swal.fire(
-   'Sửa Thành Công!',
-    'You clicked the button!',
-    'success'
-    )
-}
-</script>
+       
     </body>
 </html>

@@ -296,7 +296,7 @@
                                                     
                 
                                                     <div class="form-group text-right m-b-0">
-                                                        <button onclick="alert()" class="btn btn-primary waves-effect waves-light" type="submit">
+                                                        <button  class="btn btn-primary waves-effect waves-light" type="submit">
                                                             Submit
                                                         </button>
                                                         <button type="reset" class="btn btn-default waves-effect m-l-5">
@@ -338,13 +338,5 @@
 
 
     </body>
-    <script type="text/javascript">
-        function alert(){
-     Swal.fire(
-   'Sửa Thành Công!',
-    'You clicked the button!',
-    'success'
-    )
-}
-    </script>
+   
 </html>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-
+use App\Models\Category;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -26,8 +26,9 @@ class ProductController extends Controller
 
         $product = Product::paginate(5);
         if ($key = request()->key) {
-            $product =  Product::orderBy('date', 'DESC')->where('title', 'like',   $key . '%')->paginate(5);
+            $product =  Product::orderBy('date', 'DESC')->where('title', 'like',  '%' . $key . '%')->paginate(5);
         }
+
         return view('admin.product.List', compact('product'));
     }
 
@@ -38,7 +39,9 @@ class ProductController extends Controller
      */
     public function addProduct()
     {
-        return view('admin.product.addProduct');
+        $category = Category::all();
+
+        return view('admin.product.addProduct', compact('category'));
     }
 
     /**
@@ -83,7 +86,11 @@ class ProductController extends Controller
         }
 
         $product = Product::create($input);
-        return view('admin.product.List', compact('product'));
+        if ($product) {
+            return redirect('/admin/show-product')->with('message', 'Thêm thành công');;
+        } else {
+            //thông báo lỗi thêm sản phẩm
+        }
     }
 
     /**
@@ -94,10 +101,10 @@ class ProductController extends Controller
      */
     public function updated($id)
     {
-
+        $category = Category::all();
         $product = Product::find($id);
         if ($product == null) return redirect('/thongbao');
-        return view('admin.product.updatedProduct', compact('product'));
+        return view('admin.product.updatedProduct', compact('product', 'category'));
     }
 
     /**
@@ -115,7 +122,7 @@ class ProductController extends Controller
             'price' => 'required',
             'size' => 'required|starts_with:S,M,L,XL,XXL',
             'date' => 'required|date',
-            'thumnail' => 'required|mimes:jpg,bmp,png|file',
+            'thumnail' => 'mimes:jpg,bmp,png|file',
             'saled' => 'required',
             'view' => 'required',
             'category_id' => 'required',
@@ -140,14 +147,18 @@ class ProductController extends Controller
         $input->price = $request->price;
         $input->size = $request->size;
         $input->date = $request->date;
-        $input->thumnail = $request->thumnail;
-        if ($request->hasFile('thumnail')) {
-            $path = 'uploads/images';
-            $thumnail = $request->file('thumnail');
-            $image = $thumnail->getClientOriginalName();
-            $path_name = $request->file('thumnail')->move(public_path($path), $image);
-            $input['thumnail'] = $image;
+        // check thumbnail nếu có thì thay đổi ko thì giữ nguyên
+        if ($request->thumnail) {
+            $input->thumnail = $request->thumnail;
+            if ($request->hasFile('thumnail')) {
+                $path = 'uploads/images';
+                $thumnail = $request->file('thumnail');
+                $image = $thumnail->getClientOriginalName();
+                $path_name = $request->file('thumnail')->move(public_path($path), $image);
+                $input['thumnail'] = $image;
+            }
         }
+
         $input->saled = $request->saled;
         $input->view = $request->view;
         $input->category_id = $request->category_id;
@@ -155,8 +166,11 @@ class ProductController extends Controller
         $input->description = $request->description;
         $input->tags = $request->tags;
         $input->status = $request->status;
-        $input->save();
-        return redirect('/admin/show-product');
+        $sua = $input->save();
+        if ($sua) {
+
+            return redirect('/admin/show-product')->with('message', 'Sửa thành công');
+        }
     }
 
     /**

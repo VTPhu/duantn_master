@@ -351,12 +351,15 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Category_id<span class="text-danger">*</span></label>
-                                                        <input type="number" name="category_id" parsley-trigger="change" required
-                                                               placeholder="category_id" class="form-control" id="userName" value="{{old('category_id')}}">
-                                                               @if($errors->has('category_id'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('category_id') }}</strong>
-                                                               @endif
+                                                        <label for="userName">Category_id<span class="text-danger">*</span></label>                                              
+                                                               <select style="width: 130px;height: 40px;border: 1px solid rebeccapurple;" name="category_id" id="myselect">
+                                                                @foreach( $category as $c)
+                                                                
+                                                                <option value="{{$c->id}}">{{$c->name}}</option>
+                                                                @if($errors->has('category_id'))
+                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('category_id') }}</strong>
+                                                                @endif 
+                                                                @endforeach
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Brand_id<span class="text-danger">*</span></label>
@@ -365,6 +368,7 @@
                                                                @if($errors->has('brand_id'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('brand_id') }}</strong>
                                                                @endif
+                                                              
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Description<span class="text-danger">*</span></label>
@@ -393,7 +397,7 @@
                                                     
                 
                                                     <div class="form-group text-right m-b-0">
-                                                        <button onclick="alert()" class="btn btn-primary waves-effect waves-light" type="submit">
+                                                        <button class="btn btn-primary waves-effect waves-light" type="submit">
                                                             Submit
                                                         </button>
                                                         <button type="reset" class="btn btn-default waves-effect m-l-5">
@@ -436,14 +440,4 @@
 
     </body>
     
-
-    <script type="text/javascript">
-        function alert(){
-     Swal.fire(
-   'Thêm Thành Công!',
-    'You clicked the button!',
-    'success'
-    )
-}
-    </script>
 </html>

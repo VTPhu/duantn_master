@@ -19,6 +19,7 @@ class Product extends Model
         'date',
         'thumnail',
         'saled',
+        'color',
         'view',
         'category_id',
         'brand_id',

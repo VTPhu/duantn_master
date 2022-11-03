@@ -216,6 +216,15 @@
 
                             </ul>
                         </li>
+                        <li>
+                            <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Post </span><span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="/admin/show-posts"> Liệt kê</a></li>
+                                <li><a href="/admin/posts"> Thêm bài viết</a></li>
+
+                            </ul>
+                        </li>
+
 
                         <li>
                             <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Brand</span></a>

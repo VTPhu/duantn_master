@@ -216,9 +216,14 @@
 
                             </ul>
                         </li>
-
+                     
                         <li>
-                            <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Brand </span></a>
+                            <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Post </span><span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="/admin/show-posts"> Liệt kê</a></li>
+                                <li><a href="/admin/posts"> Thêm bài viết</a></li>
+
+                            </ul>
                         </li>
 
 
@@ -243,75 +248,6 @@
 
 
 
-<<<<<<< HEAD
-=======
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="left side-menu">
-                <div class="sidebar-inner slimscrollleft">
-
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <ul>
-                        	<li class="menu-title">Navigation</li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right">2</span> <span> Dashboard </span> </a>
-                                
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Product</span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/admin/show-product">Liệt kê</a></li>
-                                    <li><a href="/admin/product">Thêm sản phẩm</a></li>
-                                   
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Category </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/admin/show-category"> Liệt kê</a></li>
-                                    <li><a href="/admin/category"> Thêm danh mục</a></li>
-                                   
-                                </ul>
-                            </li>
-
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Posts </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/admin/show-posts"> Liệt kê</a></li>
-                                    <li><a href="/admin/posts"> Thêm bài viết</a></li>
-                                   
-                                </ul>
-                            </li>
-
-                            
-
-                           
-                           
-
-                          
-
-                            
-
-                           
-
-                          
-
-                            
-                            
-
-                           
-                        </ul>
-                    </div>
-                   
-
-                    
-
-                </div>
-                <!-- Sidebar -left -->
->>>>>>> dc1e350f2a3fff2e2d35c8bfd6facefa8f1a28b8
 
             </div>
             <!-- Sidebar -left -->

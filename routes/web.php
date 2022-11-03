@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PostsController;
 // product
-Route::get('/', [ProductController::class, 'index']);
+Route::get('/admin/show-product', [ProductController::class, 'index']);
 Route::get('/admin/product', [ProductController::class, 'addProduct']);
 Route::post('/admin/product', [ProductController::class, 'store']);
 Route::get('/admin/product/{id}', [ProductController::class, 'updated']);
@@ -17,10 +17,8 @@ Route::get('/admin/category', [CategoryController::class, 'addCategory']);
 Route::post('/admin/category', [CategoryController::class, 'store']);
 Route::get('/admin/category/{id}', [CategoryController::class, 'updated']);
 Route::post('/admin/category/{id}', [CategoryController::class, 'edit']);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-Route::get('/admin/deleted/{id}', [CategoryController::class, 'destroy']);
+
+Route::get('/admin/deletedCate/{id}', [CategoryController::class, 'destroy']);
 //posts
 Route::get('/admin/show-posts', [PostsController::class, 'index']);
 Route::get('/admin/posts', [PostsController::class, 'addPosts']);
@@ -28,12 +26,3 @@ Route::post('/admin/posts', [PostsController::class, 'store']);
 Route::post('/admin/posts/{id}', [PostsController::class, 'updated']);
 Route::get('/admin/posts/{id}', [PostsController::class, 'edit']);
 Route::get('/admin/deleted/{id}', [PostsController::class, 'destroy']);
-=======
-Route::get('/admin/deletedCate/{id}', [CategoryController::class, 'destroy']);
->>>>>>> 28fc7c80943a492bde99fd9c17b40a8c25ba8e3a
-=======
-Route::get('/admin/deletedCate/{id}', [CategoryController::class, 'destroy']);
->>>>>>> 28fc7c80943a492bde99fd9c17b40a8c25ba8e3a
-=======
-Route::get('/admin/deletedCate/{id}', [CategoryController::class, 'destroy']);
->>>>>>> 28fc7c80943a492bde99fd9c17b40a8c25ba8e3a

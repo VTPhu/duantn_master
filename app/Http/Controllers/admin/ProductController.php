@@ -31,12 +31,6 @@ class ProductController extends Controller
 
         return view('admin.product.List', compact('product'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function addProduct()
     {
         $category = Category::all();
@@ -44,12 +38,6 @@ class ProductController extends Controller
         return view('admin.product.addProduct', compact('category'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -84,7 +72,6 @@ class ProductController extends Controller
             $path_name = $request->file('thumnail')->move(public_path($path), $image);
             $input['thumnail'] = $image;
         }
-
         $product = Product::create($input);
         if ($product) {
             return redirect('/admin/show-product')->with('message', 'Thêm thành công');;
@@ -93,12 +80,6 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function updated($id)
     {
         $category = Category::all();
@@ -106,13 +87,6 @@ class ProductController extends Controller
         if ($product == null) return redirect('/thongbao');
         return view('admin.product.updatedProduct', compact('product', 'category'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [

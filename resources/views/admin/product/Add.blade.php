@@ -407,7 +407,7 @@
                                                         <button class="btn btn-primary waves-effect waves-light" type="submit">
                                                             Submit
                                                         </button>
-                                                        <button type="reset" class="btn btn-default waves-effect m-l-5">
+                                                        <button  type="reset" class="btn btn-danger waves-effect m-l-5">
                                                             Cancel
                                                         </button>
                                                     </div>

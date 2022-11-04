@@ -291,7 +291,7 @@
                                             </form>
                                             <hr>
                                             <table id="dt-opt" class="table table-striped add-edit-table table-bordered ">
-                                                <thead>
+                                                <thead style="background-color:#36404e;color:white;">
                                                     <tr>
                                                         <th style="text-align: center;font-size:18px">Id</th>
                                                         <th style="text-align: center;font-size:18px">Name</th>
@@ -306,8 +306,8 @@
                                                         <th style="text-align: center">{{$c->name}}</th>
                                                         <th style="text-align: center">{!! $c->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
                                                             <td class=" text-center font-size-10">
-                                                                <a href="/admin/category/{{$c->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                                <a href="/admin/deletedCate/{{$c->id}}" onclick="alert(event,{{$c->id}})" class="text-gray " type="submit"><i class="ti-trash "></i></a>
+                                                                <button class="btn btn-primary btn-sm "><a href="/admin/category/{{$c->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
+                                                                <button class="btn btn-danger btn-sm"><a href="/admin/deletedCate/{{$c->id}}" onclick="alert(event,{{$c->id}})" class="text-gray " type="submit"><i style="color:white" class="ti-trash "></i></a></button>
                                                                 </td>
                                                     </tr>
                                                 </tbody>

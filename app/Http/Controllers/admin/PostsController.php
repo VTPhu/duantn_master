@@ -59,7 +59,7 @@ class PostsController extends Controller
             $input['thumnail_url'] = $image;
         }
         Posts::create($input);
-        return redirect()->back()->with('status','Đã thêm bài viết thành công bài viết');
+        return redirect('/admin/show-posts')->with('status','Đã thêm bài viết thành công bài viết');
     }
     public function updated(request $request,$id)
     {
@@ -100,7 +100,7 @@ class PostsController extends Controller
         $input->tags = $request->tags;
         $input->status = $request->status;
         $input->save();
-        return redirect()->back()->with('status','Đã cập nhập thành công bài viết');
+        return redirect('/admin/show-posts')->with('status','Đã cập nhập thành công bài viết');
     }
     public function edit($id)
     {

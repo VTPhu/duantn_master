@@ -278,7 +278,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         @if(Session::has('message'))
-                                        <p class="alert " style="color:green;background: antiquewhite;">{{ Session::get('message') }}</p>
+                                        <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
                                         @endif
                                         <div class="demo-box">
                                             <form action="" class="form-inline" role="form">
@@ -289,20 +289,20 @@
                                             <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
                                                 <thead>
                                                     <tr style="background-color:#36404e;color:white;">
-                                                        <th style="text-align: center">Id</th>
-                                                        <th style="text-align: center"> Title</th>
+                                                        <th style="text-align: center;font-size:18px;">Id</th>
+                                                        <th style="text-align: center;font-size:18px;"> Title</th>
 
-                                                        <th style="text-align: center">Quantily</th>
-                                                        <th style="text-align: center">Price</th>
-                                                        <th style="text-align: center">Size</th>
-                                                        <th style="text-align: center">Date</th>
-                                                        <th style="text-align: center">Thumnail</th>
+                                                        <th style="text-align: center;font-size:18px;">Quantily</th>
+                                                        <th style="text-align: center;font-size:18px;">Price</th>
+                                                        <th style="text-align: center;font-size:18px;">Size</th>
+                                                        <th style="text-align: center;font-size:18px;">Date</th>
+                                                        <th style="text-align: center;font-size:18px;">Thumnail</th>
 
 
-                                                        <th style="text-align: center">Description</th>
-                                                        <th style="text-align: center">Tags</th>
-                                                        <th style="text-align: center">Status</th>
-                                                        <th style="text-align: center"> Action</th>
+                                                        <th style="text-align: center;font-size:18px;">Description</th>
+                                                        <th style="text-align: center;font-size:18px;">Tags</th>
+                                                        <th style="text-align: center;font-size:18px;">Status</th>
+                                                        <th style="text-align: center;font-size:18px;"> Action</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach( $product as $p)
@@ -326,9 +326,9 @@
                                                         <th>{{$p->tags}}</th>
 
                                                         <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm ">ẩn</button>'!!}</th>
-                                                        <td class=" text-center font-size-10">
-                                                            <a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                            <a href="/admin/deletedProduct/{{$p->id}}" onclick="alert(event,{{$p->id}})" class="text-gray"><i class="ti-trash"></i></a>
+                                                        <td class=" text-center font-size-10" style="width:98px">
+                                                            <button class="btn btn-primary btn-sm "><a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
+                                                            <button class="btn btn-danger btn-sm"><a href="/admin/deletedProduct/{{$p->id}}" onclick="alert(event,{{$p->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
                                                             
                                                         </td>
                                                     </tr>

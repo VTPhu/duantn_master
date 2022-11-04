@@ -24,7 +24,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
 
-        $product = Product::paginate(5);
+        $product = Product::paginate(3);
         if ($key = request()->key) {
             $product =  Product::orderBy('date', 'DESC')->where('title', 'like',  '%' . $key . '%')->paginate(5);
         }

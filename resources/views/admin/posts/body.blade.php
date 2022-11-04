@@ -233,14 +233,14 @@
 											<div class="demo-box">
                                                 <form action="" class="form-inline" role="form">
                                                     <input type="text" class="form-control" placeholder="Tìm kiếm" name="key" >
-                                                    <button style="background-color:#FD8C67;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
+                                                    <button style="background-color:#36404e;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
                                                 </form>
                                                 <hr>
                                                 @if (session('status'))
                                             <h6 class="alert alert-success">{{session('status')}}</h6>
                                             @endif
                                                 <table id="dt-opt" class="table table-striped add-edit-table table-bordered ">
-                                                    <thead >
+                                                    <thead style="background-color:#36404e;color:white;">
                                                         <tr>
                                                             <th>Id</th>
                                                             <th>Title</th>
@@ -266,9 +266,9 @@
                                                                 <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail_url)}}"</td>
                                                                 <th>{{$p->user_id}}</th>
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
-                                                            <td class="text-center font-size-10">
-                                                                <a href="/admin/posts/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                                <a href="/admin/deleted/{{$p->id}}" class="text-gray"><i class="ti-trash"></i></a>
+                                                            <td class="text-center font-size-10" style="width:98px">
+                                                                <button class="btn btn-primary btn-sm "><a href="/admin/posts/{{$p->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
+                                                                <button class="btn btn-danger btn-sm"><a href="/admin/deleted/{{$p->id}}" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
                                                             </td>
                                                         </tr>
                                                     </tbody>

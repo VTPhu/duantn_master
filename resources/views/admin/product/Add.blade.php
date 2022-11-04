@@ -358,10 +358,10 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Category_id<span class="text-danger">*</span></label><br>                                                   
-                                                            <select style="width: 170px;height: 40px;border-radius:10px" class="form-select"  name="category_id" aria-label="Default select example">
+                                                            <select style="width: 170px;height: 40px;border-radius:10px;font-size:16px" class="form-select"  name="category_id" aria-label="Default select example">
                                                                 @foreach( $category as $c) 
                                                                 
-                                                                <option value="{{$c->id}}">{{$c->name}}</option>                                                     
+                                                                <option style="text-align:center;" value="{{$c->id}}">{{$c->name}}</option>                                                     
                                                               @if($errors->has('category_id'))
                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('category_id') }}</strong>
                                                               @endif 
@@ -395,7 +395,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Status<span class="text-danger">*</span></label><br>    
-                                                               <select style="width: 170px;height: 40px;border-radius:10px" class="form-select"  name="status" aria-label="Default select example">
+                                                               <select style="width: 170px;height: 40px;border-radius:10px;text-align:center;font-size:17px" class="form-select"  name="status" aria-label="Default select example">
                                                                 <option value="0">Hiện</option>    
                                                                 <option value="1">Ẩn</option>                                                    
                                                               @if($errors->has('status'))

@@ -278,7 +278,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         @if(Session::has('message'))
-                                        <p class="alert " style="color:green;background: antiquewhite;">{{ Session::get('message') }}</p>
+                                        <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
                                         @endif
                                         <div class="demo-box">
                                             <form action="" class="form-inline" role="form">
@@ -289,20 +289,20 @@
                                             <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
                                                 <thead>
                                                     <tr style="background-color:#36404e;color:white;">
-                                                        <th style="text-align: center">Id</th>
-                                                        <th style="text-align: center"> Title</th>
+                                                        <th style="text-align: center;font-size:18px;">Id</th>
+                                                        <th style="text-align: center;font-size:18px;"> Title</th>
 
-                                                        <th style="text-align: center">Quantily</th>
-                                                        <th style="text-align: center">Price</th>
-                                                        <th style="text-align: center">Size</th>
-                                                        <th style="text-align: center">Date</th>
-                                                        <th style="text-align: center">Thumnail</th>
+                                                        <th style="text-align: center;font-size:18px;">Quantily</th>
+                                                        <th style="text-align: center;font-size:18px;">Price</th>
+                                                        <th style="text-align: center;font-size:18px;">Size</th>
+                                                        <th style="text-align: center;font-size:18px;">Date</th>
+                                                        <th style="text-align: center;font-size:18px;">Thumnail</th>
 
 
-                                                        <th style="text-align: center">Description</th>
-                                                        <th style="text-align: center">Tags</th>
-                                                        <th style="text-align: center">Status</th>
-                                                        <th style="text-align: center"> Action</th>
+                                                        <th style="text-align: center;font-size:18px;">Description</th>
+                                                        <th style="text-align: center;font-size:18px;">Tags</th>
+                                                        <th style="text-align: center;font-size:18px;">Status</th>
+                                                        <th style="text-align: center;font-size:18px;"> Action</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach( $product as $p)

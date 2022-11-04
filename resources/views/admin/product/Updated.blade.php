@@ -281,7 +281,7 @@
 								<div class="card-box" >
 									<div class="row">
 										<div class="col-lg-12" >
-                                            <h1 class="text-center">SỬA SẢN PHẨM</h1>
+                                            <h1 class="text-center" style="font-family: system-ui;">SỬA SẢN PHẨM</h1>
 											<div class="demo-box">
                                                 <form  method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                                 @csrf
@@ -338,7 +338,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Thumnail</label>
                                                         <input type="file" name="thumnail"  class="filestyle" data-buttonname="btn-default" value="{{$product->thumnail}}">
-                                                        <img src="{{asset('uploads/images/'.$product->thumnail)}}" alt="" width="300px" height="300px"> 
+                                                        <img src="{{asset('uploads/images/'.$product->thumnail)}}" alt="" width="200px" height="200px"> 
                                                         @if($errors->has('thumnail'))
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail') }}</strong>
                                                         @endif
@@ -360,14 +360,16 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Category_id<span class="text-danger">*</span></label>
-                                                        <select style="width: 130px;height: 40px;border: 1px solid rebeccapurple;" name="category_id" id="myselect">
-                                                            @foreach( $category as $c)       
-                                                            <option value="{{$c->id}}">{{$c->name}}</option>
-                                                            @if($errors->has('category_id'))
-                                                            <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('category_id') }}</strong>
-                                                            @endif 
-                                                            @endforeach
+                                                        <label for="userName">Category_id<span class="text-danger">*</span></label><br>                                                   
+                                                            <select style="width: 170px;height: 40px;border-radius:10px" class="form-select"  name="category_id" aria-label="Default select example">
+                                                                @foreach( $category as $c) 
+                                                                
+                                                                <option value="{{$c->id}}">{{$c->name}}</option>                                                     
+                                                              @if($errors->has('category_id'))
+                                                              <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('category_id') }}</strong>
+                                                              @endif 
+                                                              @endforeach
+                                                            </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Brand_id<span class="text-danger">*</span></label>

@@ -282,21 +282,21 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         @if(Session::has('message'))
-                                        <p class="alert " style="color:green;background: antiquewhite;">{{ Session::get('message') }}</p>
+                                        <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
                                         @endif
                                         <div class="demo-box">
                                             <form action="" class="form-inline" role="form">
                                                 <input type="text" class="form-control" placeholder="Tìm kiếm" name="key">
-                                                <button style="background-color:#FD8C67;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
+                                                <button style="background-color:#36404e;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
                                             </form>
                                             <hr>
                                             <table id="dt-opt" class="table table-striped add-edit-table table-bordered ">
                                                 <thead>
                                                     <tr>
-                                                        <th style="text-align: center">Id</th>
-                                                        <th style="text-align: center">Name</th>
-                                                        <th style="text-align: center"> Status</th>
-                                                        <th style="text-align: center">Action</th>
+                                                        <th style="text-align: center;font-size:18px">Id</th>
+                                                        <th style="text-align: center;font-size:18px">Name</th>
+                                                        <th style="text-align: center;font-size:18px"> Status</th>
+                                                        <th style="text-align: center;font-size:18px">Action</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach( $category as $c)

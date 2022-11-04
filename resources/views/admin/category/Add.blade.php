@@ -279,7 +279,7 @@
                             <div class="card-box">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <h1 class="text-center">THÊM DANH MỤC</h1>
+                                        <h1 class="text-center" style="font-family: system-ui;">THÊM DANH MỤC</h1>
                                         <div class="demo-box">
                                             <form action="/admin/category" method="POST" data-parsley-validate novalidate enctype="multipart/form-data">
                                                 @csrf

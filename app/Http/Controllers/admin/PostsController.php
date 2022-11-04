@@ -35,6 +35,7 @@ class PostsController extends Controller
             'title' => 'required|unique:products',
             'slug' => 'required|unique:products',
             'sumary' => 'required',
+            'content' => 'required',
             'date' => 'required|date',
             'thumnail_url' => 'required|mimes:jpg,bmp,png|file',
             'user_id' => 'required',
@@ -66,6 +67,7 @@ class PostsController extends Controller
             'title' => 'required|unique:products',
             'slug' => 'required|unique:products',
             'sumary' => 'required',
+            'content' => 'required',
             'date' => 'required|date',
             'thumnail_url' => 'required|mimes:jpg,bmp,png|file',
             'user_id' => 'required',
@@ -84,6 +86,7 @@ class PostsController extends Controller
         $input->title = $request->title;
         $input->slug = $request->slug;
         $input->sumary = $request->sumary;
+        $input->content = $request->content;
         $input->date = $request->date;
         $input->thumnail_url = $request->thumnail_url;
         if ($request->hasFile('thumnail_url')) {

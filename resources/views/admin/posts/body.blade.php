@@ -245,12 +245,11 @@
                                                             <th>Id</th>
                                                             <th>Title</th>
                                                             <th>Slug</th>
+                                                            <th>content</th>
                                                             <th>sumary</th>
                                                             <th>Date</th>
                                                             <th>Thumnail_url</th>
-                                                            <th>View</th>
                                                             <th>user_id</th>
-                                                            <th>Tags</th>
                                                             <th>Status</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -261,12 +260,11 @@
                                                             <td>{{$p->id}}</td>
                                                                 <th>{{$p->title}}</th>
                                                                 <th>{{$p->slug}}</th>
+                                                                <td>{{$p->content}}</td>
                                                                 <td>{{$p->sumary}}</td>
                                                                 <th>{{$p->date}}</th>
                                                                 <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail_url)}}"</td>
-                                                                <th>{{$p->view}}</th>
                                                                 <th>{{$p->user_id}}</th>
-                                                                <th>{{$p->tags}}</th>
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
                                                             <td class="text-center font-size-10">
                                                                 <a href="/admin/posts/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>

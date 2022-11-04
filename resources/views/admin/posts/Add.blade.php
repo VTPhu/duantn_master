@@ -297,6 +297,15 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="userName">Content<span class="text-danger">*</span></label>
+                                                        <textarea id="ckeditor"  style="resize:none" name="content" parsley-trigger="change" required
+                                                               placeholder="Nội dung bài viết" class="form-control" value="{{old('content')}}"></textarea>
+
+                                                               @if($errors->has('content'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('content') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="userName">Date<span class="text-danger">*</span></label>
                                                         <input type="date" name="date" parsley-trigger="change" required
                                                                placeholder="ngày" class="form-control" id="userName" value="{{old('date')}}">
@@ -373,6 +382,9 @@
 
         </div>
 
-
+        <script src="/admin/ckeditor/ckeditor.js"></script>
+    <script> 
+    CKEDITOR.replace('ckeditor')</script>
     </body>
+    
 </html>

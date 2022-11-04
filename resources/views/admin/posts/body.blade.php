@@ -5,7 +5,7 @@
             <div class="topbar">
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>     
+                    <a href="index.html" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
                 </div>
                 <!-- Button mobile view to collapse sidebar menu -->
                 <div class="navbar navbar-default" role="navigation">
@@ -183,7 +183,7 @@
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right">2</span> <span> Dashboard </span> </a>
-                                
+
                             </li>
 
                             <li class="has_sub">
@@ -191,7 +191,7 @@
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-product">Liệt kê</a></li>
                                     <li><a href="/admin/product">Thêm sản phẩm</a></li>
-                                   
+
                                 </ul>
                             </li>
 
@@ -200,7 +200,7 @@
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-category"> Liệt kê</a></li>
                                     <li><a href="/admin/category"> Thêm danh mục</a></li>
-                                   
+
                                 </ul>
                             </li>
 
@@ -209,7 +209,15 @@
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-posts"> Liệt kê</a></li>
                                     <li><a href="/admin/posts"> Thêm bài viết</a></li>
-                                   
+
+                                </ul>
+                            </li>
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Brand</span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="/admin/show-brand"> Liệt kê</a></li>
+                                    <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
+
                                 </ul>
                             </li>
                         </ul>
@@ -223,7 +231,7 @@
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
-                    <div class="container" >  
+                    <div class="container" >
                         <!-- end row -->
                         <div class="row" >
 							<div class="col-sm-12" >
@@ -274,10 +282,10 @@
                                                             </td>
                                                         </tr>
                                                     </tbody>
-                                                   
+
                                                     @endforeach
                                                 </table>
-												
+
 											</div>
 
 										</div>
@@ -295,5 +303,5 @@
                 </div> <!-- content -->
             </div>
     </body>
-    
+
 </html>

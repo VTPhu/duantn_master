@@ -4,6 +4,8 @@ use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PostsController;
+use App\Http\Controllers\admin\BrandController;
+
 // product
 Route::get('/admin/show-product', [ProductController::class, 'index']);
 Route::get('/admin/product', [ProductController::class, 'addProduct']);
@@ -26,3 +28,10 @@ Route::post('/admin/posts', [PostsController::class, 'store']);
 Route::post('/admin/posts/{id}', [PostsController::class, 'updated']);
 Route::get('/admin/posts/{id}', [PostsController::class, 'edit']);
 Route::get('/admin/deleted/{id}', [PostsController::class, 'destroy']);
+// Brand
+Route::get('/admin/show-brand', [BrandController::class, 'index']);
+Route::get('/admin/brand', [BrandController::class, 'create']);
+Route::post('/admin/brand', [BrandController::class, 'store']);
+Route::get('/admin/edit/brand/{id}', [BrandController::class, 'edit']);
+Route::post('/admin/edit/brand/{id}', [BrandController::class, 'update']);
+Route::get('/admin/deleteBrand/{id}', [BrandController::class, 'destroy']);

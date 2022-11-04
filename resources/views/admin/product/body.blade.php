@@ -216,12 +216,20 @@
 
                             </ul>
                         </li>
-                     
+
                         <li>
                             <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Post </span><span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-posts"> Liệt kê</a></li>
                                 <li><a href="/admin/posts"> Thêm bài viết</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Brand</span> <span class="menu-arrow"></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="/admin/show-brand"> Liệt kê</a></li>
+                                <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
 
                             </ul>
                         </li>
@@ -329,7 +337,7 @@
                                                         <td class=" text-center font-size-10">
                                                             <a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
                                                             <a href="/admin/deletedProduct/{{$p->id}}" onclick="alert(event,{{$p->id}})" class="text-gray"><i class="ti-trash"></i></a>
-                                                            
+
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -393,7 +401,7 @@
                 )
                 // xóa
                 window.location.href ='deletedProduct/'+id;
-            
+
             }
         })
     }

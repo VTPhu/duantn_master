@@ -13,6 +13,7 @@ class Posts extends Model
         'title',
         'slug',
         'sumary',
+        'content',
         'date',
         'view',
         'thumnail_url',

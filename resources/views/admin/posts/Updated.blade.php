@@ -308,11 +308,20 @@
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('sumary') }}</strong>
                                                                @endif
                                                     </div>
-                                                   
+                                                    <div class="form-group">
+                                                        <label for="userName">Content<span class="text-danger">*</span></label>
+                                                        <textarea id="ckeditor1"  style="resize:none" name="content" parsley-trigger="change" required
+                                                               placeholder="Nội dung bài viết" class="form-control" value="{{$posts->content}}">{{$posts->content}}</textarea>
+
+                                                               @if($errors->has('content'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('content') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    
                                                     <div class="form-group">
                                                         <label for="userName">Date<span class="text-danger">*</span></label>
                                                         <input type="date" name="date" parsley-trigger="change" required
-                                                               placeholder="ngày" class="form-control" id="userName" value="{{$posts->date}}">
+                                                        placeholder="ngày" class="form-control" id="userName" value="{{date('Y-m-d', strtotime($posts->date))}}">
                                                                @if($errors->has('date'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('date') }}</strong>
                                                                @endif
@@ -320,6 +329,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label">Thumnail_url</label>
                                                         <input type="file" name="thumnail_url"  class="filestyle" data-buttonname="btn-default" value="{{$posts->thumnail_url}}">
+                                                        <img src="{{asset('uploads/images/'.$posts->thumnail_url)}}" alt="" width="300px" height="300px"> 
                                                         @if($errors->has('thumnail_url'))
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail_url') }}</strong>
                                                         @endif
@@ -391,7 +401,11 @@
 
 
         </div>
-
+        <script src="/admin/ckeditor/ckeditor.js"></script>
+    <script> 
+    CKEDITOR.replace('ckeditor1')
+    </script>
+    </body>
 
     </body>
 </html>

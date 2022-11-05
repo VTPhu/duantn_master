@@ -8,12 +8,12 @@
     <meta name="author" content="Coderthemes">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="admin/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="/admin/assets/images/favicon.ico">
     <!-- App title -->
     <title>GENZ FASHION</title>
 
     <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="../plugins/morris/morris.css">
+    <link rel="stylesheet" href="/../plugins/morris/morris.css">
 
     <!-- App css -->
     <link href="/admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -31,7 +31,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-
-    <script src="/admin/assets/js/modernizr.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/admin/assets/js/modernizr.min.js"></script>
+    <script src="/admin/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('ckeditor')
+        CKEDITOR.replace('ckeditor')
+    </script>
+    <html>
 </head>

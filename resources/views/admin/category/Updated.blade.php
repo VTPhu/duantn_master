@@ -10,7 +10,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left" >
-                    <a href="index.html" class="logo"><span>Zir<span>cos</span></span><i class="mdi mdi-layers"></i></a>
+                    <a href="index.html" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
                     <!-- Image logo -->
                     <!--<a href="index.html" class="logo">-->
                         <!--<span>-->
@@ -282,7 +282,7 @@
 								<div class="card-box" >
 									<div class="row">
 										<div class="col-lg-12" >
-                                            <h1 class="text-center">SỬA DANH MỤC</h1>
+                                            <h1 class="text-center" style="font-family: system-ui;">SỬA DANH MỤC</h1>
 											<div class="demo-box">
                                                 <form  method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                                     @csrf
@@ -295,12 +295,15 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Status<span class="text-danger">*</span></label>
-                                                        <input type="number" name="status" parsley-trigger="change" required
-                                                               placeholder="Trạng thái" class="form-control" id="userName" value="{{$category->status}}">
-                                                               @if($errors->has('status'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('status') }}</strong>
-                                                               @endif
+                                                        <label for="userName">Status<span class="text-danger">*</span></label><br>    
+                                                               <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                                                <option value="0">Hiện</option>    
+                                                                <option value="1">Ẩn</option>                                                    
+                                                              @if($errors->has('status'))
+                                                              <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('status') }}</strong>
+                                                              @endif 
+                                                              
+                                                            </select>
                                                     </div>
                                                     
                 
@@ -308,7 +311,7 @@
                                                         <button  class="btn btn-primary waves-effect waves-light" type="submit">
                                                             Submit
                                                         </button>
-                                                        <button type="reset" class="btn btn-default waves-effect m-l-5">
+                                                        <button type="reset" class="btn btn-danger waves-effect m-l-5">
                                                             Cancel
                                                         </button>
                                                     </div>

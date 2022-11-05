@@ -33,5 +33,9 @@
         <![endif]-->
 
     <script src="/admin/assets/js/modernizr.min.js"></script>
-
+    <script src="/admin/ckeditor/ckeditor.js"></script>
+    <script> 
+    CKEDITOR.replace('ckeditor')
+    CKEDITOR.replace('ckeditor1')
+    </script>
 </head>

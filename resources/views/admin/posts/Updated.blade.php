@@ -352,12 +352,15 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Status<span class="text-danger">*</span></label>
-                                                        <input type="number" name="status" parsley-trigger="change" required
-                                                               placeholder="Trạng thái" class="form-control" id="userName" value="{{$posts->status}}">
-                                                               @if($errors->has('status'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('status') }}</strong>
-                                                               @endif
+                                                        <label for="userName">Status<span class="text-danger">*</span></label><br>    
+                                                               <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                                                <option value="0">Hiện</option>    
+                                                                <option value="1">Ẩn</option>                                                    
+                                                              @if($errors->has('status'))
+                                                              <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('status') }}</strong>
+                                                              @endif 
+                                                              
+                                                            </select>
                                                     </div>
                                                     
                 

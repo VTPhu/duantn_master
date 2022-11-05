@@ -251,13 +251,11 @@
                                                     <thead style="background-color:#36404e;color:white;">
                                                         <tr>
                                                             <th>Id</th>
-                                                            <th>Title</th>
-                                                            <th>Slug</th>
-                                                            <th>content</th>
-                                                            <th>sumary</th>
+                                                            <th>Title</th>                                                      
+                                                            <th>Content</th>
+                                                            <th>Sumary</th>
                                                             <th>Date</th>
-                                                            <th>Thumnail_url</th>
-                                                            <th>user_id</th>
+                                                            <th>Thumnail_url</th>                                                     
                                                             <th>Status</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -267,12 +265,12 @@
                                                         <tr>
                                                             <td>{{$p->id}}</td>
                                                                 <th>{{$p->title}}</th>
-                                                                <th>{{$p->slug}}</th>
+                                                               
                                                                 <td>{{$p->content}}</td>
                                                                 <td>{{$p->sumary}}</td>
                                                                 <th>{{$p->date}}</th>
                                                                 <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail_url)}}"</td>
-                                                                <th>{{$p->user_id}}</th>
+                                                               
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
                                                             <td class="text-center font-size-10" style="width:98px">
                                                                 <button class="btn btn-primary btn-sm "><a href="/admin/posts/{{$p->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>

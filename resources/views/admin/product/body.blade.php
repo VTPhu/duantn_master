@@ -334,17 +334,10 @@
                                                         <th>{{$p->tags}}</th>
 
                                                         <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm ">ẩn</button>'!!}</th>
-<<<<<<< HEAD
-                                                        <td class=" text-center font-size-10">
-                                                            <a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i class="ti-pencil"></i></a>
-                                                            <a href="/admin/deletedProduct/{{$p->id}}" onclick="alert(event,{{$p->id}})" class="text-gray"><i class="ti-trash"></i></a>
-
-=======
                                                         <td class=" text-center font-size-10" style="width:98px">
                                                             <button class="btn btn-primary btn-sm "><a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
                                                             <button class="btn btn-danger btn-sm"><a href="/admin/deletedProduct/{{$p->id}}" onclick="alert(event,{{$p->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
                                                             
->>>>>>> 6cf8c291b7adfdef5b50690d6355294cc80aad06
                                                         </td>
                                                     </tr>
                                                 </tbody>

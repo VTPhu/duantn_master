@@ -228,8 +228,13 @@
                             </li>
     
     
-                            <li>
-                                <a href="calendar.html" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Brand </span></a>
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Brand</span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="/admin/show-brand"> Liệt kê</a></li>
+                                    <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
+        
+                                </ul>
                             </li>
 
                             

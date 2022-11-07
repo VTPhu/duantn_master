@@ -312,45 +312,40 @@
                                                 <thead>
                                                     <tr style="background-color:#36404e;color:white;">
                                                         <th style="text-align: center;font-size:18px;">Id</th>
-                                                        <th style="text-align: center;font-size:18px;"> Title</th>
+                                                        <th style="text-align: center;font-size:18px;"> Name</th>                                                       
+                                                        <th style="text-align: center;font-size:18px;">Phone</th>                                                     
+                                                        <th style="text-align: center;font-size:18px;">Address</th>
+                                                        <th style="text-align: center;font-size:18px;">Email</th>
+                                                        <th style="text-align: center;font-size:18px;">Note</th>
+                                                        <th style="text-align: center;font-size:18px;">Order_date</th>
+                                                        <th style="text-align: center;font-size:18px;">total_price</th>
 
-                                                        <th style="text-align: center;font-size:18px;">Quantily</th>
-                                                        <th style="text-align: center;font-size:18px;">Price</th>
-                                                        <th style="text-align: center;font-size:18px;">Size</th>
-                                                        <th style="text-align: center;font-size:18px;">Date</th>
-                                                        <th style="text-align: center;font-size:18px;">Thumnail</th>
 
-
-                                                        <th style="text-align: center;font-size:18px;">Description</th>
-                                                        <th style="text-align: center;font-size:18px;">Tags</th>
+                                                        <th style="text-align: center;font-size:18px;">Delivery_date</th>
+                                                       
                                                         <th style="text-align: center;font-size:18px;">Status</th>
                                                         <th style="text-align: center;font-size:18px;"> Action</th>
                                                     </tr>
                                                 </thead>
-                                                @foreach( $product as $p)
+                                                @foreach(  $order as $o)
 
                                                 <tbody>
                                                     <tr>
-                                                        <td>{{$p->id}}</td>
-                                                        <th style="font-size:17px;">{{$p->title}}</th>
+                                                        <td>{{$o->id}}</td>
+                                                        <th style="font-size:17px;">{{$o->name}}</th>
 
 
-                                                        <td>{{$p->quantily}}</td>
-                                                        <th>{{$p->price}}</th>
-                                                        <th style="width:143px;">{!! !empty($p->size) ?'<button class="btn btn-success btn-sm">M</button><button class="btn btn-danger btn-sm">L</button><button class="btn btn-warning btn-sm">XL</button><button class="btn btn-info btn-sm">S</button>': 0 !!}</th>
-                                                        <th>{{$p->date}}</th>
-                                                        <td>
-                                                            <image width="60px" height="80px" src="{{asset('uploads/images/'.$p->thumnail)}}">
-                                                         </td>
-
-
-                                                        <th style="font-size:17px;">{{$p->description}}</th>
-                                                        <th>{{$p->tags}}</th>
-
-                                                        <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm ">ẩn</button>'!!}</th>
+                                                        <td style="font-size:17px;">{{$o->phone}}</td>
+                                                        <th style="font-size:17px;">{{$o->address}}</th>
+                                                        <td style="font-size:17px;">{{$o->email}}</td>
+                                                        <th style="font-size:17px;">{{$o->note}}</th>
+                                                        <td style="font-size:17px;">{{$o->order_date}}</td>
+                                                        <th style="font-size:17px;">{{$o->total_price}}</th>
+                                                        <td style="font-size:17px;">{{$o->delivery_date}}</td>
+                                                       
+                                                        <th>{!! $o->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm ">ẩn</button>'!!}</th>
                                                         <td class=" text-center font-size-10" style="width:98px">
-                                                            <button class="btn btn-primary btn-sm "><a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
-                                                            <button class="btn btn-danger btn-sm"><a href="/admin/deletedProduct/{{$p->id}}" onclick="alert(event,{{$p->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
+                                                            <button class="btn btn-danger btn-sm"><a href="/admin/deleteOrder/{{$o->id}}" onclick="alert(event,{{$o->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
                                                             
                                                         </td>
                                                     </tr>
@@ -367,7 +362,7 @@
                                 </div>
                                 <div class="form-group " style="padding-left:600px;font-size:20px">
                                     <!-- phân trang  -->
-                                    {{$product->appends(request()->all())->links()}}
+                                    {{$order->appends(request()->all())->links()}}
                                 </div>
 
                             </div> <!-- end card-box -->
@@ -414,7 +409,7 @@
                     'success'
                 )
                 // xóa
-                window.location.href ='deletedProduct/'+id;
+                window.location.href ='/admin/deleteOrder/'+id;
 
             }
         })

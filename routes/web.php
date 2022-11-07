@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PostsController;
 use App\Http\Controllers\admin\BrandController;
+use App\Http\Controllers\admin\OrderController;
+use App\Http\Controllers\admin\OrderDetailController;
 
 // product
 Route::get('/admin/show-product', [ProductController::class, 'index']);
@@ -35,3 +38,11 @@ Route::post('/admin/brand', [BrandController::class, 'store']);
 Route::get('/admin/edit/brand/{id}', [BrandController::class, 'edit']);
 Route::post('/admin/edit/brand/{id}', [BrandController::class, 'update']);
 Route::get('/admin/deleteBrand/{id}', [BrandController::class, 'destroy']);
+//admin dashboard
+Route::get('/admin/dashboard', [AdminController::class, 'index']);
+//order
+Route::get('/admin/show-order', [OrderController::class, 'index']);
+Route::get('/admin/deleteOrder/{id}', [OrderController::class, 'destroy']);
+//orderDetail
+Route::get('/admin/show-orderDetail', [OrderDetailController::class, 'index']);
+Route::get('/admin/deleteOrderDetail/{id}', [OrderDetailController::class, 'destroy']);

@@ -292,7 +292,7 @@
                         <div class="card-box" >
                             <div class="row">
                                 <div class="col-lg-12" >
-                                    <h1 class="text-center">SỬA THƯƠNG HIEU</h1>
+                                    <h1 class="text-center"style="font-family: system-ui;">SỬA THƯƠNG HIỆU</h1>
                                     <div class="demo-box">
                                         <form action="/admin/edit/brand/{{$brand->id}}" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                             @csrf

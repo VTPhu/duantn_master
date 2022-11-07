@@ -25,6 +25,7 @@
     <link href="/admin/assets/css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
 
+
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,9 +35,12 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/admin/assets/js/modernizr.min.js"></script>
     <script src="/admin/ckeditor/ckeditor.js"></script>
+
     <script>
         CKEDITOR.replace('ckeditor')
         CKEDITOR.replace('ckeditor')
     </script>
+
+
     <html>
 </head>

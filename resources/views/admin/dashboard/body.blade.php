@@ -1,3 +1,4 @@
+
 <body class="fixed-left">
 
     <!-- Begin page -->
@@ -361,226 +362,10 @@
                     <!-- end row -->
 
 
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="card-box">
-
-                                <h4 class="header-title m-t-0">Daily Sales</h4>
-
-                                <div class="widget-chart text-center">
-                                    <div id="morris-donut-example" style="height: 245px;"></div>
-                                    <ul class="list-inline chart-detail-list m-b-0">
-                                        <li>
-                                            <h5 class="text-danger"><i class="fa fa-circle m-r-5"></i>Series A</h5>
-                                        </li>
-                                        <li>
-                                            <h5 class="text-success"><i class="fa fa-circle m-r-5"></i>Series B</h5>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-lg-4">
-                            <div class="card-box">
-
-                                <h4 class="header-title m-t-0">Statistics</h4>
-                                <div id="morris-bar-example" style="height: 280px;"></div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-lg-4">
-                            <div class="card-box">
-
-                                <h4 class="header-title m-t-0">Total Revenue</h4>
-                                <div id="morris-line-example" style="height: 280px;"></div>
-                            </div>
-                        </div><!-- end col -->
-
-                    </div>
+                   
                     <!-- end row -->
 
 
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card-box">
-                                <h4 class="header-title m-t-0 m-b-30">Recent Users</h4>
-
-                                <div class="table-responsive">
-                                    <table class="table table table-hover m-0">
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>User Name</th>
-                                                <th>Phone</th>
-                                                <th>Location</th>
-                                                <th>Date</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th>
-                                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="thumb-sm img-circle" />
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Louis Hansen</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Web designer</small></p>
-                                                </td>
-                                                <td>+12 3456 789</td>
-                                                <td>USA</td>
-                                                <td>07/08/2016</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <img src="assets/images/users/avatar-2.jpg" alt="user" class="thumb-sm img-circle" />
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Craig Hause</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Programmer</small></p>
-                                                </td>
-                                                <td>+89 345 6789</td>
-                                                <td>Canada</td>
-                                                <td>29/07/2016</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <img src="assets/images/users/avatar-3.jpg" alt="user" class="thumb-sm img-circle" />
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Edward Grimes</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Founder</small></p>
-                                                </td>
-                                                <td>+12 29856 256</td>
-                                                <td>Brazil</td>
-                                                <td>22/07/2016</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <img src="assets/images/users/avatar-4.jpg" alt="user" class="thumb-sm img-circle" />
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Bret Weaver</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Web designer</small></p>
-                                                </td>
-                                                <td>+00 567 890</td>
-                                                <td>USA</td>
-                                                <td>20/07/2016</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <img src="assets/images/users/avatar-5.jpg" alt="user" class="thumb-sm img-circle" />
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Mark</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Web design</small></p>
-                                                </td>
-                                                <td>+91 123 456</td>
-                                                <td>India</td>
-                                                <td>07/07/2016</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-
-                                </div> <!-- table-responsive -->
-                            </div> <!-- end card -->
-                        </div>
-                        <!-- end col -->
-
-                        <div class="col-lg-6">
-                            <div class="card-box">
-                                <h4 class="header-title m-t-0 m-b-30">Recent Users</h4>
-
-                                <div class="table-responsive">
-                                    <table class="table table table-hover m-0">
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>User Name</th>
-                                                <th>Phone</th>
-                                                <th>Location</th>
-                                                <th>Date</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th>
-                                                    <span class="avatar-sm-box bg-success">L</span>
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Louis Hansen</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Web designer</small></p>
-                                                </td>
-                                                <td>+12 3456 789</td>
-                                                <td>USA</td>
-                                                <td>07/08/2016</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <span class="avatar-sm-box bg-primary">C</span>
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Craig Hause</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Programmer</small></p>
-                                                </td>
-                                                <td>+89 345 6789</td>
-                                                <td>Canada</td>
-                                                <td>29/07/2016</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <span class="avatar-sm-box bg-brown">E</span>
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Edward Grimes</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Founder</small></p>
-                                                </td>
-                                                <td>+12 29856 256</td>
-                                                <td>Brazil</td>
-                                                <td>22/07/2016</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <span class="avatar-sm-box bg-pink">B</span>
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Bret Weaver</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Web designer</small></p>
-                                                </td>
-                                                <td>+00 567 890</td>
-                                                <td>USA</td>
-                                                <td>20/07/2016</td>
-                                            </tr>
-
-                                            <tr>
-                                                <th>
-                                                    <span class="avatar-sm-box bg-orange">M</span>
-                                                </th>
-                                                <td>
-                                                    <h5 class="m-0">Mark</h5>
-                                                    <p class="m-0 text-muted font-13"><small>Web design</small></p>
-                                                </td>
-                                                <td>+91 123 456</td>
-                                                <td>India</td>
-                                                <td>07/07/2016</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-
-                                </div> <!-- table-responsive -->
-                            </div> <!-- end card -->
-                        </div>
-                        <!-- end col -->
-
-                    </div>
                     <!-- end row -->
 
 
@@ -589,8 +374,31 @@
                 </div> <!-- container -->
 
             </div> <!-- content -->
+            {{-- <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-box" >
+                        <div class="row" >
+                            <div class="col-lg-4 " >
+                                <form autocomplete="off" style="display:flex;" >
+                                @csrf
+                               
+                                <input type="text" class="form-control" id="from-date" name="from_date" placeholder="Từ ngày">
+                                <div class="col-lg-12">
+                                <input type="text" class="form-control" id="to-date" name="to_date" placeholder="Đến ngày">
+                                </div>
+                                <input type="submit" class="btn btn-danger" id="btn-filter" value="Lọc">
+                           
+                                </form>
+                            </div>
 
-          
+
+                        </div>
+                       
+
+                    </div> <!-- end card-box -->
+                </div> <!-- end col -->
+            </div>
+           --}}
 
         </div>
 
@@ -610,7 +418,30 @@
 
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+<script>
+  $(document).ready(function(){
+    $('#btn-filter').click(function(){
+
+       var _token =$('input[name="token"]').val();
+       var from_date = $('#from-date').val();
+       var to_date = $('#to-date').val();
+     
+       $.ajax({
+       
+        url:"/admin/filter",
+        method:"post",
+        dataType:"JSON",
+        data:{from_date:from_date,to_date:to_date,_token=_token},
+        success:function(data){
+            chart.setData(data);
+        }
+       })
+ 
+    })
+  })
+</script>
 
 
 </html>

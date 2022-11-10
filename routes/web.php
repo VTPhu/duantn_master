@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PostsController;
 use App\Http\Controllers\admin\BrandController;
+use App\Http\Controllers\admin\CouponController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\OrderDetailController;
 
@@ -47,3 +48,8 @@ Route::get('/admin/deleteOrder/{id}', [OrderController::class, 'destroy']);
 //orderDetail
 Route::get('/admin/show-orderDetail', [OrderDetailController::class, 'index']);
 Route::get('/admin/deleteOrderDetail/{id}', [OrderDetailController::class, 'destroy']);
+//Coupon 
+Route::get('/admin/show-coupon', [CouponController::class, 'index']);
+Route::get('/admin/coupon', [CouponController::class, 'create']);
+Route::post('/admin/coupon', [CouponController::class, 'store']);
+Route::get('/admin/deleteCoupon/{id}', [CouponController::class, 'destroy']);

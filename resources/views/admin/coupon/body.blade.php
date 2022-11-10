@@ -31,11 +31,19 @@
                                 <i class="mdi mdi-menu"></i>
                             </button>
                         </li>
+                      
                        
                     </ul>
 
                     <!-- Right(Notification) -->
                     <ul class="nav navbar-nav navbar-right">
+                       
+
+                        
+                       
+
+                       
+
                         <li class="dropdown user-box">
                             <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
                                 <img src="/admin/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
@@ -70,7 +78,7 @@
                         <li class="menu-title">Navigation</li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right">2</span> <span> Dashboard </span> </a>
+                            <a href="/admin/dashboard" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right">2</span> <span> Dashboard </span> </a>
 
                         </li>
 
@@ -91,7 +99,6 @@
 
                             </ul>
                         </li>
-
                         <li>
                             <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Post </span><span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
@@ -100,12 +107,14 @@
 
                             </ul>
                         </li>
+
+
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Brand</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-brand"> Liệt kê</a></li>
                                 <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
-
+    
                             </ul>
                         </li>
                         <li class="has_sub">
@@ -132,6 +141,7 @@
 
                             </ul>
                         </li>
+
 
 
 
@@ -190,32 +200,37 @@
                                                 <button style="background-color:#36404e;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
                                             </form>
                                             <hr>
-                                            <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
-                                                <thead>
-                                                    <tr style="background-color:#36404e;color:white;">
-                                                        <th style="text-align: center;font-size:18px;">Id</th>
-                                                        <th style="text-align: center;font-size:18px;"> Product_Name</th>                                                       
-                                                        <th style="text-align: center;font-size:18px;">Quantily</th>                                                                                                          
-                                                        <th style="text-align: center;font-size:18px;">Price</th>    
-                                                        <th style="text-align: center;font-size:18px;">Order_id</th>                                                                                                          
-                                                        <th style="text-align: center;font-size:18px;">Product_id</th>                                                                                                
-                                                        <th style="text-align: center;font-size:18px;"> Action</th>
+                                            <table id="dt-opt" class="table table-striped add-edit-table table-bordered ">
+                                                <thead style="background-color:#36404e;color:white;">
+                                                    <tr>
+                                                        <th style="text-align: center;font-size:18px">Id</th>
+                                                        <th style="text-align: center;font-size:18px">Code</th>
+                                                        <th style="text-align: center;font-size:18px"> Name</th>
+                                                        <th style="text-align: center;font-size:18px">Content</th>
+                                                        <th style="text-align: center;font-size:18px">Quantily</th>
+                                                        <th style="text-align: center;font-size:18px">Type</th>
+                                                        <th style="text-align: center;font-size:18px">Status</th>
+                                                        <th style="text-align: center;font-size:18px">Start_at</th>
+                                                        <th style="text-align: center;font-size:18px">Expired_at</th>
+                                                        <th style="text-align: center;font-size:18px">Action</th>
                                                     </tr>
                                                 </thead>
-                                                @foreach(  $orderDetail as $o)
-
+                                                @foreach( $coupon as $c)
                                                 <tbody>
                                                     <tr>
-                                                        <td>{{$o->id}}</td>                                                      
-                                                        <th style="font-size:17px;">{{$o->product_name}}</td>
-                                                        <th style="font-size:17px;">{{$o->quantily}}</th>
-                                                        <th style="font-size:17px;">{{$o->price}}</td>
-                                                        <th style="font-size:17px;">{{$o->order_id}}</th>
-                                                        <th style="font-size:17px;">{{$o->product_id}}</td>
-                                                        <td class=" text-center font-size-10" style="width:98px">
-                                                            <button class="btn btn-danger btn-sm"><a href="/admin/deleteOrderDetail/{{$o->id}}" onclick="alert(event,{{$o->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
-                                                            
-                                                        </td>
+                                                        <th style="text-align: center">{{$c->id}}</td>
+                                                        <td style="text-align: center">{{$c->code}}</td>
+                                                        <th style="text-align: center">{{$c->name}}</th>
+                                                        <th style="text-align: center">{{$c->content}}</td>
+                                                        <td style="text-align: center">{{$c->quantily}}</td>
+                                                        <th style="text-align: center">{{$c->type}}</th>
+                                                        <th style="text-align: center">{!! $c->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
+                                                        <th style="text-align: center">{{$c->start_at}}</td>
+                                                        <th style="text-align: center">{{$c->expired_at}}</td>
+                                                            <td class=" text-center font-size-10">
+                                                               
+                                                                <button class="btn btn-danger btn-sm"><a href="/admin/deleteCoupon/{{$c->id}}" onclick="alert(event,{{$c->id}})" class="text-gray " type="submit"><i style="color:white" class="ti-trash "></i></a></button>
+                                                                </td>
                                                     </tr>
                                                 </tbody>
 
@@ -230,7 +245,7 @@
                                 </div>
                                 <div class="form-group " style="padding-left:600px;font-size:20px">
                                     <!-- phân trang  -->
-                                    {{ $orderDetail->appends(request()->all())->links()}}
+                                    {{$coupon->appends(request()->all())->links()}}
                                 </div>
 
                             </div> <!-- end card-box -->
@@ -277,8 +292,8 @@
                     'success'
                 )
                 // xóa
-                window.location.href ='/admin/deleteOrderDetail/'+id;
-
+                window.location.href ='deleteCoupon/'+id;
+            
             }
         })
     }

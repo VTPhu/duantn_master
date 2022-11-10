@@ -128,14 +128,21 @@
                                 </ul>
                             </li>
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i><span> Coupon</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> Coupon</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-coupon"> Liệt kê</a></li>
                                     <li><a href="/admin/coupon"> Thêm coupon</a></li>
     
                                 </ul>
                             </li>
-                           
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> User</span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="/admin/show-user"> Liệt kê</a></li>
+                                    
+    
+                                </ul>
+                            </li>
                            
 
                           

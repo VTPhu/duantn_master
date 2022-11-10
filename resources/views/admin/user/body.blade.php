@@ -32,10 +32,23 @@
                             </button>
                         </li>
                        
+                       
                     </ul>
 
                     <!-- Right(Notification) -->
                     <ul class="nav navbar-nav navbar-right">
+                       
+
+                        <li>
+                           
+                            <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right dropdown-lg user-list notify-list">
+                               
+                                
+                                
+                            </ul>
+                        </li>
+
+                        
                         <li class="dropdown user-box">
                             <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
                                 <img src="/admin/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
@@ -192,8 +205,18 @@
                                         <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
                                         @endif
                                         <div class="demo-box">
-                                            <form action="" class="form-inline" role="form">
-                                                <input type="text" class="form-control" placeholder="Tìm kiếm" name="key" value="{{request()->key}}">
+                                            <form  class="form-inline" role="form">
+                                               <select style="width:200px" name="status" class="form-control" >
+                                                <option value="0">Trạng thái</option>
+                                                <option value="1">Kích hoạt</option>
+                                                <option value="2">Chưa Kích hoạt</option>
+                                               </select>
+                                               <select style="width:200px" name="role" class="form-control" >
+                                                <option value="0">Phân quyền</option>
+                                                <option value="1">USER</option>
+                                                <option value="2">ADMIN</option>
+                                               </select>
+                                              <input type="text" class="form-control" placeholder="Tìm kiếm" name="key" value="{{request()->key}}">
                                                 <button style="background-color:#36404e;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
                                             </form>
                                             <hr>
@@ -201,26 +224,27 @@
                                                 <thead>
                                                     <tr style="background-color:#36404e;color:white;">
                                                         <th style="text-align: center;font-size:18px;">Id</th>
-                                                        <th style="text-align: center;font-size:18px;"> Product_Name</th>                                                       
-                                                        <th style="text-align: center;font-size:18px;">Quantily</th>                                                                                                          
-                                                        <th style="text-align: center;font-size:18px;">Price</th>    
-                                                        <th style="text-align: center;font-size:18px;">Order_id</th>                                                                                                          
-                                                        <th style="text-align: center;font-size:18px;">Product_id</th>                                                                                                
+                                                        <th style="text-align: center;font-size:18px;">Name</th>
+                                                        <th style="text-align: center;font-size:18px;">Email</th>
+                                                        <th style="text-align: center;font-size:18px;">Password</th>
+                                                        <th style="text-align: center;font-size:18px;">Role</th>
+                                                        <th style="text-align: center;font-size:18px;">Status</th>
                                                         <th style="text-align: center;font-size:18px;"> Action</th>
                                                     </tr>
                                                 </thead>
-                                                @foreach(  $orderDetail as $o)
+                                                @foreach($user as $u)
 
                                                 <tbody>
                                                     <tr>
-                                                        <td>{{$o->id}}</td>                                                      
-                                                        <th style="font-size:17px;">{{$o->product_name}}</td>
-                                                        <th style="font-size:17px;">{{$o->quantily}}</th>
-                                                        <th style="font-size:17px;">{{$o->price}}</td>
-                                                        <th style="font-size:17px;">{{$o->order_id}}</th>
-                                                        <th style="font-size:17px;">{{$o->product_id}}</td>
+                                                        <td>{{$u->id}}</td>
+                                                        <th style="font-size:17px;">{{$u->name}}</th>
+                                                        <td>{{$u->email}}</td>
+                                                        <th>{{$u->password}}</th>
+                                                        <th style="text-align: center;">{!! $u->role==2?'<button class="btn btn-success btn-sm" >ADMIN</button>':'<button class="btn btn-danger btn-sm ">USER</button>'!!}</th>
+                                                        <th style="text-align: center;">{!! $u->status==1?'<button class="btn btn-success btn-sm">Kích hoạt</button>':'<button class="btn btn-danger btn-sm ">Đang chờ kích hoạt</button>'!!}</th>
                                                         <td class=" text-center font-size-10" style="width:98px">
-                                                            <button class="btn btn-danger btn-sm"><a href="/admin/deleteOrderDetail/{{$o->id}}" onclick="alert(event,{{$o->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
+                                                            <button class="btn btn-primary btn-sm "><a href="/admin/show-user/{{$u->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
+                                                           
                                                             
                                                         </td>
                                                     </tr>
@@ -237,7 +261,7 @@
                                 </div>
                                 <div class="form-group " style="padding-left:600px;font-size:20px">
                                     <!-- phân trang  -->
-                                    {{ $orderDetail->appends(request()->all())->links()}}
+                                    {{$user->appends(request()->all())->links()}}
                                 </div>
 
                             </div> <!-- end card-box -->
@@ -265,30 +289,6 @@
 
 
 </body>
-<script type="text/javascript">
-    function alert(event,id) {
-        event.preventDefault();
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-                // xóa
-                window.location.href ='/admin/deleteOrderDetail/'+id;
 
-            }
-        })
-    }
-</script>
 
 </html>

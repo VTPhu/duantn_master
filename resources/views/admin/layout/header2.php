@@ -13,16 +13,16 @@
     <title>GENZ FASHION</title>
 
     <!--Morris Chart CSS -->
-    <link rel="stylesheet" href="../plugins/morris/morris.css">
+    <link rel="stylesheet" href="/../plugins/morris/morris.css">
 
     <!-- App css -->
-    <link href="/admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/admin/assets/css/core.css" rel="stylesheet" type="text/css" />
-    <link href="/admin/assets/css/components.css" rel="stylesheet" type="text/css" />
-    <link href="/admin/assets/css/icons.css" rel="stylesheet" type="text/css" />
-    <link href="/admin/assets/css/pages.css" rel="stylesheet" type="text/css" />
-    <link href="/admin/assets/css/menu.css" rel="stylesheet" type="text/css" />
-    <link href="/admin/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/./admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/./admin/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/./admin/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/./admin/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/./admin/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/./admin/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/./admin/assets/css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->

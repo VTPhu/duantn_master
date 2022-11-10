@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\CouponController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\OrderDetailController;
+use App\Http\Controllers\admin\UserController;
 
 // product
 Route::get('/admin/show-product', [ProductController::class, 'index']);
@@ -53,3 +54,7 @@ Route::get('/admin/show-coupon', [CouponController::class, 'index']);
 Route::get('/admin/coupon', [CouponController::class, 'create']);
 Route::post('/admin/coupon', [CouponController::class, 'store']);
 Route::get('/admin/deleteCoupon/{id}', [CouponController::class, 'destroy']);
+//user
+Route::get('/admin/show-user', [UserController::class, 'index']);
+Route::get('/admin/show-user/{id}', [UserController::class, 'showUpdate']);
+Route::post('/admin/show-user/{id}', [UserController::class, 'edit']);

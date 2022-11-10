@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\CouponController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\OrderDetailController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\client\ClientController;
 
 // product
 Route::get('/admin/show-product', [ProductController::class, 'index']);
@@ -58,3 +59,5 @@ Route::get('/admin/deleteCoupon/{id}', [CouponController::class, 'destroy']);
 Route::get('/admin/show-user', [UserController::class, 'index']);
 Route::get('/admin/show-user/{id}', [UserController::class, 'showUpdate']);
 Route::post('/admin/show-user/{id}', [UserController::class, 'edit']);
+//Phần người dùng
+Route::get('/', [ClientController::class, 'index']);

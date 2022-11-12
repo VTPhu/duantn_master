@@ -215,11 +215,10 @@
                 
                                                     <div class="form-group text-right m-b-0">
                                                         <button class="btn btn-primary waves-effect waves-light" type="submit">
-                                                            Submit
+                                                            Sửa
                                                         </button>
-                                                        <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                            Cancel
-                                                        </button>
+                                                        <button class="btn btn-danger btn-sm" style="height:34px"><a href="/admin/show-user"   style="color:white;height:50px">Hủy bỏ</a></button>                                                            
+
                                                     </div>
                 
                                                 </form>

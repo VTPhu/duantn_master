@@ -221,7 +221,7 @@
                                                         <th style="font-size:17px;">{{$o->address}}</th>
                                                         <td style="font-size:17px;">{{$o->email}}</td>
                                                         <th style="font-size:17px;">{{$o->note}}</th>
-                                                        <td style="font-size:17px;">{{$o->order_date}}</td>
+                                                        <td style="font-size:17px;">{{date('d-m-Y', strtotime($o->order_date))}}</td>
                                                         <th style="font-size:17px;">{{$o->total_price}}</th>
                                                         <td style="font-size:17px;">{{$o->delivery_date}}</td>
                                                        
@@ -289,19 +289,19 @@
     function alert(event,id) {
         event.preventDefault();
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Bạn có chắc không?',
+            text: "Bạn sẽ không thể trở lại ban đầu!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Có, xóa nó!'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
+                    'Xóa!',
+                    'Đã bị xóa',
+                    'Thành công'
                 )
                 // xóa
                 window.location.href ='/admin/deleteOrder/'+id;

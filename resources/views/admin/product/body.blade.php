@@ -229,7 +229,7 @@
                                                         <td>{{$p->quantily}}</td>
                                                         <th>{{ number_format($p->price) }}đ</th>
                                                         <th style="width:143px;">{!! !empty($p->size) ?'<button class="btn btn-success btn-sm">M</button><button class="btn btn-danger btn-sm">L</button><button class="btn btn-warning btn-sm">XL</button><button class="btn btn-info btn-sm">S</button>': 0 !!}</th>
-                                                        <th>{{$p->date}}</th>
+                                                        <th style="width:86px">{{date('d-m-Y', strtotime($p->date))}}</th>
                                                         <td>
                                                             <image width="60px" height="80px" src="{{asset('uploads/images/'.$p->thumnail)}}">
                                                          </td>

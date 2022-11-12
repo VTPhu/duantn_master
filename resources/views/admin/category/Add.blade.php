@@ -195,7 +195,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
-                                                           <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                                           <select style="width: 140px;height: 30px;border-radius:4px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
                                                             <option value="0">Hiện</option>    
                                                             <option value="1">Ẩn</option>                                                    
                                                           @if($errors->has('status'))

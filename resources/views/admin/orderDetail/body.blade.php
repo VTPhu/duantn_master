@@ -129,14 +129,7 @@
 
                             </ul>
                         </li>
-                        <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-diamond"></i><span>CHI TIẾT ĐƠN HÀNG</span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="/admin/show-orderDetail"> Liệt kê</a></li>
-                                
-
-                            </ul>
-                        </li>
+                      
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span>MÃ GIẢM GIÁ</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
@@ -254,7 +247,7 @@
                                                 <h4>Ghi chú:</h4>
                                                 <p style="font-size:16px">{{$orderDetail[0]->note}}</p>
                                                 <h4>Ngày đặt:</h4>
-                                                <p style="font-size:16px">{{$orderDetail[0]->order_date}}</p>
+                                                <p style="font-size:16px">{{date('d-m-Y', strtotime($orderDetail[0]->order_date))}}</p>
                                                 <h4>Tổng tiền:</h4>
                                                 <p style="font-size:16px">{{ number_format($orderDetail[0]->total_price) }}đ</p>
                                             </div>
@@ -264,7 +257,7 @@
                                                     <div class="form-group">
                                                         
                                                         <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
-                                                               <select style="width: 200px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                                               <select style="width: 200px;height: 33px;border-radius:5px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
                                                                <?php 
                                                                     $trangThai = array('0'=>'Đang chờ xử lý','1'=>'Đã xác nhận','2'=>'Đã hủy');
                                                                 ?>

@@ -225,8 +225,8 @@
                                                         <td style="text-align: center">{{$c->quantily}}</td>
                                                         <th style="text-align: center">{{$c->type}}</th>
                                                         <th style="text-align: center">{!! $c->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
-                                                        <th style="text-align: center">{{$c->start_at}}</td>
-                                                        <th style="text-align: center">{{$c->expired_at}}</td>
+                                                        <th style="text-align: center">{{date('d-m-Y', strtotime($c->start_atdate))}}</td>
+                                                        <th style="text-align: center">{{date('d-m-Y', strtotime($c->expired_at))}}</td>
                                                             <td class=" text-center font-size-10">
                                                                
                                                                 <button class="btn btn-danger btn-sm"><a href="/admin/deleteCoupon/{{$c->id}}" onclick="alert(event,{{$c->id}})" class="text-gray " type="submit"><i style="color:white" class="ti-trash "></i></a></button>
@@ -277,19 +277,19 @@
     function alert(event,id) {
         event.preventDefault();
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Bạn có chắc không?',
+            text: "Bạn sẽ không thể trở lại ban đầu!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Có, xóa nó!'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
+                    'Xóa!',
+                    'Đã bị xóa',
+                    'Thành công'
                 )
                 // xóa
                 window.location.href ='deleteCoupon/'+id;

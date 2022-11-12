@@ -166,10 +166,10 @@
                                                             <td>{{$p->id}}</td>
                                                                 <th>{{$p->title}}</th>
                                                                
-                                                                <td>{{$p->content}}</td>
+                                                                <th>{{$p->content}}</th>
                                                                 <td>{{$p->sumary}}</td>
-                                                                <th>{{$p->date}}</th>
-                                                                <td><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail_url)}}"</td>
+                                                                <th style="width:86px">{{date('d-m-Y', strtotime($p->date))}}</th>
+                                                                <th><image width="60px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail_url)}}"</th>
                                                                
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">Hiện</button>':'<button class="btn btn-danger btn-sm ">Ẩn</button>'!!}</th>
                                                             <td class="text-center font-size-10" style="width:98px">

@@ -53,7 +53,7 @@ class ProductController extends Controller
             'category_id' => 'required',
             'brand_id' => 'required',
             'description' => 'required|min:50|max:500',
-            'tags' => 'required',
+            'tags' => 'required|starts_with:#',
             'status' => 'required|in:0,1',
 
 

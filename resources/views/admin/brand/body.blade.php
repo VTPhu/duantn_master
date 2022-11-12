@@ -246,19 +246,19 @@
     function del(event,id) {
         event.preventDefault();
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Bạn có chắc không?',
+            text: "Bạn sẽ không thể trở lại ban đầu!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Có, xóa nó!'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
+                    'Xóa!',
+                    'Đã bị xóa.',
+                    'Thành công'
                 )
                 // xóa
                 window.location.href ='deleteBrand/'+id;

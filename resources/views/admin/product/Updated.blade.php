@@ -267,7 +267,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Danh mục<span class="text-danger">*</span></label><br>                                                   
-                                                            <select style="width: 170px;height: 40px;border-radius:10px;text-align:center;font-size:17px" class="form-select"  name="category_id" aria-label="Default select example">
+                                                            <select style="width: 170px;height: 33px;border-radius:4px;text-align:center;font-size:15px" class="form-select"  name="category_id" aria-label="Default select example">
                                                                 @foreach( $category as $c) 
                                                                     @if ($c->id == $product->category_id)
                                                                         <option selected value="{{$c->id}}">{{$c->name}}</option>          
@@ -284,7 +284,7 @@
                                                     <div class="form-group">
                                                         <label for="userName">Thương hiệu<span class="text-danger">*</span></label><br>
                                                         
-                                                               <select style="width: 170px;height: 40px;border-radius:10px;text-align:center;font-size:17px" class="form-select"  name="brand_id" aria-label="Default select example">
+                                                               <select style="width: 170px;height: 33px;border-radius:4px;text-align:center;font-size:14px" class="form-select"  name="brand_id" aria-label="Default select example">
                                                                 @foreach( $brand as $b) 
                                                                     @if ($b->id == $product->brand_id)
                                                                         <option selected value="{{$b->id}}">{{$b->name}}</option>          
@@ -317,7 +317,7 @@
                                                     <div class="form-group">
                                                       
                                                             <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
-                                                            <select style="width: 200px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                                            <select style="width: 170px;height: 33px;border-radius:4px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
                                                             <?php 
                                                                  $trangThai = array('0'=>'Hiện','1'=>'Ẩn');
                                                              ?>

@@ -223,12 +223,16 @@
                                                         @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Tài khoản<span class="text-danger">*</span></label>
-                                                        <input type="number" name="user_id" parsley-trigger="change" required
-                                                               placeholder="user_id" class="form-control" id="userName" value="{{old('user_id')}}">
-                                                               @if($errors->has('user_id'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('user_id') }}</strong>
-                                                               @endif
+                                                        <label for="userName">Tài khoản<span class="text-danger">*</span></label><br>
+                                                      
+                                                               <select style="width: 178px;height: 33px;border-radius: 3px;font-size: 15px;" class="form-select"  name="user_id" aria-label="Default select example">
+                                                                @foreach( $user as $u) 
+                                                                <option style="text-align:center;" value="{{$u->id}}">{{$u->name}}</option>                                                     
+                                                                @if($errors->has('user_id'))
+                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('user_id') }}</strong>
+                                                                @endif
+                                                              @endforeach
+                                                            </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Từ khóa<span class="text-danger">*</span></label>
@@ -240,7 +244,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
-                                                               <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                                               <select style="width: 140px;height: 30px;border-radius:4px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
                                                                 <option value="0">Hiện</option>    
                                                                 <option value="1">Ẩn</option>                                                    
                                                               @if($errors->has('status'))

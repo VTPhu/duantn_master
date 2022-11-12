@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Posts;
+use App\Models\Users;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -23,11 +24,11 @@ class PostsController extends Controller
             $posts =  Posts::orderBy('date', 'DESC')->where('title', 'like',   $key . '%')->paginate(5);
         }
         return view('admin.posts.List', compact('posts'));
-        
     }
     public function addPosts()
     {
-        return view('admin.posts.addPosts');
+        $user = Users::all();
+        return view('admin.posts.addPosts', compact('user'));
     }
     public function store(Request $request)
     {
@@ -59,9 +60,9 @@ class PostsController extends Controller
             $input['thumnail_url'] = $image;
         }
         Posts::create($input);
-        return redirect('/admin/show-posts')->with('status','Đã thêm bài viết thành công bài viết');
+        return redirect('/admin/show-posts')->with('status', 'Đã thêm bài viết thành công bài viết');
     }
-    public function updated(request $request,$id)
+    public function updated(request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|unique:products',
@@ -69,7 +70,7 @@ class PostsController extends Controller
             'sumary' => 'required',
             'content' => 'required',
             'date' => 'required|date',
-            'thumnail_url' => 'required|mimes:jpg,bmp,png|file',
+            'thumnail_url' => 'mimes:jpg,bmp,png|file',
             'user_id' => 'required',
             'tags' => 'required',
             'status' => 'required|in:0,1',
@@ -88,29 +89,31 @@ class PostsController extends Controller
         $input->sumary = $request->sumary;
         $input->content = $request->content;
         $input->date = $request->date;
-        $input->thumnail_url = $request->thumnail_url;
-        if ($request->hasFile('thumnail_url')) {
-            $path = 'uploads/images';
-            $thumnail_url = $request->file('thumnail_url');
-            $image = $thumnail_url->getClientOriginalName();
-            $path_name = $request->file('thumnail_url')->move(public_path($path), $image);
-            $input['thumnail_url'] = $image;
+        if ($request->thumnail_url) {
+            $input->thumnail_url = $request->thumnail_url;
+            if ($request->hasFile('thumnail_url')) {
+                $path = 'uploads/images';
+                $thumnail_url = $request->file('thumnail_url');
+                $image = $thumnail_url->getClientOriginalName();
+                $path_name = $request->file('thumnail_url')->move(public_path($path), $image);
+                $input['thumnail_url'] = $image;
+            }
         }
         $input->user_id = $request->user_id;
         $input->tags = $request->tags;
         $input->status = $request->status;
         $input->save();
-        return redirect('/admin/show-posts')->with('status','Đã cập nhập thành công bài viết');
+        return redirect('/admin/show-posts')->with('status', 'Đã cập nhập thành công bài viết');
     }
     public function edit($id)
     {
         $posts = Posts::find($id);
-        return view('admin.posts.updatedPosts',compact('posts'));
+        return view('admin.posts.updatedPosts', compact('posts'));
     }
     public function destroy($id)
     {
         $posts = Posts::find($id);
         $posts->delete();
-        return redirect()->back()->with('status','Đã xóa bài viết thành công bài viết');
+        return redirect()->back()->with('status', 'Đã xóa bài viết thành công bài viết');
     }
 }

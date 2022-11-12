@@ -256,7 +256,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
-                                                            <select style="width: 200px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                                            <select style="width: 170px;height: 30px;border-radius:4px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
                                                             <?php 
                                                                  $trangThai = array('0'=>'Hiện','1'=>'Ẩn');
                                                              ?>

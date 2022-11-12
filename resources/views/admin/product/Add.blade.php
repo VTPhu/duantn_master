@@ -188,7 +188,7 @@
 										<div class="col-lg-12" >
                                             <h1 class="text-center" style="font-family: system-ui;">THÊM SẢN PHẨM</h1>
 											<div class="demo-box">
-                                                <form action="/admin/product" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
+                                                <form action="/admin/product" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data" >
                                                     @csrf
                                                     <div class="form-group">
                                                         <label for="userName">Tiêu đề<span class="text-danger">*</span></label>
@@ -264,9 +264,8 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Danh mục<span class="text-danger">*</span></label><br>                                                   
-                                                            <select style="width: 170px;height: 40px;border-radius:10px;font-size:16px" class="form-select"  name="category_id" aria-label="Default select example">
+                                                            <select style="width: 178px;height: 33px;border-radius: 3px;font-size: 15px;" class="form-select"  name="category_id" aria-label="Default select example">
                                                                 @foreach( $category as $c) 
-                                                                
                                                                 <option style="text-align:center;" value="{{$c->id}}">{{$c->name}}</option>                                                     
                                                               @if($errors->has('category_id'))
                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('category_id') }}</strong>
@@ -276,7 +275,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Thương hiệu<span class="text-danger">*</span></label><br>
-                                                        <select style="width: 170px;height: 40px;border-radius:10px;font-size:16px" class="form-select"  name="brand_id" aria-label="Default select example">
+                                                        <select style="width: 178px;height: 33px;border-radius:3px;font-size:15px" class="form-select"  name="brand_id" aria-label="Default select example">
                                                             @foreach( $brand as $b) 
                                                            
                                                             <option style="text-align:center;" value="{{$b->id}}">{{$b->name}}</option>                                                     
@@ -288,9 +287,11 @@
                                                               
                                                     </div>
                                                     <div class="form-group">Mô tả<span class="text-danger">*</span></label>
-                                                        <input type="text" name="description" parsley-trigger="change" required
+                                                        <textarea type="text" name="description" parsley-trigger="change" required
                                                                placeholder="description" class="form-control" id="userName" value="{{old('description')}}">
-                                                               @if($errors->has('description'))
+                                                               
+                                                        </textarea>
+                                                        @if($errors->has('description'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('description') }}</strong>
                                                                @endif
                                                     </div>
@@ -304,7 +305,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
-                                                               <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                                               <select style="width: 140px;height: 30px;border-radius:4px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
                                                                 <option value="0">Hiện</option>    
                                                                 <option value="1">Ẩn</option>                                                    
                                                               @if($errors->has('status'))

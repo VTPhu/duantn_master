@@ -8,7 +8,8 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #eee;
-    color: #111;
+    color: white;
+    background: #111;
 }
 
 :root {
@@ -18,13 +19,12 @@ body {
     /* defined with JavaScript */
     --marquee-elements-displayed: 3;
     --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
-    --marquee-animation-duration: calc(var(--marquee-elements) * 4s);
+    --marquee-animation-duration: calc(var(--marquee-elements) * 6s);
 }
 
 .marquee {
     width: var(--marquee-width);
     height: var(--marquee-height);
-    background-color: rgb(34, 36, 34);
     color: #eee;
     overflow: hidden;
     position: relative;
@@ -38,16 +38,6 @@ body {
     height: 100%;
     content: "";
     z-index: 1;
-}
-
-.marquee:before {
-    left: 0;
-    background: rgb(49, 58, 58);
-}
-
-.marquee:after {
-    right: 0;
-    background: rgb(49, 58, 58);
 }
 
 .marquee-content {

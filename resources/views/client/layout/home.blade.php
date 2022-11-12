@@ -1,18 +1,8 @@
-<marquee>
-    <div class="marquee">
+<marquee >
+    <div class="marquee" >
         <ul class="marquee-content">
-            <li><i class="fab fa-github"></i></li>
-            <li><i class="fab fa-codepen"></i></li>
-            <li><i class="fab fa-free-code-camp"></i></li>
-            <li><i class="fab fa-dev"></i></li>
-            <li><i class="fab fa-react"></i></li>
-            <li><i class="fab fa-vuejs"></i></li>
-            <li><i class="fab fa-angular"></i></li>
-            <li><i class="fab fa-node"></i></li>
-            <li><i class="fab fa-wordpress"></i></li>
-            <li><i class="fab fa-aws"></i></li>
-            <li><i class="fab fa-docker"></i></li>
-            <li><i class="fab fa-android"></i></li>
+        <li>a</li>
+        
         </ul>
     </div>
 </marquee>
@@ -451,7 +441,7 @@
                     <div class="col-xxl-12">
                         <div class="section-title top-selling-title text-center pb-47">
                             <span class="p-subtitle">KHÁM phá sản phẩm</span>
-                            <h3 class="p-title pb-15 mb-0">Sản phẩm bán chạy</h3>
+                            <h3 class="p-title pb-15 mb-0" style="color:black">Sản phẩm bán chạy</h3>
                             
                         </div>
                     </div>

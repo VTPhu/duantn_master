@@ -74,7 +74,7 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Product</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> SẢN PHẨM</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-product">Liệt kê</a></li>
                                 <li><a href="/admin/product">Thêm sản phẩm</a></li>
@@ -83,7 +83,7 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Category </span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> DANH MỤC </span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-category"> Liệt kê</a></li>
                                 <li><a href="/admin/category"> Thêm danh mục</a></li>
@@ -92,7 +92,7 @@
                         </li>
 
                         <li>
-                            <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Post </span><span class="menu-arrow"></span></a>
+                            <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> BÀI VIẾT </span><span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-posts"> Liệt kê</a></li>
                                 <li><a href="/admin/posts"> Thêm bài viết</a></li>
@@ -100,7 +100,7 @@
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Brand</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span>THƯƠNG HIỆU</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-brand"> Liệt kê</a></li>
                                 <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
@@ -108,23 +108,16 @@
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> Order</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> ĐƠN HÀNG</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-order"> Liệt kê</a></li>
                                 
 
                             </ul>
                         </li>
+                       
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-diamond"></i><span> OrderDetail</span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="/admin/show-orderDetail"> Liệt kê</a></li>
-                                
-
-                            </ul>
-                        </li>
-                        <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> Coupon</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> MÃ GIẢM GIÁ</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-coupon"> Liệt kê</a></li>
                                 <li><a href="/admin/coupon"> Thêm coupon</a></li>
@@ -132,7 +125,7 @@
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> User</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span>TÀI KHOẢN</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-user"> Liệt kê</a></li>
                                 
@@ -199,20 +192,21 @@
                                             <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
                                                 <thead>
                                                     <tr style="background-color:#36404e;color:white;">
-                                                        <th style="text-align: center;font-size:18px;">Id</th>
-                                                        <th style="text-align: center;font-size:18px;"> Name</th>                                                       
-                                                        <th style="text-align: center;font-size:18px;">Phone</th>                                                     
-                                                        <th style="text-align: center;font-size:18px;">Address</th>
+                                                        <th style="text-align: center;font-size:18px;">Thứ tự</th>
+                                                        <th style="text-align: center;font-size:18px;"> Tên</th>                                                       
+                                                        <th style="text-align: center;font-size:18px;">SĐT</th>                                                     
+                                                        <th style="text-align: center;font-size:18px;">Địa chỉ</th>
                                                         <th style="text-align: center;font-size:18px;">Email</th>
-                                                        <th style="text-align: center;font-size:18px;">Note</th>
-                                                        <th style="text-align: center;font-size:18px;">Order_date</th>
-                                                        <th style="text-align: center;font-size:18px;">total_price</th>
+                                                        <th style="text-align: center;font-size:18px;">Ghi chú</th>
+                                                        <th style="text-align: center;font-size:18px;">Ngày đặt hàng</th>
+                                                        <th style="text-align: center;font-size:18px;">Tổng giá</th>
 
 
-                                                        <th style="text-align: center;font-size:18px;">Delivery_date</th>
+                                                        <th style="text-align: center;font-size:18px;">Ngày giao hàng</th>
                                                        
-                                                        <th style="text-align: center;font-size:18px;">Status</th>
-                                                        <th style="text-align: center;font-size:18px;"> Action</th>
+                                                        <th style="text-align: center;font-size:18px;">Trạng thái</th>
+                                                        <th style="text-align: center;font-size:18px;">Xem chi tiết đơn hàng</th>
+                                                        <th style="text-align: center;font-size:18px;width: 108px;">Hành động</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach(  $order as $o)
@@ -220,7 +214,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>{{$o->id}}</td>
-                                                        <th style="font-size:17px;">{{$o->name}}</th>
+                                                        <th style="font-size:17px;"><a href="/admin/show-order/{{$o->id}}" >{{$o->name}}</a></th>
 
 
                                                         <td style="font-size:17px;">{{$o->phone}}</td>
@@ -231,7 +225,20 @@
                                                         <th style="font-size:17px;">{{$o->total_price}}</th>
                                                         <td style="font-size:17px;">{{$o->delivery_date}}</td>
                                                        
-                                                        <th>{!! $o->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm ">ẩn</button>'!!}</th>
+                                                        {{-- <th>{!! $o->status==0?'<button class="btn btn-danger btn-sm">Đang xử lý</button>':$o->status==1?'<button class="btn btn-success btn-sm ">Đã hoàn thành</button>':'<button class="btn btn-info btn-sm ">Đã hủy</button>'!!}</th> --}}
+                                                        <th>
+                                                            @if($o->status==0)
+                                                            <button class="btn btn-danger btn-sm">Đang xử lý</button>
+                                                            @elseif($o->status==1)
+                                                                <button class="btn btn-success btn-sm ">Đã xác nhận</button>
+                                                            @elseif($o->status==2)
+                                                            <button class="btn btn-warning btn-sm ">Đã hủy</button>
+                                                            @endif
+                                                        </th>
+                                                        <th class=" text-center font-size-10" style="width:98px">
+                                                            <button class="btn btn-info btn-sm"><a href="/admin/show-order/{{$o->id}}"  style="color:white">Chi tiết</a></button>
+                                                            
+                                                        </td>
                                                         <td class=" text-center font-size-10" style="width:98px">
                                                             <button class="btn btn-danger btn-sm"><a href="/admin/deleteOrder/{{$o->id}}" onclick="alert(event,{{$o->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
                                                             

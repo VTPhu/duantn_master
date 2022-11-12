@@ -81,7 +81,7 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Product</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> SẢN PHẨM</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-product">Liệt kê</a></li>
                                     <li><a href="/admin/product">Thêm sản phẩm</a></li>
@@ -90,7 +90,7 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Category </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span>DANH MỤC </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-category"> Liệt kê</a></li>
                                     <li><a href="/admin/category"> Thêm danh mục</a></li>
@@ -99,7 +99,7 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Posts </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> BÀI VIẾT </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-posts"> Liệt kê</a></li>
                                     <li><a href="/admin/posts"> Thêm bài viết</a></li>
@@ -108,7 +108,7 @@
                             </li>
                             
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Brand</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span>THƯƠNG HIỆU</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-brand"> Liệt kê</a></li>
                                     <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
@@ -117,23 +117,16 @@
                             </li>
     
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> Order</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> ĐƠN HÀNG</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-order"> Liệt kê</a></li>
                                     
     
                                 </ul>
                             </li>
+                            
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-diamond"></i><span> OrderDetail</span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/admin/show-orderDetail"> Liệt kê</a></li>
-                                    
-    
-                                </ul>
-                            </li>
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> Coupon</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span>MÃ GIẢM GIÁ</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-coupon"> Liệt kê</a></li>
                                     <li><a href="/admin/coupon"> Thêm coupon</a></li>
@@ -141,7 +134,7 @@
                                 </ul>
                             </li>
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> User</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span>TÀI KHOẢN</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-user"> Liệt kê</a></li>
                                     
@@ -198,7 +191,7 @@
                                                 <form action="/admin/coupon" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="form-group">
-                                                        <label for="userName">Code<span class="text-danger">*</span></label>
+                                                        <label for="userName">Mã<span class="text-danger">*</span></label>
                                                         <input type="text" name="code" parsley-trigger="change" required
                                                                placeholder="Code" class="form-control" id="userName" value="{{old('code')}}">
                                                                @if($errors->has('code'))
@@ -207,7 +200,7 @@
                                                     </div>
                 
                                                     <div class="form-group">
-                                                        <label for="slug">Name<span class="text-danger">*</span></label>
+                                                        <label for="slug">Tên<span class="text-danger">*</span></label>
                                                         <input type="text" name="name" parsley-trigger="change" required
                                                                placeholder="Name " class="form-control" id="slug" value="{{old('name')}}">
                                                                @if($errors->has('name'))
@@ -216,7 +209,7 @@
                                                     </div>
                                                    
                                                     <div class="form-group">
-                                                        <label for="userName">Content<span class="text-danger">*</span></label>
+                                                        <label for="userName">Nội dung<span class="text-danger">*</span></label>
                                                         <input type="text" name="content" parsley-trigger="change" required
                                                                placeholder="content" class="form-control" id="userName" value="{{old('content')}}">
                                                                @if($errors->has('content'))
@@ -224,7 +217,7 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Quantily<span class="text-danger">*</span></label>
+                                                        <label for="userName">Số lượng<span class="text-danger">*</span></label>
                                                         <input type="number" name="quantily" parsley-trigger="change" required
                                                                placeholder="số lượng" class="form-control" id="userName" value="{{old('quantily')}}">
                                                                @if($errors->has('quantily'))
@@ -232,7 +225,7 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Type<span class="text-danger">*</span></label><br>
+                                                        <label for="userName">Loại<span class="text-danger">*</span></label><br>
                                                         <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="type" aria-label="Default select example">
                                                             <option value="F">F</option>    
                                                             <option value="P">P</option>                                                    
@@ -243,7 +236,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Status<span class="text-danger">*</span></label><br>    
+                                                        <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
                                                                <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
                                                                 <option value="0">Hiện</option>    
                                                                 <option value="1">Ẩn</option>                                                    
@@ -254,7 +247,7 @@
                                                             </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Start_at<span class="text-danger">*</span></label>
+                                                        <label for="userName">Ngày bắt đầu<span class="text-danger">*</span></label>
                                                         <input type="date" name="start_at" parsley-trigger="change" required
                                                                placeholder="giá" class="form-control" id="userName" value="{{old('start_at')}}">
                                                                @if($errors->has('start_at'))
@@ -262,7 +255,7 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">expired_at<span class="text-danger">*</span></label>
+                                                        <label for="userName">Ngày kết thúc<span class="text-danger">*</span></label>
                                                         <input type="date" name="expired_at" parsley-trigger="change" required
                                                                placeholder="số lượng" class="form-control" id="userName" value="{{old('expired_at')}}">
                                                                @if($errors->has('expired_at'))
@@ -272,11 +265,10 @@
                 
                                                     <div class="form-group text-right m-b-0">
                                                         <button class="btn btn-primary waves-effect waves-light" type="submit">
-                                                            Submit
+                                                            Thêm
                                                         </button>
-                                                        <button  type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                            Cancel
-                                                        </button>
+                                                        <button class="btn btn-danger btn-sm" style="height:34px"><a href="/admin/show-coupon"   style="color:white;height:50px">Hủy bỏ</a></button>                                                            
+
                                                     </div>
                 
                                                 </form>

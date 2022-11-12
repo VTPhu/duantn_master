@@ -46,9 +46,12 @@ Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::post('/admin/filter', [AdminController::class, 'filter_date']);
 //order
 Route::get('/admin/show-order', [OrderController::class, 'index']);
+Route::get('/admin/show-order/{id}', [OrderController::class, 'create']);
+Route::post('/admin/show-order/{id}', [OrderController::class, 'store']);
 Route::get('/admin/deleteOrder/{id}', [OrderController::class, 'destroy']);
 //orderDetail
-Route::get('/admin/show-orderDetail', [OrderDetailController::class, 'index']);
+Route::get('/admin/show-orderDetail/{id}', [OrderDetailController::class, 'index']);
+// Route::post('/admin/show-orderDetail', [OrderDetailController::class, 'store']);
 Route::get('/admin/deleteOrderDetail/{id}', [OrderDetailController::class, 'destroy']);
 //Coupon 
 Route::get('/admin/show-coupon', [CouponController::class, 'index']);

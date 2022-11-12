@@ -66,7 +66,7 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Product</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> SẢN PHẨM</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-product">Liệt kê</a></li>
                                     <li><a href="/admin/product">Thêm sản phẩm</a></li>
@@ -75,7 +75,7 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Category </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> DANH MỤC </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-category"> Liệt kê</a></li>
                                     <li><a href="/admin/category"> Thêm danh mục</a></li>
@@ -84,7 +84,7 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Posts </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> BÀI VIẾT </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-posts"> Liệt kê</a></li>
                                     <li><a href="/admin/posts"> Thêm bài viết</a></li>
@@ -93,7 +93,7 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Brand</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> THƯƠNG HIỆU</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-brand"> Liệt kê</a></li>
                                     <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
@@ -101,23 +101,16 @@
                                 </ul>
                             </li>
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> Order</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> ĐƠN HÀNG</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-order"> Liệt kê</a></li>
                                     
     
                                 </ul>
                             </li>
+                          
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-diamond"></i><span> OrderDetail</span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/admin/show-orderDetail"> Liệt kê</a></li>
-                                    
-    
-                                </ul>
-                            </li>
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> Coupon</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> MÃ GIẢM GIÁ</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-coupon"> Liệt kê</a></li>
                                     <li><a href="/admin/coupon"> Thêm coupon</a></li>
@@ -125,7 +118,7 @@
                                 </ul>
                             </li>
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> User</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> TÀI KHOẢN</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-user"> Liệt kê</a></li>
                                     
@@ -182,7 +175,7 @@
                                                 <form action="posts" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="form-group">
-                                                        <label for="userName">Title<span class="text-danger">*</span></label>
+                                                        <label for="userName">Tiêu đề<span class="text-danger">*</span></label>
                                                         <input type="text" name="title" parsley-trigger="change" required
                                                                placeholder="Tiêu đề" class="form-control" id="userName" value="{{old('title')}}">
                                                                @if($errors->has('title'))
@@ -191,7 +184,7 @@
                                                     </div>
                 
                                                     <div class="form-group">
-                                                        <label for="slug">slug<span class="text-danger">*</span></label>
+                                                        <label for="slug">Đường dẫn<span class="text-danger">*</span></label>
                                                         <input type="slug" name="slug" parsley-trigger="change" required
                                                                placeholder="slug " class="form-control" id="slug" value="{{old('slug')}}">
                                                                @if($errors->has('slug'))
@@ -199,7 +192,7 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">sumary<span class="text-danger">*</span></label>
+                                                        <label for="userName">Tóm tắt<span class="text-danger">*</span></label>
                                                         <input type="text" name="sumary" parsley-trigger="change" required
                                                                placeholder="tóm tắt" class="form-control" id="userName" value="{{old('sumary')}}">
                                                                @if($errors->has('sumary'))
@@ -207,7 +200,7 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Content<span class="text-danger">*</span></label>
+                                                        <label for="userName">Nội dung<span class="text-danger">*</span></label>
                                                         <textarea id="ckeditor"  style="resize:none" name="content" parsley-trigger="change" required
                                                                placeholder="Nội dung bài viết" class="form-control" value="{{old('content')}}"></textarea>
                                                                @if($errors->has('content'))
@@ -215,7 +208,7 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Date<span class="text-danger">*</span></label>
+                                                        <label for="userName">Ngày đăng<span class="text-danger">*</span></label>
                                                         <input type="date" name="date" parsley-trigger="change" required
                                                                placeholder="ngày" class="form-control" id="userName" value="{{old('date')}}">
                                                                @if($errors->has('date'))
@@ -223,14 +216,14 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label">thumnail_url</label>
+                                                        <label class="control-label">Hình ảnh</label>
                                                         <input type="file" name="thumnail_url"  class="filestyle" data-buttonname="btn-default" value="{{old('thumnail_url')}}">
                                                         @if($errors->has('thumnail_url'))
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail_url') }}</strong>
                                                         @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">user_id<span class="text-danger">*</span></label>
+                                                        <label for="userName">Tài khoản<span class="text-danger">*</span></label>
                                                         <input type="number" name="user_id" parsley-trigger="change" required
                                                                placeholder="user_id" class="form-control" id="userName" value="{{old('user_id')}}">
                                                                @if($errors->has('user_id'))
@@ -238,7 +231,7 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Tags<span class="text-danger">*</span></label>
+                                                        <label for="userName">Từ khóa<span class="text-danger">*</span></label>
                                                         <input type="text" name="tags" parsley-trigger="change" required
                                                                placeholder="tags" class="form-control" id="userName" value="{{old('tags')}}">
                                                                @if($errors->has('tags'))
@@ -246,7 +239,7 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Status<span class="text-danger">*</span></label><br>    
+                                                        <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
                                                                <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
                                                                 <option value="0">Hiện</option>    
                                                                 <option value="1">Ẩn</option>                                                    
@@ -258,11 +251,10 @@
                                                     </div>
                                                     <div class="form-group text-right m-b-0">
                                                         <button class="btn btn-primary waves-effect waves-light" type="submit">
-                                                            Submit
+                                                            Thêm
                                                         </button>
-                                                        <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                            Cancel
-                                                        </button>
+                                                        <button class="btn btn-danger btn-sm" style="height:34px"><a href="/admin/show-posts"   style="color:white;height:50px">Hủy bỏ</a></button>                                                            
+
                                                     </div>
                                                 </form>
 											</div>

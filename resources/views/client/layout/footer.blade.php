@@ -4,7 +4,7 @@
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
 
                 <div class="widget f-widget pb-30 wow fadeInUp" data-wow-delay=".4s">
-                    <h5 class="f-widget-title">THÔNG TIN</h5>
+                    <h5 class="f-widget-title" style="color:black">THÔNG TIN</h5>
                     <ul>
                         <li><a href="#">Giới Thiệu</li>
                         <li><a href="#">Dịch vụ khách hàng</a></li>
@@ -16,7 +16,7 @@
             </div>
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div class="widget f-widget pb-30 wow fadeInUp" data-wow-delay=".6s">
-                    <h5 class="f-widget-title">DỊCH VỤ CỦA CHÚNG TÔI</h5>
+                    <h5 class="f-widget-title"style="color:black">DỊCH VỤ CỦA CHÚNG TÔI</h5>
                     <ul>
                         <li><a href="#">chính sách vận chuyển</a></li>
                         <li><a href="#">Trợ giúp & Liên hệ với chúng tôi</a></li>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div class="widget f-widget pb-30  wow fadeInUp" data-wow-delay=".8s">
-                    <h5 class="f-widget-title">Phương thức thanh toán</h5>
+                    <h5 class="f-widget-title"style="color:black">Phương thức thanh toán</h5>
                     <ul>
                         <li><a href="#">Điều khoản sử dụng</a></li>
                         <li><a href="#">Phương thức thanh toán</a></li>
@@ -40,7 +40,7 @@
             </div>
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div class="widget f-widget pb-30 wow fadeInUp" data-wow-delay="1s">
-                    <h5 class="f-widget-title">Tiềm kiếm</h5>
+                    <h5 class="f-widget-title"style="color:black">Tiềm kiếm</h5>
                     <address>
                         <ul>
                             <li>Bạn cũng có thể liên hệ với chúng tôi:</li>
@@ -68,7 +68,7 @@
                                 pm.</span> Sun:
                             9:00 am – 6:00 pm.<br>
                         </p>
-                        <img src="assets/img/icon/payments.png" alt="img">
+                        <img src="client/assets/img/icon/payments.png" alt="img">
                     </div>
                 </div>
             </div>

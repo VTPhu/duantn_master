@@ -78,7 +78,7 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Product</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span>SẢN PHẨM</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-product">Liệt kê</a></li>
                                     <li><a href="/admin/product">Thêm sản phẩm</a></li>
@@ -86,7 +86,7 @@
                                 </ul>
                             </li>
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Category </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span>DANH MỤC </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-category"> Liệt kê</a></li>
                                     <li><a href="/admin/category"> Thêm danh mục</a></li>
@@ -94,7 +94,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Post </span><span class="menu-arrow"></span></a>
+                                <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> BÀI VIẾT </span><span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-posts"> Liệt kê</a></li>
                                     <li><a href="/admin/posts"> Thêm bài viết</a></li>
@@ -104,7 +104,7 @@
     
     
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Brand</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> THƯƠNG HIỆU</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-brand"> Liệt kê</a></li>
                                     <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
@@ -112,23 +112,16 @@
                                 </ul>
                             </li>
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> Order</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> ĐƠN HÀNG</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-order"> Liệt kê</a></li>
                                     
     
                                 </ul>
                             </li>
+                          
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-diamond"></i><span> OrderDetail</span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="/admin/show-orderDetail"> Liệt kê</a></li>
-                                    
-    
-                                </ul>
-                            </li>
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> Coupon</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> MÃ GIẢM GIÁ</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-coupon"> Liệt kê</a></li>
                                     <li><a href="/admin/coupon"> Thêm coupon</a></li>
@@ -136,7 +129,7 @@
                                 </ul>
                             </li>
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> User</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> TÀI KHOẢN</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-user"> Liệt kê</a></li>
                                     
@@ -195,7 +188,7 @@
                                                 <form  method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="form-group">
-                                                        <label for="userName">Name<span class="text-danger">*</span></label>
+                                                        <label for="userName">Tên<span class="text-danger">*</span></label>
                                                         <input type="text" name="name" parsley-trigger="change" required
                                                                placeholder="Tên" class="form-control" id="userName" value="{{$category->name}}">
                                                                @if($errors->has('name'))
@@ -203,25 +196,31 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Status<span class="text-danger">*</span></label><br>    
-                                                               <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
-                                                                <option value="0">Hiện</option>    
-                                                                <option value="1">Ẩn</option>                                                    
-                                                              @if($errors->has('status'))
-                                                              <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('status') }}</strong>
-                                                              @endif 
-                                                              
-                                                            </select>
+                                                        <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
+                                                            <select style="width: 200px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                                            <?php 
+                                                                 $trangThai = array('0'=>'Hiện','1'=>'Ẩn');
+                                                             ?>
+                                                             @foreach ( $trangThai as $row => $item)
+                                                                 
+                                                                 @if ($row == $category->status)
+                                                                     <option selected value="{{$row}}">{{$item}}</option>
+                                                                 @else
+                                                                     <option value="{{$row}}">{{$item}}</option>
+                                                                 @endif
+
+                                                             @endforeach
+                                                         
+                                                         </select>
                                                     </div>
                                                     
                 
                                                     <div class="form-group text-right m-b-0">
                                                         <button  class="btn btn-primary waves-effect waves-light" type="submit">
-                                                            Submit
+                                                            Sửa
                                                         </button>
-                                                        <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                            Cancel
-                                                        </button>
+                                                        <button class="btn btn-danger btn-sm" style="height:34px"><a href="/admin/show-category"   style="color:white;height:50px">Hủy bỏ</a></button>                                                            
+
                                                     </div>
                 
                                                 </form>

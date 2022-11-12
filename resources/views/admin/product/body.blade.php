@@ -88,7 +88,7 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Product</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> SẢN PHẨM</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-product">Liệt kê</a></li>
                                 <li><a href="/admin/product">Thêm sản phẩm</a></li>
@@ -97,7 +97,7 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Category </span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> DANH MỤC </span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-category"> Liệt kê</a></li>
                                 <li><a href="/admin/category"> Thêm danh mục</a></li>
@@ -106,7 +106,7 @@
                         </li>
 
                         <li>
-                            <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Post </span><span class="menu-arrow"></span></a>
+                            <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> BÀI VIẾT </span><span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-posts"> Liệt kê</a></li>
                                 <li><a href="/admin/posts"> Thêm bài viết</a></li>
@@ -114,7 +114,7 @@
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Brand</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span>THƯƠNG HIỆU</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-brand"> Liệt kê</a></li>
                                 <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
@@ -122,23 +122,16 @@
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> Order</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span>ĐƠN HÀNG</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-order"> Liệt kê</a></li>
                                 
 
                             </ul>
                         </li>
+                       
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-diamond"></i><span> OrderDetail</span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="/admin/show-orderDetail"> Liệt kê</a></li>
-                                
-
-                            </ul>
-                        </li>
-                        <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> Coupon</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span>MÃ GIẢM GIÁ</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-coupon"> Liệt kê</a></li>
                                 <li><a href="/admin/coupon"> Thêm coupon</a></li>
@@ -146,7 +139,7 @@
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> User</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span>TÀI KHOẢN</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-user"> Liệt kê</a></li>
                                 
@@ -206,27 +199,25 @@
                                         @endif
                                         <div class="demo-box">
                                             <form action="" class="form-inline" role="form">
-                                                <input type="text" class="form-control" placeholder="Tìm kiếm" name="key" value="{{request()->key}}">
+                                                <input type="text" class="form-control" placeholder="Tìm kiếm....." name="key" value="{{request()->key}}">
                                                 <button style="background-color:#36404e;" type="submit" class="btn btn- "><i style="color:white;" class="fas fa fa-search"></i></button>
                                             </form>
                                             <hr>
                                             <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
                                                 <thead>
                                                     <tr style="background-color:#36404e;color:white;">
-                                                        <th style="text-align: center;font-size:18px;">Id</th>
-                                                        <th style="text-align: center;font-size:18px;"> Title</th>
+                                                        <th style="text-align: center;font-size:18px;width: 79px;">Thứ tự</th>
+                                                        <th style="text-align: center;font-size:18px;">Tiêu đề</th>
 
-                                                        <th style="text-align: center;font-size:18px;">Quantily</th>
-                                                        <th style="text-align: center;font-size:18px;">Price</th>
-                                                        <th style="text-align: center;font-size:18px;">Size</th>
-                                                        <th style="text-align: center;font-size:18px;">Date</th>
-                                                        <th style="text-align: center;font-size:18px;">Thumnail</th>
-
-
-                                                        <th style="text-align: center;font-size:18px;">Description</th>
-                                                        <th style="text-align: center;font-size:18px;">Tags</th>
-                                                        <th style="text-align: center;font-size:18px;">Status</th>
-                                                        <th style="text-align: center;font-size:18px;"> Action</th>
+                                                        <th style="text-align: center;font-size:18px;width: 96px;">Số lượng</th>
+                                                        <th style="text-align: center;font-size:18px;">Tiền</th>
+                                                        <th style="text-align: center;font-size:18px;">Kích thước</th>
+                                                        <th style="text-align: center;font-size:18px;">Ngày</th>
+                                                        <th style="text-align: center;font-size:18px;">Ảnh</th>
+                                                        <th style="text-align: center;font-size:18px;">Mô tả</th>
+                                                        <th style="text-align: center;font-size:18px;width: 99px;">Từ khóa</th>
+                                                        <th style="text-align: center;font-size:18px;width: 99px;">Trạng thái</th>
+                                                        <th style="text-align: center;font-size:18px;width:106px;"> Hành động</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach( $product as $p)
@@ -235,21 +226,17 @@
                                                     <tr>
                                                         <td>{{$p->id}}</td>
                                                         <th style="font-size:17px;">{{$p->title}}</th>
-
-
                                                         <td>{{$p->quantily}}</td>
-                                                        <th>{{$p->price}}</th>
+                                                        <th>{{ number_format($p->price) }}đ</th>
                                                         <th style="width:143px;">{!! !empty($p->size) ?'<button class="btn btn-success btn-sm">M</button><button class="btn btn-danger btn-sm">L</button><button class="btn btn-warning btn-sm">XL</button><button class="btn btn-info btn-sm">S</button>': 0 !!}</th>
                                                         <th>{{$p->date}}</th>
                                                         <td>
                                                             <image width="60px" height="80px" src="{{asset('uploads/images/'.$p->thumnail)}}">
                                                          </td>
-
-
                                                         <th style="font-size:17px;">{{$p->description}}</th>
                                                         <th>{{$p->tags}}</th>
 
-                                                        <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm ">ẩn</button>'!!}</th>
+                                                        <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">Hiện</button>':'<button class="btn btn-danger btn-sm ">Ẩn</button>'!!}</th>
                                                         <td class=" text-center font-size-10" style="width:98px">
                                                             <button class="btn btn-primary btn-sm "><a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
                                                             <button class="btn btn-danger btn-sm"><a href="/admin/deletedProduct/{{$p->id}}" onclick="alert(event,{{$p->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
@@ -301,19 +288,19 @@
     function alert(event,id) {
         event.preventDefault();
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Bạn có chắc không?',
+            text: "Bạn sẽ không thể trở lại ban đầu !",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Có, xóa nó!'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
+                    'Xóa!',
+                    'Đã bị xóa',
+                    'Thành công'
                 )
                 // xóa
                 window.location.href ='deletedProduct/'+id;

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Brand;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -26,15 +26,16 @@ class ProductController extends Controller
 
         $product = Product::paginate(3);
         if ($key = request()->key) {
-            $product =  Product::orderBy('date', 'DESC')->where('title', 'like',  '%' . $key . '%')->paginate(5);
+            $product =  Product::orderBy('date', 'DESC')->where('title', 'like',  '%' . $key . '%')->paginate(15);
         }
 
         return view('admin.product.List', compact('product'));
     }
     public function addProduct()
     {
+        $brand = Brand::all();
         $category = Category::all();
-        return view('admin.product.addProduct', compact('category'));
+        return view('admin.product.addProduct', compact('category', 'brand'));
     }
 
     public function store(Request $request)
@@ -51,7 +52,7 @@ class ProductController extends Controller
             'view' => 'required',
             'category_id' => 'required',
             'brand_id' => 'required',
-            'description' => 'required',
+            'description' => 'required|min:50|max:500',
             'tags' => 'required',
             'status' => 'required|in:0,1',
 
@@ -81,10 +82,11 @@ class ProductController extends Controller
 
     public function updated($id)
     {
+        $brand = Brand::all();
         $category = Category::all();
         $product = Product::find($id);
         if ($product == null) return redirect('/thongbao');
-        return view('admin.product.updatedProduct', compact('product', 'category'));
+        return view('admin.product.updatedProduct', compact('product', 'category', 'brand'));
     }
     public function edit(Request $request, $id)
     {

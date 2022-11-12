@@ -88,7 +88,7 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> Product</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-invert-colors"></i> <span> SẢN PHẨM</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-product">Liệt kê</a></li>
                                 <li><a href="/admin/product">Thêm sản phẩm</a></li>
@@ -97,7 +97,7 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> Category </span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i><span> DANH MỤC </span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-category"> Liệt kê</a></li>
                                 <li><a href="/admin/category"> Thêm danh mục</a></li>
@@ -106,7 +106,7 @@
                         </li>
 
                         <li>
-                            <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> Post </span><span class="menu-arrow"></span></a>
+                            <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span> BÀI VIẾT </span><span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-posts"> Liệt kê</a></li>
                                 <li><a href="/admin/posts"> Thêm bài viết</a></li>
@@ -114,7 +114,7 @@
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> Brand</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span> THƯƠNG HIỆU</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-brand"> Liệt kê</a></li>
                                 <li><a href="/admin/brand"> Thêm Thương Hiệu</a></li>
@@ -122,23 +122,16 @@
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> Order</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span> ĐƠN HÀNG</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-order"> Liệt kê</a></li>
                                 
 
                             </ul>
                         </li>
+                       
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-diamond"></i><span> OrderDetail</span> <span class="menu-arrow"></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="/admin/show-orderDetail"> Liệt kê</a></li>
-                                
-
-                            </ul>
-                        </li>
-                        <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> Coupon</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span> MÃ GIẢM GIÁ</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-coupon"> Liệt kê</a></li>
                                 <li><a href="/admin/coupon"> Thêm coupon</a></li>
@@ -146,7 +139,7 @@
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> User</span> <span class="menu-arrow"></span></a>
+                            <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span> TÀI KHOẢN</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-user"> Liệt kê</a></li>
                                 
@@ -208,8 +201,8 @@
                                             <form  class="form-inline" role="form">
                                                <select style="width:200px" name="status" class="form-control" >
                                                 <option value="0">Trạng thái</option>
-                                                <option value="1">Kích hoạt</option>
-                                                <option value="2">Chưa Kích hoạt</option>
+                                                <option value="1">Đang chờ duyệt</option>
+                                                <option value="2">Đã duyệt</option>
                                                </select>
                                                <select style="width:200px" name="role" class="form-control" >
                                                 <option value="0">Phân quyền</option>
@@ -223,13 +216,13 @@
                                             <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
                                                 <thead>
                                                     <tr style="background-color:#36404e;color:white;">
-                                                        <th style="text-align: center;font-size:18px;">Id</th>
-                                                        <th style="text-align: center;font-size:18px;">Name</th>
+                                                        <th style="text-align: center;font-size:18px;">Thứ tự</th>
+                                                        <th style="text-align: center;font-size:18px;">Tên</th>
                                                         <th style="text-align: center;font-size:18px;">Email</th>
-                                                        <th style="text-align: center;font-size:18px;">Password</th>
-                                                        <th style="text-align: center;font-size:18px;">Role</th>
-                                                        <th style="text-align: center;font-size:18px;">Status</th>
-                                                        <th style="text-align: center;font-size:18px;"> Action</th>
+                                                        <th style="text-align: center;font-size:18px;">Mật khẩu</th>
+                                                        <th style="text-align: center;font-size:18px;">Phân quyền</th>
+                                                        <th style="text-align: center;font-size:18px;">Trạng thái</th>
+                                                        <th style="text-align: center;font-size:18px;width:107px;"> Hành động</th>
                                                     </tr>
                                                 </thead>
                                                 @foreach($user as $u)
@@ -241,7 +234,7 @@
                                                         <td>{{$u->email}}</td>
                                                         <th>{{$u->password}}</th>
                                                         <th style="text-align: center;">{!! $u->role==2?'<button class="btn btn-success btn-sm" >ADMIN</button>':'<button class="btn btn-danger btn-sm ">USER</button>'!!}</th>
-                                                        <th style="text-align: center;">{!! $u->status==1?'<button class="btn btn-success btn-sm">Kích hoạt</button>':'<button class="btn btn-danger btn-sm ">Đang chờ kích hoạt</button>'!!}</th>
+                                                        <th style="text-align: center;">{!! $u->status==1?'<button class="btn btn-danger btn-sm"> Đang chờ duyệt</button>':'<button class="btn btn-success btn-sm ">Đã duyệt</button>'!!}</th>
                                                         <td class=" text-center font-size-10" style="width:98px">
                                                             <button class="btn btn-primary btn-sm "><a href="/admin/show-user/{{$u->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
                                                            

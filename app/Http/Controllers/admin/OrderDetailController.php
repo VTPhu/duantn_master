@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\OrderDetail;
+use Illuminate\Support\Facades\DB;
 
 class OrderDetailController extends Controller
 {
@@ -13,12 +14,14 @@ class OrderDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $orderDetail = OrderDetail::paginate(5);
-        if ($key = request()->key) {
-            $orderDetail = OrderDetail::where('product_name', 'like',  '%' . $key . '%')->paginate(5);
-        }
+        $orderDetail = DB::table('order_details')
+            ->join('orders', 'orders.id', '=', 'order_details.order_id')
+            ->join('products', 'products.id', '=', 'order_details.product_id')
+            ->where('orders.id', '=', $id)
+            ->get();
+
         return view('admin.orderDetail.list', compact('orderDetail'));
     }
 
@@ -29,7 +32,7 @@ class OrderDetailController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.orderDetail.list');
     }
 
     /**
@@ -40,7 +43,6 @@ class OrderDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**

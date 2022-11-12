@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
@@ -27,9 +28,17 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $orderDetail = DB::table('order_details')
+            ->join('orders', 'orders.id', '=', 'order_details.order_id')
+            ->join('products', 'products.id', '=', 'order_details.product_id')
+            ->where('orders.id', '=', $id)
+            ->get();
+        $order = Order::find($id);
+        if ($order == null) return redirect('/thongbao');
+
+        return view('admin.orderDetail.list', compact('order', 'orderDetail'));
     }
 
     /**
@@ -38,9 +47,16 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $input = Order::find($id);
+        $input->status = $request->status;
+        $input->save();
+        if ($input) {
+
+            return redirect('/admin/show-order')->with('message', 'Xác nhận thành công');
+        }
     }
 
     /**

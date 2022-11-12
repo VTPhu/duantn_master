@@ -210,12 +210,12 @@
                                             <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
                                                 <thead>
                                                     <tr style="background-color:#36404e;color:white;">
-                                                        <th style="text-align: center;font-size:18px;width: 79px;">Ảnh</th>
+                                                        <th style="text-align: center;font-size:18px;padding-left:41px">Ảnh</th>
                                                         <th style="text-align: center;font-size:18px;width: 79px;">Tên sản phẩm</th>
                                                         <th style="text-align: center;font-size:18px;width: 100px;">Số lượng</th>
                                                         <th style="text-align: center;font-size:18px;">Kích cỡ</th>
                                                         <th style="text-align: center;font-size:18px;">Giá</th>
-                                                        <th style="text-align: center;font-size:18px;width: 100px;">Thành tiền</th>
+                                                        <th style="text-align: center;font-size:18px;width: 500px;">Thành tiền</th>
                                                     </tr>
                                                 </thead>
                                                 
@@ -224,8 +224,8 @@
                                                 
                                                 <tbody>
                                                     <tr>
-                                                        <th style="font-size:17px;width: 115px;padding-left: 26px;">
-                                                            <image width="60px" height="80px" src="{{asset('uploads/images/'.$o->thumnail)}}">
+                                                        <th style="font-size:17px;width: 115px;padding-left: 44px;">
+                                                            <image width="95px" height="100px" src="{{asset('uploads/images/'.$o->thumnail)}}">
                                                          </th>
                                                         <th style="font-size:17px;">{{$o->title}}</th>
                                                         <td>{{$o->quantily_order}}</td>

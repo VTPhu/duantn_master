@@ -16,8 +16,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brand =Brand::paginate(5);
-        if($key = request()->key){
+        $brand = Brand::paginate(5);
+        if ($key = request()->key) {
             $brand = Brand::where('name', 'like',  $key . '%')->paginate(10);
         }
         return view('admin.brand.list', compact('brand'));
@@ -43,7 +43,7 @@ class BrandController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:brands',
-            'description' => 'required|unique:brands',
+            'description' => 'required',
             'status' => 'required|in:0,1',
 
 
@@ -56,7 +56,6 @@ class BrandController extends Controller
         $input = $request->all();
         $brand = Brand::create($input);
         return redirect('/admin/show-brand')->with('message', 'Thêm thành công');
-
     }
 
     /**
@@ -100,11 +99,10 @@ class BrandController extends Controller
         ]);
         $input = Brand::find($id);
         $input->name = $request->name;
-        $input->description =$request->description;
-        $input->status= $request->status;
+        $input->description = $request->description;
+        $input->status = $request->status;
         $input->save();
         return redirect('/admin/show-brand')->with('message', 'Cập nhật thành công');
-
     }
 
     /**

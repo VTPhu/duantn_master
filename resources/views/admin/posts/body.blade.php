@@ -173,7 +173,7 @@
                                                                
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm">Hiện</button>':'<button class="btn btn-danger btn-sm ">Ẩn</button>'!!}</th>
                                                             <td class="text-center font-size-10" style="width:98px">
-                                                                <button class="btn btn-primary btn-sm "><a href="/admin/posts/{{$p->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
+                                                                <button class="btn btn-primary btn-sm " style="width:35px"><a href="/admin/posts/{{$p->id}}" class="text-gray m-r-5"><i style="color:white;padding-left:1px" class="ti-pencil"></i></a></button>
                                                                 <button class="btn btn-danger btn-sm"><a href="/admin/deleted/{{$p->id}}" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
                                                             </td>
                                                         </tr>

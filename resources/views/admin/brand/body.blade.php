@@ -197,7 +197,7 @@
                                                         <th>{{$b->description}}</th>
                                                         <th>{!! $b->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
                                                     <td class="text-center font-size-10" style="width:98px">
-                                                        <button class="btn btn-primary btn-sm "><a href="/admin/edit/brand/{{$b->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
+                                                        <button class="btn btn-primary btn-sm " style="width:35px"><a href="/admin/edit/brand/{{$b->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
                                                         <button class="btn btn-danger btn-sm"><a href="/admin/deleteBrand/{{$b->id}}" onclick="del(event,{{$b->id}})"  class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
                                                     </td>
                                                 </tr>

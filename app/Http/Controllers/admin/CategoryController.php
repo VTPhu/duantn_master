@@ -44,7 +44,7 @@ class CategoryController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:categories',
             'status' => 'required|in:0,1',
-
+            'thumnail' => 'mimes:jpg,bmp,png|file',
 
         ]);
         if ($validator->fails()) {
@@ -53,6 +53,13 @@ class CategoryController extends Controller
                 ->withInput();
         }
         $input = $request->all();
+        if ($request->hasFile('thumnail')) {
+            $path = 'uploads/images';
+            $thumnail = $request->file('thumnail');
+            $image = $thumnail->getClientOriginalName();
+            $path_name = $request->file('thumnail')->move(public_path($path), $image);
+            $input['thumnail'] = $image;
+        }
         $category = Category::create($input);
         if ($category) {
             return redirect('/admin/show-category')->with('message', 'Thêm thành công');
@@ -83,7 +90,7 @@ class CategoryController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'status' => 'required|in:0,1',
-
+            'thumnail' => 'mimes:jpg,bmp,png|file',
 
         ]);
         if ($validator->fails()) {
@@ -94,6 +101,16 @@ class CategoryController extends Controller
         $input = $request->all();
         $input = Category::find($id);
         $input->name = $request->name;
+        if ($request->thumnail) {
+            $input->thumnail = $request->thumnail;
+            if ($request->hasFile('thumnail')) {
+                $path = 'uploads/images';
+                $thumnail = $request->file('thumnail');
+                $image = $thumnail->getClientOriginalName();
+                $path_name = $request->file('thumnail')->move(public_path($path), $image);
+                $input['thumnail'] = $image;
+            }
+        }
         $input->status = $request->status;
         $input->save();
         return redirect('/admin/show-category')->with('message', 'Sửa thành công');

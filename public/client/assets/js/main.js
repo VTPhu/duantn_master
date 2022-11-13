@@ -1,13 +1,13 @@
 (function ($) {
   ("use strict");
 
-  var windowOn = $(window);
-  ////////////////////////////////////////////////////
-  // 01. PreLoader Js
-  windowOn.on('load', function () {
-    $("#loading").fadeOut(500);
-  });
-
+	var windowOn = $(window);
+	////////////////////////////////////////////////////
+    // 01. PreLoader Js
+	windowOn.on('load',function() {
+		$("#loading").fadeOut(500);
+	});
+  
   // meanmenu
   $("#mobile-menu").meanmenu({
     meanMenuContainer: ".mobile-menu",
@@ -15,12 +15,12 @@
     meanExpand: ['<i class="far fa-angle-right"></i>'],
   });
 
-  // meanmenu
-  $("#mobile-menu-2").meanmenu({
-    meanMenuContainer: ".mobile-menu-2",
-    meanScreenWidth: "400000",
-    meanExpand: ['<i class="far fa-angle-right"></i>'],
-  });
+    // meanmenu
+    $("#mobile-menu-2").meanmenu({
+      meanMenuContainer: ".mobile-menu-2",
+      meanScreenWidth: "400000",
+      meanExpand: ['<i class="far fa-angle-right"></i>'],
+    });
 
   $(window).on("scroll", function () {
     var scroll = $(window).scrollTop();
@@ -32,11 +32,11 @@
   });
 
   $(".search-toggle").on("click", function () {
-    $(".search__area").addClass("search-active");
-  });
-  $(".search-close-btn").on("click", function () {
-    $(".search__area").removeClass("search-active");
-  });
+		$(".search__area").addClass("search-active");
+	});
+	$(".search-close-btn").on("click", function () {
+		$(".search__area").removeClass("search-active");
+	});
 
 
   // nice select
@@ -346,7 +346,7 @@
     items: 6,
     navText: [
       '<button class="nav-left"><i class="far fa-angle-left"></i></button>', '<button class="nav-right"><i class="far fa-angle-right"></i></button>']
-    ,
+      ,
     nav: true,
     dots: false,
     responsive: {
@@ -362,7 +362,7 @@
     items: 6,
     navText: [
       '<button class="nav-left"><i class="far fa-angle-left"></i></button>', '<button class="nav-right"><i class="far fa-angle-right"></i></button>']
-    ,
+      ,
     nav: true,
     dots: false,
     responsive: {
@@ -375,48 +375,48 @@
   function homeSlider() {
     var slider = $('.lookbook-slider');
     slider.owlCarousel({
-      loop: true,
-      autoplay: true,
-      nav: false,
-      dots: true,
-      navText: ['<i class="ti-arrow-left"></i>', '<i class="ti-arrow-right"></i>'],
-      autoplayTimeout: 5000,
-      responsive: {
-        0: {
-          items: 1
-        },
-        600: {
-          items: 1
-        },
-        1000: {
-          items: 1
+        loop: true,
+        autoplay: true,
+        nav: false,
+        dots: true,
+        navText: ['<i class="ti-arrow-left"></i>', '<i class="ti-arrow-right"></i>'],
+        autoplayTimeout: 5000,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
         }
-      }
     });
     slider.on('translate.owl.carousel', function () {
-      var layer = $("[data-animation]");
-      layer.each(function () {
-        var slider_animation = $(this).data('animation');
-        $(this).removeClass('animated ' + slider_animation).css('opacity', '0');
-      });
+        var layer = $("[data-animation]");
+        layer.each(function () {
+            var slider_animation = $(this).data('animation');
+            $(this).removeClass('animated ' + slider_animation).css('opacity', '0');
+        });
     });
     $("[data-delay]").each(function () {
-      var animation_delay = $(this).data('delay');
-      $(this).css('animation-delay', animation_delay);
+        var animation_delay = $(this).data('delay');
+        $(this).css('animation-delay', animation_delay);
     });
     $("[data-duration]").each(function () {
-      var animation_dutation = $(this).data('duration');
-      $(this).css('animation-duration', animation_dutation);
+        var animation_dutation = $(this).data('duration');
+        $(this).css('animation-duration', animation_dutation);
     });
     slider.on('translated.owl.carousel', function () {
-      var layer = slider.find('.owl-item.active').find("[data-animation]");
-      layer.each(function () {
-        var slider_animation = $(this).data('animation');
-        $(this).addClass('animated ' + slider_animation).css('opacity', '1');
-      });
+        var layer = slider.find('.owl-item.active').find("[data-animation]");
+        layer.each(function () {
+            var slider_animation = $(this).data('animation');
+            $(this).addClass('animated ' + slider_animation).css('opacity', '1');
+        });
     });
-  }
-  homeSlider();
+}
+homeSlider();
 
   /* magnificPopup img view */
   $(".popup-image").magnificPopup({
@@ -470,32 +470,32 @@
   });
 
 
-  $('.grid').imagesLoaded(function () {
-    // init Isotope
-    var $grid = $('.grid').isotope({
-      itemSelector: '.grid-item',
-      percentPosition: true,
-      masonry: {
+    $('.grid').imagesLoaded( function() {
+      // init Isotope
+      var $grid = $('.grid').isotope({
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        masonry: {
         // use outer width of grid-sizer for columnWidth
         columnWidth: '.grid-item',
-      }
-    });
-
-
+        }
+      });
+  
+  
     // filter items on button click
-    $('.masonary-menu').on('click', 'button', function () {
+    $('.masonary-menu').on( 'click', 'button', function() {
       var filterValue = $(this).attr('data-filter');
       $grid.isotope({ filter: filterValue });
     });
-
+  
     //for menu active class
-    $('.masonary-menu button').on('click', function (event) {
+    $('.masonary-menu button').on('click', function(event) {
       $(this).siblings('.active').removeClass('active');
       $(this).addClass('active');
       event.preventDefault();
     });
-
-  });
+  
+    });
 
 
 
@@ -508,7 +508,7 @@
     animationInSpeed: 200, // Animation in speed (ms)
     animationOutSpeed: 200, // Animation out speed (ms)
     scrollText:
-      '<i class="fal fa-angle-double-right"></i><span>Trang chủ</span>', // Text for element
+      '<i class="fal fa-angle-double-right"></i><span>Back to top</span>', // Text for element
     activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
   });
 
@@ -578,150 +578,150 @@
     }
   });
 
-  ////////////////////////////////////////////////////
-  // 21. Cart Plus Minus Js
+  	////////////////////////////////////////////////////
+	// 21. Cart Plus Minus Js
 
-  $(".cart-plus-minus").append('<div class="dec qtybutton">-</div><div class="inc qtybutton">+</div>');
-  $(".qtybutton").on("click", function () {
-    var $button = $(this);
-    var oldValue = $button.parent().find("input").val();
-    if ($button.text() == "+") {
-      var newVal = parseFloat(oldValue) + 1;
-    } else {
-      // Don't allow decrementing below zero
-      if (oldValue > 0) {
-        var newVal = parseFloat(oldValue) - 1;
-      } else {
-        newVal = 0;
-      }
+	$(".cart-plus-minus").append('<div class="dec qtybutton">-</div><div class="inc qtybutton">+</div>');
+	$(".qtybutton").on("click", function () {
+		var $button = $(this);
+		var oldValue = $button.parent().find("input").val();
+		if ($button.text() == "+") {
+			var newVal = parseFloat(oldValue) + 1;
+		} else {
+			// Don't allow decrementing below zero
+			if (oldValue > 0) {
+				var newVal = parseFloat(oldValue) - 1;
+			} else {
+				newVal = 0;
+			}
+		}
+		$button.parent().find("input").val(newVal);
+	});
+
+  
+    ////////////////////////////////////////////////////
+    // 63. Data Countdown Js
+
+    if (jQuery(".data-countdown").length > 0) {
+      $('[data-countdown]').each(function() {
+  
+        var $this = $(this),
+            finalDate = $(this).data('countdown');
+  
+        $this.countdown(finalDate, function(event) {
+  
+            $this.html(event.strftime('<span class="cdown days"><span class="time-count">%-D</span> <p>Days</p><span class="colon">:</span></span> <span class="cdown hour"><span class="time-count">%-H</span> <p>Hours</p><span class="colon">:</span></span> <span class="cdown minutes"><span class="time-count">%M</span> <p>Mins</p><span class="colon">:</span></span> <span class="cdown second"> <span><span class="time-count">%S</span> <p>Secs</p></span>'));
+  
+        });
+  
+    });
     }
-    $button.parent().find("input").val(newVal);
-  });
 
+  		////////////////////////////////////////////////////
+    // 15. Data width Js
+	$("[data-width]").each(function () {
+		$(this).css("width", $(this).attr("data-width"));
+	  });
 
-  ////////////////////////////////////////////////////
-  // 63. Data Countdown Js
-
-  if (jQuery(".data-countdown").length > 0) {
-    $('[data-countdown]').each(function () {
-
-      var $this = $(this),
-        finalDate = $(this).data('countdown');
-
-      $this.countdown(finalDate, function (event) {
-
-        $this.html(event.strftime('<span class="cdown days"><span class="time-count">%-D</span> <p>Days</p><span class="colon">:</span></span> <span class="cdown hour"><span class="time-count">%-H</span> <p>Hours</p><span class="colon">:</span></span> <span class="cdown minutes"><span class="time-count">%M</span> <p>Mins</p><span class="colon">:</span></span> <span class="cdown second"> <span><span class="time-count">%S</span> <p>Secs</p></span>'));
-
+	////////////////////////////////////////////////////
+    // 07. Scroll To Top Js
+    function smoothSctollTop() {
+      $('.smooth-scroll').on('click', function (event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+          event.preventDefault();
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top - 0
+          }, 1500);
+        }
       });
+    }
+    smoothSctollTop();
 
-    });
-  }
-
-  ////////////////////////////////////////////////////
-  // 15. Data width Js
-  $("[data-width]").each(function () {
-    $(this).css("width", $(this).attr("data-width"));
-  });
-
-  ////////////////////////////////////////////////////
-  // 07. Scroll To Top Js
-  function smoothSctollTop() {
-    $('.smooth-scroll').on('click', function (event) {
-      var target = $(this.getAttribute('href'));
-      if (target.length) {
-        event.preventDefault();
-        $('html, body').stop().animate({
-          scrollTop: target.offset().top - 0
-        }, 1500);
-      }
-    });
-  }
-  smoothSctollTop();
-
-  ////////////////////////////////////////////////////
-  // 21. Counter Js
-  if (jQuery(".counter").length > 0) {
-    $('.counter').counterUp({
-      delay: 10,
-      time: 1000
-    });
-  }
-
-  ////////////////////////////////////////////////////
-  // 17. Show Login Toggle Js
-  $('#showlogin').on('click', function () {
-    $('#checkout-login').slideToggle(900);
-  });
-
-  ////////////////////////////////////////////////////
-  // 18. Show Coupon Toggle Js
-  $('#showcoupon').on('click', function () {
-    $('#checkout_coupon').slideToggle(900);
-  });
-
-  ////////////////////////////////////////////////////
-  // 19. Create An Account Toggle Js
-  $('#cbox').on('click', function () {
-    $('#cbox_info').slideToggle(900);
-  });
-
-  ////////////////////////////////////////////////////
-  // 20. Shipping Box Toggle Js
-  $('#ship-box').on('click', function () {
-    $('#ship-box-info').slideToggle(1000);
-  });
-
-  if (jQuery("#loading").length > 0) {
-    let cart = $('#cart'),
-      soda = $('#soda'),
-      meat = $('#meat'),
-      image = $('#image'),
-      mustard = $('#mustard'),
-      path = [{ x: -250, y: 0 }, { x: -100, y: -90 }, { x: 0, y: 0 }],
-      path2 = [{ x: 250, y: 0 }, { x: 150, y: -80 }, { x: 60, y: 0 }],
-      path3 = [{ x: -170, y: 0 }, { x: -80, y: -70 }, { x: 70, y: 0 }];
-
-
-
-    var setupSequence = function () {
-      let tl = new TimelineMax({ repeat: -1, timeScale: 1.8 });
-
-      tl.set(mustard, { x: -250 })
-        .set(meat, { x: 250 })
-        .set(soda, { x: -170 })
-        .to(cart, 2.1, {
-          x: 750,
-          ease: SlowMo.ease.config(0.5, 0.5, false),
-        })
-        .to(mustard, 1, {
-          bezier: { curviness: 0.3, values: path },
-          opacity: 1,
-          scale: 1,
-          ease: Back.easeOut.config(1.4)
-        }, 0.5)
-        .to(mustard, .2, {
-          scale: 0,
-        }, 0.8)
-        .to(meat, 1, {
-          bezier: { curviness: 0.3, values: path2 },
-          opacity: 1,
-          scale: 1,
-          ease: Back.easeOut.config(1.4)
-        }, 0.8)
-        .to(meat, .2, {
-          scale: 0
-        }, 1.2)
-        .to(soda, .7, {
-          bezier: { curviness: 0.3, values: path3 },
-          opacity: 1,
-          scale: 1,
-          ease: Back.easeOut.config(1.4)
-        }, 1.2)
-        .to(soda, .1, {
-          scale: 0,
-        }, 1.5);
+    ////////////////////////////////////////////////////
+    // 21. Counter Js
+    if (jQuery(".counter").length > 0) {
+      $('.counter').counterUp({
+        delay: 10,
+        time: 1000
+      });
     }
 
+	////////////////////////////////////////////////////
+	// 17. Show Login Toggle Js
+	$('#showlogin').on('click', function () {
+		$('#checkout-login').slideToggle(900);
+	});
+
+	////////////////////////////////////////////////////
+	// 18. Show Coupon Toggle Js
+	$('#showcoupon').on('click', function () {
+		$('#checkout_coupon').slideToggle(900);
+	});
+
+	////////////////////////////////////////////////////
+	// 19. Create An Account Toggle Js
+	$('#cbox').on('click', function () {
+		$('#cbox_info').slideToggle(900);
+	});
+
+	////////////////////////////////////////////////////
+	// 20. Shipping Box Toggle Js
+	$('#ship-box').on('click', function () {
+		$('#ship-box-info').slideToggle(1000);
+	});
+
+  if (jQuery("#loading").length > 0){
+    let cart = $('#cart'),
+    soda = $('#soda'),
+    meat = $('#meat'),
+    image = $('#image'),
+    mustard = $('#mustard'),
+    path = [{x:-250, y:0}, {x:-100, y:-90}, {x:0, y:0}],
+    path2 = [{x:250, y:0}, {x:150, y:-80}, {x:60, y:0}],
+    path3 = [{x:-170, y:0}, {x:-80, y:-70}, {x:70, y:0}];
+  
+   
+    
+    var setupSequence = function() {
+      let tl = new TimelineMax({repeat: -1, timeScale: 1.8});
+      
+      tl.set(mustard, {x:-250})
+      .set(meat, {x:250})
+      .set(soda, {x:-170})
+      .to(cart, 2.1, { 
+        x:750, 
+        ease: SlowMo.ease.config(0.5, 0.5, false),
+      })
+      .to(mustard, 1, {
+        bezier: {curviness: 0.3, values:path},
+        opacity: 1,
+        scale:1,
+        ease: Back.easeOut.config(1.4)
+      }, 0.5)
+      .to(mustard, .2, {
+        scale: 0,
+      }, 0.8)
+      .to(meat, 1, {
+        bezier: {curviness: 0.3, values:path2},
+        opacity: 1,
+        scale:1,
+        ease: Back.easeOut.config(1.4)
+      }, 0.8)
+      .to(meat, .2, {
+        scale: 0
+      }, 1.2)
+      .to(soda, .7, {
+        bezier: {curviness: 0.3, values:path3},
+        opacity: 1,
+        scale:1,
+        ease: Back.easeOut.config(1.4)
+      }, 1.2)
+      .to(soda, .1, {
+        scale: 0,
+      },1.5);
+    }
+    
     setupSequence();
   }
 

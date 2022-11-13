@@ -204,6 +204,7 @@
                                                     <tr>
                                                         <th style="text-align: center;font-size:18px">Thứ tự</th>
                                                         <th style="text-align: center;font-size:18px">Tên</th>
+                                                        <th style="text-align: center;font-size:18px;">Ảnh</th>
                                                         <th style="text-align: center;font-size:18px"> Trạng thái</th>
                                                         <th style="text-align: center;font-size:18px">Hành động</th>
                                                     </tr>
@@ -213,6 +214,9 @@
                                                     <tr>
                                                         <td style="text-align: center">{{$c->id}}</td>
                                                         <th style="text-align: center">{{$c->name}}</th>
+                                                        <th style="width:200px">
+                                                            <image width="181px" height="80px" src="{{asset('uploads/images/'.$c->thumnail)}}">
+                                                         </th>
                                                         <th style="text-align: center">{!! $c->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
                                                             <td class=" text-center font-size-10">
                                                                 <button class="btn btn-primary btn-sm " style="width:35px"><a href="/admin/category/{{$c->id}}" class="text-gray m-r-5"><i style="color:white;padding-left:2px" class="ti-pencil"></i></a></button>

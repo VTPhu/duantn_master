@@ -48,6 +48,7 @@ class ProductController extends Controller
             'size' => 'required|starts_with:S,M,L,XL,XXL',
             'date' => 'required|date',
             'thumnail' => 'required|mimes:jpg,bmp,png|file',
+            'thumnail_two' => 'required|mimes:jpg,bmp,png|file',
             'saled' => 'required',
             'view' => 'required',
             'category_id' => 'required',
@@ -71,6 +72,13 @@ class ProductController extends Controller
             $image = $thumnail->getClientOriginalName();
             $path_name = $request->file('thumnail')->move(public_path($path), $image);
             $input['thumnail'] = $image;
+        }
+        if ($request->hasFile('thumnail_two')) {
+            $path = 'uploads/images';
+            $thumnail_two = $request->file('thumnail_two');
+            $images = $thumnail_two->getClientOriginalName();
+            $path_name = $request->file('thumnail_two')->move(public_path($path), $images);
+            $input['thumnail_two'] = $images;
         }
         $product = Product::create($input);
         if ($product) {
@@ -96,6 +104,7 @@ class ProductController extends Controller
             'quantily' => 'required',
             'price' => 'required',
             'size' => 'required|starts_with:S,M,L,XL,XXL',
+            'thumnail_two' => 'mimes:jpg,bmp,png|file',
             'date' => 'required|date',
             'thumnail' => 'mimes:jpg,bmp,png|file',
             'saled' => 'required',
@@ -133,7 +142,17 @@ class ProductController extends Controller
                 $input['thumnail'] = $image;
             }
         }
-
+        // anh 2
+        if ($request->thumnail_two) {
+            $input->thumnail_two = $request->thumnail_two;
+            if ($request->hasFile('thumnail_two')) {
+                $path = 'uploads/images';
+                $thumnail_two = $request->file('thumnail_two');
+                $images = $thumnail_two->getClientOriginalName();
+                $path_name = $request->file('thumnail_two')->move(public_path($path), $images);
+                $input['thumnail_two'] = $images;
+            }
+        }
         $input->saled = $request->saled;
         $input->view = $request->view;
         $input->category_id = $request->category_id;

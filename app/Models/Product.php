@@ -18,6 +18,7 @@ class Product extends Model
         'size',
         'date',
         'thumnail',
+        'thumnail_two',
         'saled',
         'color',
         'view',

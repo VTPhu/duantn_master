@@ -214,6 +214,7 @@
                                                         <th style="text-align: center;font-size:18px;">Kích thước</th>
                                                         <th style="text-align: center;font-size:18px;">Ngày</th>
                                                         <th style="text-align: center;font-size:18px;">Ảnh</th>
+                                                        <th style="text-align: center;font-size:18px;">Ảnh 2</th>
                                                         <th style="text-align: center;font-size:18px;">Mô tả</th>
                                                         <th style="text-align: center;font-size:18px;width: 99px;">Từ khóa</th>
                                                         <th style="text-align: center;font-size:18px;width: 99px;">Trạng thái</th>
@@ -230,8 +231,11 @@
                                                         <th>{{ number_format($p->price) }}đ</th>
                                                         <th style="width:143px;">{!! !empty($p->size) ?'<button class="btn btn-success btn-sm">M</button><button class="btn btn-danger btn-sm">L</button><button class="btn btn-warning btn-sm">XL</button><button class="btn btn-info btn-sm">S</button>': 0 !!}</th>
                                                         <th style="width:86px">{{date('d-m-Y', strtotime($p->date))}}</th>
-                                                        <td>
+                                                        <th>
                                                             <image width="60px" height="80px" src="{{asset('uploads/images/'.$p->thumnail)}}">
+                                                         </th>
+                                                         <td>
+                                                            <image width="60px" height="80px" src="{{asset('uploads/images/'.$p->thumnail_two)}}">
                                                          </td>
                                                         <th style="font-size:17px;">{{$p->description}}</th>
                                                         <th>{{$p->tags}}</th>

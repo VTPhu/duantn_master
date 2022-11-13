@@ -1,3 +1,6 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -11,17 +14,16 @@
 
     <!-- CSS here -->
     <link rel="stylesheet" href="client/assets/css/preloader.css">
-    <link rel="stylesheet" href="client/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="client/assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="client/assets/css/animate.min.css">
     <link rel="stylesheet" href="client/assets/css/magnific-popup.css">
     <link rel="stylesheet" href="client/assets/css/meanmenu.css">
     <link rel="stylesheet" href="client/assets/css/animate.min.css">
     <link rel="stylesheet" href="client/assets/css/slick.css">
+    <link rel="stylesheet" href="client/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="client/assets/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="client/assets/css/themify-icons.css">
     <link rel="stylesheet" href="client/assets/css/nice-select.css">
     <link rel="stylesheet" href="client/assets/css/ui-range-slider.css">
     <link rel="stylesheet" href="client/assets/css/main.css">
-    <link rel="stylesheet" href="client/assets/css/style.css">
 </head>

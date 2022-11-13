@@ -5,6 +5,8 @@ namespace App\Http\Controllers\client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -15,10 +17,16 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $product = Product::paginate(6);
-        return view('client.index.trangchu', compact('product'));
+        $category = Category::all();
+
+        $product = Product::where('status', '=', '0')->paginate(5);
+        return view('client.index.trangchu', compact('product', 'category'));
     }
 
+    public static  function countProductByIdCate($id) // id danh mục
+    {
+        return Product::where('category_id', $id)->count();
+    }
     /**
      * Show the form for creating a new resource.
      *

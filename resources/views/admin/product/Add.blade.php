@@ -247,6 +247,13 @@
                                                         @endif
                                                     </div>
                                                     <div class="form-group">
+                                                        <label class="control-label">Ảnh 2</label>
+                                                        <input type="file" name="thumnail_two"  class="filestyle" data-buttonname="btn-default" value="{{old('thumnail_two')}}">
+                                                        @if($errors->has('thumnail_two'))
+                                                        <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail_two') }}</strong>
+                                                        @endif
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="userName">Giảm giá<span class="text-danger">*</span></label>
                                                         <input type="text" name="saled" parsley-trigger="change" required
                                                                placeholder="saled" class="form-control" id="userName" value="{{old('saled')}}">

@@ -1,49 +1,49 @@
-<footer class="footer-area footer-1  gray-bg-2" style="background-color: white">
+<footer class="footer-area footer-1 black-bg pt-100  gray-bg-2 pb-80">
     <div class="container">
         <div class="row">
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
-
                 <div class="widget f-widget pb-30 wow fadeInUp" data-wow-delay=".4s">
-                    <h5 class="f-widget-title" style="color:black">THÔNG TIN</h5>
+                    <h5 class="f-widget-title white-color">Information</h5>
                     <ul>
-                        <li><a href="#">Giới Thiệu</li>
-                        <li><a href="#">Dịch vụ khách hàng</a></li>
-                        <li><a href="#">Tin tức</a></li>
-
-                        <li><a href="#">Hướng dẫn định cỡ</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Page 404</a></li>
+                        <li><a href="#">Sizing Guide</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div class="widget f-widget pb-30 wow fadeInUp" data-wow-delay=".6s">
-                    <h5 class="f-widget-title"style="color:black">DỊCH VỤ CỦA CHÚNG TÔI</h5>
+                    <h5 class="f-widget-title white-color">Our Service</h5>
                     <ul>
-                        <li><a href="#">chính sách vận chuyển</a></li>
-                        <li><a href="#">Trợ giúp & Liên hệ với chúng tôi</a></li>
-                        <li><a href="#">Trả lại và hoàn lại tiền</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Help & Contact Us</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
                         <li><a href="#">Online Stores</a></li>
-                        <li><a href="#">Phương thức thanh toán</a></li>
+                        <li><a href="#">Payment Method</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div class="widget f-widget pb-30  wow fadeInUp" data-wow-delay=".8s">
-                    <h5 class="f-widget-title"style="color:black">Phương thức thanh toán</h5>
+                    <h5 class="f-widget-title white-color">Payment & Shipping</h5>
                     <ul>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
-                        <li><a href="#">Phương thức thanh toán</a></li>
-                        <li><a href="#">Hướng dẫn vận chuyển</a></li>
-                        <li><a href="#">Địa điểm chúng tôi giao hàng đến</a></li>
-                        <li><a href="#">Thời gian giao hàng ước tính</a></li>
+                        <li><a href="#">Terms Of Use</a></li>
+                        <li><a href="#">Payment Methods</a></li>
+                        <li><a href="#">Shipping Guide</a></li>
+                        <li><a href="#">Locations We Ship To</a></li>
+                        <li><a href="#">Estimated Delivery Time</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div class="widget f-widget pb-30 wow fadeInUp" data-wow-delay="1s">
-                    <h5 class="f-widget-title"style="color:black">Tiềm kiếm</h5>
+                    <h5 class="f-widget-title white-color">LOOKING FOR Puik?</h5>
                     <address>
                         <ul>
-                            <li>Bạn cũng có thể liên hệ với chúng tôi:</li>
+                            <li>Have a question? You may find an answer in our FAQs.</li>
+                            <li>But you can also contact us:</li>
                             <li>Call Us: S9 Heaven Stress, Beverly Hill, USA.</li>
                             <li>Phone: +1 (800) 123 456 789</li>
                             <li>Fax: +1 (800) 123 456 789</li>
@@ -53,31 +53,20 @@
             </div>
         </div>
     </div>
-    </div>
-
-
-    <!-- Link to my website -->
     <div class="copyright-area">
-        <div class="copyright-text text-center">
+        <div class="copyright-text copyright-text-3 text-center pt-20">
             <div class="container">
-                <div class="row">
-                    <div class="col-xxl-12">
-                        <p>
-                            Thời gian mở cửa: Thứ Hai-Thứ Sáu: <span>9:00 am – 9:00 pm.</span> <span>Sat: 9:00 am –
-                                6:00
-                                pm.</span> Sun:
-                            9:00 am – 6:00 pm.<br>
-                        </p>
-                        <img src="client/assets/img/icon/payments.png" alt="img">
-                    </div>
-                </div>
+                <p>Opening Time: Mon-Fri: <span>9:00 am – 9:00 pm.</span> <span>Sat: 9:00 am – 6:00 pm.</span> Sun:
+                    9:00 am – 6:00 pm.<br>
+                    Copyright © Puik Store all rights reserved. Powered by Theme_pure</p>
+                <img src="assets/img/icon/payments.png" alt="img">
             </div>
         </div>
     </div>
-    <!-- /.copyright area end -->
+<!-- /.copyright area end -->
 </footer>
-
 <!-- footer area end -->
+
 
 <!-- JS here -->
 <script src="client/assets/js/jquery.min.js"></script>
@@ -97,5 +86,6 @@
 <script src="client/assets/js/imagesloaded.pkgd.min.js"></script>
 <script src="client/assets/js/jquery.nice-select.min.js"></script>
 <script src="client/assets/js/main.js"></script>
-<script src="client/assets/js/style.js"> </script>
 </body>
+
+</html>

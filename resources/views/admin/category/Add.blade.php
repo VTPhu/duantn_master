@@ -194,6 +194,13 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group">
+                                                    <label class="control-label">Ảnh</label>
+                                                    <input type="file" name="thumnail"  class="filestyle" data-buttonname="btn-default" value="{{old('thumnail')}}">
+                                                    @if($errors->has('thumnail'))
+                                                    <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail') }}</strong>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
                                                            <select style="width: 140px;height: 30px;border-radius:4px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
                                                             <option value="0">Hiện</option>    

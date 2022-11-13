@@ -242,11 +242,19 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Anh</label>
+                                                        <label class="control-label">Ảnh</label>
                                                         <input type="file" name="thumnail"  class="filestyle" data-buttonname="btn-default" value="{{$product->thumnail}}">
                                                         <img src="{{asset('uploads/images/'.$product->thumnail)}}" alt="" width="200px" height="200px"> 
                                                         @if($errors->has('thumnail'))
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail') }}</strong>
+                                                        @endif
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">Ảnh 2</label>
+                                                        <input type="file" name="thumnail_two"  class="filestyle" data-buttonname="btn-default" value="{{$product->thumnail_two}}">
+                                                        <img src="{{asset('uploads/images/'.$product->thumnail_two)}}" alt="" width="200px" height="200px"> 
+                                                        @if($errors->has('thumnail_two'))
+                                                        <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail_two') }}</strong>
                                                         @endif
                                                     </div>
                                                     <div class="form-group">
@@ -337,7 +345,7 @@
                 
                                                     <div class="form-group text-right m-b-0">
                                                         <button class="btn btn-primary waves-effect waves-light" type="submit">
-                                                            Submit
+                                                            Sửa
                                                         </button>
                                                         <button class="btn btn-danger btn-sm" style="height:34px"><a href="/admin/show-product"   style="color:white;height:50px">Hủy bỏ</a></button>                                                            
 

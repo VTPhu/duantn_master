@@ -13,7 +13,8 @@ class OrderDetail extends Model
         'product_name',
         'order_id',
         'product_id',
-        'quantily',
+        'quantily_order',
+        'size_detail',
         'price',
         'updated_at',
     ];

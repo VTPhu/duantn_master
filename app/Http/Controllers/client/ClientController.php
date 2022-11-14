@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Posts;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ClientController extends Controller
 {
@@ -17,10 +19,19 @@ class ClientController extends Controller
      */
     public function index()
     {
+        Carbon::setLocale('vi');
         $category = Category::all();
+        $trending = Product::where('view', '>', '100')->where('status', '=', '0')->orderBy('view', 'DESC')->get();
+        $blog = DB::table('posts')
+            ->join('categories', 'categories.id', '=', 'posts.category_id')
+            ->join('user', 'user.id', '=', 'posts.user_id')
+            ->orderBy('title', 'DESC')
+            ->select('categories.name', 'posts.sumary', 'posts.thumnail_url', 'posts.date', 'posts.created_at', 'user.name as tacgia')
 
-        $product = Product::where('status', '=', '0')->paginate(5);
-        return view('client.index.trangchu', compact('product', 'category'));
+            ->get();
+
+        $product = Product::where('status', '=', '0')->orderBy('title', 'DESC')->paginate(5);
+        return view('client.index.trangchu', compact('product', 'category', 'trending', 'blog'));
     }
 
     public static  function countProductByIdCate($id) // id danh mục

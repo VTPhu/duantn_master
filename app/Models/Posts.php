@@ -19,8 +19,10 @@ class Posts extends Model
         'thumnail_url',
         'status',
         'user_id',
+        'category_id',
         'tags',
         'updated_at',
+        'created_at'
     ];
 
     use HasFactory;

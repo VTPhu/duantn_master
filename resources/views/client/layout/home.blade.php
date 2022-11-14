@@ -1,5 +1,6 @@
 <?php
-    use app\Http\Controllers\client\ClientController;
+use Carbon\Carbon;
+use app\Http\Controllers\client\ClientController;
 ?>
 <body>
     
@@ -371,40 +372,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="single-slider single-slider-2 default-bg slider-height-2 d-flex align-items-center" data-background="client/assets/img/slider/slider-5.jpg">
-                    <div class="container container-2">
-                        <div class="row align-items-center">
-                            <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 pt-60 pb-10 pt-md-0 pb-md-0">
-                                <div class="slider-content-2">
-                                    <span class="s-subtitle s-subtitle-3 pb-25" data-animation="fadeInUp" data-delay=".3s"> Top Sale Of The Month</span>
-                                    <h2 class="s-title s-title-2 pb-28" data-animation="fadeInUp" data-delay=".5s">Top Collection</h2>
-                                    <p class="s-desc pb-75" data-animation="fadeInUp" data-delay=".7s">Form is designed by Puik Store and is part of the Form series. It is an <br>
-                                        armless modern chair with great back support. </p>
-                                    <div class="p-btn p-btn-5" data-animation="fadeInUp" data-delay=".9s">
-                                        <a href="shop.html">Discover now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- <div class="single-slider single-slider-2 default-bg slider-height-2 d-flex align-items-center" data-background="client/assets/img/slider/slider-6.jpg">
-                    <div class="container container-2">
-                        <div class="row align-items-center">
-                            <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 pt-60 pb-10 pt-md-0 pb-md-0">
-                                <div class="slider-content-2">
-                                    <span class="s-subtitle s-subtitle-3 pb-25" data-animation="fadeInUp" data-delay=".3s"> Hot Deal Off The Day</span>
-                                    <h2 class="s-title s-title-2 pb-28" data-animation="fadeInUp" data-delay=".5s">Creative Interior</h2>
-                                    <p class="s-desc pb-75" data-animation="fadeInUp" data-delay=".7s">Form is designed by Puik Store and is part of the Form series. It is an <br>
-                                        armless modern chair with great back support. </p>
-                                    <div class="p-btn p-btn-5" data-animation="fadeInUp" data-delay=".9s">
-                                        <a href="shop.html">Discover now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
+               
             </div>
         </section>
         <!-- slider area end -->
@@ -501,7 +469,7 @@
                     <div class="col-xxl-12">
                         <div class="btn-area text-center wow fadeInUp" data-wow-delay="1.2s">
                             <div class="p-btn p-btn-1">
-                                <a href="shop.html">SHOW ALL PRODUCTS</a>
+                                <a href="shop.html">TẤT CẢ SẢN PHẨM</a>
                             </div>
                         </div>
                     </div>
@@ -511,7 +479,7 @@
         <!-- top selling area end -->
 
         <!-- banner area start -->
-        <div class="banner-area pb-95">
+        {{-- <div class="banner-area pb-95">
             <div class="pl-15 pr-15">
                 <div class="row">
                     <div class="col-xxl-6 col-lg-6 col-md-6 ps-0">
@@ -548,7 +516,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- banner area end -->
 
         <!-- top selling product area start -->
@@ -557,21 +525,21 @@
                 <div class="row">
                     <div class="col-xxl-12">
                         <div class="section-title text-center pb-47">
-                            <span class="p-subtitle p-subtitle-2">Explore The Lookbook</span>
-                            <h3 class="p-title pb-15 mb-0">trending Products</h3>
-                            <p class="p-desc">Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis eget maecenas.</p>
+                            <span class="p-subtitle p-subtitle-2">KHÁM PHÁ CÁCH NHÌN</span>
+                            <h3 class="p-title pb-15 mb-0">SẢN PHẨM NỔI BẬT</h3>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xxl-12">
-                        <div class="top-selling-active-2 owl-carousel">
+                        <div class="top-selling-active owl-carousel">
+                            @foreach($trending as $p)
                             <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".1s">
                                 <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/1.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/1-1.jpg" alt="#">
+                                    <img src="{{asset('uploads/images/'.$p->thumnail)}}" alt="#">
+                                    <img src="{{asset('uploads/images/'.$p->thumnail_two)}}" alt="#">
                                     <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
+                                        <a href="#">Thêm vào giỏ hàng</a>
                                     </div>
                                     <span class="discount discount-2 p-abs">New</span>
                                     <div class="product-action product-action-1 p-abs">
@@ -590,9 +558,9 @@
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Simple Stylish Women Backpack</a></h4>
+                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">{{$p->title}}</a></h4>
                                     <div class="pro-price">
-                                        <span>£1.296.00</span>
+                                        <span>{{ number_format($p->price) }}đ</span>
                                     </div>
                                     <div class="rating">
                                         <i class="fal fa-star active"></i>
@@ -603,374 +571,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/13.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/13-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <span class="discount discount-2 p-abs">New</span>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Royal Gallery</a></h4>
-                                    <div class="pro-price">
-                                        <span>£146.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/3.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/3-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Blacker's Complete Home Furn</a></h4>
-                                    <div class="pro-price">
-                                        <span>£146.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/4.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/4-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <span class="discount discount-3 p-abs">-20%</span>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Marlborough Barn</a></h4>
-                                    <div class="pro-price">
-                                        <span>£136.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/13.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/13-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <span class="discount discount-2 p-abs">New</span>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Royal Gallery</a></h4>
-                                    <div class="pro-price">
-                                        <span>£146.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/3.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/3-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Blacker's Complete Home Furn</a></h4>
-                                    <div class="pro-price">
-                                        <span>£146.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/4.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/4-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <span class="discount discount-3 p-abs">-20%</span>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Marlborough Barn</a></h4>
-                                    <div class="pro-price">
-                                        <span>£136.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".1s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/1.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/1-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <span class="discount discount-2 p-abs">New</span>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Simple Stylish Women Backpack</a></h4>
-                                    <div class="pro-price">
-                                        <span>£1.296.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/13.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/13-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <span class="discount discount-2 p-abs">New</span>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Royal Gallery</a></h4>
-                                    <div class="pro-price">
-                                        <span>£146.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/3.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/3-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Blacker's Complete Home Furn</a></h4>
-                                    <div class="pro-price">
-                                        <span>£146.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-product mb-15 wow fadeInUp" data-wow-delay=".5s">
-                                <div class="product-thumb">
-                                    <img src="client/assets/img/products/furniture/4.jpg" alt="#">
-                                    <img src="client/assets/img/products/furniture/4-1.jpg" alt="#">
-                                    <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                    <span class="discount discount-3 p-abs">-20%</span>
-                                    <div class="product-action product-action-1 p-abs">
-                                        <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
-                                            <i class="fal fa-eye"></i>
-                                            <i class="fal fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">Marlborough Barn</a></h4>
-                                    <div class="pro-price">
-                                        <span>£136.00</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
+                           
+                           
+                           
+                           
+                         
                     </div>
                 </div>
             </div>
@@ -984,96 +591,35 @@
                 <div class="row mb-45">
                     <div class="col-xxl-12">
                         <div class="section-title text-center">
-                            <span class="p-subtitle p-subtitle-2">Explore The Blog</span>
-                            <h3 class="p-title pb-15 mb-0">Latest Blog Posts</h3>
-                            <p class="p-desc">Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis
-                                eget maecenas.</p>
+                            <span class="p-subtitle p-subtitle-2">KHÁM PHÁ CÁCH NHÌN</span>
+                            <h3 class="p-title pb-15 mb-0">BÀI VIẾT MỚI NHẤT</h3>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="blog-active owl-carousel">
+                    @foreach ($blog as $b)
                     <div class="col-xxl-12">
                         <div class="single-blog wow fadeInUp" data-wow-delay=".4s">
                             <div class="blog-thumb">
-                                <a href="blog-details.html"><img src="client/assets/img/blog/home2/blog-4.jpg" alt="#"></a>
+                                <a href="blog-details.html"><img src="{{asset('uploads/images/'.$b->thumnail_url)}}" alt="#"></a>
                             </div>
                             <div class="blog-content blog-content-3">
-                                <a href="#" class="tag-btn tag-btn-2">LIFESTYLE</a>
+                                <a href="#" class="tag-btn tag-btn-2">{{$b->name}}</a>
                                 <div class="blog-meta blog-meta-2">
-                                    Post date <a href="#"><span>20 Sep 2020</span></a> / By <a href="#"><span>Admin</span></a>.
+                                    Ngày đăng: <a href="#"><span>{{Carbon::parse($b->created_at)->diffForHumans() }}</span></a> / Bởi: <a href="#"><span>{{$b->tacgia}}</span></a>.
                                 </div>
-                                <h5 class="blog-title blog-title-2"><a href="blog-details.html">The Next 10 Things You Should Do For Education Success</a></h5>
+                                <p class="blog-title blog-title-2" style="font-weight: 400;font-size: 15px;"><a href="blog-details.html">{{$b->sumary}}</a></p>
                                 <div class="border-bottom-gray border-0">
-                                    <p>When looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less g at its layout. The point of using Lorem Ipsum</p>
+                                    <p></p>
                                     <div class="p-btn p-btn-3">
-                                        <a href="blog-details.html">Continue Reading</a>
+                                        <a href="blog-details.html">Xem thêm</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-12">
-                        <div class="single-blog wow fadeInUp" data-wow-delay=".6s">
-                            <div class="blog-thumb">
-                                <a href="blog-details.html"><img src="client/assets/img/blog/home2/blog-1.jpg" alt="#"></a>
-                            </div>
-                            <div class="blog-content blog-content-3">
-                                <a href="#" class="tag-btn tag-btn-2">SHOPPING</a>
-                                <div class="blog-meta blog-meta-2">
-                                    Post date <a href="#"><span>23 Sep 2020</span></a> / By <a href="#"><span>Admin</span></a>.
-                                </div>
-                                <h5 class="blog-title blog-title-2"><a href="blog-details.html">Bringing LED lighting Into Your Home
-                                    Shouldn't be Complicated.</a></h5>
-                                <div class="border-bottom-gray border-0">
-                                    <p>When looking at its layout. The point of whhen looking at its layout. The p using Lorem Ipsum is that it has a more-or-less</p>
-                                    <div class="p-btn p-btn-3">
-                                        <a href="blog-details.html">Continue Reading</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-12">
-                        <div class="single-blog wow fadeInUp" data-wow-delay=".8s">
-                            <div class="blog-thumb">
-                                <a href="blog-details.html"><img src="client/assets/img/blog/home2/blog-2.jpg" alt="#"></a>
-                            </div>
-                            <div class="blog-content blog-content-3">
-                                <a href="#" class="tag-btn tag-btn-2">Fashion</a>
-                                <div class="blog-meta blog-meta-2">
-                                    Post date <a href="#"><span>23 Sep 2021</span></a> / By <a href="#"><span>Admin</span></a>.
-                                </div>
-                                <h5 class="blog-title blog-title-2"><a href="blog-details.html">The Worst Advices We've Heard For
-                                    Show.</a></h5>
-                                <div class="border-bottom-gray border-0">
-                                    <p>When looking at its layout.Using Lorem Ipsum is that it has  The point of using Lorem Ipsum is that it has a  more-or-less</p>
-                                    <div class="p-btn p-btn-3">
-                                        <a href="blog-details.html">Continue Reading</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-12">
-                        <div class="single-blog wow fadeInUp" data-wow-delay="1s">
-                            <div class="blog-thumb">
-                                <a href="blog-details.html"><img src="client/assets/img/blog/home2/blog-3.jpg" alt="#"></a>
-                            </div>
-                            <div class="blog-content blog-content-3">
-                                <a href="#" class="tag-btn tag-btn-2">Handbag</a>
-                                <div class="blog-meta blog-meta-2">
-                                    Post date <a href="#"><span>23 Sep 2021</span></a> / By <a href="#"><span>Admin</span></a>.
-                                </div>
-                                <h5 class="blog-title blog-title-2"><a href="blog-details.html">Trending denims for men this year, you should</a></h5>
-                                <div class="border-bottom-gray border-0">
-                                    <p>Bringing LED lighting Into Your Home Shouldn't be Complicated. When looking at its layout.Using Lorem Ipsum is that</p>
-                                    <div class="p-btn p-btn-3">
-                                        <a href="blog-details.html">Continue Reading</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                     
                 </div>
             </div>
@@ -1081,31 +627,7 @@
         <!-- blog area end -->
 
         <!-- subscribe area start -->
-        <div class="subscribe-area subscribe-area-2 black-bg gray-bg-2 pt-95">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xxl-12">
-                        <div class="section-title text-center">
-                            <span class="p-subtitle p-subtitle-2">OUR NEWSLETTER</span>
-                            <h3 class="p-title pb-15 mb-0">join our newsletter</h3>
-                            <p class="p-desc  pb-15">Subscribe to the Puik Store mailing list to receive updates on new
-                                arrivals, special offers<br>
-                                and other discount information.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-xxl-8 col-xl-8">
-                        <div class="subscribe-form text-center">
-                            <form action="#">
-                                <input type="text" placeholder="Your email address...">
-                                <button type="submit" class="subscribe-btn subscribe-btn-2">Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- subscribe area end -->
 
         <!-- product modal area start -->

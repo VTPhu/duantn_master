@@ -59,7 +59,7 @@
                 <p>Opening Time: Mon-Fri: <span>9:00 am – 9:00 pm.</span> <span>Sat: 9:00 am – 6:00 pm.</span> Sun:
                     9:00 am – 6:00 pm.<br>
                     Copyright © Puik Store all rights reserved. Powered by Theme_pure</p>
-                <img src="assets/img/icon/payments.png" alt="img">
+                <img src="client/assets/img/icon/payments.png" alt="img">
             </div>
         </div>
     </div>

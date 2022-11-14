@@ -155,7 +155,8 @@
                                                             <th style="text-align:center;font-size:15px">Nội dung</th>
                                                             <th>Tóm tắt</th>
                                                             <th style="text-align:center;width:88px;">Ngày đăng</th>
-                                                            <th>Hình ảnh</th>                                                     
+                                                            <th>Hình ảnh</th>       
+                                                                                                  
                                                             <th style="text-align:center;width:88px;">Trạng thái</th>
                                                             <th>Hành động</th>
                                                         </tr>

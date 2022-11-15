@@ -31,6 +31,7 @@ class ClientController extends Controller
             ->get();
 
         $product = Product::where('status', '=', '0')->orderBy('title', 'DESC')->paginate(10);
+
         return view('client.index.trangchu', compact('product', 'category', 'trending', 'blog'));
     }
 
@@ -39,16 +40,12 @@ class ClientController extends Controller
         return Product::where('category_id', $id)->count();
     }
 
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -56,9 +53,20 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function productDetail($id)
     {
-        //
+        $category = DB::table('categories')
+            ->join('products', 'products.category_id', '=', 'categories.id')
+            ->where('products.id', '=', $id)
+            ->get();
+        $brand = DB::table('brands')
+            ->join('products', 'products.category_id', '=', 'brands.id')
+            ->where('products.id', '=', $id)
+            ->get();
+
+        $product = Product::find($id);
+        if ($product == null) return redirect('/thongbao');
+        return view('client.index.productDetail', compact('product', 'category', 'brand'));
     }
 
     /**

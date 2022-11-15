@@ -120,22 +120,22 @@ use app\Http\Controllers\client\ClientController;
                         <div class="main-menu p-rel d-flex align-items-center justify-content-center">
                             <nav id="mobile-menu">
                                 <ul>
-                                    <li><a href="index.html">Trang chủ</a>
+                                    <li ><a style="font-family: 'Archivo';font-size: 16px;" href="/">Trang chủ</a>
                                        
                                     </li>
                                     <li class="static">
-                                        <a href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
                                        
                                      </li>                                                                   
                                     <li>
-                                        <a href="blog.html">Tin tức</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="blog.html">Tin tức</a>
                                        
                                     </li>
                                     <li>
-                                        <a href="about-us.html">Giới thiệu</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
                                         
                                     </li>
-                                    <li><a href="contact.html">Liên hệ</a></li>
+                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="contact.html">Liên hệ</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -363,7 +363,7 @@ use app\Http\Controllers\client\ClientController;
                             <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 pt-60 pb-10 pt-md-0 pb-md-0">
                                 <div class="slider-content-2">
                                     <h2 class="s-title s-title-2 pb-28" data-animation="fadeInUp" data-delay=".5s">BỘ SƯU TẬP ÁO THUN</h2>
-                                    <p class="s-desc pb-75" data-animation="fadeInUp" data-delay=".7s">Thương hiệu áo thun mới đên từ Việt Nam </p>
+                                    <p class="s-desc pb-75" data-animation="fadeInUp" data-delay=".7s">Thương hiệu áo thun mới nhất đến từ đất nước có nền lịch sử lâu đời . </p>
                                     <div class="p-btn p-btn-5" data-animation="fadeInUp" data-delay=".9s">
                                         <a href="shop.html">Tham gia ngay</a>
                                     </div>
@@ -436,7 +436,7 @@ use app\Http\Controllers\client\ClientController;
                                      </span>
                                      @endif
                                 <div class="product-action product-action-1 p-abs">
-                                    <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
+                                    <a href="" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
                                         <i class="fal fa-eye"></i>
                                         <i class="fal fa-eye"></i>
                                     </a>
@@ -451,7 +451,7 @@ use app\Http\Controllers\client\ClientController;
                                 </div>
                             </div>
                             <div class="product-content">
-                                <h4 class="pro-title pro-title-1"><a href="product-details.html">{{$pro->title}}</a></h4>
+                                <h4 class="pro-title pro-title-1"><a href="/productDetail/{{$pro->id}}">{{$pro->title}}</a></h4>
                                 <div class="pro-price">
                                     <span>{{ number_format($pro->price) }}đ</span>
                                     @if ($pro->price_saled)
@@ -709,8 +709,9 @@ use app\Http\Controllers\client\ClientController;
                         </div>
                     </div>
                     <div class="product__modal-right">
+                       
                         <h3 class="product__modal-title">
-                            <a href="product-details.html">Living Room Lighting</a>
+                            <a href="product-details.html"></a>
                         </h3>
                         <div class="product__modal-rating d-flex align-items-center">
                             <ul class="mr-10">
@@ -798,6 +799,7 @@ use app\Http\Controllers\client\ClientController;
                                 </li>
                             </ul>
                         </div>
+                     
                     </div>
                 </div>
             </div>

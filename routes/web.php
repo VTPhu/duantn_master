@@ -64,3 +64,4 @@ Route::get('/admin/show-user/{id}', [UserController::class, 'showUpdate']);
 Route::post('/admin/show-user/{id}', [UserController::class, 'edit']);
 //Phần người dùng
 Route::get('/', [ClientController::class, 'index']);
+Route::get('/productDetail/{id}', [ClientController::class, 'productDetail']);

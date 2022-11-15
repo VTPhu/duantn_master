@@ -26,4 +26,6 @@
     <link rel="stylesheet" href="client/assets/css/nice-select.css">
     <link rel="stylesheet" href="client/assets/css/ui-range-slider.css">
     <link rel="stylesheet" href="client/assets/css/main.css">
+  
+
 </head>

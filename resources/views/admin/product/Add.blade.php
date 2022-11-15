@@ -218,11 +218,18 @@
                                                     <div class="form-group">
                                                         <label for="userName">Tiền<span class="text-danger">*</span></label>
                                                         <input type="number" name="price" parsley-trigger="change" required
-                                                               placeholder="giá" class="form-control" id="userName" value="{{old('price')}}">
+                                                               placeholder="giá" class="form-control" id="pointspossible "id="userName" value="{{old('price')}}">
                                                                @if($errors->has('price'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('price') }}</strong>
                                                                @endif
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="userName">Tiền giảm giá<span class="text-danger">*</span></label>
+                                                        <input type="number" name="price_saled" parsley-trigger="change" required
+                                                               placeholder="Tiền giảm giá" class="form-control" id ="pointsgiven" id="userName" value="{{old('price_saled')}}">
+                                                              
+                                                    </div>
+                                                   
                                                     <div class="form-group">
                                                         <label for="userName">Kích thước<span class="text-danger">*</span></label>
                                                         <input type="text" name="size" parsley-trigger="change" required
@@ -253,14 +260,14 @@
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail_two') }}</strong>
                                                         @endif
                                                     </div>
-                                                    <div class="form-group">
+                                                    {{-- <div class="form-group">
                                                         <label for="userName">Giảm giá<span class="text-danger">*</span></label>
                                                         <input type="text" name="saled" parsley-trigger="change" required
-                                                               placeholder="saled" class="form-control" id="userName" value="{{old('saled')}}">
+                                                               placeholder="saled" class="form-control" value="{{old('saled')}}">
                                                                @if($errors->has('saled'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('saled') }}</strong>
                                                                @endif
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="form-group">
                                                         <label for="userName">Số lượt xem<span class="text-danger">*</span></label>
                                                         <input type="number" name="view" parsley-trigger="change" required
@@ -366,4 +373,6 @@
 
     </body>
     
+
+  
 </html>

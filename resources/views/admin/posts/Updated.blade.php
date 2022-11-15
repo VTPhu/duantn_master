@@ -231,8 +231,8 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Hình ảnh</label>
-                                                        <input type="file" name="thumnail_url"  class="filestyle" data-buttonname="btn-default" value="{{$posts->thumnail_url}}">
-                                                        <img src="{{asset('uploads/images/'.$posts->thumnail_url)}}" alt="" width="300px" height="300px"> 
+                                                        <input type="file" name="thumnail_url"  class="filestyle" data-buttonname="btn-default" value="{{$posts->thumnail_url}}"><br>
+                                                        <img src="{{asset('uploads/images/'.$posts->thumnail_url)}}" alt="" width="100px" height="80px"> 
                                                         @if($errors->has('thumnail_url'))
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail_url') }}</strong>
                                                         @endif

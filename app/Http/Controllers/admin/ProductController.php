@@ -33,6 +33,7 @@ class ProductController extends Controller
     }
     public function addProduct()
     {
+
         $brand = Brand::all();
         $category = Category::all();
         return view('admin.product.addProduct', compact('category', 'brand'));
@@ -49,7 +50,7 @@ class ProductController extends Controller
             'date' => 'required|date',
             'thumnail' => 'required|mimes:jpg,bmp,png|file',
             'thumnail_two' => 'required|mimes:jpg,bmp,png|file',
-            'saled' => 'required',
+
             'view' => 'required',
             'category_id' => 'required',
             'brand_id' => 'required',
@@ -80,13 +81,22 @@ class ProductController extends Controller
             $path_name = $request->file('thumnail_two')->move(public_path($path), $images);
             $input['thumnail_two'] = $images;
         }
+
+        $price = $request->get('price');
+        $price_saled = $request->get('price_saled');
+        $by = round($price / $price_saled) * 100;
+
         $product = Product::create($input);
+        $product['saled'] = $by;
+        $product->save();
         if ($product) {
             return redirect('/admin/show-product')->with('message', 'Thêm thành công');;
         } else {
             //thông báo lỗi thêm sản phẩm
         }
     }
+
+
 
     public function updated($id)
     {
@@ -107,7 +117,7 @@ class ProductController extends Controller
             'thumnail_two' => 'mimes:jpg,bmp,png|file',
             'date' => 'required|date',
             'thumnail' => 'mimes:jpg,bmp,png|file',
-            'saled' => 'required',
+
             'view' => 'required',
             'category_id' => 'required',
             'brand_id' => 'required',
@@ -160,6 +170,12 @@ class ProductController extends Controller
         $input->description = $request->description;
         $input->tags = $request->tags;
         $input->status = $request->status;
+
+
+        $input->price_saled = $request->price_saled;
+        $by = $request->price / $request->price_saled * 100;
+
+        $input['saled'] = round($by);
         $sua = $input->save();
         if ($sua) {
 

@@ -225,6 +225,12 @@
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="userName">Tiền giảm giá<span class="text-danger">*</span></label>
+                                                        <input type="number" name="price_saled" parsley-trigger="change" required
+                                                               placeholder="giảm giá" class="form-control" id="userName" value="{{$product->price_saled}}">
+                                                              
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="userName">Kích thước<span class="text-danger">*</span></label>
                                                         <input type="text" name="size" parsley-trigger="change" required
                                                                placeholder="Size" class="form-control" id="userName" value="{{$product->size}}">
@@ -243,16 +249,16 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Ảnh</label>
-                                                        <input type="file" name="thumnail"  class="filestyle" data-buttonname="btn-default" value="{{$product->thumnail}}">
-                                                        <img src="{{asset('uploads/images/'.$product->thumnail)}}" alt="" width="200px" height="200px"> 
+                                                        <input type="file" name="thumnail"  class="filestyle" data-buttonname="btn-default" value="{{$product->thumnail}}"><br>
+                                                        <img src="{{asset('uploads/images/'.$product->thumnail)}}" alt="" width="100px" height="80px"> 
                                                         @if($errors->has('thumnail'))
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail') }}</strong>
                                                         @endif
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label">Ảnh 2</label>
-                                                        <input type="file" name="thumnail_two"  class="filestyle" data-buttonname="btn-default" value="{{$product->thumnail_two}}">
-                                                        <img src="{{asset('uploads/images/'.$product->thumnail_two)}}" alt="" width="200px" height="200px"> 
+                                                        <input type="file" name="thumnail_two"  class="filestyle" data-buttonname="btn-default" value="{{$product->thumnail_two}}"><br>
+                                                        <img src="{{asset('uploads/images/'.$product->thumnail_two)}}" alt="" width="100px" height="90px"> 
                                                         @if($errors->has('thumnail_two'))
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail_two') }}</strong>
                                                         @endif

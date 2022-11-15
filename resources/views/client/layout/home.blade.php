@@ -426,9 +426,15 @@ use app\Http\Controllers\client\ClientController;
                                 <img src="{{asset('uploads/images/'.$pro->thumnail)}}" alt="#">
                                 <img src="{{asset('uploads/images/'.$pro->thumnail_two)}}" alt="#">
                                 <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Add to cart</a>
+                                    <a href="#">Thêm vào giỏ hàng</a>
                                 </div>
-                                <span class="discount discount-3 p-abs">-20%</span>
+                                @if($pro->saled)
+                                <span class="discount discount-3 p-abs"  >
+                                    
+                                    {{$pro->saled}}%
+
+                                     </span>
+                                     @endif
                                 <div class="product-action product-action-1 p-abs">
                                     <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
                                         <i class="fal fa-eye"></i>
@@ -448,7 +454,9 @@ use app\Http\Controllers\client\ClientController;
                                 <h4 class="pro-title pro-title-1"><a href="product-details.html">{{$pro->title}}</a></h4>
                                 <div class="pro-price">
                                     <span>{{ number_format($pro->price) }}đ</span>
-                                    
+                                    @if ($pro->price_saled)
+                                    <del>{{ number_format($pro->price_saled) }}đ</del>
+                                    @endif
                                 </div>
                                 <div class="rating">
                                     <i class="fal fa-star active"></i>
@@ -541,7 +549,13 @@ use app\Http\Controllers\client\ClientController;
                                     <div class="cart-btn cart-btn-2 p-abs">
                                         <a href="#">Thêm vào giỏ hàng</a>
                                     </div>
-                                    <span class="discount discount-2 p-abs">New</span>
+                                    @if($p->saled)
+                                    <span class="discount discount-3 p-abs"  >
+                                        
+                                        {{$p->saled}}%
+    
+                                         </span>
+                                         @endif
                                     <div class="product-action product-action-1 p-abs">
                                         <a href="#" class="icon-box icon-box-2" data-bs-toggle="modal" data-bs-target="#productModal">
                                             <i class="fal fa-eye"></i>
@@ -561,6 +575,9 @@ use app\Http\Controllers\client\ClientController;
                                     <h4 class="pro-title pro-title-2"><a href="product-details.html">{{$p->title}}</a></h4>
                                     <div class="pro-price">
                                         <span>{{ number_format($p->price) }}đ</span>
+                                        @if ($p->price_saled)
+                                        <del>{{ number_format($p->price_saled) }}đ</del>
+                                        @endif
                                     </div>
                                     <div class="rating">
                                         <i class="fal fa-star active"></i>
@@ -609,7 +626,10 @@ use app\Http\Controllers\client\ClientController;
                                 <div class="blog-meta blog-meta-2">
                                     Ngày đăng: <a href="#"><span>{{Carbon::parse($b->created_at)->diffForHumans() }}</span></a> / Bởi: <a href="#"><span>{{$b->tacgia}}</span></a>.
                                 </div>
-                                <p class="blog-title blog-title-2" style="font-weight: 400;font-size: 15px;"><a href="blog-details.html">{{$b->sumary}}</a></p>
+                                <div class="row" style="width:330px;height:100px">
+                                    <h1 class="blog-title blog-title-2" style="font-size: 18px;text-transform: uppercase"><a href="blog-details.html">{{$b->title}}</a></h1>
+
+                                </div>
                                 <div class="border-bottom-gray border-0">
                                     <p></p>
                                     <div class="p-btn p-btn-3">
@@ -829,5 +849,4 @@ use app\Http\Controllers\client\ClientController;
         <!-- popup area end -->
 
     </main>
-
    

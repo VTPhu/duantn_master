@@ -26,11 +26,11 @@ class ClientController extends Controller
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->join('user', 'user.id', '=', 'posts.user_id')
             ->orderBy('title', 'DESC')
-            ->select('categories.name', 'posts.sumary', 'posts.thumnail_url', 'posts.date', 'posts.created_at', 'user.name as tacgia')
+            ->select('categories.name', 'posts.sumary', 'posts.thumnail_url', 'posts.title', 'posts.date', 'posts.created_at', 'user.name as tacgia')
 
             ->get();
 
-        $product = Product::where('status', '=', '0')->orderBy('title', 'DESC')->paginate(5);
+        $product = Product::where('status', '=', '0')->orderBy('title', 'DESC')->paginate(10);
         return view('client.index.trangchu', compact('product', 'category', 'trending', 'blog'));
     }
 
@@ -38,6 +38,8 @@ class ClientController extends Controller
     {
         return Product::where('category_id', $id)->count();
     }
+
+
     /**
      * Show the form for creating a new resource.
      *

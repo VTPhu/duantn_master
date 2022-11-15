@@ -15,6 +15,7 @@ class Product extends Model
         'slug',
         'quantily',
         'price',
+        'price_saled',
         'size',
         'date',
         'thumnail',

@@ -30,7 +30,7 @@ class ClientController extends Controller
 
             ->get();
 
-        $product = Product::where('status', '=', '0')->orderBy('title', 'DESC')->paginate(10);
+        $product = Product::where('status', '=', '0')->orderBy('title', 'ASC')->paginate(10);
 
         return view('client.index.trangchu', compact('product', 'category', 'trending', 'blog'));
     }

@@ -43,7 +43,9 @@ Route::post('/admin/edit/brand/{id}', [BrandController::class, 'update']);
 Route::get('/admin/deleteBrand/{id}', [BrandController::class, 'destroy']);
 //admin dashboard
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
-Route::post('/admin/filter', [AdminController::class, 'filter_date']);
+Route::post('/admin/filter', [AdminController::class, 'filter']);
+Route::post('/admin/dashboard-filter', [AdminController::class, 'dashboard_filter']);
+Route::post('/admin/day-order', [AdminController::class, 'dayorder']);
 //order
 Route::get('/admin/show-order', [OrderController::class, 'index']);
 Route::get('/admin/show-order/{id}', [OrderController::class, 'create']);

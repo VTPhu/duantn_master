@@ -413,7 +413,7 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-12">
                         <div class="section-title top-selling-title text-center pb-47">
                             <span class="p-subtitle p-subtitle-2">Khám phá cách nhìn</span>
-                            <h3 class="p-title pb-15 mb-0">Sản phẩm bán chạy</h3>
+                            <h3 class="p-title pb-15 mb-0">TẤT CẢ SẢN PHẨM</h3>
                           
                         </div>
                     </div>

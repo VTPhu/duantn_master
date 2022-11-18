@@ -629,7 +629,7 @@
                                        </li>
                                        
                                        <li>
-                                          <h4>Brand</h4>
+                                          <h4>Thương hiệu</h4>
                                           @foreach ($brand as $b)
                                           <span>{{$b->name}}</span>
                                           @endforeach

@@ -173,7 +173,7 @@ class ProductController extends Controller
 
 
         $input->price_saled = $request->price_saled;
-        $by = $request->price / $request->price_saled * 100;
+        $by = ($request->price / $request->price_saled) * 100;
 
         $input['saled'] = round($by);
         $sua = $input->save();

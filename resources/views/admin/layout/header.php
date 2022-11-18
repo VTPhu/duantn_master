@@ -24,6 +24,7 @@
     <link href="/admin/assets/css/menu.css" rel="stylesheet" type="text/css" />
     <link href="/admin/assets/css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->

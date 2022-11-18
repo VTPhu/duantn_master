@@ -10,6 +10,8 @@ use App\Models\Posts;
 use App\Models\Order;
 use App\Models\Users;
 use App\Models\Statistical;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -18,15 +20,17 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $category = Category::count();
-        $product = Product::count();
-        $post = Posts::count();
-        $order = Order::count();
-        $user = Users::where('role', '1')->count();
-        $admin = Users::where('role', '0')->count();
-        return view('admin.dashboard.dashboard', compact('category', 'product', 'post', 'order', 'user', 'admin'));
+        $dauthangnay = Carbon::now('Asia/Ho_Chi_Minh')->startOfMonth()->toDateString();
+        $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $total_sales = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('sales');
+        $total_profit = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('profit');
+        $order = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('total_order');
+        $total_quantity = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('quantity');
+        $user = Users::where('role', '=', '1')->count();
+        $admin = Users::where('role', '=', '2')->count();
+        return view('admin.dashboard.dashboard', compact('total_sales', 'total_profit', 'total_quantity', 'order', 'user', 'admin'));
     }
 
     /**
@@ -34,14 +38,15 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function filter_date(Request $request)
+    public function filter(Request $request)
     {
 
-        $data = $request->all();
-        $from_date = $data['from_date'];
-        $to_date = $data['to_date'];
+        $input = $request->all();
+        $from_date = $input['from_date'];
+        $to_date = $input['to_date'];
+
         $get = Statistical::whereBetween('order_date', [$from_date, $to_date])->orderBy('order_date', 'ASC')->get();
-        echo $get;
+
 
         foreach ($get as $key => $val) {
             $chart_data[] = array(
@@ -52,9 +57,8 @@ class AdminController extends Controller
                 'profit' => $val->profit,
                 'quantity' => $val->quantity
             );
-
-            echo $data = json_encode($chart_data);
         }
+        echo $data = json_encode($chart_data);
     }
 
     /**
@@ -63,10 +67,7 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
@@ -74,9 +75,41 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function dashboard_filter(Request $request)
     {
-        //
+
+        $data = $request->all();
+        $dauthangnay = Carbon::now('Asia/Ho_Chi_Minh')->startOfMonth()->toDateString();
+        $dathangtruoc = Carbon::now('Asia/Ho_Chi_Minh')->subMonth()->startOfMonth()->toDateString();
+        $cuoithangtruoc = Carbon::now('Asia/Ho_Chi_Minh')->subMonth()->endOfMonth()->toDateString();
+        $sub7days = Carbon::now('Asia/Ho_Chi_Minh')->subDays(7)->toDateString();
+        $sub365days = Carbon::now('Asia/Ho_Chi_Minh')->subdays(365)->toDateString();
+        $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $dauthang9 = Carbon::now('Asia/Ho_Chi_Minh')->subMonth(2)->toDateString();
+        $cuoithang9 = Carbon::now('Asia/Ho_Chi_Minh')->subMonth(2)->endOfMonth()->toDateString();
+        if ($data['dashboard_value'] == 'thangtruoc') {
+            $get = Statistical::whereBetween('order_date', [$dathangtruoc, $cuoithangtruoc])->orderBy('order_date', 'ASC')->get();
+        } elseif ($data['dashboard_value'] == 'thangnay') {
+            $get = Statistical::whereBetween('order_date', [$dauthangnay,  $now])->orderBy('order_date', 'ASC')->get();
+        } elseif ($data['dashboard_value'] == '365ngayqua') {
+            $get = Statistical::whereBetween('order_date', [$sub365days,  $now])->orderBy('order_date', 'ASC')->get();
+        } elseif ($data['dashboard_value'] == 'thang9') {
+            $get = Statistical::whereBetween('order_date', [$dauthang9,  $cuoithang9])->orderBy('order_date', 'ASC')->get();
+        } else {
+            $get = Statistical::whereBetween('order_date', [$sub7days, $now])->orderBy('order_date', 'ASC')->get();
+        }
+
+        foreach ($get as $key => $val) {
+            $chart_data[] = array(
+
+                'period' => $val->order_date,
+                'order' => $val->total_order,
+                'sales' => $val->sales,
+                'profit' => $val->profit,
+                'quantity' => $val->quantity
+            );
+        }
+        echo $data = json_encode($chart_data);
     }
 
     /**
@@ -85,9 +118,22 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function dayorder()
     {
-        //
+        $sub30days = Carbon::now('Asia/Ho_Chi_Minh')->subDays(30)->toDateString();
+        $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+        $get = Statistical::whereBetween('order_date', [$sub30days,  $now])->orderBy('order_date', 'ASC')->get();
+        foreach ($get as $key => $val) {
+            $chart_data[] = array(
+
+                'period' => $val->order_date,
+                'order' => $val->total_order,
+                'sales' => $val->sales,
+                'profit' => $val->profit,
+                'quantity' => $val->quantity
+            );
+        }
+        echo $data = json_encode($chart_data);
     }
 
     /**

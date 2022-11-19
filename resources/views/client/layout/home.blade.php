@@ -356,24 +356,59 @@ use app\Http\Controllers\client\ClientController;
 
         <!-- slider area start -->
         <section class="slider-area-rel">
-            <div class="slider-active dot-style dot-style-1 dot-bottom-center">
-                <div class="single-slider single-slider-2 default-bg slider-height-2 d-flex align-items-center" data-background="client/assets/img/slider/slider1.jpg">
-                    <div class="container container-2">
-                        <div class="row align-items-center">
-                            <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 pt-60 pb-10 pt-md-0 pb-md-0">
-                                <div class="slider-content-2">
-                                    <h2 class="s-title s-title-2 pb-28" data-animation="fadeInUp" data-delay=".5s">BỘ SƯU TẬP ÁO THUN</h2>
-                                    <p class="s-desc pb-75" data-animation="fadeInUp" data-delay=".7s">Thương hiệu áo thun mới nhất đến từ đất nước có nền lịch sử lâu đời . </p>
-                                    <div class="p-btn p-btn-5" data-animation="fadeInUp" data-delay=".9s">
-                                        <a href="shop.html">Tham gia ngay</a>
-                                    </div>
+          
+            <div class="pl-20 pr-20">
+                <div class="row row-2">
+                    <div class="col-xxl-6 col-xl-6 col-md-6 col-12">
+                        <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".1s">
+                            <a href="shop.html">
+                                <div class="cat-thumb fix">
+                                    <img src="client/assets/img/slider/mmmm.jpg" alt="#">
                                 </div>
+                                <div class="cat-content p-abs bottom-left">
+                                    <h2 style="position: absolute;left: 100px;bottom: 113px;" class="pb-15">CHÚC MỪNG NGÀY 20/11</h2>
+                                        <p class="s-desc pb-75" style="padding-left: 62px;font-size: 17px;position: absolute;left: 39px;bottom: 27px;">Ngày nhà giáo Việt Nam 20/11 là sự kiên lớn rất thích hợp cho ra mắt sản phẩm mới  </p>
+                                        <div class="click" style="padding-left:163px">
+                                            <button class="cat-subtitle " style="background-color: black;color: white; width: 187px;height: 44px;font-size: 23px;">Xem ngay</button>
+
+                                        </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-6 col-xxl-6 col-xl-6 col-md-6 col-12">
+                        <div class="row row-2">
+                            <div class="col-xxl-12">
+                                <a href="shop.html">
+                                    <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".9s">
+                                        <div class="cat-thumb fix">
+                                            <img src="client/assets/img/slider/vvv.jpg" alt="#">
+                                        </div>
+                                        <div class="cat-content p-abs bottom-left">
+                                            <h4  class="pb-15">GIẢM GIÁ ĐẾN 70% </h4>
+                                            <span class="cat-subtitle">Xem ngay</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xxl-12">
+                                <a href="shop.html">
+                                    <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".9s">
+                                        <div class="cat-thumb fix">
+                                            <img src="client/assets/img/slider/vvv.jpg" alt="#">
+                                        </div>
+                                        <div class="cat-content p-abs bottom-left">
+                                            <h4  class="pb-15">BLACK FRIDAY</h4>
+                                            <span class="cat-subtitle">28 Products</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-               
             </div>
+        
         </section>
         <!-- slider area end -->
 

@@ -31,24 +31,24 @@
                                 <i class="mdi mdi-menu"></i>
                             </button>
                         </li>
-                       
-                       
+
+
                     </ul>
 
                     <!-- Right(Notification) -->
                     <ul class="nav navbar-nav navbar-right">
-                       
+
 
                         <li>
-                           
+
                             <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right dropdown-lg user-list notify-list">
-                               
-                                
-                                
+
+
+
                             </ul>
                         </li>
 
-                        
+
                         <li class="dropdown user-box">
                             <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
                                 <img src="/admin/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
@@ -80,7 +80,7 @@
                 <!--- Sidemenu -->
                 <div id="sidebar-menu">
                     <ul>
-                        
+
 
                         <li class="has_sub">
                             <a href="/admin/dashboard" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right">2</span> <span> THỐNG KÊ </span> </a>
@@ -125,11 +125,11 @@
                             <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-arc"></i><span>ĐƠN HÀNG</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-order"> Liệt kê</a></li>
-                                
+
 
                             </ul>
                         </li>
-                       
+
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-gift"></i><span>MÃ GIẢM GIÁ</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
@@ -142,7 +142,7 @@
                             <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span>TÀI KHOẢN</span> <span class="menu-arrow"></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="/admin/show-user"> Liệt kê</a></li>
-                                
+
 
                             </ul>
                         </li>
@@ -244,7 +244,7 @@
                                                         <td class=" text-center font-size-10" style="width:98px">
                                                             <button class="btn btn-primary btn-sm " style="width:35px"><a href="/admin/product/{{$p->id}}" class="text-gray m-r-5"><i style="color:white;" class="ti-pencil"></i></a></button>
                                                             <button class="btn btn-danger btn-sm"><a href="/admin/deletedProduct/{{$p->id}}" onclick="alert(event,{{$p->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
-                                                            
+
                                                         </td>
                                                     </tr>
                                                 </tbody>

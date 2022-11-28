@@ -11,7 +11,8 @@ use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\OrderDetailController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\ClientController;
-
+use App\Http\Controllers\client\ShopController;
+use App\Http\Controllers\client\ProductCateController;
 // product
 Route::get('/admin/show-product', [ProductController::class, 'index']);
 Route::get('/admin/product', [ProductController::class, 'addProduct']);
@@ -55,7 +56,7 @@ Route::get('/admin/deleteOrder/{id}', [OrderController::class, 'destroy']);
 Route::get('/admin/show-orderDetail/{id}', [OrderDetailController::class, 'index']);
 // Route::post('/admin/show-orderDetail', [OrderDetailController::class, 'store']);
 Route::get('/admin/deleteOrderDetail/{id}', [OrderDetailController::class, 'destroy']);
-//Coupon 
+//Coupon
 Route::get('/admin/show-coupon', [CouponController::class, 'index']);
 Route::get('/admin/coupon', [CouponController::class, 'create']);
 Route::post('/admin/coupon', [CouponController::class, 'store']);
@@ -67,3 +68,7 @@ Route::post('/admin/show-user/{id}', [UserController::class, 'edit']);
 //Phần người dùng
 Route::get('/', [ClientController::class, 'index']);
 Route::get('/productDetail/{id}', [ClientController::class, 'productDetail']);
+
+Route::get('/shop', [ShopController::class, 'Category']);
+// Route::get('/cate', [ProductCateController::class, 'ProductCate']);
+Route::get('/productCategory/{idsp}', [ProductCateController::class, 'ProductCate']);

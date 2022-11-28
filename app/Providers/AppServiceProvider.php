@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
+use App\Models\Category;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -24,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::useBootstrap();
+        view()->composer('*',function($view){
+            $view->with([
+                'categorys'=>Category::where('status','=','0')->get(),
+            ]);
+        });
+        // Paginator::useBootstrap();
     }
 }

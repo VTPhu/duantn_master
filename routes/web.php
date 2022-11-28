@@ -68,7 +68,3 @@ Route::post('/admin/show-user/{id}', [UserController::class, 'edit']);
 //Phần người dùng
 Route::get('/', [ClientController::class, 'index']);
 Route::get('/productDetail/{id}', [ClientController::class, 'productDetail']);
-
-Route::get('/shop', [ShopController::class, 'Category']);
-// Route::get('/cate', [ProductCateController::class, 'ProductCate']);
-Route::get('/productCategory/{idsp}', [ProductCateController::class, 'ProductCate']);

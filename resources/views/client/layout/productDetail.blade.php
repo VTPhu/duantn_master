@@ -1,5 +1,12 @@
 <body>
 
+    <?php
+use Carbon\Carbon;
+use app\Http\Controllers\client\ClientController;
+?>
+<body>
+    
+    <!-- preloader start -->
     <div id="loading">
         <div id="loading-center">
             <div id="loading-center-absolute">
@@ -88,15 +95,16 @@
     <!-- header area start -->
     <header >
         <div class="header-area">
-            <div class="header-top pl-60 pr-60 d-none d-md-block">
+            <div class=" pl-60 pr-60 d-none d-md-block">
                 <div class="row align-items-center">
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-4">
                         
                        
                     </div>
-                    <div class="col-xxl-4 col-xl-4 d-none d-xl-block">
-                        <p class="white-text center-text">GIẢM GIÁ CỰC LỚN VÀO NGÀY 11.11</p>
-                    </div>
+                    <marquee behavior="alternate"
+                                    style="background:white; color:rgb(12, 12, 12); font-size: 20px;">
+                                    <h3 class="nhapnhay">GIẢM GIÁ LỚN VÀO NGÀY 11.11</h3>
+                                </marquee>
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8">
                         
                     </div>
@@ -107,30 +115,38 @@
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
                             <div class="logo pr-55 d-inline-block">
-                                <a href="index.html"><img src="/client/assets/img/logo/logo.png" alt="#"></a>
+                                <a href="index.html" class="logo" style=";
+                                font-size: 24px;
+                                text-transform: uppercase;
+                                font-family: 'Hind Madurai', sans-serif;
+                                font-weight: 600;
+                                letter-spacing: 1px;
+                                line-height: 70px;"><span>GENZ<span style="color: #7fc1fc;">FASHION</span></span><i class="mdi mdi-layers"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xxl-6 col-xl-8 col-lg-8 d-none d-lg-block">
                         <div class="main-menu p-rel d-flex align-items-center justify-content-center">
+                            
                             <nav id="mobile-menu">
+                               
                                 <ul>
-                                    <li><a href="/">Trang chủ</a>
+                                    <li ><a style="font-family: 'Archivo';font-size: 16px;" href="/">Trang chủ</a>
                                        
                                     </li>
                                     <li class="static">
-                                        <a href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
                                        
                                      </li>                                                                   
                                     <li>
-                                        <a href="blog.html">Tin tức</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="blog.html">Tin tức</a>
                                        
                                     </li>
                                     <li>
-                                        <a href="about-us.html">Giới thiệu</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
                                         
                                     </li>
-                                    <li><a href="contact.html">Liên hệ</a></li>
+                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="contact.html">Liên hệ</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -140,9 +156,13 @@
                             <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
                                 <a href="login.html" class="d-none d-xxl-inline-block">Đăng nhập /Đăng ký</a>
                                 <div class="header-icon header-icon-2 d-inline-block ml-30">
-                                    <a href="javascript:void(0)" class="search-toggle"><i class="fal fa-search"></i></a>
-                                    <a href="wishlist.html" class="d-none d-xl-inline-block"><i class="fal fa-heart"></i><span>2</span></a>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i class="fal fa-shopping-cart"></i><span>2</span></button>
+                                  
+                                     
+                                     @if(Session::has('Cart')!=null)
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i class="fal fa-shopping-cart"></i><span id="total-quantily-show">{{Session::get('Cart')->totalQuanty}}</span></button>
+                                    @else
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i class="fal fa-shopping-cart"></i><span id="total-quantily-show">0</span></button>
+                                     @endif
                                 </div>
                             </div>
                             <div class="header-bar ml-20 d-lg-none">
@@ -165,82 +185,58 @@
     <div class="cartmini__area">
         <div class="modal fade" id="cartMiniModal" tabindex="-1" aria-labelledby="cartMiniModal" aria-hidden="true">
             <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="cartmini__wrapper">
-                    <div class="cartmini__top d-flex align-items-center justify-content-between">
-                        <h4>Your Cart</h4>
-                        <div class="cartminit__close">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal" class="cartmini__close-btn"> <i class="fal fa-times"></i></button>
-                        </div>
-                    </div>
-                    <div class="cartmini__list">
-                        <ul>
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="/client/assets/img/products/product-1.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Form Armchair Walnut Base</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $70.00</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="/client/assets/img/products/product-2.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Form Armchair Simon Legald</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $95.99</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="/client/assets/img/products/product-3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Antique Chinese Armchairs</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $120.00</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cartmini__total d-flex align-items-center justify-content-between">
-                        <h5>Total</h5>
-                        <span>$180.00</span>
-                    </div>
-                    <div class="cartmini__bottom">
-                        <a href="cart.html" class="s-btn w-100 mb-20">view cart</a>
-                        <a href="checkout.html" class="s-btn s-btn-2 w-100">checkout</a>
-                    </div>
-                </div>
+         <div class="div" id="change-item-cart">
+            @if(Session::has('Cart')!=null)
+
+<div class="modal-content">
+    <div class="cartmini__wrapper">
+        <div class="cartmini__top d-flex align-items-center justify-content-between">
+            <h4>GIỎ HÀNG</h4>
+            <div class="cartminit__close">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal" class="cartmini__close-btn"> <i class="fal fa-times"></i></button>
             </div>
+        </div>
+        <div class="cartmini__list" style="line-height:30px; height:472px">
+           
+            <ul>
+                @foreach(Session::get('Cart')->products as $n)
+
+                <li class="cartmini__item p-rel d-flex align-items-start">
+                    <div class="cartmini__thumb mr-15">
+                        <a href="product-details.html">
+                            <img  src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
+                        </a>
+                    </div>
+                    <div class="cartmini__content">
+                        <h3 class="cartmini__title">
+                            <a href="product-details.html">{{$n['productInfo']->title}}</a>
+                        </h3>
+                        <span class="cartmini__price">
+                            <span class="price">{{$n['quantily']}} × {{number_format($n['productInfo']->price)}}đ</span>
+                        </span>
+                    </div>
+                    <a href="#" class="cartmini__remove" data-id="{{$n['productInfo']->id}}">
+                        <i class="fal fa-times"></i>
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+            
+        </div>
+        
+        <div class="cartmini__total d-flex align-items-center justify-content-between">
+            <h5>Tổng tiền:</h5>
+            <span>{{number_format(Session::get('Cart')->totaPrice)}}đ</span>
+        </div>
+        <div class="cartmini__bottom">
+            <a href="/listCart" class="s-btn w-100 mb-20">Xem giỏ hàng</a>
+            <a href="checkout.html" class="s-btn s-btn-2 w-100">checkout</a>
+        </div>
+        @endif
+
+    </div>
+</div>
+        </div>
             </div>
         </div>
     </div>
@@ -265,6 +261,10 @@
             </div>
         </div>
     </div>
+    <!-- search area end -->
+
+
+    <!-- sidebar area start -->
     <section class="offcanvas__area">
         <div class="modal fade" id="offCanvasModal" tabindex="-1" aria-labelledby="offCanvasModal" aria-hidden="true">
             <div class="modal-dialog">
@@ -273,7 +273,7 @@
                         <div class="offcanvas__top d-flex align-items-center mb-60 justify-content-between">
                             <div class="logo">
                                 <a href="index.html">
-                                   <img src="/client/assets/img/logo/logo-black.png" alt="">
+                                   <img src="client/assets/img/logo/logo-black.png" alt="">
                                 </a>
                              </div>
                            <div class="offcanvas__close">
@@ -341,24 +341,11 @@
         </div>
         
      </section>
+     <!-- sidebar area end -->
+
     <main>
 
-        <!-- breadcrumb area start -->
-        <div class="breadcrumb-area-2 box-plr-45 gray-bg-4">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xxl-12">
-                        <nav aria-label="breadcrumb" class="breadcrumb-list-2">
-                            <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                              <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
-                              <li class="breadcrumb-item active" aria-current="page">Simple Stylish Women Backpack</li>
-                            </ol>
-                          </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <!-- breadcrumb area end -->
 
         <!-- product details area start -->
@@ -440,45 +427,28 @@
                             </div>
                             <div class="product__details-size d-sm-flex align-items-center mb-30">
                                 <span>Kích thước: </span>
-                                <ul class="mr-30">
-                                    <li>
-                                        <a href="#" class="unavailable">S</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" >M</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">L</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">XL</a>
-                                    </li>
-                                   
-                                </ul>
+                                <select style="width: 140px;height: 30px;border-radius:4px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
+                                    <option value="0">Hiện</option>    
+                                                                                     
+                                </select>
                                 <button type="button" class="product-size-guide-btn float-sm-end" data-bs-toggle="modal" data-bs-target="#productSizeModal">Bảng size</button>
                             </div>
                             <div class="product__details-action">
+                                
                                 <form action="#">
                                     <div class="product__details-quantity d-sm-flex align-items-center">
                                         <div class="product-quantity mb-20 mr-15">
-                                            <div class="cart-plus-minus"><input type="text" value="1" /></div>
+                                            <div class="cart-plus-minus"><input id="quanty-item-{{$n['productInfo']->id}}" type="text" value="{{$n['quantily']}}" /></div>
                                         </div>
                                         <div class="product-add-cart mb-20">
-                                            <button class="s-btn s-btn-2 s-btn-big">Thêm vào giỏ hàng</button>
+                                            <button class="s-btn s-btn-2 s-btn-big" onclick="AddDetail({{$n['productInfo']->id}})">Thêm vào giỏ hàng</button>
                                         </div>
                                     </div>
                                 </form>
+                                
+                              
                             </div>
-                            <div class="product__details-compare">
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fal fa-heart"></i>Add to Wishlist</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fal fa-layer-group"></i>Add to Compare</a>
-                                    </li>
-                                </ul>
-                            </div>
+                           
                             <div class="product__details-meta mb-25">
                                 <ul>
                                     <li>
@@ -799,6 +769,36 @@
         <!-- subscribe area end -->
 
 </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+ function AddDetail(id){
+       console.log(id);
+//        $.ajax({
+//        url:'/AddDetail/'+id+'/'+$("#quanty-item-"+id)+$("#value-size").val(),
+//        type:'GET',
+//    }).done(function(response){
+       
+      
+//    })
+   }
+
+// $("#change-item-cart").on("click", ".cartmini__remove",function(){
+//     $.ajax({
+//     url:'/DeleteCart/'+ $(this).data("id"),
+//     type:'GET',
+// }).done(function(response){
+   
+//   RenderCart(response);
+// })
+// })
+// function RenderCart(response){
+//     $("#change-item-cart").empty();
+//     $("#change-item-cart").html(response);
+//     $("#total-quantily-show").text($("#total-quantily-cart").val());
+   
+// }
+</script>
     <!-- footer area start -->
    

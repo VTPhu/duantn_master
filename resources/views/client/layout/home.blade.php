@@ -1,6 +1,7 @@
 <?php
 use Carbon\Carbon;
 use app\Http\Controllers\client\ClientController;
+
 ?>
 <body>
     
@@ -93,15 +94,16 @@ use app\Http\Controllers\client\ClientController;
     <!-- header area start -->
     <header >
         <div class="header-area">
-            <div class="header-top pl-60 pr-60 d-none d-md-block">
+            <div class=" pl-60 pr-60 d-none d-md-block">
                 <div class="row align-items-center">
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-4">
                         
                        
                     </div>
-                    <div class="col-xxl-4 col-xl-4 d-none d-xl-block">
-                        <p class="white-text center-text">GIẢM GIÁ CỰC LỚN VÀO NGÀY 11.11</p>
-                    </div>
+                    <marquee behavior="alternate"
+                                    style="background:white; color:rgb(12, 12, 12); font-size: 20px;">
+                                    <h3 class="nhapnhay">GIẢM GIÁ LỚN VÀO NGÀY 11.11</h3>
+                                </marquee>
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8">
                         
                     </div>
@@ -112,13 +114,21 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
                             <div class="logo pr-55 d-inline-block">
-                                <a href="index.html"><img src="client/assets/img/logo/logo.png" alt="#"></a>
+                                <a href="index.html" class="logo" style=";
+                                font-size: 24px;
+                                text-transform: uppercase;
+                                font-family: 'Hind Madurai', sans-serif;
+                                font-weight: 600;
+                                letter-spacing: 1px;
+                                line-height: 70px;"><span>GENZ<span style="color: #7fc1fc;">FASHION</span></span><i class="mdi mdi-layers"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xxl-6 col-xl-8 col-lg-8 d-none d-lg-block">
                         <div class="main-menu p-rel d-flex align-items-center justify-content-center">
+                            
                             <nav id="mobile-menu">
+                               
                                 <ul>
                                     <li ><a style="font-family: 'Archivo';font-size: 16px;" href="/">Trang chủ</a>
                                        
@@ -145,9 +155,13 @@ use app\Http\Controllers\client\ClientController;
                             <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
                                 <a href="login.html" class="d-none d-xxl-inline-block">Đăng nhập /Đăng ký</a>
                                 <div class="header-icon header-icon-2 d-inline-block ml-30">
-                                    <a href="javascript:void(0)" class="search-toggle"><i class="fal fa-search"></i></a>
-                                    <a href="wishlist.html" class="d-none d-xl-inline-block"><i class="fal fa-heart"></i><span>2</span></a>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i class="fal fa-shopping-cart"></i><span>2</span></button>
+                                  
+                                     
+                                     @if(Session::has('Cart') != null)
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i class="fal fa-shopping-cart"></i><span id="total-quantily-show">{{Session::get('Cart')->totalQuanty}}</span></button>
+                                     @else
+                                     <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal"><i class="fal fa-shopping-cart"></i><span id="total-quantily-show">0</span></button>
+                                     @endif
                                 </div>
                             </div>
                             <div class="header-bar ml-20 d-lg-none">
@@ -170,82 +184,73 @@ use app\Http\Controllers\client\ClientController;
     <div class="cartmini__area">
         <div class="modal fade" id="cartMiniModal" tabindex="-1" aria-labelledby="cartMiniModal" aria-hidden="true">
             <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="cartmini__wrapper">
-                    <div class="cartmini__top d-flex align-items-center justify-content-between">
-                        <h4>Your Cart</h4>
-                        <div class="cartminit__close">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal" class="cartmini__close-btn"> <i class="fal fa-times"></i></button>
-                        </div>
-                    </div>
-                    <div class="cartmini__list">
-                        <ul>
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="client/assets/img/products/product-1.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Form Armchair Walnut Base</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $70.00</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="client/assets/img/products/product-2.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Form Armchair Simon Legald</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $95.99</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
-                            <li class="cartmini__item p-rel d-flex align-items-start">
-                                <div class="cartmini__thumb mr-15">
-                                    <a href="product-details.html">
-                                        <img src="client/assets/img/products/product-3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="cartmini__content">
-                                    <h3 class="cartmini__title">
-                                        <a href="product-details.html">Antique Chinese Armchairs</a>
-                                    </h3>
-                                    <span class="cartmini__price">
-                                        <span class="price">1 × $120.00</span>
-                                    </span>
-                                </div>
-                                <a href="#" class="cartmini__remove">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cartmini__total d-flex align-items-center justify-content-between">
-                        <h5>Total</h5>
-                        <span>$180.00</span>
-                    </div>
-                    <div class="cartmini__bottom">
-                        <a href="cart.html" class="s-btn w-100 mb-20">view cart</a>
-                        <a href="checkout.html" class="s-btn s-btn-2 w-100">checkout</a>
-                    </div>
-                </div>
+         
+                
+<div class="modal-content">
+    <div class="cartmini__wrapper">
+        
+        <div class="cartmini__top d-flex align-items-center justify-content-between">
+            <h4>GIỎ HÀNG</h4>
+            <div class="cartminit__close">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#cartMiniModal" class="cartmini__close-btn"> <i class="fal fa-times"></i></button>
             </div>
+        </div>
+        <div class="div" id="change-item-cart">
+            @if(Session::has('Cart')!=null)
+        <div class="cartmini__list" style="line-height:30px; height:472px">
+            
+            <ul>
+                
+                
+                    
+                @foreach(Session::get('Cart')->products as $n)
+
+                <li class="cartmini__item p-rel d-flex align-items-start">
+                    <div class="cartmini__thumb mr-15">
+                        <a href="product-details.html">
+                            <img   src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
+                        </a>
+                    </div>
+                    <div class="cartmini__content">
+                        <h3 class="cartmini__title">
+                            <a href="product-details.html">{{$n['productInfo']->title}}</a>
+                        </h3>
+                        Kích thước:<span style="font-size:15px"> {{Session::get('Cart')->totalSize}}</span><br>
+                        <span class="cartmini__price">
+                            <span class="price">{{$n['quantily']}} × {{number_format($n['productInfo']->price)}}đ</span>
+                        </span>
+                    </div>
+                    <a href="#" class="cartmini__remove" data-id="{{$n['productInfo']->id}}">
+                        <i class="fal fa-times"></i>
+                    </a>
+                </li>
+                @endforeach
+                
+            </ul>
+            
+           
+        </div>
+        
+        <div class="cartmini__total d-flex align-items-center justify-content-between">
+            <h5>Tổng tiền:</h5>
+            <span>{{number_format(Session::get('Cart')->totaPrice)}}đ</span>
+        </div>
+       
+    
+        @endif
+       
+        <div class="cartmini__bottom">
+            <a href="/listCart" class="s-btn w-100 mb-20">Xem giỏ hàng</a>
+            <a href="checkout.html" class="s-btn s-btn-2 w-100">checkout</a>
+        </div>
+       
+       </div>
+       
+    </div>
+   
+</div>
+
+        
             </div>
         </div>
     </div>
@@ -362,17 +367,10 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-6 col-xl-6 col-md-6 col-12">
                         <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".1s">
                             <a href="shop.html">
-                                <div class="cat-thumb fix">
-                                    <img src="client/assets/img/slider/mmmm.jpg" alt="#">
+                                <div class="cat-thumb fix" >
+                                    <img src="client/assets/img/slider/mmmm.jpg" alt="#" >
                                 </div>
-                                <div class="cat-content p-abs bottom-left">
-                                    <h2 style="position: absolute;left: 100px;bottom: 113px;" class="pb-15">CHÚC MỪNG NGÀY 20/11</h2>
-                                        <p class="s-desc pb-75" style="padding-left: 62px;font-size: 17px;position: absolute;left: 39px;bottom: 27px;">Ngày nhà giáo Việt Nam 20/11 là sự kiên lớn rất thích hợp cho ra mắt sản phẩm mới  </p>
-                                        <div class="click" style="padding-left:163px">
-                                            <button class="cat-subtitle " style="background-color: black;color: white; width: 187px;height: 44px;font-size: 23px;">Xem ngay</button>
-
-                                        </div>
-                                </div>
+                               
                             </a>
                         </div>
                     </div>
@@ -382,12 +380,9 @@ use app\Http\Controllers\client\ClientController;
                                 <a href="shop.html">
                                     <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".9s">
                                         <div class="cat-thumb fix">
-                                            <img src="client/assets/img/slider/vvv.jpg" alt="#">
+                                            <img src="client/assets/img/slider/anh1-slider.jpg" alt="#">
                                         </div>
-                                        <div class="cat-content p-abs bottom-left">
-                                            <h4  class="pb-15">GIẢM GIÁ ĐẾN 70% </h4>
-                                            <span class="cat-subtitle">Xem ngay</span>
-                                        </div>
+                                        
                                     </div>
                                 </a>
                             </div>
@@ -395,12 +390,9 @@ use app\Http\Controllers\client\ClientController;
                                 <a href="shop.html">
                                     <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".9s">
                                         <div class="cat-thumb fix">
-                                            <img src="client/assets/img/slider/vvv.jpg" alt="#">
+                                            <img src="client/assets/img/slider/vvv.jpg" alt="#" style="padding-top:4px">
                                         </div>
-                                        <div class="cat-content p-abs bottom-left">
-                                            <h4  class="pb-15">BLACK FRIDAY</h4>
-                                            <span class="cat-subtitle">28 Products</span>
-                                        </div>
+                                        
                                     </div>
                                 </a>
                             </div>
@@ -410,11 +402,36 @@ use app\Http\Controllers\client\ClientController;
             </div>
         
         </section>
+        
+        <section class="category" >
+           
+
+            <div class="box-container" >
+                <ul style="display:flex; justify-content:space-between;width: 80%;margin: 0 auto;">
+                    @foreach ( $category as $c)
+                    <li>
+                         <a href="#" class="box" >
+                        <img src="{{asset('uploads/images/'.$c->thumnail)}}" alt="#" ><h3>{{$c->name}}</h3>
+                           <div class="list">
+                            <span class="cat-subtitle"> {{ClientController::countProductByIdCate($c->id)}} Sản phẩm</span>
+
+                           </div>
+                    </a>
+                </li>
+                @endforeach
+                </ul>
+               
+
+                
+
+            </div>
+            
+        </section>
         <!-- slider area end -->
 
         <!-- category area start -->
        
-        <div class="category-area fix mt-3-px pb-75">
+        {{-- <div class="category-area fix mt-3-px pb-75">
             <div class="row row-3">
                 @foreach ( $category as $c)
                 <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-12">
@@ -436,7 +453,7 @@ use app\Http\Controllers\client\ClientController;
                 </div>
                 @endforeach
         
-            </div>
+            </div> --}}
         </div>
         
         <!-- category area end -->
@@ -447,8 +464,8 @@ use app\Http\Controllers\client\ClientController;
                 <div class="row">
                     <div class="col-xxl-12">
                         <div class="section-title top-selling-title text-center pb-47">
-                            <span class="p-subtitle p-subtitle-2">Khám phá cách nhìn</span>
-                            <h3 class="p-title pb-15 mb-0">TẤT CẢ SẢN PHẨM</h3>
+                           
+                            <h3 class="p-title pb-15 mb-0">SẢN PHẨM GIẢM GIÁ</h3>
                           
                         </div>
                     </div>
@@ -461,7 +478,7 @@ use app\Http\Controllers\client\ClientController;
                                 <img src="{{asset('uploads/images/'.$pro->thumnail)}}" alt="#">
                                 <img src="{{asset('uploads/images/'.$pro->thumnail_two)}}" alt="#">
                                 <div class="cart-btn cart-btn-1 p-abs">
-                                    <a href="#">Thêm vào giỏ hàng</a>
+                                    <a  onclick="AddCart({{$pro->id}})" href="javascript::">Thêm vào giỏ hàng</a>
                                 </div>
                                 @if($pro->saled)
                                 <span class="discount discount-3 p-abs"  >
@@ -475,14 +492,7 @@ use app\Http\Controllers\client\ClientController;
                                         <i class="fal fa-eye"></i>
                                         <i class="fal fa-eye"></i>
                                     </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-heart"></i>
-                                        <i class="fal fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="icon-box icon-box-1">
-                                        <i class="fal fa-layer-group"></i>
-                                        <i class="fal fa-layer-group"></i>
-                                    </a>
+                                   
                                 </div>
                             </div>
                             <div class="product-content">
@@ -490,15 +500,12 @@ use app\Http\Controllers\client\ClientController;
                                 <div class="pro-price">
                                     <span>{{ number_format($pro->price) }}đ</span>
                                     @if ($pro->price_saled)
-                                    <del>{{ number_format($pro->price_saled) }}đ</del>
+                                    <del style="text-decoration:line-through;">{{ number_format($pro->price_saled) }}đ</del>
                                     @endif
+                                    
                                 </div>
                                 <div class="rating">
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star active"></i>
-                                    <i class="fal fa-star"></i>
-                                    <i class="fal fa-star"></i>
+
                                 </div>
                             </div>
                         </div>
@@ -509,10 +516,10 @@ use app\Http\Controllers\client\ClientController;
                     
                     
                 <div class="row">
-                    <div class="col-xxl-12">
+                    <div class="col-xxl-12" >
                         <div class="btn-area text-center wow fadeInUp" data-wow-delay="1.2s">
-                            <div class="p-btn p-btn-1">
-                                <a href="shop.html">TẤT CẢ SẢN PHẨM</a>
+                            <div class="p-btn p-btn-1" style="height:109px">
+                                <a href="shop.html">Xem thêm </a>
                             </div>
                         </div>
                     </div>
@@ -563,12 +570,12 @@ use app\Http\Controllers\client\ClientController;
         <!-- banner area end -->
 
         <!-- top selling product area start -->
-        <div class="top-selling-product pb-65">
+        <div class="top-selling-product pb-65" style="padding-bottom:0px">
             <div class="container">
                 <div class="row">
                     <div class="col-xxl-12">
                         <div class="section-title text-center pb-47">
-                            <span class="p-subtitle p-subtitle-2">KHÁM PHÁ CÁCH NHÌN</span>
+                           
                             <h3 class="p-title pb-15 mb-0">SẢN PHẨM NỔI BẬT</h3>
                         </div>
                     </div>
@@ -582,7 +589,7 @@ use app\Http\Controllers\client\ClientController;
                                     <img src="{{asset('uploads/images/'.$p->thumnail)}}" alt="#">
                                     <img src="{{asset('uploads/images/'.$p->thumnail_two)}}" alt="#">
                                     <div class="cart-btn cart-btn-2 p-abs">
-                                        <a href="#">Thêm vào giỏ hàng</a>
+                                        <a  onclick="AddCart({{$p->id}})" href="javascript::">Thêm vào giỏ hàng</a>
                                     </div>
                                     @if($p->saled)
                                     <span class="discount discount-3 p-abs"  >
@@ -596,30 +603,21 @@ use app\Http\Controllers\client\ClientController;
                                             <i class="fal fa-eye"></i>
                                             <i class="fal fa-eye"></i>
                                         </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-heart"></i>
-                                            <i class="fal fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="icon-box icon-box-2">
-                                            <i class="fal fa-layer-group"></i>
-                                            <i class="fal fa-layer-group"></i>
-                                        </a>
+                                       
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="product-details.html">{{$p->title}}</a></h4>
+                                    <h4 class="pro-title pro-title-2"><a href="/productDetail/{{$pro->id}}" >{{$p->title}}</a></h4>
                                     <div class="pro-price">
                                         <span>{{ number_format($p->price) }}đ</span>
                                         @if ($p->price_saled)
-                                        <del>{{ number_format($p->price_saled) }}đ</del>
+                                        <del style="text-decoration:line-through;">{{ number_format($p->price_saled) }}đ</del>
                                         @endif
                                     </div>
                                     <div class="rating">
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star active"></i>
-                                        <i class="fal fa-star"></i>
-                                        <i class="fal fa-star"></i>
+                                       <span >Lượt xem:
+                                        
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -638,12 +636,12 @@ use app\Http\Controllers\client\ClientController;
         <hr class="mb-100">
 
         <!-- blog area start -->
-        <div class="blog-area pb-60">
+        <div class="blog-area pb-60" style="height:558px">
             <div class="container">
                 <div class="row mb-45">
                     <div class="col-xxl-12">
                         <div class="section-title text-center">
-                            <span class="p-subtitle p-subtitle-2">KHÁM PHÁ CÁCH NHÌN</span>
+                            
                             <h3 class="p-title pb-15 mb-0">BÀI VIẾT MỚI NHẤT</h3>
                             
                         </div>
@@ -886,4 +884,41 @@ use app\Http\Controllers\client\ClientController;
         <!-- popup area end -->
 
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   <script>
+    function AddCart(id){
+    $.ajax({
+        url:'/AddCart/'+ id,
+        type:'GET',
+    }).done(function(response){
+        RenderCart(response);
+        Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Bạn đã thêm thành công',
+  showConfirmButton: false,
+  timer: 1500
+})
+    })
+    }
+
+    $("#change-item-cart").on("click", ".cartmini__remove",function(){
+        $.ajax({
+        url:'/DeleteCart/'+ $(this).data("id"),
+        type:'GET',
+    }).done(function(response){
+       
+      RenderCart(response);
+    })
+    })
+    function RenderCart(response){
+        $("#change-item-cart").empty();
+        $("#change-item-cart").html(response);
+        $("#total-quantily-show").text($("#total-quantily-cart").val());
+       
+    }
+   
+   </script>
    

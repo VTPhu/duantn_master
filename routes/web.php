@@ -10,9 +10,12 @@ use App\Http\Controllers\admin\CouponController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\OrderDetailController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\ClientController;
 use App\Http\Controllers\client\ShopController;
 use App\Http\Controllers\client\ProductCateController;
+use App\Http\Controllers\client\ProfileController;
+
 // product
 Route::get('/admin/show-product', [ProductController::class, 'index']);
 Route::get('/admin/product', [ProductController::class, 'addProduct']);
@@ -68,3 +71,13 @@ Route::post('/admin/show-user/{id}', [UserController::class, 'edit']);
 //Phần người dùng
 Route::get('/', [ClientController::class, 'index']);
 Route::get('/productDetail/{id}', [ClientController::class, 'productDetail']);
+// Cart
+Route::get('/AddCart/{id}', [CartController::class, 'AddCart']);
+Route::get('/DeleteCart/{id}', [CartController::class, 'DeletedCart']);
+Route::get('/listCart', [CartController::class, 'listCart']);
+Route::get('/DeleteListCart/{id}', [CartController::class, 'DeletedListCart']);
+Route::get('/SaveListCart/{id}/{quantily}', [CartController::class, 'SaveListCart']);
+Route::get('/AddDetail/{id}/{quantily}/{size}', [CartController::class, 'AddDetailProduct']);
+//profile
+
+Route::get('/profile', [ProfileController::class, 'Profile']);

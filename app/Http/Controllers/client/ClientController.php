@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Posts;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Cart;
 
 class ClientController extends Controller
 {
@@ -21,7 +22,7 @@ class ClientController extends Controller
     {
         Carbon::setLocale('vi');
         $category = Category::all();
-        $trending = Product::where('view', '>', '100')->where('status', '=', '0')->orderBy('view', 'DESC')->get();
+        $trending = Product::where('status', '=', '0')->orderBy('view', 'DESC')->get();
         $blog = DB::table('posts')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->join('user', 'user.id', '=', 'posts.user_id')
@@ -30,7 +31,7 @@ class ClientController extends Controller
 
             ->get();
 
-        $product = Product::where('status', '=', '0')->orderBy('title', 'ASC')->paginate(10);
+        $product = Product::where('saled', '>', '1')->orderBy('saled', 'DESC')->paginate(10);
 
         return view('client.index.trangchu', compact('product', 'category', 'trending', 'blog'));
     }
@@ -66,6 +67,7 @@ class ClientController extends Controller
 
         $product = Product::find($id);
         if ($product == null) return redirect('/thongbao');
+
         return view('client.index.productDetail', compact('product', 'category', 'brand'));
     }
 
@@ -75,9 +77,14 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function SaveListCart($id, Request  $request, $quantily)
     {
-        //
+
+        $oldCart = Session('Cart') ? Session('Cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->saveCart($id, $quantily);
+        $request->Session()->put('Cart', $newCart);
+        return view('client.index.list-cart');
     }
 
     /**

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Posts;
+use App\Models\Banner;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Cart;
@@ -32,8 +33,8 @@ class ClientController extends Controller
             ->get();
 
         $product = Product::where('saled', '>', '1')->orderBy('saled', 'DESC')->paginate(10);
-
-        return view('client.index.trangchu', compact('product', 'category', 'trending', 'blog'));
+        $banner = Banner::all();
+        return view('client.index.trangchu', compact('product', 'category', 'trending', 'blog', 'banner'));
     }
 
     public static  function countProductByIdCate($id) // id danh mục

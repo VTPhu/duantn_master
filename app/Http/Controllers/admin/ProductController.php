@@ -83,11 +83,16 @@ class ProductController extends Controller
         }
 
         $price = $request->get('price');
+
         $price_saled = $request->get('price_saled');
-        $by = round($price / $price_saled) * 100;
+        if ($price_saled) {
+            $by = round($price / $price_saled) * 100;
+            $product['saled'] = $by;
+        }
+
 
         $product = Product::create($input);
-        $product['saled'] = $by;
+
         $product->save();
         if ($product) {
             return redirect('/admin/show-product')->with('message', 'Thêm thành công');;
@@ -173,9 +178,12 @@ class ProductController extends Controller
 
 
         $input->price_saled = $request->price_saled;
-        $by = ($request->price / $request->price_saled) * 100;
+        if ($request->price_saled) {
+            $by = ($request->price / $request->price_saled) * 100;
 
-        $input['saled'] = round($by);
+            $input['saled'] = round($by);
+        }
+
         $sua = $input->save();
         if ($sua) {
 

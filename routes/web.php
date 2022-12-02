@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\ProductController;
@@ -81,3 +82,10 @@ Route::get('/AddDetail/{id}/{quantily}/{size}', [CartController::class, 'AddDeta
 //profile
 
 Route::get('/profile', [ProfileController::class, 'Profile']);
+//banner
+Route::get('/admin/show-banner', [BannerController::class, 'index']);
+Route::get('/admin/banner', [BannerController::class, 'create']);
+Route::post('/admin/banner', [BannerController::class, 'store']);
+Route::get('/admin/banner/{id}', [BannerController::class, 'edit']);
+Route::post('/admin/banner/{id}', [BannerController::class, 'updated']);
+Route::get('/admin/deleteBanner/{id}', [BannerController::class, 'destroy']);

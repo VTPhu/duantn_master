@@ -361,14 +361,14 @@ use app\Http\Controllers\client\ClientController;
 
         <!-- slider area start -->
         <section class="slider-area-rel">
-          
+          @foreach ($banner as $b)
             <div class="pl-20 pr-20">
                 <div class="row row-2">
                     <div class="col-xxl-6 col-xl-6 col-md-6 col-12">
                         <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".1s">
                             <a href="shop.html">
                                 <div class="cat-thumb fix" >
-                                    <img src="client/assets/img/slider/mmmm.jpg" alt="#" >
+                                    <img src="{{asset('uploads/images/'.$b->image_l)}}" alt="" >
                                 </div>
                                
                             </a>
@@ -380,7 +380,7 @@ use app\Http\Controllers\client\ClientController;
                                 <a href="shop.html">
                                     <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".9s">
                                         <div class="cat-thumb fix">
-                                            <img src="client/assets/img/slider/anh1-slider.jpg" alt="#">
+                                            <img src="{{asset('uploads/images/'.$b->image_n)}}" alt="">
                                         </div>
                                         
                                     </div>
@@ -390,7 +390,7 @@ use app\Http\Controllers\client\ClientController;
                                 <a href="shop.html">
                                     <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".9s">
                                         <div class="cat-thumb fix">
-                                            <img src="client/assets/img/slider/vvv.jpg" alt="#" style="padding-top:4px">
+                                            <img src="{{asset('uploads/images/'.$b->image_t)}}" alt="#" style="padding-top:4px">
                                         </div>
                                         
                                     </div>
@@ -400,7 +400,7 @@ use app\Http\Controllers\client\ClientController;
                     </div>
                 </div>
             </div>
-        
+        @endforeach
         </section>
         
         <section class="category" >

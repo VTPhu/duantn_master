@@ -782,7 +782,7 @@ use app\Http\Controllers\client\ClientController;
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 function AddCart(id, quantily) {
-    //
+    // test thử
   
      
     $.ajax({

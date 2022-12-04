@@ -15,13 +15,13 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function AddCart($id, Request  $request)
+    public function AddCart($id, $sl, Request  $request)
     {
         $product = DB::table('products')->where('id', $id)->first();
         if ($product != null) {
             $oldCart = Session('Cart') ? Session('Cart') : null;
             $newCart = new Cart($oldCart);
-            $newCart->AddCart($product, $id);
+            $newCart->AddCart($product, $id, $sl);
 
             $request->session()->put('Cart', $newCart);
         }
@@ -47,6 +47,9 @@ class CartController extends Controller
         }
         return view('client.index.cart', compact('newCart'));
     }
+
+
+
     /**
      * Store a newly created resource in storage.
      *

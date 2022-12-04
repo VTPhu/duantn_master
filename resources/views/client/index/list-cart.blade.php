@@ -79,6 +79,7 @@
         <tr>
             <th class="product-thumbnail">ảnh</th>
             <th class="cart-product-name">Sản phẩm</th>
+            <th class="cart-product-name">Kích thước</th>
             <th class="product-price">Gía tiền</th>
             <th class="product-quantity">Số lượng</th>
             <th class="product-subtotal">Tổng tiền</th>
@@ -88,6 +89,7 @@
     </thead>
     <tbody>
         <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -123,7 +125,7 @@
         <h2>Tổng số giỏ hàng</h2>
         <ul class="mb-20">
             <li>Tổng số lượng <span>0</span></li>
-            <li>Tổng tiền <span>0đ</span></li>
+            <li>Tổng tiền <span>{{number_format(Session::get('Cart')->totaPrice)}}đ</span></li>
         </ul>
         <a class="s-btn s-btn-2" href="checkout.html">Thanh toán</a>
     </div>

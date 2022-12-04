@@ -238,12 +238,16 @@ use app\Http\Controllers\client\ClientController;
        
     
         @endif
+            
+       
+        
+        
        
         <div class="cartmini__bottom">
             <a href="/listCart" class="s-btn w-100 mb-20">Xem giỏ hàng</a>
             <a href="checkout.html" class="s-btn s-btn-2 w-100">checkout</a>
         </div>
-       
+        
        </div>
        
     </div>
@@ -478,7 +482,7 @@ use app\Http\Controllers\client\ClientController;
                                 <img src="{{asset('uploads/images/'.$pro->thumnail)}}" alt="#">
                                 <img src="{{asset('uploads/images/'.$pro->thumnail_two)}}" alt="#">
                                 <div class="cart-btn cart-btn-1 p-abs">
-                                    <a  onclick="AddCart({{$pro->id}})" href="javascript::">Thêm vào giỏ hàng</a>
+                                    <a  onclick="AddCart({{$pro->id}},1)" href="javascript::">Thêm vào giỏ hàng</a>
                                 </div>
                                 @if($pro->saled)
                                 <span class="discount discount-3 p-abs"  >
@@ -589,7 +593,7 @@ use app\Http\Controllers\client\ClientController;
                                     <img src="{{asset('uploads/images/'.$p->thumnail)}}" alt="#">
                                     <img src="{{asset('uploads/images/'.$p->thumnail_two)}}" alt="#">
                                     <div class="cart-btn cart-btn-2 p-abs">
-                                        <a  onclick="AddCart({{$p->id}})" href="javascript::">Thêm vào giỏ hàng</a>
+                                        <a  onclick="AddCart({{$p->id}},1)" href="javascript::">Thêm vào giỏ hàng</a>
                                     </div>
                                     @if($p->saled)
                                     <span class="discount discount-3 p-abs"  >
@@ -888,9 +892,9 @@ use app\Http\Controllers\client\ClientController;
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
    <script>
-    function AddCart(id){
+    function AddCart(id,quantily){
     $.ajax({
-        url:'/AddCart/'+ id,
+        url:'/AddCart/'+ id+'/'+quantily,
         type:'GET',
     }).done(function(response){
         RenderCart(response);

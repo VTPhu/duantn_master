@@ -199,8 +199,9 @@ use app\Http\Controllers\client\ClientController;
         <div class="cartmini__list" style="line-height:30px; height:472px">
            
             <ul>
+                
                 @foreach(Session::get('Cart')->products as $n)
-
+                 
                 <li class="cartmini__item p-rel d-flex align-items-start">
                     <div class="cartmini__thumb mr-15">
                         <a href="product-details.html">
@@ -211,6 +212,7 @@ use app\Http\Controllers\client\ClientController;
                         <h3 class="cartmini__title">
                             <a href="product-details.html">{{$n['productInfo']->title}}</a>
                         </h3>
+                       
                         <span class="cartmini__price">
                             <span class="price">{{$n['quantily']}} × {{number_format($n['productInfo']->price)}}đ</span>
                         </span>
@@ -220,19 +222,23 @@ use app\Http\Controllers\client\ClientController;
                     </a>
                 </li>
                 @endforeach
+                
             </ul>
             
         </div>
         
+
         <div class="cartmini__total d-flex align-items-center justify-content-between">
             <h5>Tổng tiền:</h5>
-            <span>{{number_format(Session::get('Cart')->totaPrice)}}đ</span>
+            <span>{{number_format(Session::get('Cart')->totaPrice)}}đ </span>
         </div>
+       
+        @endif
         <div class="cartmini__bottom">
             <a href="/listCart" class="s-btn w-100 mb-20">Xem giỏ hàng</a>
             <a href="checkout.html" class="s-btn s-btn-2 w-100">checkout</a>
         </div>
-        @endif
+        
 
     </div>
 </div>
@@ -417,36 +423,39 @@ use app\Http\Controllers\client\ClientController;
 
                             <div class="product__details-color d-sm-flex align-items-center mb-25">
                                 <span>Màu sắc:</span>
-                                <ul>
-                                    <li><a href="#" class="black"></a></li>
-                                    <li><a href="#" class="active brown"></a></li>
-                                    <li><a href="#" class="blue"></a></li>
-                                    <li><a href="#" class="red"></a></li>
-                                    <li><a href="#" class="white"></a></li>
-                                </ul>
+                                <select style="width: 140px;height: 40px;border-radius:4px;text-align:center;font-size:15px" class="form-select"   aria-label="Default select example">
+                                    {{-- @foreach ($color as $key => $v)
+                                    <option  value="{{ $key }}">{{$v}}</option>  
+                                    
+                                    @endforeach                                                  --}}
+                                </select>
                             </div>
                             <div class="product__details-size d-sm-flex align-items-center mb-30">
                                 <span>Kích thước: </span>
-                                <select style="width: 140px;height: 30px;border-radius:4px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
-                                    <option value="0">Hiện</option>    
-                                                                                     
+                                
+                                <select style="width: 140px;height: 40px;border-radius:4px;text-align:center;font-size:15px" class="form-select"   aria-label="Default select example">
+                                    {{-- @foreach ($pro as $key => $v)
+                                    <option  value="{{ $key }}">{{$v}}</option>  
+                                    
+                                    @endforeach                                                  --}}
                                 </select>
+                               
                                 <button type="button" class="product-size-guide-btn float-sm-end" data-bs-toggle="modal" data-bs-target="#productSizeModal">Bảng size</button>
                             </div>
                             <div class="product__details-action">
-                                
-                                <form action="#">
+                               
+                              
                                     <div class="product__details-quantity d-sm-flex align-items-center">
                                         <div class="product-quantity mb-20 mr-15">
-                                            <div class="cart-plus-minus"><input id="quanty-item-{{$n['productInfo']->id}}" type="text" value="{{$n['quantily']}}" /></div>
+                                            <div class="cart-plus-minus"><input  type="text" id="quanty-item-{{$product->id}}" value="1" /></div>
                                         </div>
                                         <div class="product-add-cart mb-20">
-                                            <button class="s-btn s-btn-2 s-btn-big" onclick="AddDetail({{$n['productInfo']->id}})">Thêm vào giỏ hàng</button>
+                                            <button class="s-btn s-btn-2 s-btn-big" onclick="AddCart({{$product->id}})">Thêm vào giỏ hàng</button>
                                         </div>
                                     </div>
-                                </form>
-                                
+                               
                               
+                             
                             </div>
                            
                             <div class="product__details-meta mb-25">
@@ -771,34 +780,44 @@ use app\Http\Controllers\client\ClientController;
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script>
- function AddDetail(id){
-       console.log(id);
-//        $.ajax({
-//        url:'/AddDetail/'+id+'/'+$("#quanty-item-"+id)+$("#value-size").val(),
-//        type:'GET',
-//    }).done(function(response){
-       
-      
-//    })
-   }
+function AddCart(id, quantily) {
+    //
+  
+     
+    $.ajax({
+        url: '/AddCart/' + id + '/' + $("#quanty-item-"+id).val(),
+        type: 'GET',
+    }).done(function(response) {
+        
+        RenderCart(response);
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Bạn đã thêm thành công',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    })
+}
 
-// $("#change-item-cart").on("click", ".cartmini__remove",function(){
-//     $.ajax({
-//     url:'/DeleteCart/'+ $(this).data("id"),
-//     type:'GET',
-// }).done(function(response){
-   
-//   RenderCart(response);
-// })
-// })
-// function RenderCart(response){
-//     $("#change-item-cart").empty();
-//     $("#change-item-cart").html(response);
-//     $("#total-quantily-show").text($("#total-quantily-cart").val());
-   
-// }
+$("#change-item-cart").on("click", ".cartmini__remove", function() {
+    $.ajax({
+        url: '/DeleteCart/' + $(this).data("id"),
+        type: 'GET',
+    }).done(function(response) {
+
+        RenderCart(response);
+    })
+})
+
+function RenderCart(response) {
+    $("#change-item-cart").empty();
+    $("#change-item-cart").html(response);
+    $("#total-quantily-show").text($("#total-quantily-cart").val());
+    
+
+}
 </script>
     <!-- footer area start -->
    

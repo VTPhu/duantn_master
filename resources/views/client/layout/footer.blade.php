@@ -84,6 +84,7 @@
 <script src="client/assets/js/imagesloaded.pkgd.min.js"></script>
 <script src="client/assets/js/jquery.nice-select.min.js"></script>
 <script src="client/assets/js/main.js"></script>
+
 </body>
 
 </html>

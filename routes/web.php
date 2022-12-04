@@ -73,8 +73,9 @@ Route::post('/admin/show-user/{id}', [UserController::class, 'edit']);
 Route::get('/', [ClientController::class, 'index']);
 Route::get('/productDetail/{id}', [ClientController::class, 'productDetail']);
 // Cart
-Route::get('/AddCart/{id}', [CartController::class, 'AddCart']);
+Route::get('/AddCart/{id}/{sl}', [CartController::class, 'AddCart']);
 Route::get('/DeleteCart/{id}', [CartController::class, 'DeletedCart']);
+Route::get('/xoahet', [CartController::class, 'Xoahet']);
 Route::get('/listCart', [CartController::class, 'listCart']);
 Route::get('/DeleteListCart/{id}', [CartController::class, 'DeletedListCart']);
 Route::get('/SaveListCart/{id}/{quantily}', [CartController::class, 'SaveListCart']);

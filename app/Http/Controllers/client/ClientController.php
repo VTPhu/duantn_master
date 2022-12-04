@@ -65,9 +65,10 @@ class ClientController extends Controller
             ->join('products', 'products.category_id', '=', 'brands.id')
             ->where('products.id', '=', $id)
             ->get();
-
+        // $products = Product::all();
         $product = Product::find($id);
-        if ($product == null) return redirect('/thongbao');
+        // $pro = explode(" ", $product['size']);
+        // $color = explode(" ", $product['color']);
 
         return view('client.index.productDetail', compact('product', 'category', 'brand'));
     }

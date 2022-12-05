@@ -27,5 +27,6 @@
     <link rel="stylesheet" href="client/assets/css/ui-range-slider.css">
     <link rel="stylesheet" href="client/assets/css/main.css">
     <link rel="stylesheet" href="client/assets/css/style.css">
+    <link rel="stylesheet" href="client/assets/css/nav.css">
     <link rel="stylesheet" href="client/assets/css/account.css">
 </head>

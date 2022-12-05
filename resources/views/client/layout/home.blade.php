@@ -153,7 +153,47 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                         <div class="header-right-wrapper d-flex align-items-center justify-content-end">
                             <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
-                                <a href="login.html" class="d-none d-xxl-inline-block">Đăng nhập /Đăng ký</a>
+                                @guest
+                            @if (Route::has('login'))
+                            <a href="{{ route('login') }}" class="d-none d-xxl-inline-block">{{ __('Đăng nhập/') }}</a>
+                            @endif
+
+                            @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="d-none d-xxl-inline-block">{{ __('Đăng ký') }}</a>
+                            @endif
+                        @else
+                        <div class="navigation">
+                            <div class="userBx">
+                              <div class="imgBx">
+                                <img src="dangnhap/assets/img/avatar.svg">
+                                  </div>
+                              <p class="username">Xin chào ! {{ Auth::user()->name }}</p>
+                        </div>
+                        <div class="menuToggle"> </div>
+                             <ul class="menu">
+                                <li><a href=""><ion-icon name="person-outline"></ion-icon> Thông tin</a></li>
+                                @if (Auth::user()->role == '2')
+                                 <li><a href="http://localhost:8000/admin/dashboard"><ion-icon name="server-outline"></ion-icon> Quản trị hệ thống</a></li>
+                                 @else
+                                 <li><a href="#"><ion-icon name="cart-outline"></ion-icon> Lịch sử đơn hàng</a></li>
+                                 @endif
+                                 <li><a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><ion-icon name="log-out-outline"></ion-icon>  {{ __('Đăng xuất') }}</a>
+                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form></li>
+                            </ul>
+                        </div>
+                            </div>
+                        <script>
+                            let menuToggle = document.querySelector('.menuToggle');
+                        let navigation = document.querySelector('.navigation');
+                    menuToggle.onclick = function(){
+                      navigation.classList.toggle('active')
+ }
+                        </script>
+                        @endguest
                                 <div class="header-icon header-icon-2 d-inline-block ml-30">
                                   
                                      

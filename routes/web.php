@@ -16,59 +16,73 @@ use App\Http\Controllers\client\ClientController;
 use App\Http\Controllers\client\ShopController;
 use App\Http\Controllers\client\ProductCateController;
 use App\Http\Controllers\client\ProfileController;
+use Illuminate\Support\Facades\Auth;
 
-// product
-Route::get('/admin/show-product', [ProductController::class, 'index']);
-Route::get('/admin/product', [ProductController::class, 'addProduct']);
-Route::post('/admin/product', [ProductController::class, 'store']);
-Route::get('/admin/product/{id}', [ProductController::class, 'updated']);
-Route::post('/admin/product/{id}', [ProductController::class, 'edit']);
-Route::get('/admin/deletedProduct/{id}', [ProductController::class, 'destroy']);
-//category
-Route::get('/admin/show-category', [CategoryController::class, 'index']);
-Route::get('/admin/category', [CategoryController::class, 'addCategory']);
-Route::post('/admin/category', [CategoryController::class, 'store']);
-Route::get('/admin/category/{id}', [CategoryController::class, 'updated']);
-Route::post('/admin/category/{id}', [CategoryController::class, 'edit']);
+Auth::routes();
+//Auth
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
+    // product
+    Route::get('/show-product', [ProductController::class, 'index']);
+    Route::get('/product', [ProductController::class, 'addProduct']);
+    Route::post('/product', [ProductController::class, 'store']);
+    Route::get('/product/{id}', [ProductController::class, 'updated']);
+    Route::post('/product/{id}', [ProductController::class, 'edit']);
+    Route::get('/deletedProduct/{id}', [ProductController::class, 'destroy']);
+    //category
+    Route::get('/show-category', [CategoryController::class, 'index']);
+    Route::get('/category', [CategoryController::class, 'addCategory']);
+    Route::post('/category', [CategoryController::class, 'store']);
+    Route::get('/category/{id}', [CategoryController::class, 'updated']);
+    Route::post('/category/{id}', [CategoryController::class, 'edit']);
 
-Route::get('/admin/deletedCate/{id}', [CategoryController::class, 'destroy']);
-//posts
-Route::get('/admin/show-posts', [PostsController::class, 'index']);
-Route::get('/admin/posts', [PostsController::class, 'addPosts']);
-Route::post('/admin/posts', [PostsController::class, 'store']);
-Route::post('/admin/posts/{id}', [PostsController::class, 'updated']);
-Route::get('/admin/posts/{id}', [PostsController::class, 'edit']);
-Route::get('/admin/deleted/{id}', [PostsController::class, 'destroy']);
-// Brand
-Route::get('/admin/show-brand', [BrandController::class, 'index']);
-Route::get('/admin/brand', [BrandController::class, 'create']);
-Route::post('/admin/brand', [BrandController::class, 'store']);
-Route::get('/admin/edit/brand/{id}', [BrandController::class, 'edit']);
-Route::post('/admin/edit/brand/{id}', [BrandController::class, 'update']);
-Route::get('/admin/deleteBrand/{id}', [BrandController::class, 'destroy']);
-//admin dashboard
-Route::get('/admin/dashboard', [AdminController::class, 'index']);
-Route::post('/admin/filter', [AdminController::class, 'filter']);
-Route::post('/admin/dashboard-filter', [AdminController::class, 'dashboard_filter']);
-Route::post('/admin/day-order', [AdminController::class, 'dayorder']);
-//order
-Route::get('/admin/show-order', [OrderController::class, 'index']);
-Route::get('/admin/show-order/{id}', [OrderController::class, 'create']);
-Route::post('/admin/show-order/{id}', [OrderController::class, 'store']);
-Route::get('/admin/deleteOrder/{id}', [OrderController::class, 'destroy']);
-//orderDetail
-Route::get('/admin/show-orderDetail/{id}', [OrderDetailController::class, 'index']);
-// Route::post('/admin/show-orderDetail', [OrderDetailController::class, 'store']);
-Route::get('/admin/deleteOrderDetail/{id}', [OrderDetailController::class, 'destroy']);
-//Coupon
-Route::get('/admin/show-coupon', [CouponController::class, 'index']);
-Route::get('/admin/coupon', [CouponController::class, 'create']);
-Route::post('/admin/coupon', [CouponController::class, 'store']);
-Route::get('/admin/deleteCoupon/{id}', [CouponController::class, 'destroy']);
-//user
-Route::get('/admin/show-user', [UserController::class, 'index']);
-Route::get('/admin/show-user/{id}', [UserController::class, 'showUpdate']);
-Route::post('/admin/show-user/{id}', [UserController::class, 'edit']);
+    Route::get('/deletedCate/{id}', [CategoryController::class, 'destroy']);
+    //posts
+    Route::get('/show-posts', [PostsController::class, 'index']);
+    Route::get('/posts', [PostsController::class, 'addPosts']);
+    Route::post('/posts', [PostsController::class, 'store']);
+    Route::post('/posts/{id}', [PostsController::class, 'updated']);
+    Route::get('/posts/{id}', [PostsController::class, 'edit']);
+    Route::get('/deleted/{id}', [PostsController::class, 'destroy']);
+    // Brand
+    Route::get('/show-brand', [BrandController::class, 'index']);
+    Route::get('/brand', [BrandController::class, 'create']);
+    Route::post('/brand', [BrandController::class, 'store']);
+    Route::get('/edit/brand/{id}', [BrandController::class, 'edit']);
+    Route::post('/edit/brand/{id}', [BrandController::class, 'update']);
+    Route::get('/deleteBrand/{id}', [BrandController::class, 'destroy']);
+    //admin dashboard
+    Route::get('/dashboard', [AdminController::class, 'index']);
+    Route::post('/filter', [AdminController::class, 'filter']);
+    Route::post('/dashboard-filter', [AdminController::class, 'dashboard_filter']);
+    Route::post('/day-order', [AdminController::class, 'dayorder']);
+    //order
+    Route::get('/show-order', [OrderController::class, 'index']);
+    Route::get('/show-order/{id}', [OrderController::class, 'create']);
+    Route::post('/show-order/{id}', [OrderController::class, 'store']);
+    Route::get('/deleteOrder/{id}', [OrderController::class, 'destroy']);
+    //orderDetail
+    Route::get('/show-orderDetail/{id}', [OrderDetailController::class, 'index']);
+    // Route::post('/admin/show-orderDetail', [OrderDetailController::class, 'store']);
+    Route::get('/deleteOrderDetail/{id}', [OrderDetailController::class, 'destroy']);
+    //Coupon
+    Route::get('/show-coupon', [CouponController::class, 'index']);
+    Route::get('/coupon', [CouponController::class, 'create']);
+    Route::post('/coupon', [CouponController::class, 'store']);
+    Route::get('/deleteCoupon/{id}', [CouponController::class, 'destroy']);
+    //user
+    Route::get('/show-user', [UserController::class, 'index']);
+    Route::get('/show-user/{id}', [UserController::class, 'showUpdate']);
+    Route::post('/show-user/{id}', [UserController::class, 'edit']);
+    //banner
+    Route::get('/show-banner', [BannerController::class, 'index']);
+    Route::get('/banner', [BannerController::class, 'create']);
+    Route::post('/banner', [BannerController::class, 'store']);
+    Route::get('/banner/{id}', [BannerController::class, 'edit']);
+    Route::post('/banner/{id}', [BannerController::class, 'updated']);
+    Route::get('/deleteBanner/{id}', [BannerController::class, 'destroy']);
+});
+
+
 //Phần người dùng
 Route::get('/', [ClientController::class, 'index']);
 Route::get('/productDetail/{id}', [ClientController::class, 'productDetail']);
@@ -81,12 +95,4 @@ Route::get('/DeleteListCart/{id}', [CartController::class, 'DeletedListCart']);
 Route::get('/SaveListCart/{id}/{quantily}', [CartController::class, 'SaveListCart']);
 Route::get('/AddDetail/{id}/{quantily}/{size}', [CartController::class, 'AddDetailProduct']);
 //profile
-
 Route::get('/profile', [ProfileController::class, 'Profile']);
-//banner
-Route::get('/admin/show-banner', [BannerController::class, 'index']);
-Route::get('/admin/banner', [BannerController::class, 'create']);
-Route::post('/admin/banner', [BannerController::class, 'store']);
-Route::get('/admin/banner/{id}', [BannerController::class, 'edit']);
-Route::post('/admin/banner/{id}', [BannerController::class, 'updated']);
-Route::get('/admin/deleteBanner/{id}', [BannerController::class, 'destroy']);

@@ -5,9 +5,11 @@ use Carbon\Carbon;
 use app\Http\Controllers\client\ClientController;
 ?>
 <body>
-    
+    <?php 
+    // dd(Session::get('Cart')->products);
+?>
     <!-- preloader start -->
-    <div id="loading">
+    {{-- <div id="loading">
         <div id="loading-center">
             <div id="loading-center-absolute">
                 <svg viewBox="0 0 58 58" id="mustard" class="product">
@@ -89,7 +91,7 @@ use app\Http\Controllers\client\ClientController;
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- preloader end -->
 
     <!-- header area start -->
@@ -151,11 +153,54 @@ use app\Http\Controllers\client\ClientController;
                             </nav>
                         </div>
                     </div>
+                    
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                         <div class="header-right-wrapper d-flex align-items-center justify-content-end">
                             <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
-                                <a href="login.html" class="d-none d-xxl-inline-block">Đăng nhập /Đăng ký</a>
-                                <div class="header-icon header-icon-2 d-inline-block ml-30">
+                                <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
+                                    <div class="header-right-wrapper d-flex align-items-center justify-content-end">
+                                        <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
+                                            @guest
+                                        @if (Route::has('login'))
+                                        <a href="{{ route('login') }}" class="d-none d-xxl-inline-block">{{ __('Đăng nhập/') }}</a>
+                                        @endif
+            
+                                        @if (Route::has('register'))
+                                        <a href="{{ route('register') }}" class="d-none d-xxl-inline-block">{{ __('Đăng ký') }}</a>
+                                        @endif
+                                    @else
+                                    <div class="navigation">
+                                        <div class="userBx">
+                                          <div class="imgBx">
+                                            <img src="dangnhap/assets/img/avatar.svg">
+                                              </div>
+                                          <p class="username">Xin chào ! {{ Auth::user()->name }}</p>
+                                    </div>
+                                    <div class="menuToggle"> </div>
+                                         <ul class="menu">
+                                            <li><a href=""><ion-icon name="person-outline"></ion-icon> Thông tin</a></li>
+                                            @if (Auth::user()->role == '2')
+                                             <li><a href="http://localhost:8000/admin/dashboard"><ion-icon name="server-outline"></ion-icon> Quản trị hệ thống</a></li>
+                                             @else
+                                             <li><a href="#"><ion-icon name="cart-outline"></ion-icon> Lịch sử đơn hàng</a></li>
+                                             @endif
+                                             <li><a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();"><ion-icon name="log-out-outline"></ion-icon>  {{ __('Đăng xuất') }}</a>
+                                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form></li>
+                                        </ul>
+                                    </div>
+                                        </div>
+                                    <script>
+                                        let menuToggle = document.querySelector('.menuToggle');
+                                    let navigation = document.querySelector('.navigation');
+                                menuToggle.onclick = function(){
+                                  navigation.classList.toggle('active')
+             }
+                                    </script>
+                                    @endguest                                <div class="header-icon header-icon-2 d-inline-block ml-30">
                                   
                                      
                                      @if(Session::has('Cart')!=null)
@@ -199,7 +244,7 @@ use app\Http\Controllers\client\ClientController;
         <div class="cartmini__list" style="line-height:30px; height:472px">
            
             <ul>
-                
+              
                 @foreach(Session::get('Cart')->products as $n)
                  
                 <li class="cartmini__item p-rel d-flex align-items-start">
@@ -212,12 +257,13 @@ use app\Http\Controllers\client\ClientController;
                         <h3 class="cartmini__title">
                             <a href="product-details.html">{{$n['productInfo']->title}}</a>
                         </h3>
-                       
+                        Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
+
                         <span class="cartmini__price">
                             <span class="price">{{$n['quantily']}} × {{number_format($n['productInfo']->price)}}đ</span>
                         </span>
                     </div>
-                    <a href="#" class="cartmini__remove" data-id="{{$n['productInfo']->id}}">
+                    <a href="#" class="cartmini__remove" data-id="{{$n['productInfo']->id.$n['sized']}}">
                         <i class="fal fa-times"></i>
                     </a>
                 </li>
@@ -433,11 +479,12 @@ use app\Http\Controllers\client\ClientController;
                             <div class="product__details-size d-sm-flex align-items-center mb-30">
                                 <span>Kích thước: </span>
                                 
-                                <select style="width: 140px;height: 40px;border-radius:4px;text-align:center;font-size:15px" class="form-select"   aria-label="Default select example">
-                                    {{-- @foreach ($pro as $key => $v)
-                                    <option  value="{{ $key }}">{{$v}}</option>  
+                                <select id="size" style="width: 140px;height: 40px;border-radius:4px;text-align:center;font-size:15px" class="form-select"   aria-label="Default select example">
+                                    @foreach ($pro as $key => $v)
+                                    <option  value="{{$v}}">{{$v}}</option>  
                                     
-                                    @endforeach                                                  --}}
+                                    @endforeach  
+                                                                             
                                 </select>
                                
                                 <button type="button" class="product-size-guide-btn float-sm-end" data-bs-toggle="modal" data-bs-target="#productSizeModal">Bảng size</button>
@@ -781,18 +828,19 @@ use app\Http\Controllers\client\ClientController;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-function AddCart(id, quantily) {
+function AddCart(id, quantily,size) {
     // test thử
-  
+    var size = document.getElementById("size").value;
+       
      
     $.ajax({
-        url: '/AddCart/' + id + '/' + $("#quanty-item-"+id).val(),
+        url: '/AddCart/' + id + '/' + $("#quanty-item-"+id).val()+ '/'+size,
         type: 'GET',
     }).done(function(response) {
         
         RenderCart(response);
         Swal.fire({
-            position: 'top-end',
+            position: 'top-end', 
             icon: 'success',
             title: 'Bạn đã thêm thành công',
             showConfirmButton: false,

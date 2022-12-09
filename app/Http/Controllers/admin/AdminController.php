@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Posts;
 use App\Models\Order;
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Statistical;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -28,8 +28,8 @@ class AdminController extends Controller
         $total_profit = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('profit');
         $order = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('total_order');
         $total_quantity = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('quantity');
-        $user = Users::where('role', '=', '1')->count();
-        $admin = Users::where('role', '=', '2')->count();
+        $user = User::where('role', '=', '1')->count();
+        $admin = User::where('role', '=', '2')->count();
         return view('admin.dashboard.dashboard', compact('total_sales', 'total_profit', 'total_quantity', 'order', 'user', 'admin'));
     }
 

@@ -67,10 +67,11 @@ class ClientController extends Controller
             ->get();
         // $products = Product::all();
         $product = Product::find($id);
-        // $pro = explode(" ", $product['size']);
+        $pro = explode(" ", $product['size']);
+
         // $color = explode(" ", $product['color']);
 
-        return view('client.index.productDetail', compact('product', 'category', 'brand'));
+        return view('client.index.productDetail', compact('product', 'category', 'brand', 'pro'));
     }
 
     /**

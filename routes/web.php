@@ -87,12 +87,17 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 Route::get('/', [ClientController::class, 'index']);
 Route::get('/productDetail/{id}', [ClientController::class, 'productDetail']);
 // Cart
-Route::get('/AddCart/{id}/{sl}', [CartController::class, 'AddCart']);
-Route::get('/DeleteCart/{id}', [CartController::class, 'DeletedCart']);
+Route::get('/AddCart/{id}/{sl}/{sized}', [CartController::class, 'AddCart']);
+Route::get('/DeleteCart/{id}{sized}', [CartController::class, 'DeletedCart']);
 Route::get('/xoahet', [CartController::class, 'Xoahet']);
 Route::get('/listCart', [CartController::class, 'listCart']);
 Route::get('/DeleteListCart/{id}', [CartController::class, 'DeletedListCart']);
 Route::get('/SaveListCart/{id}/{quantily}', [CartController::class, 'SaveListCart']);
 Route::get('/AddDetail/{id}/{quantily}/{size}', [CartController::class, 'AddDetailProduct']);
 //profile
-Route::get('/profile', [ProfileController::class, 'Profile']);
+Route::get('/profile/edit_profile', [ProfileController::class, 'edit_profile']);
+//sửa profile
+Route::put('/profile/edit_profile', [ProfileController::class, 'update_profile']);
+//password
+Route::get('/profile/change-password', [ProfileController::class, 'change_password']);
+Route::post('/profile/update-password', [ProfileController::class, 'update_password']);

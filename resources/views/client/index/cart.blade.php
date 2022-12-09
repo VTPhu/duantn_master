@@ -70,12 +70,12 @@
                 <h3 class="cartmini__title">
                     <a href="product-details.html">{{$n['productInfo']->title}}</a>
                 </h3>
-                Kích thước:<span style="font-size:15px"> {{Session::get('Cart')->totalSize}}</span><br>
+                Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
                 <span class="cartmini__price">
                     <span class="price">{{$n['quantily']}} × {{number_format($n['productInfo']->price)}}đ</span>
                 </span>
             </div>
-            <a href="#" class="cartmini__remove" data-id="{{$n['productInfo']->id}}">
+            <a href="#" class="cartmini__remove" data-id="{{$n['productInfo']->id.$n['sized']}}">
                 <i class="fal fa-times"></i>
             </a>
         </li>
@@ -95,7 +95,7 @@
 @endif
 <div class="cartmini__bottom">
     <a href="/listCart" class="s-btn w-100 mb-20">Xem giỏ hàng</a>
-    <a href="checkout.html" class="s-btn s-btn-2 w-100">checkout</a>
+    <a href="checkout.html" class="s-btn s-btn-2 w-100">checkout1</a>
 </div>
 
 

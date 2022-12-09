@@ -10,7 +10,7 @@ class Cart
     public $totaPrice = 0;
     public $totalQuanty = 0;
     public $totalSize = 'S';
-
+    public $totalSized = '';
     public function __construct($cart)
     {
 
@@ -18,38 +18,45 @@ class Cart
             $this->products = $cart->products;
             $this->totaPrice = $cart->totaPrice;
             $this->totalQuanty = $cart->totalQuanty;
+            $this->totalSized = $cart->totalSized;
         }
     }
-    public function AddCart($product, $id, $sl)
+    public function AddCart($product, $id, $sl, $sized)
     {
 
-        $newProduct = ['quantily' => 0, 'price' => $product->price, 'productInfo' => $product, 'size' => '',]; // khởi đầu
-        if ($this->products) {
+        // khởi tạo sản phẩm mới
+        $newProduct = ['quantily' => 0, 'price' => $product->price, 'productInfo' => $product, 'sized' => $sized]; // khởi đầu
 
-            if (array_key_exists($id, $this->products)) { // kiểm 
-                $newProduct = $this->products[$id];
+        if ($this->products) {
+            if (array_key_exists($id . $sized, $this->products)) { // tìm được sản phẩm trùng
+                if ($this->products[$id . $sized]['sized'] == $sized) {
+                    $newProduct = $this->products[$id . $sized];
+                }
             }
         }
 
-        $newProduct['sized'] = 'S';
         $newProduct['quantily'] += $sl;
 
+        // moist
+        $newProduct['sized'] = $sized;
+
         $newProduct['price'] = $newProduct['quantily'] * $product->price;
+        $this->products[$id . $sized] = $newProduct;
 
-        $this->products[$id] = $newProduct;
-        // $this->totaPrice += $product->price;
+        $this->totaPrice += $newProduct['price'];
 
-        $this->products[$id]['price'] = $sl * $this->products[$id]['productInfo']->price;
-        $this->totaPrice += $this->products[$id]['price'];
-
-
+        // $this->products[$id]['price'] = $sl * $this->products[$id]['productInfo']->price;
+        // $this->totaPrice += $this->products[$id]['price'];
         $this->totalQuanty += $sl;
+
+        // $this->totalSized =  $this->products[$id]['sized'];
     }
-    public function deleteCart($id)
+    public function deleteCart($id, $sized)
     {
-        $this->totalQuanty -= $this->products[$id]['quantily'];
-        $this->totaPrice -= $this->products[$id]['price'];
-        unset($this->products[$id]);
+
+        $this->totalQuanty -= $this->products[$id . $sized]['quantily'];
+        $this->totaPrice -= $this->products[$id . $sized]['price'];
+        unset($this->products[$id . $sized]);
     }
     // public function saveCart($id, $quantily)
     // {

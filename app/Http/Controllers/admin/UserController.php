@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Users;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,17 +16,17 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $user = Users::paginate(5);
+        $user = User::paginate(5);
 
         if ($key = request()->key) {
-            $user =  Users::where('name', 'like',  '%' . $key . '%')->paginate(5);
+            $user =  User::where('name', 'like',  '%' . $key . '%')->paginate(5);
         }
 
         if ($request->status && $request->role) {
             $status = $request->status;
 
             $role = $request->role;
-            $user = Users::where('status', 'like', $status)
+            $user = User::where('status', 'like', $status)
                 ->where('role', 'like', '%' . $role . '%')->paginate(5);
         }
 
@@ -63,7 +63,7 @@ class UserController extends Controller
     public function showUpdate($id)
     {
 
-        $user = Users::find($id);
+        $user = User::find($id);
         if ($user == null) return redirect('/thongbao');
         return view('admin.user.edit', compact('user'));
     }
@@ -89,7 +89,7 @@ class UserController extends Controller
                 ->withInput();
         }
         $input = $request->all();
-        $input = Users::find($id);
+        $input = User::find($id);
         $input->status = $request->status;
         $sua = $input->save();
         if ($sua) {

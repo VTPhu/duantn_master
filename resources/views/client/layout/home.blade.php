@@ -260,7 +260,7 @@ use app\Http\Controllers\client\ClientController;
                             <span class="price">{{$n['quantily']}} × {{number_format($n['productInfo']->price)}}đ</span>
                         </span>
                     </div>
-                    <a href="#" class="cartmini__remove" data-id="{{$n['productInfo']->id}}">
+                    <a href="#" class="cartmini__remove" data-id="{{$n['productInfo']->id.$n['sized']}}">
                         <i class="fal fa-times"></i>
                     </a>
                 </li>
@@ -932,9 +932,10 @@ use app\Http\Controllers\client\ClientController;
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
    <script>
-    function AddCart(id,quantily){
+    function AddCart(id,quantily,size){
+    var size = 'S';
     $.ajax({
-        url:'/AddCart/'+ id+'/'+quantily,
+        url:'/AddCart/'+ id+'/'+quantily+'/'+size,
         type:'GET',
     }).done(function(response){
         RenderCart(response);
@@ -949,9 +950,11 @@ use app\Http\Controllers\client\ClientController;
     }
 
     $("#change-item-cart").on("click", ".cartmini__remove",function(){
+        console.log($(this).data("id"));
         $.ajax({
         url:'/DeleteCart/'+ $(this).data("id"),
         type:'GET',
+        
     }).done(function(response){
        
       RenderCart(response);

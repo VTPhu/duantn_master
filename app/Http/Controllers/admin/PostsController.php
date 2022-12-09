@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Posts;
 use App\Models\Category;
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -29,7 +29,7 @@ class PostsController extends Controller
     public function addPosts()
     {
         $category = Category::all();
-        $user = Users::all();
+        $user = User::all();
         return view('admin.posts.addPosts', compact('user', 'category'));
     }
     public function store(Request $request)
@@ -110,7 +110,7 @@ class PostsController extends Controller
     }
     public function edit($id)
     {
-        $user = Users::all();
+        $user = User::all();
         $category = Category::all();
         $posts = Posts::find($id);
         return view('admin.posts.updatedPosts', compact('posts', 'category', 'user'));

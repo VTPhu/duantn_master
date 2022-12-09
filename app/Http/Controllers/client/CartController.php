@@ -15,13 +15,13 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function AddCart($id, $sl, Request  $request)
+    public function AddCart($id, $sl, Request  $request, $sized)
     {
         $product = DB::table('products')->where('id', $id)->first();
         if ($product != null) {
             $oldCart = Session('Cart') ? Session('Cart') : null;
             $newCart = new Cart($oldCart);
-            $newCart->AddCart($product, $id, $sl);
+            $newCart->AddCart($product, $id, $sl, $sized);
 
             $request->session()->put('Cart', $newCart);
         }
@@ -33,13 +33,13 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function DeletedCart($id, Request  $request)
+    public function DeletedCart($id, Request  $request, $sized)
     {
 
 
         $oldCart = Session('Cart') ? Session('Cart') : null;
         $newCart = new Cart($oldCart);
-        $newCart->deleteCart($id);
+        $newCart->deleteCart($id, $sized);
         if (Count($newCart->products) > 0) {
             $request->Session()->put('Cart', $newCart);
         } else {
@@ -67,13 +67,13 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function DeletedListCart($id, Request  $request)
+    public function DeletedListCart($id, Request  $request, $sized)
     {
 
 
         $oldCart = Session('Cart') ? Session('Cart') : null;
         $newCart = new Cart($oldCart);
-        $newCart->deleteCart($id);
+        $newCart->deleteCart($id . $sized);
         if (Count($newCart->products) > 0) {
             $request->Session()->put('Cart', $newCart);
         } else {
@@ -123,5 +123,10 @@ class CartController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function Xoahet(Request  $request)
+    {
+        $request->Session()->forget('Cart');
     }
 }

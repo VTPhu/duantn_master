@@ -766,6 +766,7 @@ function AddCart(id, quantily,size,color) {
         type: 'GET',
     }).done(function(response) {
         RenderCart(response);
+        toastr.success('Bạn đã thêm sản phẩm thành công');
     })
 }
 

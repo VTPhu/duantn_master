@@ -28,5 +28,5 @@
     <link rel="stylesheet" href="/client/assets/css/main.css">
     <link rel="stylesheet" href="/client/assets/css/nav.css">
     <link rel="stylesheet" href="/client/assets/css/account.css">
-
+    <link rel="stylesheet" href="/toastr/toastr.min.css">
 </head>

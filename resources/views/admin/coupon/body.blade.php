@@ -227,12 +227,12 @@
                                                         <th style="text-align: center">{{$c->content}}</td>
                                                         <td style="text-align: center">{{$c->quantily}}</td>
                                                         <th style="text-align: center">{{$c->type}}</th>
-                                                        <th style="text-align: center">{!! $c->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
+                                                        <th style="text-align: center">{!! $c->status==0?'<button class="btn btn-success btn-sm"><h5 style="color:white;">Hiện</h5></button>':'<button class="btn btn-danger btn-sm " "><h5 style="color:white;">Ẩn</h5></button>'!!}</th>
                                                         <th style="text-align: center">{{date('d-m-Y', strtotime($c->start_atdate))}}</td>
                                                         <th style="text-align: center">{{date('d-m-Y', strtotime($c->expired_at))}}</td>
                                                             <td class=" text-center font-size-10">
                                                                
-                                                                <button class="btn btn-danger btn-sm"><a href="/admin/deleteCoupon/{{$c->id}}" onclick="alert(event,{{$c->id}})" class="text-gray " type="submit"><i style="color:white" class="ti-trash "></i></a></button>
+                                                                <a href="/admin/deleteCoupon/{{$c->id}}" onclick="alert(event,{{$c->id}})" class="btn btn-danger btn-sm" type="submit"><h5 style="color:white;">Xóa</h5></a>
                                                                 </td>
                                                     </tr>
                                                 </tbody>

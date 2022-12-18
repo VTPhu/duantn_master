@@ -204,12 +204,12 @@
                                             <tbody >
                                                 <tr>
                                                     <td>{{$b->id}}</td>
-                                                        <th>{{$b->name}}</th>
+                                                        <th  style="font-size: 17px;">{{$b->name}}</th>
                                                         <th>{{$b->description}}</th>
-                                                        <th>{!! $b->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
-                                                    <td class="text-center font-size-10" style="width:98px">
-                                                        <button class="btn btn-primary btn-sm " style="width:35px"><a href="/admin/edit/brand/{{$b->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
-                                                        <button class="btn btn-danger btn-sm"><a href="/admin/deleteBrand/{{$b->id}}" onclick="del(event,{{$b->id}})"  class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
+                                                        <th>{!! $b->status==0?'<button class="btn btn-success btn-sm"><h5 style="color:white;">Hiện</h5></button>':'<button class="btn btn-danger btn-sm "><h5 style="color:white;">Ẩn</h5></button>'!!}</th>
+                                                    <td class="text-center font-size-10" style="width:100%;display: flex;justify-content: space-between;padding-top: 25px;">
+                                                        <a href="/admin/edit/brand/{{$b->id}}" class="btn btn-primary btn-sm " style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Sửa</h5></a>
+                                                        <a href="/admin/deleteBrand/{{$b->id}}" onclick="del(event,{{$b->id}})" class="btn btn-danger btn-sm"style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Xóa</h5></a>
                                                     </td>
                                                 </tr>
                                             </tbody>

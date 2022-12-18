@@ -25,6 +25,8 @@ class AdminController extends Controller
         $dauthangnay = Carbon::now('Asia/Ho_Chi_Minh')->startOfMonth()->toDateString();
         $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
         $total_sales = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('sales');
+
+
         $total_profit = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('profit');
         $order = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('total_order');
         $total_quantity = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('quantity');

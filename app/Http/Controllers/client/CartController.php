@@ -15,13 +15,13 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function AddCart($id, $sl, Request  $request, $sized)
+    public function AddCart($id, $sl, Request  $request, $sized, $color)
     {
         $product = DB::table('products')->where('id', $id)->first();
         if ($product != null) {
             $oldCart = Session('Cart') ? Session('Cart') : null;
             $newCart = new Cart($oldCart);
-            $newCart->AddCart($product, $id, $sl, $sized);
+            $newCart->AddCart($product, $id, $sl, $sized, $color);
 
             $request->session()->put('Cart', $newCart);
         }
@@ -33,13 +33,13 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function DeletedCart($id, Request  $request, $sized)
+    public function DeletedCart($id, Request  $request, $sized, $color)
     {
 
 
         $oldCart = Session('Cart') ? Session('Cart') : null;
         $newCart = new Cart($oldCart);
-        $newCart->deleteCart($id, $sized);
+        $newCart->deleteCart($id, $sized, $color);
         if (Count($newCart->products) > 0) {
             $request->Session()->put('Cart', $newCart);
         } else {
@@ -67,13 +67,13 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function DeletedListCart($id, Request  $request, $sized)
+    public function DeletedListCart(Request  $request, $id)
     {
 
 
         $oldCart = Session('Cart') ? Session('Cart') : null;
         $newCart = new Cart($oldCart);
-        $newCart->deleteCart($id . $sized);
+        $newCart->deleteListCart($id);
         if (Count($newCart->products) > 0) {
             $request->Session()->put('Cart', $newCart);
         } else {
@@ -88,7 +88,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function SaveListCart($id, Request  $request, $quantily)
+    public function SaveListCart(Request  $request, $id,  $quantily)
     {
 
         $oldCart = Session('Cart') ? Session('Cart') : null;
@@ -105,14 +105,14 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function AddDetailProduct($id, Request  $request, $quantily, $size)
-    {
-        $oldCart = Session('Cart') ? Session('Cart') : null;
-        $newCart = new Cart($oldCart);
-        $newCart->saveCart($id, $quantily, $size);
-        $request->Session()->put('Cart', $newCart);
-        return view('client.index.productDetail');
-    }
+    // public function AddDetailProduct($id, Request  $request, $quantily, $sized, $color)
+    // {
+    //     $oldCart = Session('Cart') ? Session('Cart') : null;
+    //     $newCart = new Cart($oldCart);
+    //     $newCart->saveCart($id, $quantily, $sized, $color);
+    //     $request->Session()->put('Cart', $newCart);
+    //     return view('client.index.productDetail');
+    // }
 
     /**
      * Remove the specified resource from storage.

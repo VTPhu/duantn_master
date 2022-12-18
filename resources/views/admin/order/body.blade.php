@@ -211,7 +211,6 @@
                                                         <th style="text-align: center;font-size:18px;">Tổng giá</th>
 
 
-                                                        <th style="text-align: center;font-size:18px;">Ngày giao hàng</th>
                                                        
                                                         <th style="text-align: center;font-size:18px;">Trạng thái</th>
                                                         <th style="text-align: center;font-size:18px;">Xem chi tiết đơn hàng</th>
@@ -222,8 +221,8 @@
 
                                                 <tbody>
                                                     <tr>
-                                                        <td>{{$o->id}}</td>
-                                                        <th style="font-size:17px;"><a href="/admin/show-order/{{$o->id}}" >{{$o->name}}</a></th>
+                                                        <td>#{{$o->id}}</td>
+                                                        <th style="font-size:17px;"><a href="/admin/show-order/{{$o->id}}" >{{$o->name_order}}</a></th>
 
 
                                                         <td style="font-size:17px;">{{$o->phone}}</td>
@@ -232,7 +231,6 @@
                                                         <th style="font-size:17px;">{{$o->note}}</th>
                                                         <td style="font-size:17px;">{{date('d-m-Y', strtotime($o->order_date))}}</td>
                                                         <th style="font-size:17px;">{{$o->total_price}}</th>
-                                                        <td style="font-size:17px;">{{$o->delivery_date}}</td>
                                                        
                                                         {{-- <th>{!! $o->status==0?'<button class="btn btn-danger btn-sm">Đang xử lý</button>':$o->status==1?'<button class="btn btn-success btn-sm ">Đã hoàn thành</button>':'<button class="btn btn-info btn-sm ">Đã hủy</button>'!!}</th> --}}
                                                         <th>
@@ -245,11 +243,11 @@
                                                             @endif
                                                         </th>
                                                         <th class=" text-center font-size-10" style="width:98px">
-                                                            <button class="btn btn-info btn-sm"><a href="/admin/show-order/{{$o->id}}"  style="color:white">Chi tiết</a></button>
+                                                            <a href="/admin/show-order/{{$o->id}}"  style="color:white" class="btn btn-info btn-sm">Chi tiết</a>
                                                             
                                                         </td>
                                                         <td class=" text-center font-size-10" style="width:98px">
-                                                            <button class="btn btn-danger btn-sm"><a href="/admin/deleteOrder/{{$o->id}}" onclick="alert(event,{{$o->id}})" class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
+                                                           <a href="/admin/deleteOrder/{{$o->id}}" onclick="alert(event,{{$o->id}})"  class="btn btn-danger btn-sm"><h5 style="color:white;">Xóa</h5></a>
                                                             
                                                         </td>
                                                     </tr>

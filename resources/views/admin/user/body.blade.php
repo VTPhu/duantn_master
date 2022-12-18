@@ -218,7 +218,6 @@
                                                         <th style="text-align: center;font-size:18px;">Thứ tự</th>
                                                         <th style="text-align: center;font-size:18px;">Tên</th>
                                                         <th style="text-align: center;font-size:18px;">Email</th>
-                                                        <th style="text-align: center;font-size:18px;">Mật khẩu</th>
                                                         <th style="text-align: center;font-size:18px;">Phân quyền</th>
                                                         <th style="text-align: center;font-size:18px;">Trạng thái</th>
                                                         <th style="text-align: center;font-size:18px;width:107px;"> Hành động</th>
@@ -231,11 +230,11 @@
                                                         <td>{{$u->id}}</td>
                                                         <th style="font-size:17px;">{{$u->name}}</th>
                                                         <td>{{$u->email}}</td>
-                                                        <th>{{$u->password}}</th>
+                                                        
                                                         <th style="text-align: center;">{!! $u->role==2?'<button class="btn btn-success btn-sm" >ADMIN</button>':'<button class="btn btn-danger btn-sm ">USER</button>'!!}</th>
-                                                        <th style="text-align: center;">{!! $u->status==1?'<button class="btn btn-danger btn-sm"> Đang chờ duyệt</button>':'<button class="btn btn-success btn-sm ">Đã duyệt</button>'!!}</th>
+                                                        <th style="text-align: center;">{!! $u->status==1?'<button class="btn btn-danger btn-sm"> <h5 style="color:white;">Đang chờ duyệt</h5></button>':'<button class="btn btn-success btn-sm "><h5 style="color:white;">Đã duyệt</h5></button>'!!}</th>
                                                         <td class=" text-center font-size-10" style="width:98px">
-                                                            <button class="btn btn-primary btn-sm " style="width:35px"><a href="/admin/show-user/{{$u->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
+                                                            <a href="/admin/show-user/{{$u->id}}" class="btn btn-primary btn-sm "><h5 style="color:white;font-family: 'Varela Round';">Sửa</h5></a>
                                                            
                                                             
                                                         </td>

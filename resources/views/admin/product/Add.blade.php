@@ -239,9 +239,17 @@
                                                     <div class="form-group">
                                                         <label for="userName">Kích thước<span class="text-danger">*</span></label>
                                                         <input type="text" name="size" parsley-trigger="change" required
-                                                               placeholder="Size:(S,M,L,XL)" class="form-control" id="userName" value="{{old('size')}}">
+                                                               placeholder="Size:(S,M,L,XL)" class="form-control" id="userName" value="S M L XL" disabled>
                                                                @if($errors->has('size'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('size') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="userName">Màu sắc<span class="text-danger">*</span></label>
+                                                        <input type="text" name="color" parsley-trigger="change" required
+                                                               placeholder="color" class="form-control" id="userName" value="{{old('color')}}">
+                                                               @if($errors->has('color'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('color') }}</strong>
                                                                @endif
                                                     </div>
                                                     <div class="form-group">

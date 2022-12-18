@@ -44,9 +44,9 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|unique:products',
             'slug' => 'required|unique:products',
-            'quantily' => 'required',
-            'price' => 'required',
-            'size' => 'required|starts_with:S,M,L,XL,XXL',
+            'quantily' => 'required|numeric',
+            'price' => 'required|numeric',
+            'color' => 'required|alpha',
             'date' => 'required|date',
             'thumnail' => 'required|mimes:jpg,bmp,png|file',
             'thumnail_two' => 'required|mimes:jpg,bmp,png|file',
@@ -66,6 +66,7 @@ class ProductController extends Controller
                 ->withInput();
         }
         $input = $request->all();
+        $input['size'] = 'S M L XL';
         $input['slug'] = Str::kebab($input['slug']);
         if ($request->hasFile('thumnail')) {
             $path = 'uploads/images';
@@ -116,9 +117,9 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'slug' => 'required',
-            'quantily' => 'required',
-            'price' => 'required',
-            'size' => 'required|starts_with:S,M,L,XL,XXL',
+            'quantily' => 'required|numeric',
+            'price' => 'required|numeric',
+            'color' => 'required|alpha',
             'thumnail_two' => 'mimes:jpg,bmp,png|file',
             'date' => 'required|date',
             'thumnail' => 'mimes:jpg,bmp,png|file',
@@ -145,6 +146,7 @@ class ProductController extends Controller
         $input->quantily = $request->quantily;
         $input->price = $request->price;
         $input->size = $request->size;
+        $input->color = $request->color;
         $input->date = $request->date;
         // check thumbnail nếu có thì thay đổi ko thì giữ nguyên
         if ($request->thumnail) {
@@ -168,7 +170,7 @@ class ProductController extends Controller
                 $input['thumnail_two'] = $images;
             }
         }
-        $input->saled = $request->saled;
+
         $input->view = $request->view;
         $input->category_id = $request->category_id;
         $input->brand_id = $request->brand_id;

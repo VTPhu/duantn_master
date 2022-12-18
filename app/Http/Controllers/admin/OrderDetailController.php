@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\OrderDetail;
+use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 
 class OrderDetailController extends Controller

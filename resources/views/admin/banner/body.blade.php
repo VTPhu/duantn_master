@@ -215,9 +215,9 @@
                                                                  <th>
                                                                     <image width="60px" height="80px" src="{{asset('uploads/images/'.$b->image_t)}}">
                                                                  </th>
-                                                            <td class="text-center font-size-10" style="width:98px">
-                                                                <button class="btn btn-primary btn-sm " style="width:35px"><a href="/admin/banner/{{$b->id}}" class="text-gray m-r-5"><i style="color:white" class="ti-pencil"></i></a></button>
-                                                                <button class="btn btn-danger btn-sm"><a href="/admin/deleteBanner/{{$b->id}}" onclick="del(event,{{$b->id}})"  class="text-gray"><i style="color:white" class="ti-trash"></i></a></button>
+                                                            <td class="text-center font-size-10" style="width:100%;display: flex;justify-content: space-between;padding-top: 25px;">
+                                                               <a href="/admin/banner/{{$b->id}}" class="btn btn-primary btn-sm " style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Sửa</h5></a>
+                                                               <a href="/admin/deleteBanner/{{$b->id}}" onclick="del(event,{{$b->id}})"  class="btn btn-danger btn-sm" style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Xóa</h5></a>
                                                             </td>
                                                         </tr>
                                                     </tbody>

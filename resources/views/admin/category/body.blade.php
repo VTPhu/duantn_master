@@ -216,14 +216,14 @@
                                                 <tbody>
                                                     <tr>
                                                         <td style="text-align: center">{{$c->id}}</td>
-                                                        <th style="text-align: center">{{$c->name}}</th>
+                                                        <th style="text-align: center;font-size:17px">{{$c->name}}</th>
                                                         <th style="width:200px">
-                                                            <image width="181px" height="80px" src="{{asset('uploads/images/'.$c->thumnail)}}">
+                                                            <image width="184px" height="166px" src="{{asset('uploads/images/'.$c->thumnail)}}">
                                                          </th>
-                                                        <th style="text-align: center">{!! $c->status==0?'<button class="btn btn-success btn-sm">hiện</button>':'<button class="btn btn-danger btn-sm " ">ẩn</button>'!!}</th>
-                                                            <td class=" text-center font-size-10">
-                                                                <button class="btn btn-primary btn-sm " style="width:35px"><a href="/admin/category/{{$c->id}}" class="text-gray m-r-5"><i style="color:white;padding-left:2px" class="ti-pencil"></i></a></button>
-                                                                <button class="btn btn-danger btn-sm"><a href="/admin/deletedCate/{{$c->id}}" onclick="alert(event,{{$c->id}})" class="text-gray " type="submit"><i style="color:white" class="ti-trash "></i></a></button>
+                                                        <th style="text-align: center">{!! $c->status==0?'<button class="btn btn-success btn-sm"><h5 style="color:white;">Hiện</h5></button>':'<button class="btn btn-danger btn-sm "><h5 style="color:white;">Ẩn</h5></button>'!!}</th>
+                                                            <td class=" text-center " style="width:9%;justify-content: space-between;padding-top: 25px;">
+                                                               <a href="/admin/category/{{$c->id}}" class="btn btn-primary btn-sm" style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Sửa</h5></a></button>
+                                                               <a href="/admin/deletedCate/{{$c->id}}" onclick="alert(event,{{$c->id}})"class="btn btn-danger btn-sm" type="submit" style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Xóa</h5></a></button>
                                                                 </td>
                                                     </tr>
                                                 </tbody>

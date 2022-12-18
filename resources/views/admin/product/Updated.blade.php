@@ -244,7 +244,14 @@
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('size') }}</strong>
                                                                @endif
                                                     </div>
-                                                   
+                                                    <div class="form-group">
+                                                        <label for="userName">Màu sắc<span class="text-danger">*</span></label>
+                                                        <input type="text" name="color" parsley-trigger="change" required
+                                                               placeholder="color" class="form-control" id="userName" value="{{$product->color}}">
+                                                               @if($errors->has('color'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('color') }}</strong>
+                                                               @endif
+                                                    </div>
                                                     <div class="form-group">
                                                         <label for="userName">Ngày<span class="text-danger">*</span></label>
                                                         <input type="date" name="date" parsley-trigger="change" required
@@ -269,14 +276,7 @@
                                                         <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('thumnail_two') }}</strong>
                                                         @endif
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="userName">Giảm giá<span class="text-danger">*</span></label>
-                                                        <input type="text" name="saled" parsley-trigger="change" required
-                                                               placeholder="saled" class="form-control" id="userName" value="{{$product->saled}}">
-                                                               @if($errors->has('saled'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('saled') }}</strong>
-                                                               @endif
-                                                    </div>
+                                                    
                                                     <div class="form-group">
                                                         <label for="userName">Số lượt xem<span class="text-danger">*</span></label>
                                                         <input type="number" name="view" parsley-trigger="change" required

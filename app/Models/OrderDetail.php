@@ -15,7 +15,9 @@ class OrderDetail extends Model
         'product_id',
         'quantily_order',
         'size_detail',
-        'price',
+        'color_detail',
+        'total_pro_detail',
+        'product_price',
         'updated_at',
     ];
     use HasFactory;

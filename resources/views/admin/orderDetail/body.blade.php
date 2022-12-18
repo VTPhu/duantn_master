@@ -205,7 +205,10 @@
                                                         <th style="text-align: center;font-size:18px;padding-left:41px">Ảnh</th>
                                                         <th style="text-align: center;font-size:18px;width: 79px;">Tên sản phẩm</th>
                                                         <th style="text-align: center;font-size:18px;width: 100px;">Số lượng</th>
+
                                                         <th style="text-align: center;font-size:18px;">Kích cỡ</th>
+                                                        <th style="text-align: center;font-size:18px;width: 100px;">Màu sắc</th>
+
                                                         <th style="text-align: center;font-size:18px;">Giá</th>
                                                         <th style="text-align: center;font-size:18px;width: 500px;">Thành tiền</th>
                                                     </tr>
@@ -213,7 +216,7 @@
                                                 
                                                 <h1 class="text-center" style="font-family: system-ui;">CHI TIẾT HÓA ĐƠN</h1>
                                                 @foreach( $orderDetail as $o)
-                                                
+                                                   
                                                 <tbody>
                                                     <tr>
                                                         <th style="font-size:17px;width: 115px;padding-left: 44px;">
@@ -222,9 +225,11 @@
                                                         <th style="font-size:17px;">{{$o->title}}</th>
                                                         <td>{{$o->quantily_order}}</td>
                                                         <th style="width:143px;"><button class="btn btn-info btn-sm">{{$o->size_detail}}</button></th>
+                                                        <th style="width:143px;"><button class="btn btn-waring btn-sm">{{$o->color_detail}}</button></th>
 
                                                         <th style="font-size:18px;width: 100px;"> {{ number_format($o->price) }}đ</th>
-                                                        <th style="font-size:18px">{{ number_format($o->price) }}đ</th>
+                                                        
+                                                        <th style="font-size:18px">{{ number_format($o->total_pro_detail) }}đ</th>
                                                     </tr>
                                                 </tbody>
                                                
@@ -235,8 +240,11 @@
                                             </table>
                                             <div class="row col-12" style="display:flex;width:100%;">
                                             <div class="row col-5" style="width:40%">
+                                                <h4>Đơn hàng:</h4>
+                                                
+                                                <p style="font-size:16px">#{{$orderDetail[0]->order_id  }}</p>
                                                 <h4>Tên khách hàng:</h4>
-                                                <p style="font-size:16px">{{$orderDetail[0]->name  }}</p>
+                                                <p style="font-size:16px">{{$orderDetail[0]->name_order  }}</p>
                                                 <h4>SĐT:</h4>
                                                 <p style="font-size:16px">{{$orderDetail[0]->phone}}</p>
                                                 <h4>Địa chỉ:</h4>

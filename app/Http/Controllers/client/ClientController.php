@@ -22,7 +22,7 @@ class ClientController extends Controller
     public function index()
     {
         Carbon::setLocale('vi');
-        $category = Category::all();
+        $category = Category::where('status', '=', '0')->paginate(6);
         $trending = Product::where('status', '=', '0')->orderBy('view', 'DESC')->get();
         $blog = DB::table('posts')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
@@ -32,7 +32,7 @@ class ClientController extends Controller
 
             ->get();
 
-        $product = Product::where('saled', '>', '1')->orderBy('saled', 'DESC')->paginate(10);
+        $product = Product::where('status', '=', '0')->where('saled', '>', '1')->orderBy('saled', 'DESC')->paginate(10);
         $banner = Banner::all();
         return view('client.index.trangchu', compact('product', 'category', 'trending', 'blog', 'banner'));
     }
@@ -69,9 +69,9 @@ class ClientController extends Controller
         $product = Product::find($id);
         $pro = explode(" ", $product['size']);
 
-        // $color = explode(" ", $product['color']);
+        $color = explode(" ", $product['color']);
 
-        return view('client.index.productDetail', compact('product', 'category', 'brand', 'pro'));
+        return view('client.index.productDetail', compact('product', 'category', 'brand', 'pro', 'color'));
     }
 
     /**

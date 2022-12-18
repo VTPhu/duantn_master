@@ -7,21 +7,22 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('dangnhap/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('dangnhap/assets/css/nav.css') }}">
+    <link rel="stylesheet" href="{{ asset('dangnhap/assets/css/icon.css') }}">
     <title>Genz Store</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<script src="https://kit.fontawesome.com/3e4c630da3.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
     <header>
 			 <!-- LOGO -->
-             <div class="topbar-left">
-                <p href="/" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></p>
-            </div>
+             <div class="logo pr-55 d-inline-block">
+                            <img  width="200px"src="{{ asset('client/assets/img/logo/logoGENZ.png') }}" class="logo" alt="Genz Store Logo">
+                            </div>
 			<nav>
                         @guest
                             @if (Route::has('login'))

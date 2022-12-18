@@ -106,3 +106,15 @@ Route::post('/profile/update-password', [ProfileController::class, 'update_passw
 Route::get('/checkout', [CheckoutController::class, 'index']);
 Route::post('/checkout', [CheckoutController::class, 'create']);
 Route::post('/city', [CheckoutController::class, 'vietnam_city']);
+
+//auth profile
+Route::prefix('profile')->middleware('auth')->group(function () {
+    //profile
+    Route::get('/edit_profile', [ProfileController::class, 'edit_profile'])->name('profile.editprofile');
+    //sửa profile
+    Route::post('update_profile_info', [ProfileController::class, 'update_profile'])->name('profile.update_info');
+    Route::post('change-profile-picture', [ProfileController::class, 'update_picture'])->name('profile.update_picture');
+    //password
+    Route::get('change-password', [ProfileController::class, 'change_password'])->name('profile.editpassword');
+    Route::post('change-password', [ProfileController::class, 'update_password'])->name('profile.update_password');
+});

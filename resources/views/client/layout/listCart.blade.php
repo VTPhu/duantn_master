@@ -73,8 +73,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                             <div class="header-right-wrapper d-flex align-items-center justify-content-end">
-                                <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
-                                    @guest
+                                @guest
                                 @if (Route::has('login'))
                                 <a href="{{ route('login') }}" class="d-none d-xxl-inline-block">{{ __('Đăng nhập/') }}</a>
                                 @endif
@@ -83,38 +82,51 @@
                                 <a href="{{ route('register') }}" class="d-none d-xxl-inline-block">{{ __('Đăng ký') }}</a>
                                 @endif
                             @else
-                            <div class="navigation">
-                                <div class="userBx">
-                                  <div class="imgBx">
-                                    <img src="dangnhap/assets/img/avatar.svg">
-                                      </div>
-                                  <p class="username">Xin chào ! {{ Auth::user()->name }}</p>
-                            </div>
-                            <div class="menuToggle"> </div>
-                                 <ul class="menu">
-                                    <li><a href=""><ion-icon name="person-outline"></ion-icon> Thông tin</a></li>
-                                    @if (Auth::user()->role == '2')
-                                     <li><a href="http://localhost:8000/admin/dashboard"><ion-icon name="server-outline"></ion-icon> Quản trị hệ thống</a></li>
-                                     @else
-                                     <li><a href="#"><ion-icon name="cart-outline"></ion-icon> Lịch sử đơn hàng</a></li>
-                                     @endif
-                                     <li><a href="{{ route('logout') }}"
+                            <div class="action">
+                      <div class="profile" onclick="menuToggle()">
+                            <img src="{{Auth::user()->picture}}" alt="">
+                         </div>
+           
+                             <div class="menu">
+                             <h3 class="user_name">{{Auth::user()->name}}
+                                 <br>
+                                 @if(Auth::user()->role == '2')
+                                 <span>(Admin)</span>
+                                 @else
+                                 <span>(Khách hàng)</span>
+                                 @endif
+                              </h3>
+                          <ul>
+                            <li>
+                                 <i class="fa fa-user"></i>
+                                       <a href="/profile/edit_profile">Thông tin </a>
+                              </li>
+                              @if (Auth::user()->role == '2')
+                             <li>
+                                <i class="fa fa-database"></i>
+                                     <a href="/admin/dashboard">Quản lý hệ thống</a>
+                              </li>
+                   @endif
+                   <li>
+                       <i class="fa fa-cog"></i>
+                       <a href="/profile/change-password">Thay đổi mật khẩu</a>
+                   </li>
+                   <li>
+                       <i class="fa fa-sign-out"></i>
+                       <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();"><ion-icon name="log-out-outline"></ion-icon>  {{ __('Đăng xuất') }}</a>
-                                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          document.getElementById('logout-form').submit();">{{ __('Đăng xuất') }}</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
-                                        </form></li>
-                                </ul>
-                            </div>
-                                </div>
-                            <script>
-                                let menuToggle = document.querySelector('.menuToggle');
-                            let navigation = document.querySelector('.navigation');
-                        menuToggle.onclick = function(){
-                          navigation.classList.toggle('active')
-     }
-                            </script>
+                                        </form>
+                   </li>
+               </ul>
+           </div>
+           
+       </div>
+         </div>
                             @endguest
+                                <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
                                     <div class="header-icon header-icon-2 d-inline-block ml-30">
                                       
                                          
@@ -656,6 +668,11 @@
 		$button.parent().find("input").val(newVal);
 	});
 
+    }
+</script>
+<script>
+    function menuToggle(){
+        document.querySelector('.menu').classList.toggle('active');
     }
 </script>
       

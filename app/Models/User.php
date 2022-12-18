@@ -21,7 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'avatar',
+        'facebook_id'
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -32,7 +37,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
     /**
      * The attributes that should be cast.
      *
@@ -41,4 +45,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getPictureAttribute($value)
+    {
+        if ($value) {
+            return asset('client/assets/img/avt/' . $value);
+        } else {
+            return asset('client/assets/img/avt/no-images.jpg');
+        }
+    }
 }

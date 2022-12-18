@@ -25,9 +25,9 @@ class CheckoutController extends Controller
         $city = City::all();
 
 
-        // $district = District::where('matp', $matpp);
+        $district = District::all();
         $ward = Ward::all();
-        return view('client.index.checkout', compact('city', 'ward'));
+        return view('client.index.checkout', compact('city', 'ward', 'district'));
     }
 
     /**

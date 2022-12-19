@@ -33,12 +33,7 @@
                   </div>
                </div>
                <div class="col-md-6">
-                  <div class="coupon-accordion">
-                        <!-- ACCORDION START -->
-                        <h3>Có phiếu giảm giá? <span id="showcoupon">Nhấn vào để nhập mã</span></h3>
-                        
-                        <!-- ACCORDION END -->
-                  </div>
+                  
                </div>
             </div>
          </div>
@@ -98,15 +93,15 @@
                                                                @endif
                                           </div>
                                        </div>
-                                      
+                                    
                                     <div class="col-md-6">
                                         <div class="country-select">
                                            <label>Tỉnh / Thành <span class="required">*</span></label>
                                            
-                                           <select name="city" >
-                                             @foreach($city as $city)
-                                              <option value="{{ $city->matp}}">{{ $city->name}}</option>
+                                           <select name="city" onchange="cityList()" id="ma_tp">
                                              
+                                             @foreach($city as $city)
+                                              <option    value="{{$city->matp < 10  ? '0' . $city->matp : $city->matp}}">{{ $city->name}}</option>
                                              @endforeach
                                            </select>
                                            
@@ -116,14 +111,16 @@
                                         </div>
                                        
                                   </div>
+                                 
                                   <div class="col-md-6">
                                     <div class="country-select">
                                        <label>Quận / Huyện <span class="required">*</span></label>
-                                       <select name="district">
-                                        
-                                          
+                                       <select name="district" id="district" onchange="districtList()" >
+                                         
+                                         
                                           @foreach($district as $dis)
-                                          <option value="{{$dis->matp}}">{{$dis->name}}</option>
+                                         
+                                          <option  value="{{$dis->maqh< 016  ? '00' . $dis->maqh : $dis->maqh}}">{{$dis->name}}</option>
                                          @endforeach
                                        </select>
                                        @if($errors->has('district'))
@@ -134,8 +131,11 @@
                               <div class="col-md-6">
                                 <div class="country-select">
                                    <label>Phường / Xã <span class="required">*</span></label>
-                                   <select name="ward">
+
+                                   <select name="ward" id="dislist">
+                                  
                                     @foreach($ward as $w)
+
                                       <option value="{{$w->maqh}}">{{$w->name}}</option>
                                      @endforeach
                                    </select>
@@ -181,7 +181,7 @@
                                             @foreach(Session::get('Cart')->products as $n)
                                              <tr class="cart_item">
                                                 <td class="product-thumbnail"><a href="product-details.html">                           
-                                                    <img src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
+                                                    <img style="width:100px" src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
                                                </a></td>
                                            
                                                 <td class="amount"><a href="">{{$n['productInfo']->title}}</a></td>
@@ -300,6 +300,55 @@
     
 
 </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        <!-- footer area start -->
+<script>
+   
+       function cityList(){
+      
+        var matp = document.getElementById("ma_tp").value;
+      
+             $.ajax({
+                url:"/city"+'/'+matp,
+                type:"post",
+                data: {
+                  "_token": "{{ csrf_token() }}",
+                  "matp":matp,
+                  },
+                success:function(data){
+                  let kq = '';
+                  $.each(data, function (index, value) { 
+                     kq  += `<option value="${value.maqh}">${value.name}</option>`;
+                  });
+                  $("#district").html(kq);
+                },                
+            })
+       }
+           
+       function districtList(){
+      
+      var maqh = document.getElementById("district").value;
+   
+           $.ajax({
+              url:"/district"+'/'+maqh,
+              type:"post",
+              data: {
+                "_token": "{{ csrf_token() }}",
+                "maqh":maqh,
+                },
+              success:function(data){
+            
+                let dis = '';
+                $.each(data, function (index, value) { 
+                  dis  += `<option value="${value.maqh}">${value.name}</option>`;
+                });
+                $("#dislist").html(dis);
+                console.log(dis);
+              },                
+          })
+     }
+    
+
+   </script>
+        
    

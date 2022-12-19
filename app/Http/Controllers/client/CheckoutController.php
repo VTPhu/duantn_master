@@ -24,7 +24,6 @@ class CheckoutController extends Controller
 
         $city = City::all();
 
-
         $district = District::all();
         $ward = Ward::all();
         return view('client.index.checkout', compact('city', 'ward', 'district'));
@@ -42,10 +41,10 @@ class CheckoutController extends Controller
             'phone' => 'required|numeric',
             'address' => 'required',
             'email' => 'required|email:rfc,dns',
-            // 'city' => 'required',
-            // 'district' => 'required',
-            // 'ward' => 'required',
-            'note' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'ward' => 'required',
+
 
 
         ]);
@@ -75,7 +74,7 @@ class CheckoutController extends Controller
         $order_data['city'] = $request->city;
         $order_data['district'] = $request->district;
         $order_data['ward'] = $request->ward;
-        $order_data['note'] = $request->name;
+        $order_data['note'] = $request->note;
         $order_data['order_date'] = new \DateTime('Asia/Ho_Chi_Minh');
         $order_data['updated_at'] = new \DateTime('Asia/Ho_Chi_Minh');
         $order_data['created_at'] = new \DateTime('Asia/Ho_Chi_Minh');
@@ -135,9 +134,14 @@ class CheckoutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function vietnam_city($matp)
     {
-        //
+
+        // $city = City::all();
+        $district = District::where('matp', '=', $matp)->get();
+        return response()->json($district);
+
+        // return view('client.index.checkout', compact('district', 'city', 'ward'));
     }
 
     /**
@@ -146,8 +150,20 @@ class CheckoutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function ward($maqh)
     {
-        //
+
+        // $city = City::all();
+        $ward = Ward::where('maqh', '=', $maqh)->get();
+
+        return response()->json($ward);
+
+        // return view('client.index.checkout', compact('district', 'city', 'ward'));
+    }
+    function show_name($matp)
+
+    {
+        $cityr = City::where('matp', '=', $matp)->get();
+        dd($cityr);
     }
 }

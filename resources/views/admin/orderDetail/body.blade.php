@@ -238,30 +238,63 @@
                                               
 
                                             </table>
-                                            <div class="row col-12" style="display:flex;width:100%;">
-                                            <div class="row col-5" style="width:40%">
-                                                <h4>Đơn hàng:</h4>
-                                                
-                                                <p style="font-size:16px">#{{$orderDetail[0]->order_id  }}</p>
-                                                <h4>Tên khách hàng:</h4>
-                                                <p style="font-size:16px">{{$orderDetail[0]->name_order  }}</p>
-                                                <h4>SĐT:</h4>
-                                                <p style="font-size:16px">{{$orderDetail[0]->phone}}</p>
-                                                <h4>Địa chỉ:</h4>
-                                                <p style="font-size:16px">{{$orderDetail[0]->address}}</p>
-                                                <h4>Email:</h4>
-                                                <p style="font-size:16px">{{$orderDetail[0]->email}}</p>
-                                                <h4>Ghi chú:</h4>
-                                                <p style="font-size:16px">{{$orderDetail[0]->note}}</p>
-                                                <h4>Ngày đặt:</h4>
-                                                <p style="font-size:16px">{{date('d-m-Y', strtotime($orderDetail[0]->order_date))}}</p>
-                                                <h4>Tổng tiền:</h4>
-                                                <p style="font-size:16px">{{ number_format($orderDetail[0]->total_price) }}đ</p>
-                                            </div>
-                                            <div class="div " style="width:40%">
-                                                <form  method="POST">
+                                            {{-- <?php
+                                          dd($orderDetail);
+
+?> --}}
+                                            <div class="row col-12" >
+                                                <form style="width:600px" method="post">
                                                     @csrf
-                                                    <div class="form-group">
+                                                    <div class="mb-3">
+                                                      <label for="exampleInputEmail1" class="form-label">Đơn hàng</label>
+                                                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="order_id" value="#{{$orderDetail[0]->order_id  }}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                      <label for="exampleInputPassword1" class="form-label">Tên Khách hàng</label>
+                                                      <input type="text" class="form-control" id="exampleInputPassword1"name="name_order" value="{{$orderDetail[0]->name_order  }}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleInputEmail1" class="form-label">SĐT</label>
+                                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phone" value="{{$orderDetail[0]->phone}}">
+                                                      </div>
+                                                      <div class="mb-3">
+                                                        <label for="exampleInputPassword1" class="form-label">Địa chỉ</label>
+                                                        <input type="text" class="form-control" id="exampleInputPassword1" name="address" value="{{$orderDetail[0]->address}}">
+                                                      </div>
+                                                      
+                                                      <div class="mb-3">
+                                                        <label for="exampleInputEmail1" class="form-label">Tỉnh/Thành Phố</label>
+                                                        <input type="text" class="form-control" id="exampleInputEmail1" name="city" aria-describedby="emailHelp"value="{{$orderDetail[0]->city}}">
+                                                      </div>
+                                                      <div class="mb-3">
+                                                        <label for="exampleInputPassword1" class="form-label">Quận/Huyện/</label>
+                                                        <input type="text" class="form-control" id="exampleInputPassword1" name="district" value="{{$orderDetail[0]->district}}">
+                                                      </div>
+                                                      <div class="mb-3">
+                                                        <label for="exampleInputEmail1" class="form-label">Phường/Xã </label>
+                                                        <input type="text" class="form-control" id="exampleInputEmail1" name="ward" aria-describedby="emailHelp" value="{{$orderDetail[0]->ward}}" >
+                                                      </div>
+
+
+
+                                                      
+                                                      <div class="mb-3">
+                                                        <label for="exampleInputEmail1" class="form-label">Email </label>
+                                                        <input type="email" class="form-control" id="exampleInputEmail1" name="email"  aria-describedby="emailHelp" value="{{$orderDetail[0]->email}}">
+                                                      </div>
+                                                      <div class="mb-3">
+                                                        <label for="exampleInputPassword1" class="form-label">Ghi chú</label>
+                                                        <input type="text" class="form-control" id="exampleInputPassword1" name="note" value="{{$orderDetail[0]->note}}">
+                                                      </div>
+                                                      <div class="mb-3">
+                                                        <label for="exampleInputEmail1" class="form-label">Ngày Đặt  </label>
+                                                        <input type="text" class="form-control" id="exampleInputEmail1" name="order_date"  aria-describedby="emailHelp" value="{{date('d-m-Y', strtotime($orderDetail[0]->order_date))}}">
+                                                      </div>
+                                                      <div class="mb-3">
+                                                        <label for="exampleInputPassword1" class="form-label">Tổng tiền</label>
+                                                        <input type="text" class="form-control" id="exampleInputPassword1"  name="total_price" value="{{ number_format($orderDetail[0]->total_price) }}đ">
+                                                      </div>
+                                                      <div class="form-group">
                                                         
                                                         <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    
                                                                <select style="width: 200px;height: 33px;border-radius:5px;text-align:center;font-size:15px" class="form-select"  name="status" aria-label="Default select example">
@@ -281,15 +314,14 @@
                                                             </select>
                                                             
                                                     </div>
-                                                    
-                                                        <button class="btn btn-primary waves-effect waves-light" type="submit">
-                                                            Xác nhận đơn hàng
-                                                        </button>
-                                                        <button class="btn btn-danger btn-sm" style="height:34px"><a href="/admin/show-order"   style="color:white;height:50px">Hủy bỏ</a></button>                                                            
+                                                    <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                        Xác nhận đơn hàng
+                                                    </button>
+                                                    <button class="btn btn-danger btn-sm" style="height:34px"><a href="/admin/show-order"   style="color:white;height:50px">Hủy bỏ</a></button>                                                            
 
-                                                    
-                                                </form>
+                                                  </form>
                                             </div>
+                                          
                                         </div>
                                         </div>
                                        

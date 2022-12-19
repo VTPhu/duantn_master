@@ -52,6 +52,15 @@ class OrderController extends Controller
         $input = $request->all();
         $input = Order::find($id);
         $input->status = $request->status;
+        $input->name_order = $request->name_order;
+        $input->phone = $request->phone;
+        $input->address = $request->address;
+        $input->email = $request->email;
+        $input->city = $request->city;
+        $input->district = $request->district;
+        $input->ward = $request->ward;
+
+
         $input->save();
         if ($input) {
 

@@ -105,7 +105,9 @@ Route::post('/profile/update-password', [ProfileController::class, 'update_passw
 //checkout
 Route::get('/checkout', [CheckoutController::class, 'index']);
 Route::post('/checkout', [CheckoutController::class, 'create']);
-Route::post('/city', [CheckoutController::class, 'vietnam_city']);
+Route::post('/city/{matp}', [CheckoutController::class, 'vietnam_city']);
+Route::post('/district/{maqh}', [CheckoutController::class, 'ward']);
+Route::get('/show_name/{matp}', [CheckoutController::class, 'show_name']);
 
 //auth profile
 Route::prefix('profile')->middleware('auth')->group(function () {

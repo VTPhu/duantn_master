@@ -230,7 +230,7 @@
                                                         <td style="font-size:17px;">{{$o->email}}</td>
                                                         <th style="font-size:17px;">{{$o->note}}</th>
                                                         <td style="font-size:17px;">{{date('d-m-Y', strtotime($o->order_date))}}</td>
-                                                        <th style="font-size:17px;">{{$o->total_price}}</th>
+                                                        <th style="font-size:17px;">{{ number_format($o->total_price)}}đ</th>
                                                        
                                                         {{-- <th>{!! $o->status==0?'<button class="btn btn-danger btn-sm">Đang xử lý</button>':$o->status==1?'<button class="btn btn-success btn-sm ">Đã hoàn thành</button>':'<button class="btn btn-info btn-sm ">Đã hủy</button>'!!}</th> --}}
                                                         <th>

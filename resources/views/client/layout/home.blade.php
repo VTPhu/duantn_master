@@ -65,7 +65,7 @@ use app\Http\Controllers\client\ClientController;
                                         <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
                                         
                                     </li>
-                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="contact.html">Liên hệ</a></li>
+                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="/contact">Liên hệ</a></li>
                                 </ul>
                             </nav>
                         </div>

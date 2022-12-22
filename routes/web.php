@@ -15,9 +15,11 @@ use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\ClientController;
 use App\Http\Controllers\client\CouponTestController;
+use App\Http\Controllers\Auth\SociaController;
 // use App\Http\Controllers\client\ShopController;
 // use App\Http\Controllers\client\ProductCateController;
 use App\Http\Controllers\client\ProfileController;
+use App\Http\Controllers\client\ContactController;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
@@ -128,3 +130,13 @@ Route::prefix('profile')->middleware('auth')->group(function () {
     Route::get('change-password', [ProfileController::class, 'change_password'])->name('profile.editpassword');
     Route::post('change-password', [ProfileController::class, 'update_password'])->name('profile.update_password');
 });
+
+//Login bằng Facebook
+Route::get('auth/facebook', [SociaController::class, 'FacebookRedirect']);
+Route::get('auth/facebook/callback', [SociaController::class, 'loginWithFacebook']);
+//Login Bằng Google
+Route::get('auth/google', [SociaController::class, 'GoogleRedirect']);
+Route::get('auth/google/callback', [SociaController::class, 'loginWithGoogle']);
+//contact
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/send', [ContactController::class, 'send'])->name('send.email');

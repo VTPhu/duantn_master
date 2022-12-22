@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
@@ -39,29 +39,30 @@ class ProfileController extends Controller
             }
         }
     }
+
     public function update_picture(Request $request)
     {
-        $path =  'client/assets/img/avt/';
+        $path = 'client/assets/img/avt/';
         $file = $request->file('user_image');
-        $new_name = 'UIMG_' . date('Ymd') . uniqid() . '.jpg';
+        $new_name = 'Genz_' . date('Ymd') . uniqid() . '.jpg';
 
         //Upload ảnh mới
         $upload = $file->move(public_path($path), $new_name);
-
         if (!$upload) {
             return response()->json(['status' => 0, 'msg' => 'Xin lỗi ! Đã xảy ra lỗi.']);
         } else {
             $oldPicture = User::find(Auth::user()->id)->getAttributes()['picture'];
             if ($oldPicture != '') {
-                if (File::exists(\public_path($path . $oldPicture))) {
-                    File::delete(\public_path($path . $oldPicture));
+                if (File::exists(public_path($path . $oldPicture))) {
+                    File::delete(public_path($path . $oldPicture));
                 }
             }
-            $update = User::find(Auth::user()->id)->update(['picture' => $new_name]);
+            User::find(Auth::user()->id)->update(['picture' => $new_name]);
+
             if (!$upload) {
-                return response()->json(['status' => 0, 'msg' => 'Xin lỗi ! Đã xảy ra lỗi.']);
+                return response()->json(['status' => 0, 'msg' => 'Xin lỗi ! Đã xảy ra lỗi ngoài ý muốn.']);
             } else {
-                return response()->json(['status' => 1, 'msg' => 'Bạn đã thay đổi ảnh thành công.']);
+                return response()->json(['status' => 1, 'msg' => 'Bạn đã thay đổi ảnh đại diện thành công.']);
             }
         }
     }

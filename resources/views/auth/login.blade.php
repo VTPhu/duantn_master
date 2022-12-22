@@ -46,11 +46,11 @@
 				<div class="content">
 					<div class="login">
 						<div class="social_login">
-							<a href="{{ route('password.request') }}" class="google">
+							<a href="{{url('auth/google')}}" class="google">
                             <i class="fa-brands fa-google"></i>
 								<span>Login with Google</span>
 							</a>
-							<a href="#" class="fb">
+							<a href="{{url('auth/facebook')}}" class="fb">
                             <i class="fa-brands fa-facebook"></i>
 								<span>Login with Facebook</span>
 							</a>

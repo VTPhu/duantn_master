@@ -23,8 +23,9 @@ class User extends Authenticatable
         'password',
         'phone',
         'address',
-        'avatar',
-        'facebook_id'
+        'picture',
+        'id_facebook',
+        'id_google',
     ];
 
 

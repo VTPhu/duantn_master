@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="/client/assets/css/account.css">
     <link rel="stylesheet" href="/client/assets/css/edit.css">
     <link rel="stylesheet" href="/client/assets/css/ijaboCropTool.min.css">
+    <link rel="stylesheet" href="/client/assets/css/contact.css">
     <link rel="stylesheet" href="/toastr/toastr.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Satisfy&display=swap" rel="stylesheet">

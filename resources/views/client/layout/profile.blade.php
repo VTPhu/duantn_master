@@ -75,7 +75,7 @@ use app\Http\Controllers\client\ClientController;
                         @else
                         <div class="action">
                   <div class="profile" onclick="menuToggle()">
-                        <img src="{{Auth::user()->picture}}" alt="">
+                        <img class="user_picture"src="{{Auth::user()->picture}}" alt="">
                      </div>
        
                          <div class="menu">
@@ -320,24 +320,32 @@ use app\Http\Controllers\client\ClientController;
 <main>
 <div class="layout-info-account">
 	<div class="row">
-		<div class="title-infor-account">
-			<h1 class="lang" keyLanguage="tai_khoan_cua_ban">Tài khoản của bạn</h1>
-		</div>
 			<div class="col-xs-12 col-sm-2 sidebar-account">
-				<div class="AccountSidebar">
+                <div class="AccountSidebar">
 	<div class="AccountContent">
-		<div class="AccountList">
-        <ul class="list-unstyled">			
-				<li class="current"><a href="/profile/edit_profile" class="lang" keyLanguage="thong_tin_tai_khoan">Thông tin tài khoản</a></li>
-				<li><a href="/profile/change-password" class="lang" keyLanguage="danh_sach_dia_chi">Thay đổi mật khẩu </a></li>
-                <li><a href="{{ route('logout') }}"
+		<div class="Account">
+        <ul style="    padding-left: 30px;
+        margin: 40;
+        margin-top: 40px;
+        line-height: 38px;
+    }"> 			
+				<li class="current">
+                    <a href="/profile/edit_profile" class="lang" ><i class="fa fa-user"></i> Thông tin tài khoản</a>
+                </li>
+				<li>
+                    <a href="/profile/change-password" class="lang" ><i class="fa fa-cog"></i> Thay đổi mật khẩu </a>
+                </li>
+                <li>
+                    <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">  {{ __('Đăng xuất') }}</a>
+                                                     document.getElementById('logout-form').submit();"> <i class="fa fa-sign-out"></i>  {{ __('Đăng xuất') }}
+                    </a>
                                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                      @csrf
-                                    </form></li>
+                                    </form>
+                </li>
 			</ul>
-		</div>
+        </div>
 	</div>
 </div>
 			</div>
@@ -352,7 +360,14 @@ use app\Http\Controllers\client\ClientController;
             <div class="row">
                 <div class="col-lg-4 px-5 text-center" style="border-right:1px solid #999;">
                     <img src="{{Auth::user()->picture}}" class="img-fluid rounded-circle img-thumbnail user_picture" alt="User profile picture" width="200">
-                    <h3 class="profile-username text-center user_name">{{Auth::user()->name}}</h3>
+                    <<h3 class="profile-username text-center user_name">{{Auth::user()->name}}
+                        <br>
+                                 @if(Auth::user()->role == '2')
+                                 <h4>(Admin)</h4>
+                                 @else
+                                 <h4>(Khách hàng)</h4>
+                                 @endif
+                        </h3>
                         <input type="file" name="user_image" id="user_image" style="opacity: 0; height:1px;display:none">
                         <a href="javascript:void(0)" class="btn btn-primary btn-block" id="change_picture_btn">
                             <b>Thay đổi ảnh đại diện</b>

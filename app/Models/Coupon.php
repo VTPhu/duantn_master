@@ -10,14 +10,11 @@ class Coupon extends Model
     protected $table = 'coupons';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'code',
-        'name',
-        'content',
-        'quantily',
-        'type',
-        'price_coupon',
-        'type_coupon',
-        'maxsimum',
+        'coupon_name',
+        'coupon_code',
+        'coupon_condition',
+        'coupon_number',
+        'coupon_time',
         'status',
         'start_at',
         'expired_at',

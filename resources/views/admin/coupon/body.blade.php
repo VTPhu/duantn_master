@@ -207,11 +207,12 @@
                                                 <thead style="background-color:#36404e;color:white;">
                                                     <tr>
                                                         <th style="text-align: center;font-size:18px">Thứ tự</th>
-                                                        <th style="text-align: center;font-size:18px">Mã</th>
                                                         <th style="text-align: center;font-size:18px">Tên</th>
-                                                        <th style="text-align: center;font-size:18px">Nội dung</th>
+                                                        <th style="text-align: center;font-size:18px">Mã giảm giá</th>
+                                                        <th style="text-align: center;font-size:18px">Tính năng mã</th>
                                                         <th style="text-align: center;font-size:18px">Số lượng</th>
-                                                        <th style="text-align: center;font-size:18px">Loại</th>
+                                                        <th style="text-align: center;font-size:18px">số % hoặc vnd</th>
+
                                                         <th style="text-align: center;font-size:18px">Trạng thái</th>
                                                         <th style="text-align: center;font-size:18px">Ngày bắt đầu</th>
                                                         <th style="text-align: center;font-size:18px">Ngày kết thúc</th>
@@ -222,11 +223,11 @@
                                                 <tbody>
                                                     <tr>
                                                         <th style="text-align: center">{{$c->id}}</td>
-                                                        <td style="text-align: center">{{$c->code}}</td>
-                                                        <th style="text-align: center">{{$c->name}}</th>
-                                                        <th style="text-align: center">{{$c->content}}</td>
-                                                        <td style="text-align: center">{{$c->quantily}}</td>
-                                                        <th style="text-align: center">{{$c->type}}</th>
+                                                        <td style="text-align: center">{{$c->coupon_name}}</td>
+                                                        <th style="text-align: center">{{$c->coupon_code}}</th>
+                                                        <th style="text-align: center">{{$c->coupon_condition}}</td>
+                                                        <th style="text-align: center">{{$c->coupon_time}}</th>
+                                                        <td style="text-align: center">{{$c->coupon_number}}</td>
                                                         <th style="text-align: center">{!! $c->status==0?'<button class="btn btn-success btn-sm"><h5 style="color:white;">Hiện</h5></button>':'<button class="btn btn-danger btn-sm " "><h5 style="color:white;">Ẩn</h5></button>'!!}</th>
                                                         <th style="text-align: center">{{date('d-m-Y', strtotime($c->start_atdate))}}</td>
                                                         <th style="text-align: center">{{date('d-m-Y', strtotime($c->expired_at))}}</td>

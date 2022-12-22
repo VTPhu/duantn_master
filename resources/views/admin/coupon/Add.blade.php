@@ -196,50 +196,51 @@
 											<div class="demo-box">
                                                 <form action="/admin/coupon" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                                     @csrf
-                                                    <div class="form-group">
-                                                        <label for="userName">Mã<span class="text-danger">*</span></label>
-                                                        <input type="text" name="code" parsley-trigger="change" required
-                                                               placeholder="Code" class="form-control" id="userName" value="{{old('code')}}">
-                                                               @if($errors->has('code'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('code') }}</strong>
-                                                               @endif
-                                                    </div>
+                                                   
                 
                                                     <div class="form-group">
                                                         <label for="slug">Tên<span class="text-danger">*</span></label>
-                                                        <input type="text" name="name" parsley-trigger="change" required
-                                                               placeholder="Name " class="form-control" id="slug" value="{{old('name')}}">
-                                                               @if($errors->has('name'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('name') }}</strong>
-                                                               @endif
-                                                    </div>
-                                                   
-                                                    <div class="form-group">
-                                                        <label for="userName">Nội dung<span class="text-danger">*</span></label>
-                                                        <input type="text" name="content" parsley-trigger="change" required
-                                                               placeholder="content" class="form-control" id="userName" value="{{old('content')}}">
-                                                               @if($errors->has('content'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('content') }}</strong>
+                                                        <input type="text" name="coupon_name" parsley-trigger="change" required
+                                                               placeholder="Name " class="form-control" id="slug" value="{{old('coupon_name')}}">
+                                                               @if($errors->has('coupon_name'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('coupon_name') }}</strong>
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Số lượng<span class="text-danger">*</span></label>
-                                                        <input type="number" name="quantily" parsley-trigger="change" required
-                                                               placeholder="số lượng" class="form-control" id="userName" value="{{old('quantily')}}">
-                                                               @if($errors->has('quantily'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('quantily') }}</strong>
+                                                        <label for="userName">Mã giảm giá<span class="text-danger">*</span></label>
+                                                        <input type="text" name="coupon_code" parsley-trigger="change" required
+                                                               placeholder="coupon_code" class="form-control" id="userName" value="{{old('coupon_code')}}">
+                                                               @if($errors->has('coupon_code'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('coupon_code') }}</strong>
                                                                @endif
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="userName">Loại<span class="text-danger">*</span></label><br>
-                                                        <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="type" aria-label="Default select example">
-                                                            <option value="F">F</option>    
-                                                            <option value="P">P</option>                                                    
-                                                          @if($errors->has('type'))
-                                                          <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('type') }}</strong>
+                                                        <label for="userName">Số lượng mã<span class="text-danger">*</span></label>
+                                                        <input type="number" name="coupon_time" parsley-trigger="change" required
+                                                               placeholder="coupon_time" class="form-control" id="userName" value="{{old('coupon_time')}}">
+                                                               @if($errors->has('coupon_time'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('coupon_time') }}</strong>
+                                                               @endif
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label for="userName">Tính năng mã<span class="text-danger">*</span></label><br>
+                                                        <select style="width: 140px;height: 30px;border-radius:10px;text-align:center;font-size:15px" class="form-select"  name="coupon_condition" aria-label="Default select example">
+                                                            <option value="1">Giảm theo %</option>    
+                                                            <option value="2">Giảm theo tiền</option>                                                    
+                                                          @if($errors->has('coupon_condition'))
+                                                          <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('coupon_condition') }}</strong>
                                                           @endif 
                                                           
                                                         </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="userName">Nhập số % hoặc số tiền<span class="text-danger">*</span></label>
+                                                        <input type="text" name="coupon_number" parsley-trigger="change" required
+                                                               placeholder="coupon_number" class="form-control" id="userName" value="{{old('coupon_number')}}">
+                                                               @if($errors->has('coupon_number'))
+                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('coupon_number') }}</strong>
+                                                               @endif
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Trạng thái<span class="text-danger">*</span></label><br>    

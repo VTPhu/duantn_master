@@ -27,14 +27,39 @@
                <div class="col-md-6">
                   <div class="coupon-accordion">
                         <!-- ACCORDION START -->
-                        <h3>Bạn đã có tài khoản? <a><span style="color:blue" id="showlogin">đăng nhập</span></a></h3>
-                        
+                        <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
+                        <div id="checkout-login" class="coupon-content">
+                           <div class="coupon-info">
+                              <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est
+                                    sit amet ipsum luctus.</p>
+                              
+                           </div>
+                        </div>
                         <!-- ACCORDION END -->
                   </div>
                </div>
+               @if(Session::get('Cart'))
                <div class="col-md-6">
-                  
+                  <div class="coupon-accordion">
+                        <!-- ACCORDION START -->
+                        <h3>Có phiếu giảm giá? <span id="showcoupon">Nhấn vào để nhập mã giảm giá</span></h3>
+                        <div id="checkout_coupon" class="coupon-checkout-content">
+                           <div class="coupon-info">
+                             
+                              <form action="/checkout_coupon" method="POST">
+                                 @csrf
+                                    <p class="checkout-coupon">
+                                       <input type="text" name="coupon"placeholder="Coupon Code" />
+                                       <button class="s-btn s-btn-2" type="submit">Apply Coupon</button>
+                                      
+                                    </p>
+                              </form>
+                           </div>
+                        </div>
+                        <!-- ACCORDION END -->
+                  </div>
                </div>
+               @endif
             </div>
          </div>
          </section>
@@ -44,6 +69,7 @@
          <section class="checkout-area pb-70">
           
                <div class="container">
+                 
                   @if(Session::has('message'))
                   <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
                   @endif
@@ -165,7 +191,9 @@
                            <div class="col-lg-6">
                               <div class="your-order mb-30 ">
                                  <h3>Đơn hàng</h3>
+                                
                                  <div class="your-order-table table-responsive">
+                                    
                                        <table>
                                         @if(Session::has('Cart')!=null)
                                         <thead>
@@ -194,7 +222,10 @@
                                              </tr>
                                              @endforeach
                                           </tbody>
-                                        
+                                       
+                                         
+                                             
+                                         </div>
                                           <tfoot>
                                              <tr class="cart-subtotal">
                                                    <th>Số lượng</th>
@@ -229,30 +260,74 @@
                                                    
                                                 </td>
                                              </tr>
+                                           
+                                          @if(Session::get('coupon'))
                                              <tr class="shipping">
                                                 <th>Giảm giá</th>
                                                 <td>
                                                    <ul>
                                                       <li>
-                                                           
-                                                             <span class="amount"></span>
+                                                           <?php 
+                                                           $total = Session::get('Cart')->totaPrice;
+                                                           ?>
+                                                             @if(Session::get('coupon'))
+                                                                 @foreach(Session::get('coupon') as $key => $cou)
+                                                                 @if($cou['coupon_condition']==1)
+                                                                 Mã giảm:{{$cou['coupon_number']}}%
+                                                                 <p>
+                                                                  @php
+                                                                  $total_coupon = ($total*$cou['coupon_number']/100);
+                                                                  echo '<p><li>Tổng giảm:'.number_format($total_coupon,0,',','.').'đ</li></p>'
+
+                                                                 
+                                                                 @endphp
+                                                                 </p>
+                                                                 {{-- <p> <li>Tổng đã giảm:{{number_format($total-$total_coupon,0,',','.')}}đ</li></p> --}}
+                                                            @elseif($cou['coupon_condition']==2)
+                                                            Mã giảm:{{number_format($cou['coupon_number'],0,',','.')}}k
+                                                            <p>
+                                                               @php
+                                                               $total_coupon=$total-$cou['coupon_number'];
+                                                               @endphp
+                                                            </p>
                                                             
+                                                            @endif
+                                                            @endforeach
+                                                            @endif
+                                                            <?php
+                                                         //  Session::get('Cart')->totaPrice = $total_coupon;
+                                                          
+                                                            ?>
                                                       </li>
                                                       
                                                    </ul>
-                                                   
+                                                   @if(Session::get('coupon'))
+                                                   <a class="btn btn-primary" href="{{ url('/unset_coupon')}}">Xóa mã</a>
+                                                   @endif
                                                 </td>
                                              </tr>
                                                 
                                           </tr>
+                                          @if(Session::get('coupon')['0']['coupon_condition']==1)
                                              <tr class="order-total">
                                                    <th>Tổng tiền</th>
-                                                   <td><strong><span class="amount">{{number_format(Session::get('Cart')->totaPrice)}}đ</span></strong>
+                                                   <td><strong><span class="amount">{{number_format($total-$total_coupon,0,',','.')}}đ</span></strong>
                                                    </td>
                                              </tr>
-                                             
+                                          @elseif(Session::get('coupon')['0']['coupon_condition']==2)
+                                             <tr class="order-total">
+                                                <th>Tổng tiền</th>
+                                                <td><strong><span class="amount">{{number_format($total_coupon,0,',','.')}}đ</span></strong>
+                                                </td>
+                                          </tr>
+                                          @endif
                                           </tfoot>
-                                          
+                                          @endif 
+                                          <tr class="order-total">
+                                             <th>Tổng tiền</th>
+                                             <td><strong><span class="amount">{{number_format(Session::get('Cart')->totaPrice,0,',','.')}}đ</span></strong>
+                                             </td>
+                                       </tr>
                                        </table>
                                        @endif
                                  </div>
@@ -293,6 +368,8 @@
                            </div>
                      </div>
                   </form>
+                 
+                    
                </div>
          </section>
          <!-- checkout-area end -->

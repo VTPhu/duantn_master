@@ -363,7 +363,9 @@
             <div class="container">
             <div class="row">
                 <div class="col-12">
-                    
+                    @if(Session::has('message'))
+                    <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
+                    @endif
                     <form action="#" id="list-cart">
                        
                         <div class="table-content table-responsive" >
@@ -412,15 +414,22 @@
                             </table>
                            
                         </div>
-                        
-                        <div class="row">
+                    
+                        {{-- <div class="row">
+                            @if(Session::has('message'))
+                    <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
+                    @endif
                             <div class="col-12">
                                 <div class="coupon-all">
                                     <div class="coupon">
-                                        <input id="coupon_code" class="input-text" name="coupon_code" value=""
+                                        
+                                        <form action="/checkout_coupon" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data" >
+                                            @csrf
+                                        <input id="coupon" class="input-text" name="coupon" 
                                             placeholder="Coupon code" type="text">
-                                        <button class="s-btn s-btn-2" name="apply_coupon" type="submit">Mã giảm giá
+                                        <button  class="s-btn s-btn-2" onclick="checkout_coupon()" type="submit">Mã giảm giá
                                             </button>
+                                        </form>
                                     </div>
                                    
                                     
@@ -428,7 +437,7 @@
                             </div>
                             
                             
-                        </div>
+                        </div> --}}
                          
                     
                         <div class="row justify-content-end">
@@ -440,8 +449,7 @@
                                     <ul class="mb-20">
                                         <li>Tổng số lượng <span>{{Session::get('Cart')->totalQuanty}}</span></li>
                                         <li>Tạm tính <span>{{number_format(Session::get('Cart')->totaPrice)}}đ</span></li>
-                                        <li>Vận chuyển <span>-1đ</span></li>
-                                        <li>Tổng tiền <span>đ</span></li>
+                                       
 
                                     </ul>
                                     
@@ -647,7 +655,13 @@
         RenderListCart(response);
        
     })
-    }
+}
+    
+
+
+
+
+    
     function RenderListCart(response){
         $("#list-cart").empty();
         $("#list-cart").html(response);
@@ -669,10 +683,14 @@
 	});
 
     }
+   
+ 
 </script>
 <script>
     function menuToggle(){
         document.querySelector('.menu').classList.toggle('active');
+        
     }
+    
 </script>
       

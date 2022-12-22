@@ -16,9 +16,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = Order::paginate(5);
+        $order = Order::orderBy('name_order', 'DESC')->paginate(5);
+
         if ($key = request()->key) {
-            $order = Order::where('name', 'like',  '%' . $key . '%')->paginate(5);
+            $order = Order::where('name_order', 'like',  '%' . $key . '%')->paginate(5);
         }
         return view('admin.order.list', compact('order'));
     }

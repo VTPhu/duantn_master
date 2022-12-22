@@ -217,6 +217,7 @@
                                                         <th style="text-align: center;font-size:18px;width: 108px;">Hành động</th>
                                                     </tr>
                                                 </thead>
+                                               
                                                 @foreach(  $order as $o)
 
                                                 <tbody>

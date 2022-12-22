@@ -8,8 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 // use Session;
 use App\Models\City;
+use App\Models\Coupon;
+
 use App\Models\District;
 use App\Models\Ward;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
@@ -28,7 +31,44 @@ class CheckoutController extends Controller
         $ward = Ward::all();
         return view('client.index.checkout', compact('city', 'ward', 'district'));
     }
+    function checkout_coupon(Request $request)
+    {
 
+
+        $data = $request->all();
+
+        $coupon = Coupon::where('coupon_code', '=', $data['coupon'])->first();
+        if ($coupon) {
+            $count_coupon = $coupon->count();
+            if ($count_coupon > 0) {
+                $count_session = Session::get('coupon');
+                if ($count_session == true) {
+                    $is_available  = 0;
+                    if ($is_available == 0) {
+                        $cou[] = array(
+                            'coupon_code' => $coupon->coupon_code,
+                            'coupon_condition' => $coupon->coupon_condition,
+                            'coupon_number' => $coupon->coupon_number,
+
+                        );
+                        Session::put('coupon', $cou);
+                    }
+                } else {
+                    $cou[] = array(
+                        'coupon_code' => $coupon->coupon_code,
+                        'coupon_condition' => $coupon->coupon_condition,
+                        'coupon_number' => $coupon->coupon_number,
+
+                    );
+                    Session::put('coupon', $cou);
+                }
+                Session::save();
+                return redirect()->back()->with('message', 'Thêm mã giảm gía thành công');
+            }
+        } else {
+            return redirect()->back()->with('message', 'Mã giảm giá không đúng');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -65,7 +105,12 @@ class CheckoutController extends Controller
         $order_data['user_id'] = Session::get('user_id');
         $order_data['sipping_id'] = Session::get('shipping_id');
         $order_data['payment_id'] = $payment_id;
-        $order_data['total_price'] = Session::get('Cart')->totaPrice;
+        if (Session::get('coupon')['0']['coupon_condition'] == 1) {
+            $order_data['total_price'] = Session::get('Cart')->totaPrice - (Session::get('Cart')->totaPrice / 100 * Session::get('coupon')[0]['coupon_number']);
+        } else {
+            $order_data['total_price'] = Session::get('Cart')->totaPrice -  Session::get('coupon')[0]['coupon_number'];
+        }
+
         $order_data['status'] = '0';
         $order_data['name_order'] = $request->name_order;
         $order_data['phone'] = $request->phone;
@@ -100,6 +145,7 @@ class CheckoutController extends Controller
         } else {
             echo 'Thanh toán ATM';
         }
+        $request->Session()->forget('coupon');
         return redirect('/checkout')->with('message', 'Thêm thành công');
     }
 
@@ -155,15 +201,16 @@ class CheckoutController extends Controller
 
         // $city = City::all();
         $ward = Ward::where('maqh', '=', $maqh)->get();
-
         return response()->json($ward);
 
         // return view('client.index.checkout', compact('district', 'city', 'ward'));
     }
-    function show_name($matp)
-
+    function unset_coupon()
     {
-        $cityr = City::where('matp', '=', $matp)->get();
-        dd($cityr);
+        $coupon = Session::get('coupon');
+        if ($coupon == true) {
+            Session::forget('coupon');
+            return redirect()->back()->with('message', 'Xóa mã khuyến mãi thành công');
+        }
     }
 }

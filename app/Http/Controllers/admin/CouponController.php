@@ -42,11 +42,11 @@ class CouponController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'code' => 'required|unique:coupons',
-            'name' => 'required',
-            'content' => 'required',
-            'quantily' => 'required',
-            'type' => 'required|in:F,P',
+
+            'coupon_name' => 'required',
+            'coupon_condition' => 'required',
+            'coupon_number' => 'required',
+            'coupon_time' => 'required',
             'status' => 'required|in:0,1',
             'start_at' => 'required|date',
             'expired_at' =>  'required|date|after:start_at'
@@ -58,7 +58,17 @@ class CouponController extends Controller
                 ->withInput();
         }
         $input = $request->all();
-        $coupon = Coupon::create($input);
+        $coupon = new Coupon();
+        $coupon->coupon_name = $input['coupon_name'];
+        $coupon->coupon_code = $input['coupon_code'];
+        $coupon->coupon_condition = $input['coupon_condition'];
+        $coupon->coupon_number = $input['coupon_number'];
+        $coupon->coupon_time = $input['coupon_time'];
+        $coupon->status = $input['status'];
+        $coupon->start_at = $input['start_at'];
+        $coupon->expired_at = $input['expired_at'];
+        $coupon->save();
+
         if ($coupon) {
             return redirect('/admin/show-coupon')->with('message', 'Thêm thành công');;
         } else {

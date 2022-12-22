@@ -1,4 +1,6 @@
-
+@if(Session::has('message'))
+                    <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
+                    @endif
 <div class="table-content table-responsive" >
     @if(Session::has('Cart')!=null)
 <table class="table">
@@ -46,14 +48,18 @@
     </tbody>
 </table>
 </div>
-<div class="row">
+{{-- <div class="row">
     <div class="col-12">
         <div class="coupon-all">
             <div class="coupon">
-                <input id="coupon_code" class="input-text" name="coupon_code" value=""
+              
+                <form action="/checkout_coupon" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data" >
+                    @csrf
+                <input id="coupon" class="input-text" name="coupon" 
                     placeholder="Coupon code" type="text">
-                <button class="s-btn s-btn-2" name="apply_coupon" type="submit">Mã giảm giá
+                <button class="s-btn s-btn-2" onclick="checkout_coupon() type="submit">Mã giảm giá2
                     </button>
+                </form>
             </div>
            
             
@@ -61,7 +67,7 @@
     </div>
     
     
-</div>
+</div> --}}
 @if(Session::has('Cart')!=null)
 <div class="row justify-content-end">
 <div class="col-md-5 ml-auto">
@@ -71,8 +77,7 @@
         <ul class="mb-20">
             <li>Tổng số lượng <span>{{Session::get('Cart')->totalQuanty}}</span></li>
             <li>Tạm tính <span>{{number_format(Session::get('Cart')->totaPrice)}}đ</span></li>
-            <li>Vận chuyển <span>-1đ</span></li>
-            <li>Tổng tiền <span>đ</span></li>
+            
 
         </ul>
         <a class="s-btn s-btn-2" href="/checkout">Thanh toán</a>

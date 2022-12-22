@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\ClientController;
+use App\Http\Controllers\client\CouponTestController;
 // use App\Http\Controllers\client\ShopController;
 // use App\Http\Controllers\client\ProductCateController;
 use App\Http\Controllers\client\ProfileController;
@@ -94,6 +95,7 @@ Route::get('/xoahet', [CartController::class, 'Xoahet']);
 Route::get('/listCart', [CartController::class, 'listCart']);
 Route::get('/DeleteListCart/{id}', [CartController::class, 'DeletedListCart']);
 Route::get('/SaveListCart/{id}/{quantily}', [CartController::class, 'SaveListCart']);
+Route::get('/checkout_coupon', [CartController::class, 'checkout_coupon_list']);
 // Route::get('/AddDetail/{id}/{quantily}/{size}/{color}', [CartController::class, 'AddDetailProduct']);
 //profile
 Route::get('/profile/edit_profile', [ProfileController::class, 'edit_profile']);
@@ -108,6 +110,12 @@ Route::post('/checkout', [CheckoutController::class, 'create']);
 Route::post('/city/{matp}', [CheckoutController::class, 'vietnam_city']);
 Route::post('/district/{maqh}', [CheckoutController::class, 'ward']);
 Route::get('/show_name/{matp}', [CheckoutController::class, 'show_name']);
+//
+Route::post('/checkout_coupon', [CheckoutController::class, 'checkout_coupon']);
+Route::get('/unset_coupon', [CheckoutController::class, 'unset_coupon']);
+
+// Route::post('/checkout_coupon', [CouponTestController::class, 'checkout_coupon']);
+
 
 //auth profile
 Route::prefix('profile')->middleware('auth')->group(function () {

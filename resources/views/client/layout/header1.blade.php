@@ -29,4 +29,6 @@
     <link rel="stylesheet" href="/client/assets/css/nav.css">
     <link rel="stylesheet" href="/client/assets/css/account.css">
     <link rel="stylesheet" href="/toastr/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>

@@ -362,30 +362,26 @@ use app\Http\Controllers\client\ClientController;
                <div class="col-md-6">
                   <div class="coupon-accordion">
                         <!-- ACCORDION START -->
-                        <h3>Returning customer? <span id="showlogin">Click here to login</span></h3>
-                        <div id="checkout-login" class="coupon-content">
-                           <div class="coupon-info">
-                              <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est
-                                    sit amet ipsum luctus.</p>
-                              
-                           </div>
-                        </div>
+                       
                         <!-- ACCORDION END -->
                   </div>
                </div>
                @if(Session::get('Cart'))
                <div class="col-md-6">
+                  @if(Session::has('message'))
+                  <p  style="color:green;background: antiquewhite;font-size:18px;text-transform: none ">{{ Session::get('message') }}</p>
+                  @endif
                   <div class="coupon-accordion">
                         <!-- ACCORDION START -->
-                        <h3>Có phiếu giảm giá? <span id="showcoupon">Nhấn vào để nhập mã giảm giá</span></h3>
+                        <h3> <span id="showcoupon" style="text-transform: none">Nhấn vào để nhập mã giảm giá</span></h3>
                         <div id="checkout_coupon" class="coupon-checkout-content">
                            <div class="coupon-info">
                              
                               <form action="/checkout_coupon" method="POST">
                                  @csrf
                                     <p class="checkout-coupon">
-                                       <input type="text" name="coupon"placeholder="Coupon Code" />
-                                       <button class="s-btn s-btn-2" type="submit">Apply Coupon</button>
+                                       <input type="text" name="coupon"placeholder="Nhập mã " />
+                                       <button class="s-btn s-btn-2" type="submit">Sử dụng</button>
                                       
                                     </p>
                               </form>
@@ -405,9 +401,7 @@ use app\Http\Controllers\client\ClientController;
           
                <div class="container">
                  
-                  @if(Session::has('message'))
-                  <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
-                  @endif
+                 
                   <form action="/checkout" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                     @csrf
                      <div class="row">
@@ -439,7 +433,7 @@ use app\Http\Controllers\client\ClientController;
                                        <div class="col-md-12">
                                           <div class="checkout-form-list">
                                              <label>Email</label>
-                                             <input type="email"  name="email" value="{{old('email')}}"/>
+                                             <input type="text"  name="email" value="{{old('email')}}"/>
                                              @if($errors->has('email'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('email') }}</strong>
                                                                @endif

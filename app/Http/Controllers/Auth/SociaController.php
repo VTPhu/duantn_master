@@ -38,7 +38,7 @@ class SociaController extends Controller
                 return redirect('/');
             }
         } catch (Exception $exception) {
-            dd($exception->getMessage());
+            $exception->getMessage();
         }
     }
 

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 // use Session;
 use App\Models\City;
 use App\Models\Coupon;
-
+use App\Models\Order;
 use App\Models\District;
 use App\Models\Ward;
 use Illuminate\Database\Seeder;
@@ -63,7 +63,7 @@ class CheckoutController extends Controller
                     Session::put('coupon', $cou);
                 }
                 Session::save();
-                return redirect()->back()->with('message', 'Thêm mã giảm gía thành công');
+                return redirect()->back()->with('message', 'Thêm mã giảm giá thành công');
             }
         } else {
             return redirect()->back()->with('message', 'Mã giảm giá không đúng');
@@ -105,7 +105,9 @@ class CheckoutController extends Controller
         $order_data['user_id'] = Session::get('user_id');
         $order_data['sipping_id'] = Session::get('shipping_id');
         $order_data['payment_id'] = $payment_id;
-        if (Session::get('coupon')['0']['coupon_condition'] == 1) {
+        if (Session::get('coupon') == null) {
+            $order_data['total_price'] = Session::get('Cart')->totaPrice;
+        } elseif (Session::get('coupon')['0']['coupon_condition'] == 1) {
             $order_data['total_price'] = Session::get('Cart')->totaPrice - (Session::get('Cart')->totaPrice / 100 * Session::get('coupon')[0]['coupon_number']);
         } else {
             $order_data['total_price'] = Session::get('Cart')->totaPrice -  Session::get('coupon')[0]['coupon_number'];
@@ -125,6 +127,7 @@ class CheckoutController extends Controller
         $order_data['created_at'] = new \DateTime('Asia/Ho_Chi_Minh');
         $order_id = DB::table('orders')->insertGetId($order_data);
         Session::put('order_id',  $order_id);
+
         //insert orderdetai
         $produ  = Session::get('Cart')->products;
         foreach ($produ as $n) {
@@ -146,7 +149,8 @@ class CheckoutController extends Controller
             echo 'Thanh toán ATM';
         }
         $request->Session()->forget('coupon');
-        return redirect('/checkout')->with('message', 'Thêm thành công');
+
+        return redirect('/after-check/' . $order_id)->with('message', 'Thêm thành công');
     }
 
     /**
@@ -212,5 +216,18 @@ class CheckoutController extends Controller
             Session::forget('coupon');
             return redirect()->back()->with('message', 'Xóa mã khuyến mãi thành công');
         }
+    }
+    function afterCheck($id)
+    {
+
+        // $orderDetail = DB::table('order_details')
+        //     ->join('orders', 'orders.id', '=', 'order_details.order_id')
+        //     ->join('products', 'products.id', '=', 'order_details.product_id')
+        //     ->where('orders.id', '=', $id)
+        //     ->get();
+
+        $order = Order::where('id', '=', $id)->first();
+        if ($order == null) return redirect('/thongbao');
+        return view('client.index.afterChect', compact('order'));
     }
 }

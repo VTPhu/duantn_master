@@ -22,6 +22,7 @@ use App\Http\Controllers\client\ProfileController;
 use App\Http\Controllers\client\ContactController;
 use Illuminate\Support\Facades\Auth;
 
+
 Auth::routes();
 //Auth
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
@@ -115,6 +116,7 @@ Route::get('/show_name/{matp}', [CheckoutController::class, 'show_name']);
 //
 Route::post('/checkout_coupon', [CheckoutController::class, 'checkout_coupon']);
 Route::get('/unset_coupon', [CheckoutController::class, 'unset_coupon']);
+Route::get('/after-check/{id}', [CheckoutController::class, 'afterCheck']);
 
 // Route::post('/checkout_coupon', [CouponTestController::class, 'checkout_coupon']);
 
@@ -140,3 +142,4 @@ Route::get('auth/google/callback', [SociaController::class, 'loginWithGoogle']);
 //contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/send', [ContactController::class, 'send'])->name('send.email');
+//Shop

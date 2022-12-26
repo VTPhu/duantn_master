@@ -17,7 +17,7 @@ class BlogController extends Controller
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->orderBy('title', 'DESC')
             ->select('posts.id', 'posts.slug', 'categories.name', 'posts.sumary', 'posts.thumnail_url', 'posts.content', 'posts.title', 'posts.date', 'posts.created_at', 'users.name as tacgia')
-            ->get();
+            ->paginate(4);
         return view('client.index.blog', compact('blog'));
     }
     public function news($id)

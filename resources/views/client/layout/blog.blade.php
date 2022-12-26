@@ -372,29 +372,7 @@ use app\Http\Controllers\client\ClientController;
                             <div class="row">
                                 <div class="col-xxl-12">
                                     <div class="basic-pagination text-center mt-30">
-                                        <nav>
-                                           <ul>
-                                              <li>
-                                                 <a href="blog-2-col.html">
-                                                    <i class="far fa-angle-left"></i>
-                                                 </a>
-                                              </li>
-                                              <li>
-                                                 <a href="blog-2-col.html">1</a>
-                                              </li>
-                                              <li>
-                                                 <a href="blog-2-col.html" class="active">2</a>
-                                              </li>
-                                              <li>
-                                                 <a href="blog-2-col.html">3</a>
-                                              </li>
-                                              <li>
-                                                 <a href="blog-2-col.html">
-                                                    <i class="far fa-angle-right"></i>
-                                                 </a>
-                                              </li>
-                                           </ul>
-                                         </nav>
+                                        {{$blog->appends(request()->all())->links()}}
                                      </div>
                                 </div>
                             </div>

@@ -182,7 +182,7 @@
                                                                 <th style="width:100px"><image width="100px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail_url)}}"</th>
                                                                
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm"><h5 style="color:white;">Hiện</h5></button>':'<button class="btn btn-danger btn-sm "><h5 style="color:white;">Ẩn</h5></button>'!!}</th>
-                                                            <td class="text-center font-size-10" style="width:51%;display: flex;justify-content: space-between;padding-top: 25px;">
+                                                            <td class="text-center font-size-10" style="width:85%;display: flex;justify-content: space-between;padding-top: 25px;">
                                                                <a href="/admin/posts/{{$p->id}}" class="btn btn-primary btn-sm" style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Sửa</h5></a>
                                                                <a href="/admin/deleted/{{$p->id}}" class="btn btn-danger btn-sm" style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Xóa</h5></a>
                                                             </td>

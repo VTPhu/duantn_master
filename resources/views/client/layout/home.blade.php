@@ -617,16 +617,16 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-12">
                         <div class="single-blog wow fadeInUp" data-wow-delay=".4s">
                             <div class="blog-thumb">
-                                <a href="blog-details.html"><img src="{{asset('uploads/images/'.$b->thumnail_url)}}" alt="#"></a>
+                                <a href="{{url('/blog/news',[$b->slug])}}"><img src="{{asset('uploads/images/'.$b->thumnail_url)}}" alt="#"></a>
                             </div>
                             <div class="blog-content blog-content-3">
-                                <a href="#" class="tag-btn tag-btn-2">{{$b->name}}</a>
+                                <a href="{{url('/blog/news',[$b->slug])}}" class="tag-btn tag-btn-2">{{$b->name}}</a>
                                 <div class="blog-meta blog-meta-2">
                                     Ngày đăng: <a href="#"><span>{{Carbon::parse($b->created_at)->diffForHumans() }}</span>
                                     </a> / Bởi: <a href="#"><span>{{$b->tacgia}}</span></a>.
                                 </div>
                                 <div class="row" style="width:330px;height:100px">
-                                    <h1 class="blog-title blog-title-2" style="font-size: 18px;text-transform: uppercase"><a href="blog-details.html">{{$b->title}}</a></h1>
+                                    <h1 class="blog-title blog-title-2" style="font-size: 18px;text-transform: uppercase"><a href="{{url('/blog/news',[$b->slug])}}">{{$b->title}}</a></h1>
 
                                 </div>
                             </div>

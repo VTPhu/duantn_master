@@ -28,7 +28,7 @@ class ClientController extends Controller
             ->join('categories', 'categories.id', '=', 'posts.category_id')
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->orderBy('title', 'DESC')
-            ->select('categories.name', 'posts.sumary', 'posts.thumnail_url', 'posts.content', 'posts.title', 'posts.date', 'posts.created_at', 'users.name as tacgia')
+            ->select('posts.id', 'posts.slug', 'categories.name', 'posts.sumary', 'posts.thumnail_url', 'posts.content', 'posts.title', 'posts.date', 'posts.created_at', 'users.name as tacgia')
             ->get();
         $product = Product::where('status', '=', '0')->where('saled', '>', '1')->orderBy('saled', 'DESC')->paginate(10);
         $banner = Banner::all();

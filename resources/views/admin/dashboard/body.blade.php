@@ -260,7 +260,100 @@
 
             </div> <!-- content -->
             <div class="row">
-                
+                <div class="content-page">
+                    <!-- Start content -->
+                    <div class="content">
+                        <div class="container">
+        
+        
+        
+                            <!-- end row -->
+        
+        
+        
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card-box">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                @if(Session::has('message'))
+                                                <p class="alert " style="color:green;background: antiquewhite;font-size:18px;">{{ Session::get('message') }}</p>
+                                                @endif
+                                                
+                                                    <hr>
+                                                    <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
+                                                        <thead>
+                                                            <tr style="background-color:#36404e;color:white;">
+                                                                <th style="text-align: center;font-size:18px;">Thứ tự</th>
+                                                                <th style="text-align: center;font-size:18px;"> Tên</th>                                                       
+                                                                <th style="text-align: center;font-size:18px;">SĐT</th>                                                     
+                                                                <th style="text-align: center;font-size:18px;">Địa chỉ</th>
+                                                                <th style="text-align: center;font-size:18px;">Email</th>
+                                                                <th style="text-align: center;font-size:18px;">Ghi chú</th>
+                                                                <th style="text-align: center;font-size:18px;">Ngày đặt hàng</th>
+                                                                <th style="text-align: center;font-size:18px;">Tổng giá</th>
+        
+        
+                                                               
+                                                                <th style="text-align: center;font-size:18px;">Trạng thái</th>
+                                                                <th style="text-align: center;font-size:18px;">Xem chi tiết đơn hàng</th>
+                                                                <th style="text-align: center;font-size:18px;width: 108px;">Hành động</th>
+                                                            </tr>
+                                                        </thead>
+                                                       
+                                                        @foreach(  $orderw as $o)
+        
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>#{{$o->id}}</td>
+                                                                <th style="font-size:17px;"><a href="/admin/show-order/{{$o->id}}" >{{$o->name_order}}</a></th>
+        
+        
+                                                                <td style="font-size:17px;">{{$o->phone}}</td>
+                                                                <th style="font-size:17px;">{{$o->address}}</th>
+                                                                <td style="font-size:17px;">{{$o->email}}</td>
+                                                                <th style="font-size:17px;">{{$o->note}}</th>
+                                                                <td style="font-size:17px;">{{date('d-m-Y', strtotime($o->order_date))}}</td>
+                                                                <th style="font-size:17px;">{{ number_format($o->total_price)}}đ</th>
+                                                               
+                                                                {{-- <th>{!! $o->status==0?'<button class="btn btn-danger btn-sm">Đang xử lý</button>':$o->status==1?'<button class="btn btn-success btn-sm ">Đã hoàn thành</button>':'<button class="btn btn-info btn-sm ">Đã hủy</button>'!!}</th> --}}
+                                                                <th>
+                                                                    @if($o->status==0)
+                                                                    <button class="btn btn-danger btn-sm">Đang xử lý</button>
+                                                                    @elseif($o->status==1)
+                                                                        <button class="btn btn-success btn-sm ">Đã xác nhận</button>
+                                                                    @elseif($o->status==2)
+                                                                    <button class="btn btn-warning btn-sm ">Đã hủy</button>
+                                                                    @endif
+                                                                </th>
+                                                                <th class=" text-center font-size-10" style="width:98px">
+                                                                    <a href="/admin/show-order/{{$o->id}}"  style="color:white" class="btn btn-info btn-sm">Chi tiết</a>
+                                                                    
+                                                                </td>
+                                                                <td class=" text-center font-size-10" style="width:98px">
+                                                                   <a href="/admin/deleteOrder/{{$o->id}}" onclick="alert(event,{{$o->id}})"  class="btn btn-danger btn-sm"><h5 style="color:white;">Xóa</h5></a>
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+        
+                                                        @endforeach
+                                                    </table>
+        
+                                                </div>
+        
+                                            </div>
+        
+        
+                                        </div>
+                                        <div class="form-group " style="padding-left:600px;font-size:20px">
+                                            <!-- phân trang  -->
+                                            {{$orderw->appends(request()->all())->links()}}
+                                        </div>
+        
+                                    </div> <!-- end card-box -->
+                                </div> <!-- end col -->
+                            </div>
                 
             </div>
             

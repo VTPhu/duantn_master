@@ -45,23 +45,23 @@ use app\Http\Controllers\client\ClientController;
                             <nav id="mobile-menu">
                                
                                 <ul>
-                                    <li ><a style="font-family: 'Archivo';font-size: 16px;" href="/">Trang chủ</a>
-                                       
-                                    </li>
-                                    <li class="static">
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
-                                       
-                                     </li>                                                                   
-                                    <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="blog.html">Tin tức</a>
-                                       
-                                    </li>
-                                    <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
-                                        
-                                    </li>
-                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="/contact">Liên hệ</a></li>
-                                </ul>
+                                <li ><a style="font-family: 'Archivo';font-size: 16px;" href="/">Trang chủ</a>
+                                   
+                                </li>
+                                <li class="static">
+                                    <a style="font-family: 'Archivo';font-size: 16px;" href="/shop">Cửa hàng<i class="icon-arrow-down"></i></a>
+                                   
+                                 </li>                                                                   
+                                <li>
+                                    <a style="font-family: 'Archivo';font-size: 16px;" href="/blog">Tin tức</a>
+                                   
+                                </li>
+                                <li>
+                                    <a style="font-family: 'Archivo';font-size: 16px;" href="/about-us">Giới thiệu</a>
+                                    
+                                </li>
+                                <li><a style="font-family: 'Archivo';font-size: 16px;" href="/contact">Liên hệ</a></li>
+                            </ul>
                             </nav>
                         </div>
                     </div>

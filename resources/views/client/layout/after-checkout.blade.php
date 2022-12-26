@@ -49,24 +49,23 @@ use app\Http\Controllers\client\ClientController;
                         <div class="main-menu p-rel d-flex align-items-center justify-content-center">
                             
                             <nav id="mobile-menu">
-                               
                                 <ul>
                                     <li ><a style="font-family: 'Archivo';font-size: 16px;" href="/">Trang chủ</a>
                                        
                                     </li>
                                     <li class="static">
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/shop">Cửa hàng<i class="icon-arrow-down"></i></a>
                                        
                                      </li>                                                                   
                                     <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="blog.html">Tin tức</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/blog">Tin tức</a>
                                        
                                     </li>
                                     <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/about-us">Giới thiệu</a>
                                         
                                     </li>
-                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="contact.html">Liên hệ</a></li>
+                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="/contact">Liên hệ</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -107,10 +106,12 @@ use app\Http\Controllers\client\ClientController;
                                  <a href="/admin/dashboard">Quản lý hệ thống</a>
                           </li>
                @endif
+               @if(Auth::user()->id_google == '')
                <li>
                    <i class="fa fa-cog"></i>
                    <a href="/profile/change-password">Thay đổi mật khẩu</a>
                </li>
+               @endif
                <li>
                    <i class="fa fa-sign-out"></i>
                    <a href="{{ route('logout') }}"

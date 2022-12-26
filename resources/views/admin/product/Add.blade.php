@@ -282,14 +282,7 @@
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('saled') }}</strong>
                                                                @endif
                                                     </div> --}}
-                                                    <div class="form-group">
-                                                        <label for="userName">Số lượt xem<span class="text-danger">*</span></label>
-                                                        <input type="number" name="view" parsley-trigger="change" required
-                                                               placeholder="lượt xem" class="form-control" id="userName" value="{{old('view')}}">
-                                                               @if($errors->has('view'))
-                                                               <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('view') }}</strong>
-                                                               @endif
-                                                    </div>
+                                                   
                                                     <div class="form-group">
                                                         <label for="userName">Danh mục<span class="text-danger">*</span></label><br>                                                   
                                                             <select style="width: 178px;height: 33px;border-radius: 3px;font-size: 15px;" class="form-select"  name="category_id" aria-label="Default select example">

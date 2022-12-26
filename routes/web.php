@@ -21,10 +21,12 @@ use App\Http\Controllers\Auth\SociaController;
 use App\Http\Controllers\client\ProfileController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\ShopController;
+use App\Http\Controllers\client\BlogController;
+use App\Http\Controllers\client\PageController;
 use Illuminate\Support\Facades\Auth;
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 //Auth
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     // product
@@ -118,7 +120,19 @@ Route::get('/show_name/{matp}', [CheckoutController::class, 'show_name']);
 Route::post('/checkout_coupon', [CheckoutController::class, 'checkout_coupon']);
 Route::get('/unset_coupon', [CheckoutController::class, 'unset_coupon']);
 Route::get('/after-check/{id}', [CheckoutController::class, 'afterCheck']);
-
+//giới thiệu
+Route::get('/about-us', [ClientController::class, 'about_us']);
+//bài viết
+Route::get('/blog', [BlogController::class, 'blog']);
+Route::get('/blog/news/{slug}', [BlogController::class, 'news']);
+//footer
+Route::get('/chinh-sach-su-dung-website', [PageController::class, 'chinhsachsudungweb']);
+Route::get('/phuong-thuc-thanh-toan', [PageController::class, 'phuongthucthanhtoan']);
+Route::get('/chinh-sach-doi-tra', [PageController::class, 'chinhsachdoitra']);
+Route::get('/chinh-sach-giao-hang', [PageController::class, 'chinhsachgiaohang']);
+Route::get('/dieu-khoan-su-dung', [PageController::class, 'dieukhoansudung']);
+Route::get('/huong-dan-mua-hang', [PageController::class, 'huongdanmuahang']);
+Route::get('/chinh-sach-bao-mat', [PageController::class, 'chinhsachbaomat']);
 // Route::post('/checkout_coupon', [CouponTestController::class, 'checkout_coupon']);
 
 

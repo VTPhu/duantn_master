@@ -49,24 +49,23 @@
                             <div class="main-menu p-rel d-flex align-items-center justify-content-center">
                                 
                                 <nav id="mobile-menu">
-                                   
                                     <ul>
                                         <li ><a style="font-family: 'Archivo';font-size: 16px;" href="/">Trang chủ</a>
                                            
                                         </li>
                                         <li class="static">
-                                            <a style="font-family: 'Archivo';font-size: 16px;" href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
+                                            <a style="font-family: 'Archivo';font-size: 16px;" href="/shop">Cửa hàng<i class="icon-arrow-down"></i></a>
                                            
                                          </li>                                                                   
                                         <li>
-                                            <a style="font-family: 'Archivo';font-size: 16px;" href="blog.html">Tin tức</a>
+                                            <a style="font-family: 'Archivo';font-size: 16px;" href="/blog">Tin tức</a>
                                            
                                         </li>
                                         <li>
-                                            <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
+                                            <a style="font-family: 'Archivo';font-size: 16px;" href="/about-us">Giới thiệu</a>
                                             
                                         </li>
-                                        <li><a style="font-family: 'Archivo';font-size: 16px;" href="contact.html">Liên hệ</a></li>
+                                        <li><a style="font-family: 'Archivo';font-size: 16px;" href="/contact">Liên hệ</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -74,58 +73,60 @@
                         <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                             <div class="header-right-wrapper d-flex align-items-center justify-content-end">
                                 @guest
-                                @if (Route::has('login'))
-                                <a href="{{ route('login') }}" class="d-none d-xxl-inline-block">{{ __('Đăng nhập/') }}</a>
-                                @endif
-    
-                                @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="d-none d-xxl-inline-block">{{ __('Đăng ký') }}</a>
-                                @endif
-                            @else
-                            <div class="action">
-                      <div class="profile" onclick="menuToggle()">
-                            <img src="{{Auth::user()->picture}}" alt="">
-                         </div>
-           
-                             <div class="menu">
-                             <h3 class="user_name">{{Auth::user()->name}}
-                                 <br>
-                                 @if(Auth::user()->role == '2')
-                                 <span>(Admin)</span>
-                                 @else
-                                 <span>(Khách hàng)</span>
-                                 @endif
-                              </h3>
-                          <ul>
-                            <li>
-                                 <i class="fa fa-user"></i>
-                                       <a href="/profile/edit_profile">Thông tin </a>
-                              </li>
-                              @if (Auth::user()->role == '2')
-                             <li>
-                                <i class="fa fa-database"></i>
-                                     <a href="/admin/dashboard">Quản lý hệ thống</a>
-                              </li>
-                   @endif
-                   <li>
-                       <i class="fa fa-cog"></i>
-                       <a href="/profile/change-password">Thay đổi mật khẩu</a>
-                   </li>
-                   <li>
-                       <i class="fa fa-sign-out"></i>
-                       <a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">{{ __('Đăng xuất') }}</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                   </li>
-               </ul>
-           </div>
-           
+                            @if (Route::has('login'))
+                            <a href="{{ route('login') }}" class="d-none d-xxl-inline-block">{{ __('Đăng nhập/') }}</a>
+                            @endif
+
+                            @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="d-none d-xxl-inline-block">{{ __('Đăng ký') }}</a>
+                            @endif
+                        @else
+                        <div class="action">
+                  <div class="profile" onclick="menuToggle()">
+                        <img src="{{Auth::user()->picture}}" alt="">
+                     </div>
+       
+                         <div class="menu">
+                         <h3 class="user_name">{{Auth::user()->name}}
+                             <br>
+                             @if(Auth::user()->role == '2')
+                             <span>(Admin)</span>
+                             @else
+                             <span>(Khách hàng)</span>
+                             @endif
+                          </h3>
+                      <ul>
+                        <li>
+                             <i class="fa fa-user"></i>
+                                   <a href="/profile/edit_profile">Thông tin </a>
+                          </li>
+                          @if (Auth::user()->role == '2')
+                         <li>
+                            <i class="fa fa-database"></i>
+                                 <a href="/admin/dashboard">Quản lý hệ thống</a>
+                          </li>
+               @endif
+               @if(Auth::user()->id_google == '')
+               <li>
+                   <i class="fa fa-cog"></i>
+                   <a href="/profile/change-password">Thay đổi mật khẩu</a>
+               </li>
+               @endif
+               <li>
+                   <i class="fa fa-sign-out"></i>
+                   <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">{{ __('Đăng xuất') }}</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+               </li>
+           </ul>
        </div>
-         </div>
-                            @endguest
+       
+   </div>
+     </div>
+                        @endguest
                                 <div class="header-right header-right-2 d-flex align-items-center justify-content-end">
                                     <div class="header-icon header-icon-2 d-inline-block ml-30">
                                       

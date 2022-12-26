@@ -54,18 +54,18 @@ use app\Http\Controllers\client\ClientController;
                                        
                                     </li>
                                     <li class="static">
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/shop">Cửa hàng<i class="icon-arrow-down"></i></a>
                                        
                                      </li>                                                                   
                                     <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="blog.html">Tin tức</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/blog">Tin tức</a>
                                        
                                     </li>
                                     <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/about-us">Giới thiệu</a>
                                         
                                     </li>
-                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="contact.html">Liên hệ</a></li>
+                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="/contact">Liên hệ</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -378,6 +378,7 @@ use app\Http\Controllers\client\ClientController;
                         <div class="product__details-content pt-60">
                             <h3 class="product__details-title">
                                 <a href="product-details.html">{{$product->title}}</a>
+                                <p>Lượt xem: <i class="fa fa-eye"></i> {{$product->view}}</p>
                             </h3>
                             <div class="product__details-price">
                                 <span style="color:red;font-size:25px;font-weight:bold">{{ number_format($product->price) }}đ</span>
@@ -592,137 +593,8 @@ use app\Http\Controllers\client\ClientController;
                                  </div>
                             </div>
                             <div class="tab-pane fade " id="review" role="tabpanel" aria-labelledby="review-tab">
-                                <div class="product__details-review mt-50">
-                                    <div class="row">
-                                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                                            <div class="produc-review-wrapper">
-                                                <div class="product-review-item">
-                                                    <div class="product-review-top d-flex align-items-center justify-content-between">
-                                                        <div class="product-review-name d-sm-flex align-items-center">
-                                                            <h4 class="mr-10">Shahnewaz Sakil</h4>
-                                                            <span class="date">September 06, 2020</span>
-                                                        </div>
-                                                        <div class="product-review-rating">
-                                                            <ul>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <p>Many desktop publishing packages and web page editors now use lorem ipsum as default model text, and a search for “lorem ipsum” will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
-                                                </div>
-                                                <div class="product-review-item">
-                                                    <div class="product-review-top d-flex align-items-center justify-content-between">
-                                                        <div class="product-review-name d-sm-flex align-items-center">
-                                                            <h4 class="mr-10">Anya Ivanova</h4>
-                                                            <span class="date">September 06, 2020</span>
-                                                        </div>
-                                                        <div class="product-review-rating">
-                                                            <ul>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <p>Many desktop publishing packages and web page editors now use lorem ipsum as default model text, and a search for “lorem ipsum” will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
-                                                </div>
-                                                <div class="product-review-item">
-                                                    <div class="product-review-top d-flex align-items-center justify-content-between">
-                                                        <div class="product-review-name d-sm-flex align-items-center">
-                                                            <h4 class="mr-10">Evan Bohringer</h4>
-                                                            <span class="date">September 06, 2020</span>
-                                                        </div>
-                                                        <div class="product-review-rating">
-                                                            <ul>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <p>Many desktop publishing packages and web page editors now use lorem ipsum as default model text, and a search for “lorem ipsum” will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
-                                                </div>
-                                                <div class="product-review-item">
-                                                    <div class="product-review-top d-flex align-items-center justify-content-between">
-                                                        <div class="product-review-name d-sm-flex align-items-center">
-                                                            <h4 class="mr-10">Eren Topher</h4>
-                                                            <span class="date">September 06, 2020</span>
-                                                        </div>
-                                                        <div class="product-review-rating">
-                                                            <ul>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <p>Many desktop publishing packages and web page editors now use lorem ipsum as default model text, and a search for “lorem ipsum” will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-                                            <div class="product-review-form pl-60">
-                                                <form action="#">
-                                                    <h3 class="product-review-title">YOU'RE REVIEWING: <span>“Simple Stylish Women Backpack”</span></h3>
-                                                    <p class="product-review-form-des">Your email address will not be published. Required fields are marked *</p>
-                                                    <div class="product-review-form-rating mb-40">
-                                                        <p>Your Rating</p>
-                                                        <ul>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="far fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product-review-form-wrapper">
-                                                        <div class="row">
-                                                            <div class="col-xxl-12">
-                                                                <div class="product-review-input">
-                                                                    <label>Your Review *</label>
-                                                                    <textarea></textarea>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-6">
-                                                                <div class="product-review-input">
-                                                                    <label>Name *</label>
-                                                                    <input type="text">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-6">
-                                                                <div class="product-review-input">
-                                                                    <label>Email *</label>
-                                                                    <input type="email">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-12">
-                                                                <div class="product-review-agree d-flex align-items-center mb-45">
-                                                                    <input type="checkbox" id="agree">
-                                                                    <label for="agree">Save my name, email, and website in this browser for the next time I comment.</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xxl-12">
-                                                                <div class="product-review-btn">
-                                                                    <button type="submit" class="s-btn s-btn-2 s-btn-big-2">Submit Review</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                               
+                                
                             </div>
                         </div>
                     </div>

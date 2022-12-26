@@ -24,7 +24,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
 
-        $product = Product::paginate(3);
+        $product = Product::paginate(5);
         if ($key = request()->key) {
             $product =  Product::orderBy('date', 'DESC')->where('title', 'like',  '%' . $key . '%')->paginate(15);
         }
@@ -51,7 +51,7 @@ class ProductController extends Controller
             'thumnail' => 'required|mimes:jpg,bmp,png|file',
             'thumnail_two' => 'required|mimes:jpg,bmp,png|file',
 
-            'view' => 'required',
+
             'category_id' => 'required',
             'brand_id' => 'required',
             'description' => 'required|min:50|max:500',
@@ -124,7 +124,7 @@ class ProductController extends Controller
             'date' => 'required|date',
             'thumnail' => 'mimes:jpg,bmp,png|file',
 
-            'view' => 'required',
+
             'category_id' => 'required',
             'brand_id' => 'required',
             'description' => 'required',

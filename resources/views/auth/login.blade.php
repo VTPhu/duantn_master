@@ -7,7 +7,7 @@
 			<img src="{{ asset('dangnhap/assets/img/shop.gif') }}">
 		</div>
 		<div class="login-content">
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" id="login_form">
         @csrf
 				<img src="{{ asset('dangnhap/assets/img/avatar.svg') }}">
 				<h2 class="title">{{ __('Đăng Nhập') }}</h2>
@@ -29,7 +29,9 @@
            		   </div>
            		   <div class="div">
            		    	<input id="password"  placeholder="Mật khẩu" type="password" class="input form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+					<span id="alter">
+					<i id="eye" class="far fa-eye-slash hidden"></i>
+                    </span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -55,8 +57,8 @@
 								<span>Login with Facebook</span>
 							</a>
 							<a href="#" class="tw">
-								<i class="fa-brands fa-twitter"></i>
-								<span>Login with Twitter</span>
+								<i class="fa fa-home"></i>
+								<span>Quay về</span>
 							</a>
 						</div>
 					</div>

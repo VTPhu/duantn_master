@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('dangnhap/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('dangnhap/assets/css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('dangnhap/assets/css/icon.css') }}">
+    <link rel="stylesheet" href="{{ asset('client/assets/css/eye.css') }}">
     <title>Genz Store</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,10 +20,13 @@
 <body>
     <div id="app">
     <header>
-			 <!-- LOGO -->
-             <div class="logo pr-55 d-inline-block">
-                            <img  width="200px"src="{{ asset('client/assets/img/logo/logoGENZ.png') }}" class="logo" alt="Genz Store Logo">
-                            </div>
+<!-- LOGO -->
+<div class="logo pr-55 d-inline-block">
+    <a href="/">
+    <img  width="200px"src="{{ asset('client/assets/img/logo/logoGENZ.png') }}" class="logo" alt="Genz Store Logo">
+    </a> 
+
+   </div>
 			<nav>
                         @guest
                             @if (Route::has('login'))

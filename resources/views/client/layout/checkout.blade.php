@@ -50,30 +50,30 @@ use app\Http\Controllers\client\ClientController;
                             
                             <nav id="mobile-menu">
                                
-                                <ul>
-                                    <li ><a style="font-family: 'Archivo';font-size: 16px;" href="/">Trang chủ</a>
-                                       
-                                    </li>
-                                    <li class="static">
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
-                                       
-                                     </li>                                                                   
-                                    <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="blog.html">Tin tức</a>
-                                       
-                                    </li>
-                                    <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
-                                        
-                                    </li>
-                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="contact.html">Liên hệ</a></li>
-                                </ul>
+                              <ul>
+                                 <li ><a style="font-family: 'Archivo';font-size: 16px;" href="/">Trang chủ</a>
+                                    
+                                 </li>
+                                 <li class="static">
+                                     <a style="font-family: 'Archivo';font-size: 16px;" href="/shop">Cửa hàng<i class="icon-arrow-down"></i></a>
+                                    
+                                  </li>                                                                   
+                                 <li>
+                                     <a style="font-family: 'Archivo';font-size: 16px;" href="/blog">Tin tức</a>
+                                    
+                                 </li>
+                                 <li>
+                                     <a style="font-family: 'Archivo';font-size: 16px;" href="/about-us">Giới thiệu</a>
+                                     
+                                 </li>
+                                 <li><a style="font-family: 'Archivo';font-size: 16px;" href="/contact">Liên hệ</a></li>
+                             </ul>
                             </nav>
                         </div>
                     </div>
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-8 col-sm-6 col-8">
                         <div class="header-right-wrapper d-flex align-items-center justify-content-end">
-                            @guest
+                           @guest
                             @if (Route::has('login'))
                             <a href="{{ route('login') }}" class="d-none d-xxl-inline-block">{{ __('Đăng nhập/') }}</a>
                             @endif
@@ -107,10 +107,12 @@ use app\Http\Controllers\client\ClientController;
                                  <a href="/admin/dashboard">Quản lý hệ thống</a>
                           </li>
                @endif
+               @if(Auth::user()->id_google == '')
                <li>
                    <i class="fa fa-cog"></i>
                    <a href="/profile/change-password">Thay đổi mật khẩu</a>
                </li>
+               @endif
                <li>
                    <i class="fa fa-sign-out"></i>
                    <a href="{{ route('logout') }}"

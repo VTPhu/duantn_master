@@ -1,16 +1,14 @@
 <?php
 use Carbon\Carbon;
 use app\Http\Controllers\client\ClientController;
-
 ?>
 <body>
+@if(Auth::user()->id_google == '')
 <header >
         <div class="header-area">
             <div class=" pl-60 pr-60 d-none d-md-block">
                 <div class="row align-items-center">
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-4">
-                        
-                       
                     </div>
                     <marquee behavior="alternate"
                                     style="background:white; color:rgb(12, 12, 12); font-size: 20px;">
@@ -25,15 +23,13 @@ use app\Http\Controllers\client\ClientController;
                 <div class="row align-items-center">
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
-                            <div class="logo pr-55 d-inline-block">
-                                <a href="index.html" class="logo" style="
-                                font-size: 24px;
-                                text-transform: uppercase;
-                                font-family: 'Hind Madurai', sans-serif;
-                                font-weight: 600;
-                                letter-spacing: 1px;
-                                line-height: 70px;"><span>GENZ<span style="color: #7fc1fc;">FASHION</span></span><i class="mdi mdi-layers"></i></a>
-                            </div>
+                             <!-- LOGO -->
+             <div class="logo pr-55 d-inline-block">
+             <a href="/">
+             <img  width="200px"src="{{ asset('client/assets/img/logo/logoGENZ.png') }}" class="logo" alt="Genz Store Logo">
+             </a> 
+        
+            </div>
                         </div>
                     </div>
                     <div class="col-xxl-6 col-xl-8 col-lg-8 d-none d-lg-block">
@@ -46,18 +42,18 @@ use app\Http\Controllers\client\ClientController;
                                        
                                     </li>
                                     <li class="static">
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/shop">Cửa hàng<i class="icon-arrow-down"></i></a>
                                        
                                      </li>                                                                   
                                     <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="blog.html">Tin tức</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/blog">Tin tức</a>
                                        
                                     </li>
                                     <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/about-us">Giới thiệu</a>
                                         
                                     </li>
-                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="contact.html">Liên hệ</a></li>
+                                    <li><a style="font-family: 'Archivo';font-size: 16px;" href="/contact">Liên hệ</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -77,7 +73,6 @@ use app\Http\Controllers\client\ClientController;
                   <div class="profile" onclick="menuToggle()">
                         <img src="{{Auth::user()->picture}}" alt="">
                      </div>
-       
                          <div class="menu">
                          <h3 class="user_name">{{Auth::user()->name}}
                              <br>
@@ -98,10 +93,11 @@ use app\Http\Controllers\client\ClientController;
                                  <a href="/admin/dashboard">Quản lý hệ thống</a>
                           </li>
                @endif
-               <li>
-                   <i class="fa fa-cog"></i>
-                   <a href="/profile/change-password">Thay đổi mật khẩu</a>
-               </li>
+               @if(Auth::user()->id_google == '')
+                                <li>
+                                    <a href="/profile/change-password" class="lang" ><i class="fa fa-cog"></i> Thay đổi mật khẩu </a>
+                                </li>
+                                @endif
                <li>
                    <i class="fa fa-sign-out"></i>
                    <a href="{{ route('logout') }}"
@@ -119,7 +115,7 @@ use app\Http\Controllers\client\ClientController;
     
     <script>
         function menuToggle(){
-            document.querySelector('.menu').classList.toggle('active');
+document.querySelector('.menu').classList.toggle('active');
         }
     </script>
                             </div>
@@ -176,7 +172,7 @@ use app\Http\Controllers\client\ClientController;
                         </a>
                     </div>
                     <div class="cartmini__content">
-                        <h3 class="cartmini__title">
+<h3 class="cartmini__title">
                             <a href="product-details.html">{{$n['productInfo']->title}}</a>
                         </h3>
                         Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
@@ -251,7 +247,7 @@ use app\Http\Controllers\client\ClientController;
                                 </a>
                              </div>
                            <div class="offcanvas__close">
-                              <button class="offcanvas__close-btn" data-bs-toggle="modal" data-bs-target="#offCanvasModal">
+<button class="offcanvas__close-btn" data-bs-toggle="modal" data-bs-target="#offCanvasModal">
                                  <svg viewBox="0 0 22 22">
                                     <path d="M12.41,11l5.29-5.29c0.39-0.39,0.39-1.02,0-1.41s-1.02-0.39-1.41,0L11,9.59L5.71,4.29c-0.39-0.39-1.02-0.39-1.41,0
                                     s-0.39,1.02,0,1.41L9.59,11l-5.29,5.29c-0.39,0.39-0.39,1.02,0,1.41C4.49,17.9,4.74,18,5,18s0.51-0.1,0.71-0.29L11,12.41l5.29,5.29
@@ -285,7 +281,7 @@ use app\Http\Controllers\client\ClientController;
                            </div>
                            <div class="offcanvas__action mb-15 d-sm-block">
                               <a href="cart.html" class="has-tag">
-                                <i class="far fa-shopping-bag"></i>
+<i class="far fa-shopping-bag"></i>
                                 <span class="tag">4</span>
                               </a>
                            </div>
@@ -316,7 +312,6 @@ use app\Http\Controllers\client\ClientController;
         
      </section>
      <!-- sidebar area end -->
-
 <main>
 <div class="layout-info-account">
 	<div class="row">
@@ -328,13 +323,15 @@ use app\Http\Controllers\client\ClientController;
                         margin: 40;
                         margin-top: 40px;
                         line-height: 38px;
-                    }"> 			
+                    "> 			
                                 <li class="current">
                                     <a href="/profile/edit_profile" class="lang" ><i class="fa fa-user"></i> Thông tin tài khoản</a>
                                 </li>
+                                @if(Auth::user()->id_google == '')
                                 <li>
                                     <a href="/profile/change-password" class="lang" ><i class="fa fa-cog"></i> Thay đổi mật khẩu </a>
                                 </li>
+                                @endif
                                 <li>
                                     <a href="{{ route('logout') }}"
                                                        onclick="event.preventDefault();
@@ -342,7 +339,7 @@ use app\Http\Controllers\client\ClientController;
                                     </a>
                                                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                                      @csrf
-                                                    </form>
+</form>
                                 </li>
                             </ul>
                         </div>
@@ -353,6 +350,7 @@ use app\Http\Controllers\client\ClientController;
                     <div class="row my-5">
                         <div class="col-lg-12">
                             <div class="card-shadow">
+
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h2 class="text-secondary fw-bold"> Thay đổi mật khẩu</h2>
                                 </div>
@@ -374,22 +372,31 @@ use app\Http\Controllers\client\ClientController;
                 @csrf
                 <div class="my-2">
                     <label for="name">Mật khẩu cũ</label>
-                    <input type="password" id="inputName" class="form-control rounded-pill" name="oldpassword" >
+                    <input type="password" id="oldpassword" class="form-control rounded-pill" name="oldpassword" >
+                    <span id="alter">
+                        <i id="eye" class="far fa-eye-slash"></i>
+                    </span>
                     <span class="text-danger error-text oldpassword_error"></span>
                 </div>
                 <div class="my-2">
                     <label for="email">Mật khẩu mới</label>
                     <input type="password"  id="newpassword" class="form-control rounded-pill"name="newpassword" >
+                    <span id="alter1">
+                     <i id="eye1" class="far fa-eye-slash"></i>
+                    </span>
                     <span class="text-danger error-text newpassword_error"></span>
                 </div>
                 <div class="my-2">
                     <label for="phone">Nhập lại mật khẩu</label>
                     <input type="password"  id="cnewpassword" class="form-control rounded-pill" name="cnewpassword">
+                    <span id="alter2">
+                    <i id="eye2" class="far fa-eye-slash"></i>
+                    </span>
                     <span class="text-danger error-text cnewpassword_error"></span>
                 </div>
                 <div class="my-2">
-                    <input type="submit" name="btn" id="btn" 
-                        class="btn btn-success rounded-0 float-end" value="Cập nhật mật khẩu">
+                    <input type="submit" name="btn" id="btn"
+class="btn btn-success rounded-0 float-end" value="Cập nhật mật khẩu">
                 </div>
             </form>
     </div>
@@ -400,3 +407,6 @@ use app\Http\Controllers\client\ClientController;
 		                </div>
                             </div>
 </main>
+@else
+@include('errors.404')
+@endif

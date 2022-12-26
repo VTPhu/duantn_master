@@ -53,11 +53,11 @@ use app\Http\Controllers\client\ClientController;
                                        
                                      </li>                                                                   
                                     <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="blog.html">Tin tức</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/blog">Tin tức</a>
                                        
                                     </li>
                                     <li>
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="about-us.html">Giới thiệu</a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/about-us">Giới thiệu</a>
                                         
                                     </li>
                                     <li><a style="font-family: 'Archivo';font-size: 16px;" href="/contact">Liên hệ</a></li>
@@ -101,10 +101,12 @@ use app\Http\Controllers\client\ClientController;
                                  <a href="/admin/dashboard">Quản lý hệ thống</a>
                           </li>
                @endif
+               @if(Auth::user()->id_google == '')
                <li>
                    <i class="fa fa-cog"></i>
                    <a href="/profile/change-password">Thay đổi mật khẩu</a>
                </li>
+               @endif
                <li>
                    <i class="fa fa-sign-out"></i>
                    <a href="{{ route('logout') }}"
@@ -572,7 +574,7 @@ use app\Http\Controllers\client\ClientController;
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h4 class="pro-title pro-title-2"><a href="/productDetail/{{$pro->id}}" >{{$p->title}}</a></h4>
+                                    <h4 class="pro-title pro-title-2"><a href="/productDetail/{{$p->id}}" >{{$p->title}}</a></h4>
                                     <div class="pro-price">
                                         <span>{{ number_format($p->price) }}đ</span>
                                         @if ($p->price_saled)
@@ -580,9 +582,7 @@ use app\Http\Controllers\client\ClientController;
                                         @endif
                                     </div>
                                     <div class="rating">
-                                       <span >Lượt xem:
-                                        
-                                      
+                                        <span >Lượt xem: <i class="fa fa-eye"></i> {{$p->view}}
                                     </div>
                                 </div>
                             </div>
@@ -622,17 +622,12 @@ use app\Http\Controllers\client\ClientController;
                             <div class="blog-content blog-content-3">
                                 <a href="#" class="tag-btn tag-btn-2">{{$b->name}}</a>
                                 <div class="blog-meta blog-meta-2">
-                                    Ngày đăng: <a href="#"><span>{{Carbon::parse($b->created_at)->diffForHumans() }}</span></a> / Bởi: <a href="#"><span>{{$b->tacgia}}</span></a>.
+                                    Ngày đăng: <a href="#"><span>{{Carbon::parse($b->created_at)->diffForHumans() }}</span>
+                                    </a> / Bởi: <a href="#"><span>{{$b->tacgia}}</span></a>.
                                 </div>
                                 <div class="row" style="width:330px;height:100px">
                                     <h1 class="blog-title blog-title-2" style="font-size: 18px;text-transform: uppercase"><a href="blog-details.html">{{$b->title}}</a></h1>
 
-                                </div>
-                                <div class="border-bottom-gray border-0">
-                                    <p></p>
-                                    <div class="p-btn p-btn-3">
-                                        <a href="blog-details.html">Xem thêm</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>

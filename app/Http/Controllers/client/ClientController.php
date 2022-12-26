@@ -26,12 +26,10 @@ class ClientController extends Controller
         $trending = Product::where('status', '=', '0')->orderBy('view', 'DESC')->get();
         $blog = DB::table('posts')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
-            ->join('user', 'user.id', '=', 'posts.user_id')
+            ->join('users', 'users.id', '=', 'posts.user_id')
             ->orderBy('title', 'DESC')
-            ->select('categories.name', 'posts.sumary', 'posts.thumnail_url', 'posts.title', 'posts.date', 'posts.created_at', 'user.name as tacgia')
-
+            ->select('categories.name', 'posts.sumary', 'posts.thumnail_url', 'posts.content', 'posts.title', 'posts.date', 'posts.created_at', 'users.name as tacgia')
             ->get();
-
         $product = Product::where('status', '=', '0')->where('saled', '>', '1')->orderBy('saled', 'DESC')->paginate(10);
         $banner = Banner::all();
         return view('client.index.trangchu', compact('product', 'category', 'trending', 'blog', 'banner'));
@@ -57,9 +55,13 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function about_us()
+    {
+        return view('client.index.about-us');
+    }
     public function productDetail($id)
     {
-
+        Product::find($id)->increment('view');
         $category = DB::table('categories')
             ->join('products', 'products.category_id', '=', 'categories.id')
             ->where('products.id', '=', $id)

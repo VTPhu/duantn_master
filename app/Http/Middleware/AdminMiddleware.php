@@ -21,13 +21,11 @@ class AdminMiddleware
             if (Auth::user()->role == '2') {
                 return $next($request);
             } else {
-                return redirect('/home')->with('message', 'Truy cập bị từ chối vì bạn không phải là Quản trị viên!');
+                return redirect('/errors')->with('message', 'Truy cập bị từ chối vì bạn không phải là Quản trị viên!');
             }
         } else {
             return redirect('/login')->with('message', 'Vui lòng đăng nhập để truy cập trang Quản trị viên!');
         }
-
-
         return $next($request);
     }
 }

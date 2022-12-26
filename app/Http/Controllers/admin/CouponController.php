@@ -16,7 +16,7 @@ class CouponController extends Controller
      */
     public function index()
     {
-        $coupon = Coupon::paginate(5);
+        $coupon = Coupon::orderBy('coupon_name', 'ASC')->paginate(5);
         if ($key = request()->key) {
             $coupon = Coupon::where('code', 'like',   $key . '%')->paginate(5);
         }

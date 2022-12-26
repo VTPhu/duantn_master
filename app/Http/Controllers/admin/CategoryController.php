@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::paginate(5);
+        $category = Category::orderBy('name', 'ASC')->paginate(5);
         if ($key = request()->key) {
             $category = Category::where('name', 'like',   $key . '%')->paginate(10);
         }

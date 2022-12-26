@@ -75,7 +75,7 @@
                         	
 
                             <li class="has_sub">
-                                <a href="/admin/dashboard" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right">2</span> <span> THỐNG KÊ </span> </a>
+                                <a href="/admin/dashboard" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right"></span> <span> THỐNG KÊ </span> </a>
                                 
                             </li>
 
@@ -144,7 +144,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span>BANNER</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-banner"> Liệt kê</a></li>
-                                    <li><a href="/admin/banner"> Thêm banner</a></li>
+                                    
     
                                 </ul>
                             </li>

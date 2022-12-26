@@ -21,7 +21,7 @@ use app\Http\Controllers\client\ClientController;
                        
                     </div>
                     <marquee behavior="alternate"
-                                    style="background:black; color:rgb(12, 12, 12); font-size: 20px;">
+                                    style=" color:rgb(12, 12, 12); font-size: 20px;">
                                     <h3 class="nhapnhay">GIẢM GIÁ LỚN VÀO NGÀY 11.11</h3>
                                 </marquee>
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8">
@@ -486,7 +486,7 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-12" >
                         <div class="btn-area text-center wow fadeInUp" data-wow-delay="1.2s">
                             <div class="p-btn p-btn-1" style="height:109px">
-                                <a href="/shop">Xem thêm </a>
+                                <a href="/shop_saled">Xem thêm </a>
                             </div>
                         </div>
                     </div>

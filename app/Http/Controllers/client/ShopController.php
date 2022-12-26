@@ -76,9 +76,11 @@ class ShopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function saled(Request $request)
     {
-        //
+        $category = Category::where('status', '=', '0')->get();
+        $saled = Product::where('saled', '>', '1')->orderBy('price_saled', 'asc')->paginate(5);
+        return view('client.index.sale', compact('saled', 'category'));
     }
 
     /**

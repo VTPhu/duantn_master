@@ -159,4 +159,6 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/send', [ContactController::class, 'send'])->name('send.email');
 //Shop
 Route::get('/shop', [ShopController::class, 'index']);
+Route::get('/shop_saled', [ShopController::class, 'saled']);
+
 Route::get('/sanpham/{id}', [ShopController::class, 'product_cate']);

@@ -367,7 +367,7 @@ use app\Http\Controllers\client\ClientController;
                
                      <div class="row">
                            <div class="col-lg-6">
-                          <i style="    font-size: 60px;
+                          <i style=" font-size: 60px;
                             color: cadetblue" class="fa fa-check-circle-o"></i>
                               <h3>GENZ FASHION</h3>
                               <p>Đặt hàng thành công</p>
@@ -385,7 +385,7 @@ use app\Http\Controllers\client\ClientController;
                                       <p class="card-text">Email: {{$order->email}} </p>
                                       <p class="card-text">Ngày đặt: {{$order->order_date}} </p>
                                       <p class="card-text">Phương thức thanh toán.</p>
-                                      <p class="card-text">.</p>
+                                      <p class="card-text">Thanh toán khi giao hàng (COD)</p>
 
                                       <a href="/" class="btn btn-primary">Tiếp tục mua hàng</a>
                                     </div>

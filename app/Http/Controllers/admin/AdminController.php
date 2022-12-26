@@ -35,8 +35,10 @@ class AdminController extends Controller
             ->join('order_details', 'order_details.order_id', '=', 'orders.id')->whereBetween('order_date', [$dauthangnay, $now])->sum('quantily_order');
 
         $order_price = Order::where('order_date', '>=', $dauthangnay)->where('order_date', '<=', $now)->sum('total_price');
-        $orderw = Order::orderBy('name_order', 'DESC')->paginate(5);
-
+        $orderw = Order::orderBy('name_order', 'ASC')->paginate(5);
+        if ($key = request()->key) {
+            $orderw = Order::where('name_order', 'like',  '%' . $key . '%')->paginate(5);
+        }
 
         // $total_quantity = Statistical::whereBetween('order_date', [$dauthangnay, $now])->orderBy('order_date', 'ASC')->sum('quantity');
         $user = User::where('role', '=', '1')->count();

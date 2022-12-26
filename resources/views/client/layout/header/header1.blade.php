@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="client/assets/img/favicon.ico">
+  
     <!-- Place favicon.ico in the root directory -->
     <!-- CSS here -->
     <link rel="stylesheet" href="{{asset('client/assets/css/preloader.css')}}">
@@ -27,4 +27,6 @@
     <link rel="stylesheet" href="{{asset('client/assets/css/nav.css')}}">
     <link rel="stylesheet" href="{{asset('client/assets/css/account.css')}}">
     <link rel="stylesheet" href="{{asset('toastr/toastr.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>

@@ -75,7 +75,7 @@
                         	
 
                             <li class="has_sub">
-                                <a href="/admin/dashboard" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right">2</span> <span> THỐNG KÊ </span> </a>
+                                <a href="/admin/dashboard" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right"></span> <span> THỐNG KÊ </span> </a>
                                 
                             </li>
 
@@ -144,7 +144,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span>BANNER</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-banner"> Liệt kê</a></li>
-                                    <li><a href="/admin/banner"> Thêm banner</a></li>
+                                   
     
                                 </ul>
                             </li>
@@ -239,7 +239,7 @@
                                                     <div class="form-group">
                                                         <label for="userName">Kích thước<span class="text-danger">*</span></label>
                                                         <input type="text" name="size" parsley-trigger="change" required
-                                                               placeholder="Size" class="form-control" id="userName" value="{{$product->size}}">
+                                                               placeholder="Size" class="form-control" id="userName" value="{{$product->size}}" >
                                                                @if($errors->has('size'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('size') }}</strong>
                                                                @endif
@@ -313,8 +313,8 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="userName">Mô tả<span class="text-danger">*</span></label>
-                                                        <input type="text" name="description" parsley-trigger="change" required
-                                                               placeholder="description" class="form-control" id="userName" value="{{$product->description}}">
+                                                        <textarea type="text" name="description" parsley-trigger="change" required
+                                                               placeholder="description" class="form-control" id="userName" value="{{$product->description}}"></textarea>
                                                                @if($errors->has('description'))
                                                                <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('description') }}</strong>
                                                                @endif

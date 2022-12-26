@@ -60,7 +60,7 @@
                         	
 
                             <li class="has_sub">
-                                <a href="/admin/dashboard" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right">2</span> <span> THỐNG KÊ </span> </a>
+                                <a href="/admin/dashboard" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right"></span> <span> THỐNG KÊ </span> </a>
 
                             </li>
 
@@ -127,7 +127,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="glyphicon glyphicon-user"></i><span>BANNER</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="/admin/show-banner"> Liệt kê</a></li>
-                                    <li><a href="/admin/banner"> Thêm banner</a></li>
+                                  
     
                                 </ul>
                             </li>
@@ -163,8 +163,7 @@
                                                         <tr>
                                                             <th style="text-align:center;width:66px;font-size:15px">Thứ tự</th>
                                                             <th>Tiêu đề</th>                                                      
-                                                            <th style="text-align:center;font-size:15px">Nội dung</th>
-                                                            <th>Tóm tắt</th>
+                                                           
                                                             <th style="text-align:center;width:88px;">Ngày đăng</th>
                                                             <th>Hình ảnh</th>       
                                                                                                   
@@ -178,13 +177,12 @@
                                                             <td>{{$p->id}}</td>
                                                                 <th>{{$p->title}}</th>
                                                                
-                                                                <th style="width:100px"><textarea>{{$p->content}}</textarea></th>
-                                                                <td>{{$p->sumary}}</td>
+                                                                
                                                                 <th style="width:86px">{{date('d-m-Y', strtotime($p->date))}}</th>
                                                                 <th style="width:100px"><image width="100px" height="80px"  src="{{asset('uploads/images/'.$p->thumnail_url)}}"</th>
                                                                
                                                                 <th>{!! $p->status==0?'<button class="btn btn-success btn-sm"><h5 style="color:white;">Hiện</h5></button>':'<button class="btn btn-danger btn-sm "><h5 style="color:white;">Ẩn</h5></button>'!!}</th>
-                                                            <td class="text-center font-size-10" style="width:100%;display: flex;justify-content: space-between;padding-top: 25px;">
+                                                            <td class="text-center font-size-10" style="width:51%;display: flex;justify-content: space-between;padding-top: 25px;">
                                                                <a href="/admin/posts/{{$p->id}}" class="btn btn-primary btn-sm" style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Sửa</h5></a>
                                                                <a href="/admin/deleted/{{$p->id}}" class="btn btn-danger btn-sm" style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Xóa</h5></a>
                                                             </td>

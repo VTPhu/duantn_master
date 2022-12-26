@@ -20,6 +20,7 @@ use App\Http\Controllers\Auth\SociaController;
 // use App\Http\Controllers\client\ProductCateController;
 use App\Http\Controllers\client\ProfileController;
 use App\Http\Controllers\client\ContactController;
+use App\Http\Controllers\client\ShopController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -143,3 +144,5 @@ Route::get('auth/google/callback', [SociaController::class, 'loginWithGoogle']);
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/send', [ContactController::class, 'send'])->name('send.email');
 //Shop
+Route::get('/shop', [ShopController::class, 'index']);
+Route::get('/sanpham/{id}', [ShopController::class, 'product_cate']);

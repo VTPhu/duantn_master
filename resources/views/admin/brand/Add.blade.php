@@ -97,6 +97,14 @@
 
                         </ul>
                     </li>
+                    <li>
+                        <a href="#" class="waves-effect"><i class="mdi mdi-calendar"></i><span>BÀI VIẾT</span><span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="/admin/show-posts"> Liệt kê</a></li>
+                            <li><a href="/admin/posts"> Thêm bài viết</a></li>
+
+                        </ul>
+                    </li>
                     <li class="has_sub">
                         <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-email"></i><span>THƯƠNG HIỆU</span> <span class="menu-arrow"></span></a>
                         <ul class="list-unstyled">

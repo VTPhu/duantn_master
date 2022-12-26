@@ -240,7 +240,7 @@
                                                         <th>{{$p->tags}}</th>
 
                                                         <th>{!! $p->status==0?'<button class="btn btn-success btn-sm"><h5 style="color:white;">Hiện</h5></button>':'<button class="btn btn-danger btn-sm "><h5 style="color:white;">Ẩn</h5></button>'!!}</th>
-                                                        <td class=" text-center font-size-10" style="width: 100%;display: flex;justify-content: space-between;padding-top: 37px;">
+                                                        <td class=" text-center font-size-10" style="width: 100%;display: flex;justify-content: space-between;padding-top: 65px;">
                                                             <a href="/admin/product/{{$p->id}}" class="btn btn-primary btn-sm" style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Sửa</h5></a>
                                                             <a href="/admin/deletedProduct/{{$p->id}}" onclick="alert(event,{{$p->id}})" class="btn btn-danger btn-sm" style="width:48%"><h5 style="color:white;font-family: 'Varela Round';">Xóa</h5></a>
 

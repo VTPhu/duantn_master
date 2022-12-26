@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\DB;
 use App\Models\City;
 use App\Models\Coupon;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\District;
+use App\Models\Product;
 use App\Models\Ward;
+use App\Models\Statistical;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Session;
 
@@ -122,7 +125,7 @@ class CheckoutController extends Controller
         $order_data['district'] = $request->district;
         $order_data['ward'] = $request->ward;
         $order_data['note'] = $request->note;
-        $order_data['order_date'] = new \DateTime('Asia/Ho_Chi_Minh');
+        $order_data['order_date'] = date('Y-m-d');
         $order_data['updated_at'] = new \DateTime('Asia/Ho_Chi_Minh');
         $order_data['created_at'] = new \DateTime('Asia/Ho_Chi_Minh');
         $order_id = DB::table('orders')->insertGetId($order_data);
@@ -140,8 +143,14 @@ class CheckoutController extends Controller
             $order_d_data['color_detail'] = $n['color'];
             $order_d_data['quantily_order'] = $n['quantily'];
             $order_d_data['total_pro_detail'] = $n['price'];
-            $orderdetail_id = DB::table('order_details')->insert($order_d_data);
+            $orderdetail_id = OrderDetail::create($order_d_data);
         }
+        //thongke
+
+
+
+
+
 
         if ($data['payment_method'] == 1) {
             echo 'Thanh toán khi giao hàng';

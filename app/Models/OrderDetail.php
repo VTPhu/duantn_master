@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderDetail extends Model
 {
+    use HasFactory;
     protected $table = 'order_details';
     protected $primaryKey = 'id';
+    public $timestamps = true;
     protected $fillable = [
         'product_name',
         'order_id',
@@ -18,7 +20,7 @@ class OrderDetail extends Model
         'color_detail',
         'total_pro_detail',
         'product_price',
+        'created_at',
         'updated_at',
     ];
-    use HasFactory;
 }

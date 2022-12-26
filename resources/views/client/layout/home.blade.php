@@ -21,7 +21,7 @@ use app\Http\Controllers\client\ClientController;
                        
                     </div>
                     <marquee behavior="alternate"
-                                    style="background:white; color:rgb(12, 12, 12); font-size: 20px;">
+                                    style="background:black; color:rgb(12, 12, 12); font-size: 20px;">
                                     <h3 class="nhapnhay">GIẢM GIÁ LỚN VÀO NGÀY 11.11</h3>
                                 </marquee>
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8">
@@ -49,7 +49,7 @@ use app\Http\Controllers\client\ClientController;
                                        
                                     </li>
                                     <li class="static">
-                                        <a style="font-family: 'Archivo';font-size: 16px;" href="shop.html">Cửa hàng<i class="icon-arrow-down"></i></a>
+                                        <a style="font-family: 'Archivo';font-size: 16px;" href="/shop">Cửa hàng<i class="icon-arrow-down"></i></a>
                                        
                                      </li>                                                                   
                                     <li>
@@ -381,8 +381,8 @@ use app\Http\Controllers\client\ClientController;
                 <ul style="display:flex; justify-content:space-between;width: 74%;margin: 0 auto;">
                     @foreach ( $category as $c)
                     <li>
-                         <a href="#" class="box" >
-                        <img src="{{asset('uploads/images/'.$c->thumnail)}}" alt="#" ><h3>{{$c->name}}</h3>
+                         <a href="" class="box" >
+                        <img src="{{asset('uploads/images/'.$c->thumnail)}}" alt="" ><h3><a href="">{{$c->name}}</a></h3>
                            <div class="list">
                             <span class="cat-subtitle"> {{ClientController::countProductByIdCate($c->id)}} Sản phẩm</span>
 
@@ -458,13 +458,7 @@ use app\Http\Controllers\client\ClientController;
 
                                      </span>
                                      @endif
-                                <div class="product-action product-action-1 p-abs">
-                                    <a href="" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModal">
-                                        <i class="fal fa-eye"></i>
-                                        <i class="fal fa-eye"></i>
-                                    </a>
-                                   
-                                </div>
+                               
                             </div>
                             <div class="product-content">
                                 <h4 class="pro-title pro-title-1"><a href="/productDetail/{{$pro->id}}">{{$pro->title}}</a></h4>
@@ -490,7 +484,7 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-12" >
                         <div class="btn-area text-center wow fadeInUp" data-wow-delay="1.2s">
                             <div class="p-btn p-btn-1" style="height:109px">
-                                <a href="shop.html">Xem thêm </a>
+                                <a href="/shop">Xem thêm </a>
                             </div>
                         </div>
                     </div>

@@ -42,6 +42,8 @@ class ClientController extends Controller
         return Product::where('category_id', $id)->count();
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -57,6 +59,7 @@ class ClientController extends Controller
      */
     public function productDetail($id)
     {
+
         $category = DB::table('categories')
             ->join('products', 'products.category_id', '=', 'categories.id')
             ->where('products.id', '=', $id)

@@ -191,7 +191,7 @@
                                 <div class="wigdet-one-content">
                                     <p style="font-size: 11px;" class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Category">Doanh Thu trong tháng này</p>
                                     
-                                    <h2>{{ $total_sales}} VNĐ<small></small></h2>
+                                    <h2> {{number_format($order_price)}}<small>VNĐ</small></h2>
                                     
                                 </div>
                             </div>
@@ -202,29 +202,20 @@
                                 <i class="mdi mdi-account-convert widget-one-icon"></i>
                                 <div class="wigdet-one-content">
                                     <p style="font-size: 11px;" class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Product">Đơn hàng trong tháng này</p>
-                                    <h2>{{$order}} Đơn hàng<small></small></h2>
+                                    <h2> {{$order}}<small>Đơn hàng</small></h2>
                                    
                                 </div>
                             </div>
                         </div><!-- end col -->
 
-                        <div class="col-lg-2 col-md-4 col-sm-6">
-                            <div class="card-box widget-box-one">
-                                <i class="mdi mdi-layers widget-one-icon"></i>
-                                <div class="wigdet-one-content">
-                                    <p style="font-size: 11px;" class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Post">Lợi nhuận trong tháng này</p>
-                                    <h2>{{$total_profit}} VNĐ<small></small></h2>
-                                   
-                                </div>
-                            </div>
-                        </div><!-- end col -->
+                      
 
                         <div class="col-lg-2 col-md-4 col-sm-6">
                             <div class="card-box widget-box-one">
                                 <i class="mdi mdi-av-timer widget-one-icon"></i>
                                 <div class="wigdet-one-content">
                                     <p style="font-size: 11px;" class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Request Per Minute">Số lượng sản phẩm đã bán</p>
-                                    <h2>{{$total_quantity}} Sản phẩm</small></h2>
+                                    <h2> {{$product}}<small>Sản phẩm</small></h2>
                                     
                                 </div>
                             </div>
@@ -269,47 +260,11 @@
 
             </div> <!-- content -->
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="card-box" >
-                        <div class="row " >
-                            <div class="col-lg-5 " >
-                                <form  autocomplete="off" style="display:flex;" >
-                              @csrf
-                               
-                                <input type="date" class="form-control" id="from_date" name="from_date" placeholder="Từ ngày">
-                                <div class="col-lg-12">
-                                <input type="date" class="form-control" id="to_date" name="to_date" placeholder="Đến ngày">
-                                </div>
-                                
-                                <input type="submit" class="btn btn-danger" id="btn-dashboad" value="Lọc">
-                                <div class=" col-12" style="padding-left: 12px;">
-                                    
-                                        
-                                        <select class="btn-filter form-control" style="width:150px">
-                                            <option>Chọn</option>
-                                           
-                                            <option value='thangtruoc'>Tháng trước</option>
-                                            <option value='thangnay'>Tháng này</option>
-                                            <option value='365ngayqua'>365 ngày qua</option>
-                                            <option value='thang9'>Tháng 9</option>
-                                            <option value='bayngay'>7 ngày qua</option>
-                                        </select>
-                                    
-                                </div>
-                                </form>
-                               
-                            </div>
-
-                            
-                        </div>
-                       
-
-                    </div> <!-- end card-box -->
-                </div> <!-- end col -->
+                
+                
             </div>
-            <div id="chart" style="height: 250px;"></div>
-
-        </div>
+            
+          
 
 
 
@@ -327,85 +282,6 @@
 
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-    chart30day();
-   var chart =  new Morris.Bar({
-  element: 'chart',
-  lineColors:['#819C79','#fc8710','	#FF0000','#00FF00','#0000FF'],
-  parseTime:false,
-  hideHovel:'auto',
-  behavellikeline:true,
-  xkey: 'period',
-  ykeys: ['order','sales','profit','quantity'],
-  labels: ['đơn hàng','doanh số','lợi nhuận','số lượng']
-  });
-   
-  function chart30day(){
-    var _token = $('input[name="_token"]').val();
-     
-    $.ajax({
-     url: "/admin/day-order",
-    method: "POST",
-    dataType:"JSON",
-    data: {
-       
-    _token:_token
-    },
-    success: function(data){
-    chart.setData(data);
-    }});
 
-
-  }
-
-
-
-    $('#btn-dashboad').click(function(e){
-        e.preventDefault();
-        var _token = $('input[name="_token"]').val();
-        var from_date = $('#from_date').val();
-        var to_date = $('#to_date').val();
-       
-      $.ajax({
-                  url: "/admin/filter",
-                  method: "POST",
-                  dataType:"JSON",
-                  data: {
-                    from_date: from_date,
-                    to_date: to_date,
-                    _token:_token
-                  },
-                  success: function(data){
-                     chart.setData(data);
-                  }});
-    });
-
-    $('.btn-filter').change(function() {
-   
-   var dashboard_value = $(this).val(); 
-   var _token = $('input[name="_token"]').val();
-   
-   $.ajax({
-    url: "/admin/dashboard-filter",
-    method: "POST",
-  dataType: "JSON",
-    data: {
-        dashboard_value:dashboard_value,
-    _token:_token
-     },
-    success: function(data){
-     chart.setData(data);
-    }});
-   })
-
-
-})
-
-
-</script>
 
 </html>

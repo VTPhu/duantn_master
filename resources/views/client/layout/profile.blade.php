@@ -245,7 +245,7 @@ document.querySelector('.menu').classList.toggle('active');
                     <div class="offcanvas__wrapper">
                         <div class="offcanvas__top d-flex align-items-center mb-60 justify-content-between">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="/">
                                    <img src="{{asset('client/assets/img/logo/logo-black.png')}}" alt="">
                                 </a>
                              </div>

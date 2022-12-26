@@ -10,7 +10,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left" >
-                    <a href="index.html" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
+                    <a href="/admin/dashboard" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
                     <!-- Image logo -->
                     <!--<a href="index.html" class="logo">-->
                         <!--<span>-->
@@ -193,7 +193,7 @@
 								<div class="card-box" >
 									<div class="row">
 										<div class="col-lg-12" >
-                                            <h1 class="text-center" style="font-family: system-ui;">SỬA SẢN PHẨM</h1>
+                                            <h1 class="text-center" style="font-family: system-ui;">Sửa banner</h1>
 											<div class="demo-box">
                                                 <form  method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                                 @csrf
@@ -237,7 +237,7 @@
                                                         <button class="btn btn-primary waves-effect waves-light" type="submit">
                                                             Sửa
                                                         </button>
-                                                        <button class="btn btn-danger btn-sm" style="height:34px"><a href="/admin/show-product"   style="color:white;height:50px">Hủy bỏ</a></button>                                                            
+                                                        <button class="btn btn-danger btn-sm" style="height:34px"><a href="/admin/show-banner"   style="color:white;height:50px">Hủy bỏ</a></button>                                                            
 
                                                     </div>
                 

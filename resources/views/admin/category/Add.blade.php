@@ -8,7 +8,7 @@
 
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="index.html" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
+                <a href="/admin/dashboard" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
                 <!-- Image logo -->
                 <!--<a href="index.html" class="logo">-->
                 <!--<span>-->
@@ -201,6 +201,14 @@
                                                     @if($errors->has('name'))
                                                     <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('name') }}</strong>
                                                     @endif
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="slug">Đường dẫn<span class="text-danger">*</span></label>
+                                                    <input type="slug" name="slug" parsley-trigger="change" required
+                                                           placeholder="slug " class="form-control" id="slug" value="{{old('slug')}}">
+                                                           @if($errors->has('slug'))
+                                                           <strong style="color:red;font-size:18px;background-color: #FCE77D">{{ $errors->first('slug') }}</strong>
+                                                           @endif
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label">Ảnh</label>

@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -53,6 +54,7 @@ class CategoryController extends Controller
                 ->withInput();
         }
         $input = $request->all();
+        $input['slug'] = Str::slug($input['slug'], '-');
         if ($request->hasFile('thumnail')) {
             $path = 'uploads/images';
             $thumnail = $request->file('thumnail');
@@ -112,6 +114,7 @@ class CategoryController extends Controller
             }
         }
         $input->status = $request->status;
+        $input['slug'] = Str::slug($input['slug'], '-');
         $input->save();
         return redirect('/admin/show-category')->with('message', 'Sửa thành công');
     }

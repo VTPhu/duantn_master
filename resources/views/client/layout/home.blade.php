@@ -22,7 +22,7 @@ use app\Http\Controllers\client\ClientController;
                     </div>
                     <marquee behavior="alternate"
                                     style=" color:rgb(12, 12, 12); font-size: 20px;">
-                                    <h3 class="nhapnhay">GIẢM GIÁ LỚN VÀO NGÀY 11.11</h3>
+                                    <h3 class="nhapnhay">GIẢM GIÁ LỚN VÀO NGÀY 29-12</h3>
                                 </marquee>
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-8">
                         
@@ -34,7 +34,7 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
                             <div class="logo pr-55 d-inline-block">
-                                <a href="index.html" class="logo" style=";font-size: 24px;text-transform: uppercase;font-family: 'Hind Madurai', sans-serif;font-weight: 600;letter-spacing: 1px; line-height: 70px;">
+                                <a href="/" class="logo" style=";font-size: 24px;text-transform: uppercase;font-family: 'Hind Madurai', sans-serif;font-weight: 600;letter-spacing: 1px; line-height: 70px;">
                                   <img src="client/assets/img/logo/logoGENZ.png" alt="logo"></a>
                             </div>
                         </div>
@@ -339,7 +339,7 @@ use app\Http\Controllers\client\ClientController;
                 <div class="row row-2">
                     <div class="col-xxl-6 col-xl-6 col-md-6 col-12">
                         <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".1s">
-                            <a href="shop.html">
+                            <a href="/shop">
                                 <div class="cat-thumb fix" >
                                     <img src="{{asset('uploads/images/'.$b->image_l)}}" alt="" >
                                 </div>
@@ -350,7 +350,7 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-6 col-xxl-6 col-xl-6 col-md-6 col-12">
                         <div class="row row-2">
                             <div class="col-xxl-12">
-                                <a href="shop.html">
+                                <a href="/shop">
                                     <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".9s">
                                         <div class="cat-thumb fix">
                                             <img src="{{asset('uploads/images/'.$b->image_n)}}" alt="">
@@ -360,7 +360,7 @@ use app\Http\Controllers\client\ClientController;
                                 </a>
                             </div>
                             <div class="col-xxl-12">
-                                <a href="shop.html">
+                                <a href="/shop_saled">
                                     <div class="single-category mb-20 p-rel wow fadeInUp" data-wow-delay=".9s">
                                         <div class="cat-thumb fix">
                                             <img src="{{asset('uploads/images/'.$b->image_t)}}" alt="#" style="padding-top:4px">

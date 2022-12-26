@@ -265,7 +265,7 @@ use app\Http\Controllers\client\ClientController;
                     <div class="offcanvas__wrapper">
                         <div class="offcanvas__top d-flex align-items-center mb-60 justify-content-between">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="/">
                                    <img src="client/assets/img/logo/logo-black.png" alt="">
                                 </a>
                              </div>
@@ -673,12 +673,7 @@ use app\Http\Controllers\client\ClientController;
                                           <i class="fa fa-money" style="font-size:29px"></i> Thanh toán khi giao hàng (COD)
                                        </label>
                                      </div>
-                                     <div class="form-check">
-                                       <input class="form-check-input" type="radio" name="payment_option" id="flexRadioDefault2" value="2">
-                                       <label class="form-check-label" for="flexRadioDefault2">
-                                          <i class="fa fa-cc-visa"style="font-size:29px"></i> Thanh toán ATM
-                                       </label>
-                                     </div>
+                                    
                                     
                                     {{-- <div class="card">
                                       

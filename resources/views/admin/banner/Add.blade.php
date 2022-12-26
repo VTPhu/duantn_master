@@ -10,7 +10,7 @@
         
                 <!-- LOGO -->
                 <div class="topbar-left" >
-                    <a href="index.html" class="logo"><span>Zir<span>cos</span></span><i class="mdi mdi-layers"></i></a>
+                    <a href="/admin/dashboard" class="logo"><span>Genz<span>Fashion</span></span><i class="mdi mdi-layers"></i></a>
                     <!-- Image logo -->
                     <!--<a href="index.html" class="logo">-->
                         <!--<span>-->
@@ -191,7 +191,7 @@
                                 <div class="card-box" >
                                     <div class="row">
                                         <div class="col-lg-12" >
-                                            <h1 class="text-center" style="font-family: system-ui;">THÊM Anh BÌA</h1>
+                                            <h1 class="text-center" style="font-family: system-ui;">Thêm ảnh bìa</h1>
                                             <div class="demo-box">
                                                 <form action="/admin/banner" method ="POST"  data-parsley-validate novalidate enctype="multipart/form-data">
                                                     @csrf

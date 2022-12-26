@@ -67,7 +67,7 @@ class ProductController extends Controller
         }
         $input = $request->all();
         $input['size'] = 'S M L XL';
-        $input['slug'] = Str::kebab($input['slug']);
+        $input['slug'] = Str::slug($input['slug'], '-');
         if ($request->hasFile('thumnail')) {
             $path = 'uploads/images';
             $thumnail = $request->file('thumnail');

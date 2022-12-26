@@ -8,7 +8,7 @@
 
             <!-- LOGO -->
             <div class="topbar-left">
-                <a href="index.html" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
+                <a href="/admin/dashboard" class="logo"><span>GENZ<span>FASHION</span></span><i class="mdi mdi-layers"></i></a>
                 <!-- Image logo -->
                 <!--<a href="index.html" class="logo">-->
                 <!--<span>-->
@@ -201,7 +201,7 @@
                                             <table id="dt-opt" class="table table-striped add-edit-table table-bordered">
                                                 <thead>
                                                     <tr style="background-color:#36404e;color:white;">
-                                                        <th style="text-align: center;font-size:18px;">Thứ tự</th>
+                                                        <th style="text-align: center;font-size:18px;"> Mã đơn hàng</th>
                                                         <th style="text-align: center;font-size:18px;"> Tên</th>                                                       
                                                         <th style="text-align: center;font-size:18px;">SĐT</th>                                                     
                                                         <th style="text-align: center;font-size:18px;">Địa chỉ</th>

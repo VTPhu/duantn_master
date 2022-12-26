@@ -34,7 +34,7 @@ use app\Http\Controllers\client\ClientController;
                     <div class="col-xxl-3 col-xl-2 col-lg-2 col-md-4 col-sm-6 col-4">
                         <div class="header-left">
                             <div class="logo pr-55 d-inline-block">
-                                <a href="index.html" class="logo" style=";font-size: 24px;text-transform: uppercase;font-family: 'Hind Madurai', sans-serif;font-weight: 600;letter-spacing: 1px; line-height: 70px;">
+                                <a href="/" class="logo" style=";font-size: 24px;text-transform: uppercase;font-family: 'Hind Madurai', sans-serif;font-weight: 600;letter-spacing: 1px; line-height: 70px;">
                                   <img src="client/assets/img/logo/logoGENZ.png" alt="logo"></a>
                             </div>
                         </div>

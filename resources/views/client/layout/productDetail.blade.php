@@ -253,7 +253,7 @@ use app\Http\Controllers\client\ClientController;
                     <div class="offcanvas__wrapper">
                         <div class="offcanvas__top d-flex align-items-center mb-60 justify-content-between">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="/">
                                    <img src="client/assets/img/logo/logo-black.png" alt="">
                                 </a>
                              </div>

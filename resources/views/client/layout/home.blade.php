@@ -174,13 +174,13 @@ use app\Http\Controllers\client\ClientController;
 
                 <li class="cartmini__item p-rel d-flex align-items-start">
                     <div class="cartmini__thumb mr-15">
-                        <a href="product-details.html">
+                        <a href="/productDetail/{{$n['productInfo']->id}}">
                             <img   src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
                         </a>
                     </div>
                     <div class="cartmini__content">
                         <h3 class="cartmini__title">
-                            <a href="product-details.html">{{$n['productInfo']->title}}</a>
+                            <a href="/productDetail/{{$n['productInfo']->id}}">{{$n['productInfo']->title}}</a>
                         </h3>
                         Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
                         Màu sắc:<span style="font-size:15px"> {{$n['color']}}</span><br>
@@ -383,8 +383,8 @@ use app\Http\Controllers\client\ClientController;
                 <ul style="display:flex; justify-content:space-between;width: 74%;margin: 0 auto;">
                     @foreach ( $category as $c)
                     <li>
-                         <a href="" class="box" >
-                        <img src="{{asset('uploads/images/'.$c->thumnail)}}" alt="" ><h3><a href="">{{$c->name}}</a></h3>
+                         <a href="/shop" class="box" >
+                        <img src="{{asset('uploads/images/'.$c->thumnail)}}" alt="" ><h3><a href="/shop">{{$c->name}}</a></h3>
                            <div class="list">
                             <span class="cat-subtitle"> {{ClientController::countProductByIdCate($c->id)}} Sản phẩm</span>
 

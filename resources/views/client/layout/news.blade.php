@@ -174,13 +174,13 @@ use app\Http\Controllers\client\ClientController;
 
                 <li class="cartmini__item p-rel d-flex align-items-start">
                     <div class="cartmini__thumb mr-15">
-                        <a href="product-details.html">
+                       
                             <img   src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
-                        </a>
+                        
                     </div>
                     <div class="cartmini__content">
                         <h3 class="cartmini__title">
-                            <a href="product-details.html">{{$n['productInfo']->title}}</a>
+                            {{$n['productInfo']->title}}
                         </h3>
 Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
                         Màu sắc:<span style="font-size:15px"> {{$n['color']}}</span><br>
@@ -338,7 +338,7 @@ Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
                 <div class="about__history-wrapper">
                 <div class="postbox__details-content">
                             <h3 class="postbox__details-title">
-                                <a href="blog-details.html">{{$news->title}}</a>
+                                {{$news->title}}
                             </h3>
                             <div class="postbox__meta postbox__meta-2">
                                 <div class="blog-meta d-inline-block mr-55 postbox__meta-2-line">

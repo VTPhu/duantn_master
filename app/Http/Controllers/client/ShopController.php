@@ -20,7 +20,7 @@ class ShopController extends Controller
         $filer = $request->filter ?? 'ASC';
         $loai = $request->loai ?? 'price';
 
-        $product = Product::where('status', '=', '0')->orderBy($loai, $filer)->paginate(5); // loại id, price
+        $product = Product::where('status', '=', '0')->orderBy($loai, $filer)->paginate(8); // loại id, price
 
         $category = Category::where('status', '=', '0')->get();
         return view('client.index.shop', compact('product', 'category'));

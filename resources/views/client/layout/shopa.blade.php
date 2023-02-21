@@ -172,13 +172,13 @@ use app\Http\Controllers\client\ClientController;
 
                 <li class="cartmini__item p-rel d-flex align-items-start">
                     <div class="cartmini__thumb mr-15">
-                        <a href="product-details.html">
+                        <a href="/productDetail/{{$n['productInfo']->id}}">
                             <img   src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
                         </a>
                     </div>
                     <div class="cartmini__content">
                         <h3 class="cartmini__title">
-                            <a href="product-details.html">{{$n['productInfo']->title}}</a>
+                            <a href="/productDetail/{{$n['productInfo']->id}}">{{$n['productInfo']->title}}</a>
                         </h3>
                         Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
                         Màu sắc:<span style="font-size:15px"> {{$n['color']}}</span><br>
@@ -351,7 +351,7 @@ use app\Http\Controllers\client\ShopController;
                                                    
                                                 </div>
                                                 <div class="product-content">
-                                                    <h4 class="pro-title pro-title-1"><a href="product-details.html">{{$p->title}}</a></h4>
+                                                    <h4 class="pro-title pro-title-1"><a href="/productDetail/{{$p->id}}">{{$p->title}}</a></h4>
                                                     <div class="pro-price">
                                                         <span>{{ number_format($p->price) }}đ</span>
                                         @if ($p->price_saled)<del style="text-decoration:line-through;">{{ number_format($p->price_saled) }}đ</del> @endif

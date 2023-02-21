@@ -181,13 +181,13 @@
     
                     <li class="cartmini__item p-rel d-flex align-items-start">
                         <div class="cartmini__thumb mr-15">
-                            <a href="product-details.html">
+                            <a href="/productDetail/{{$n['productInfo']->id}}">
                                 <img   src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
                             </a>
                         </div>
                         <div class="cartmini__content">
                             <h3 class="cartmini__title">
-                                <a href="product-details.html">{{$n['productInfo']->title}}</a>
+                                <a href="/productDetail/{{$n['productInfo']->id}}">{{$n['productInfo']->title}}</a>
                             </h3>
                             Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
                             Màu sắc:<span style="font-size:15px"> {{$n['color']}}</span><br>
@@ -391,10 +391,10 @@
                                    
                                     @foreach(Session::get('Cart')->products as $n)
                                     <tr>
-                                        <td class="product-thumbnail"><a href="product-details.html">                           
+                                        <td class="product-thumbnail"><a href="/productDetail/{{$n['productInfo']->id}}">                           
                                              <img src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
                                         </a></td>
-                                        <td class="product-name"><a href="">{{$n['productInfo']->title}}</a></td>
+                                        <td class="product-name"><a href="/productDetail/{{$n['productInfo']->id}}">{{$n['productInfo']->title}}</a></td>
                                         <td class="product-name"><a href="" >{{ $n['sized']}}</a></td>
                                         <td class="product-name"><a href="" >{{ $n['color']}}</a></td>
 

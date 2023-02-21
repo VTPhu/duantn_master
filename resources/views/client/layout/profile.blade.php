@@ -170,13 +170,13 @@ document.querySelector('.menu').classList.toggle('active');
                  
                 <li class="cartmini__item p-rel d-flex align-items-start">
                     <div class="cartmini__thumb mr-15">
-                        <a href="product-details.html">
+                        <a href="/productDetail/{{$n['productInfo']->id}}">
                             <img  src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
                         </a>
                     </div>
                     <div class="cartmini__content">
 <h3 class="cartmini__title">
-                            <a href="product-details.html">{{$n['productInfo']->title}}</a>
+                            <a href="/productDetail/{{$n['productInfo']->id}}">{{$n['productInfo']->title}}</a>
                         </h3>
                         Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
 
@@ -408,52 +408,6 @@ class="btn btn-success rounded-0 float-end" value="Sửa thông tin">
 			    </div>
 			        </div>
 		                </div>
-                        <div class="col-xs-12" id="customer_orders">	
-						<div class="customer-table-wrap">
-							<div class="customer_order customer-table-bg">		
-								<p class="title-detail lang" keyLanguage="danh_sach_moi_nhat">
-									Danh sách đơn hàng mới nhất
-								</p>
-								<div class="table-responsive">
-									<table class="table">
-										<thead>
-											<tr>
-												<th class="order_number text-center lang" keyLanguage="ma_don_hang">Mã đơn hàng</th>
-												<th class="date text-center lang" keyLanguage="ngay_dat">Ngày đặt</th>
-												<th class="total text-right lang" keyLanguage="thanh_tien">Thành tiền</th>
-												<th class="payment_status text-center lang" keyLanguage="trang_thai_thanh_toan">Trạng thái thanh toán</th>
-												<th class="fulfillment_status text-center lang" keyLanguage="van_chuyen">Vận chuyển</th>
-
-											</tr>
-										</thead>
-										<tbody>
-											
-											<tr class="odd ">
-												<td class="text-center"><a href="/account/orders/fbecc9ceb8bb429c84ac7b74c51d34c2" title="">#GEN00001</a></td>
-
-												<td class="text-center"><span>10/12/2022</span></td>
-												<td class="text-right"><span class="total money">480,000₫</span></td>
-												<td class="text-center"><span class="status_paid">Đã thanh toán</span></td>
-												<td class="text-center"><span class="status_fulfilled">Đã giao hàng</span></td>
-
-											</tr>
-											
-											<tr class="even ">
-												<td class="text-center"><a href="/account/orders/29e7c869ea94469d8ec42afc2486c021" title="">#GEN00002</a></td>
-
-												<td class="text-center"><span>12/12/2022</span></td>
-												<td class="text-right"><span class="total money">290,000₫</span></td>
-												<td class="text-center"><span class="status_paid">Đã thanh toán</span></td>
-												<td class="text-center"><span class="status_fulfilled">Đã giao hàng</span></td>
-
-											</tr>
-											
-										</tbody>
-									</table>
-								</div>
+                        
 								
-							</div>
-						</div>
-					</div>
-                            </div>
 </main>

@@ -21,10 +21,10 @@
         
         @foreach(Session::get('Cart')->products as $n)
         <tr>
-            <td class="product-thumbnail"><a href="product-details.html">                           
+            <td class="product-thumbnail"><a href="/productDetail/{{$n['productInfo']->id}}">                           
                  <img src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
             </a></td>
-            <td class="product-name"><a >{{$n['productInfo']->title}}</a></td>
+            <td class="product-name"><a href="/productDetail/{{$n['productInfo']->id}}">{{$n['productInfo']->title}}</a></td>
             <td class="product-name"><a >{{ $n['sized']}}</a></td>
             <td class="product-name"><a >{{ $n['color']}}</a></td>
 

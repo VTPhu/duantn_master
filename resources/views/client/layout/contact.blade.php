@@ -160,13 +160,13 @@
              
             <li class="cartmini__item p-rel d-flex align-items-start">
                 <div class="cartmini__thumb mr-15">
-                    <a href="product-details.html">
+                    <a href="/productDetail/{{$n['productInfo']->id}}">
                         <img  src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
                     </a>
                 </div>
                 <div class="cartmini__content">
                     <h3 class="cartmini__title">
-                        <a href="product-details.html">{{$n['productInfo']->title}}</a>
+                        <a href="/productDetail/{{$n['productInfo']->id}}">{{$n['productInfo']->title}}</a>
                     </h3>
                     Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
 

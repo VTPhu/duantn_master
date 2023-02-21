@@ -179,13 +179,13 @@ use app\Http\Controllers\client\ClientController;
 
                 <li class="cartmini__item p-rel d-flex align-items-start">
                     <div class="cartmini__thumb mr-15">
-                        <a href="product-details.html">
+                        <a href="/productDetail/{{$n->id}}">
                             <img   src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
                         </a>
                     </div>
                     <div class="cartmini__content">
                         <h3 class="cartmini__title">
-                            <a href="product-details.html">{{$n['productInfo']->title}}</a>
+                            <a href="/productDetail/{{$n->id}}">{{$n['productInfo']->title}}</a>
                         </h3>
                         Kích thước:<span style="font-size:15px"> {{$n['sized']}}</span><br>
                         Màu sắc:<span style="font-size:15px"> {{$n['color']}}</span><br>
@@ -415,7 +415,7 @@ use app\Http\Controllers\client\ClientController;
                                           <tbody>
                                             @foreach(Session::get('Cart')->products as $n)
                                              <tr class="cart_item">
-                                                <td class="product-thumbnail"><a href="product-details.html">                           
+                                                <td class="product-thumbnail"><a href="/productDetail/{{$n['productInfo']->id}}">                           
                                                     <img style="width:100px" src="{{asset('uploads/images/'.$n['productInfo']->thumnail)}}" alt="">
                                                </a></td>
                                            

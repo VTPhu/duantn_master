@@ -119,7 +119,6 @@ use app\Http\Controllers\client\ClientController;
                </li>
            </ul>
        </div>
-       
    </div>
      </div>
                         @endguest
